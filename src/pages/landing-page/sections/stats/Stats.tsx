@@ -17,9 +17,9 @@ const StatsWrapper = styled.div`
   color: ${theme.palette.white};
 `;
 
-const ContainerStats = styled.div`
+// const ContainerStats = styled.div`
 
-`
+// `
 
 export const Stats = () => {
   return (
