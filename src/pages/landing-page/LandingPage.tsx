@@ -2,8 +2,9 @@ import * as React from 'react';
 
 import { PageTemplate } from 'lib/components';
 import { History } from 'history';
-
 import { Hero, Stats } from './sections'
+import AppContext from 'lib/Context/Context';
+
 
 const Main = () => {
   return (
@@ -22,8 +23,12 @@ export const LandingPage = ({
   history?: History;
 }) => {
   return (
-    <>
-      <PageTemplate main={<Main/>} />
-    </>
+    <AppContext.Consumer>{(context:object) =>
+    {
+      console.log(context)
+     return ( 
+       <PageTemplate main={<Main/>} />)}}
+    
+    </AppContext.Consumer>
   );
 };

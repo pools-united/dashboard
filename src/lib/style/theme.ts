@@ -31,6 +31,7 @@ export const fontSizes = {
   sm: '14px',
   md: '16px',
   lg: '18px',
+  l:"22px",
   xl: '24px',
   xxl: '32px',
 };
