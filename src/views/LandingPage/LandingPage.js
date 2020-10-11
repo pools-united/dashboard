@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 // nodejs library that concatenates classes
 
 // Global contextfor API
@@ -33,14 +33,23 @@ const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-export default function LandingPage(props) {
+const LandingPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
+  const [currentSlot, setCurrentSlot] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      currentSlot && setCurrentSlot((currentSlot) => currentSlot + 1);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, [currentSlot]);
 
   return (
     <AppContext.Consumer>
       {(context) => {
-        console.log(context);
+        !currentSlot &&
+          setCurrentSlot(parseInt(context.globalStats.epoch_slot_no));
         return (
           <div>
             <Header
@@ -86,7 +95,10 @@ export default function LandingPage(props) {
             <div className={classNames(classes.main, classes.mainRaised)}>
               <div className={classes.container}>
                 <ProductSection />
-                <StatsSection testiram="opop" />
+                <StatsSection
+                  epoch={context.globalStats.epoch_last}
+                  curSloth={currentSlot}
+                />
                 <PoolSection />
                 <TeamSection />
               </div>
@@ -97,4 +109,5 @@ export default function LandingPage(props) {
       }}
     </AppContext.Consumer>
   );
-}
+};
+export default LandingPage;

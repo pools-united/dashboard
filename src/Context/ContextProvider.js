@@ -3,9 +3,9 @@ import AppContext from "./Context";
 import React, { useState, useEffect } from "react";
 
 const MyProvider = (props) => {
-  const [globalStats, setGlobalStats] = useState();
+  const [globalStats, setGlobalStats] = useState({});
   const [poolStats, setPoolStats] = useState({});
-  const [protocol, setProtocol] = useState();
+  const [protocol, setProtocol] = useState({});
   const poolIds = {
     VENUS: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
     DEAD: "59d12b7a426724961607014aacea1e584f3ebc1196948f42a10893bc",
