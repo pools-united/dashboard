@@ -36,7 +36,11 @@ const useStyles = makeStyles(styles);
 const LandingPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
-  const [currentSlot, setCurrentSlot] = useState(0);
+  const [currentSlot, setCurrentSlot] = useState(undefined);
+  // const currentDate = new Date(Date.now());
+  const [epochStartedDate, setEpochStartedDate] = useState("");
+  const [epochEndingDate, setEpochEndingDate] = useState("");
+  const totalSlots = 432000;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -48,8 +52,17 @@ const LandingPage = (props) => {
   return (
     <AppContext.Consumer>
       {(context) => {
-        !currentSlot &&
+        if (!currentSlot) {
           setCurrentSlot(parseInt(context.globalStats.epoch_slot_no));
+        } else if (currentSlot && !epochStartedDate) {
+          setEpochStartedDate(
+            new Date(parseInt(context.globalStats.epoch_started * 1000))
+          );
+          setEpochEndingDate(
+            new Date((Date.now() / 1000 + (totalSlots - currentSlot)) * 1000)
+          );
+        }
+        console.log(epochStartedDate.toString());
         return (
           <div>
             <Header
@@ -98,6 +111,9 @@ const LandingPage = (props) => {
                 <StatsSection
                   epoch={context.globalStats.epoch_last}
                   curSloth={currentSlot}
+                  epochProgress={(currentSlot / totalSlots) * 100}
+                  epochStartDate={epochStartedDate.toString().substr(0, 24)}
+                  epochEndDate={"gwefg"}
                 />
                 <PoolSection />
                 <TeamSection />
