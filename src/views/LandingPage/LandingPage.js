@@ -62,7 +62,7 @@ const LandingPage = (props) => {
             new Date((Date.now() / 1000 + (totalSlots - currentSlot)) * 1000)
           );
         }
-        console.log(epochStartedDate.toString());
+        console.log(context);
         return (
           <div>
             <Header
@@ -106,15 +106,16 @@ const LandingPage = (props) => {
               </div>
             </Parallax>
             <div className={classNames(classes.main, classes.mainRaised)}>
+              <StatsSection
+                epoch={context.globalStats.epoch_last}
+                curSloth={currentSlot}
+                epochProgress={(currentSlot / totalSlots) * 100}
+                epochStartDate={epochStartedDate.toString().substr(0, 21)}
+                epochEndDate={epochEndingDate.toString().substr(0, 21)}
+              />
               <div className={classes.container}>
                 <ProductSection />
-                <StatsSection
-                  epoch={context.globalStats.epoch_last}
-                  curSloth={currentSlot}
-                  epochProgress={(currentSlot / totalSlots) * 100}
-                  epochStartDate={epochStartedDate.toString().substr(0, 24)}
-                  epochEndDate={"gwefg"}
-                />
+
                 <PoolSection />
                 <TeamSection />
               </div>

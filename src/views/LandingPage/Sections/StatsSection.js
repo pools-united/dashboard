@@ -21,9 +21,9 @@ const BackgroundContainer = styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 5px;
 
-  background-color: #393a3b;
+  background-color: rgba(0, 0, 0, 0.85);
   z-index: -1;
   display: flex;
   justify-content: flex-end;
@@ -31,7 +31,7 @@ const BackgroundContainer = styled.div`
 
 const BackgroundImage = styled.img`
   width: 250px;
-  padding: 20px;
+  padding: 32px;
   transform: ${(props) => `rotate(${props.rotate}deg)`};
   transition: 0.15s;
 `;
@@ -50,6 +50,7 @@ const SectionWrapper = styled.div`
   position: relative;
   display: flex;
   z-index: 100;
+  color:white;
   flex-direction: column;
   margin-bottom: 48px;
   padding: 70px 40px;
@@ -60,7 +61,7 @@ const SectionWrapper = styled.div`
 const ComponentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 12px;
+  margin-right: 16px;
 `;
 const NumberWrapper = styled.div`
   font-size: 20px;
@@ -88,6 +89,10 @@ const EpochDatesContainer = styled.div`
 `;
 const EpochDates = styled.div``;
 
+const EpochInfo = styled(EpochDates)`
+  /* transform: scale(0.85) translateY(4px); */
+`;
+
 const StatsSection = (props) => {
   const classes = useStyles();
   const [scrollOffset, setScrollOffset] = useState();
@@ -99,6 +104,8 @@ const StatsSection = (props) => {
     epoch: PropTypes.string,
     curSloth: PropTypes.number,
     epochProgress: PropTypes.number,
+    epochStartDate: PropTypes.string,
+    epochEndDate: PropTypes.string,
   };
 
   const {
@@ -132,7 +139,7 @@ const StatsSection = (props) => {
       <TextWrapper>
         <EpochWrapper>
           <EpochComponent title="Epoch" number={epoch} />
-          <EpochComponent title="Current Slot&nbsp;/" number={curSloth} />
+          <EpochComponent title="Current Slot&nbsp;&nbsp;/" number={curSloth} />
           <EpochComponent title="Total Slots" number={totalSlots} />
         </EpochWrapper>
         <BackgroundContainer>
@@ -141,7 +148,7 @@ const StatsSection = (props) => {
         <EpochProgressContainer>
           <CustomLinearProgress
             variant="determinate"
-            color="cardanoBackground"
+            color="cardano"
             value={epochProgress}
             style={progressStyle}
           />
@@ -150,6 +157,7 @@ const StatsSection = (props) => {
             <EpochDates>{epochStartDate}</EpochDates>{" "}
             <EpochDates>{epochEndDate}</EpochDates>
           </EpochDatesContainer>
+          <EpochInfo>GMT+0200 (Central European Summer Time)</EpochInfo>
         </EpochProgressContainer>
       </TextWrapper>
     </SectionWrapper>

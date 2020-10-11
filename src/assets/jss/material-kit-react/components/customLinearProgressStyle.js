@@ -17,6 +17,9 @@ const customLinearProgressStyle = {
   bar: {
     height: "4px",
   },
+  cardano: {
+    backgroundColor: "rgba(60, 200, 200, 1)",
+  },
   primary: {
     backgroundColor: primaryColor,
   },
@@ -54,7 +57,7 @@ const customLinearProgressStyle = {
     background: "rgba(0, 188, 212, 0.2)",
   },
   cardanoBackground: {
-    background: "rgba(60, 200, 200, 0.6)",
+    background: "rgba(60, 200, 200, 0.2)",
   },
 
   roseBackground: {
