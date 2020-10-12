@@ -45,7 +45,7 @@ const LandingPage = (props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       currentSlot && setCurrentSlot((currentSlot) => currentSlot + 1);
-    }, 122000);
+    }, 1000);
     return () => clearInterval(interval);
   }, [currentSlot]);
 
