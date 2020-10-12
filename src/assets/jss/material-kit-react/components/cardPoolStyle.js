@@ -123,6 +123,7 @@ const cardStyle = {
     flexWrap: "wrap",
     justifyContent: "space-between",
     flex: "1 1 auto",
+    maxHeight: "70px",
   },
 };
 
