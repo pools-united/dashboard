@@ -33,6 +33,7 @@ const BackgroundImage = styled.img`
   width: ${(props) => (props.scroll ? "250px" : "86px")};
   padding: ${(props) => (props.scroll ? "32px" : "16px")};
   transform: ${(props) => `rotate(${props.rotate}deg)`};
+  margin-right: ${(props) => (props.scroll ? "0px" : "20px")};
   transition: transform 0.15s width 0.4s;
 `;
 
@@ -106,7 +107,7 @@ const EpochInfo = styled(EpochDates)`
 
 const StatsSection = (props) => {
   const classes = useStyles();
-  const [scrollOffset, setScrollOffset] = useState();
+  const [scrollOffset, setScrollOffset] = useState(0);
   useScrollPosition(({ prevPos, currPos }) => {
     setScrollOffset(currPos.y);
     console.log(currPos.y);
