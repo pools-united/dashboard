@@ -30,10 +30,10 @@ const BackgroundContainer = styled.div`
 `;
 
 const BackgroundImage = styled.img`
-  width: 250px;
-  padding: 32px;
+  width: ${(props) => (props.scroll ? "250px" : "86px")};
+  padding: ${(props) => (props.scroll ? "32px" : "16px")};
   transform: ${(props) => `rotate(${props.rotate}deg)`};
-  transition: 0.15s;
+  transition: transform 0.15s width 0.4s;
 `;
 
 const EpochWrapper = styled.div`
@@ -47,31 +47,40 @@ const TextWrapper = styled.div`
 `;
 
 const SectionWrapper = styled.div`
-  position: relative;
+  position: ${(props) => (props.scroll ? "relative" : "fixed")};
   display: flex;
   z-index: 100;
-  color:white;
+  color: white;
   flex-direction: column;
   margin-bottom: 48px;
-  padding: 70px 40px;
+  padding: ${(props) => (props.scroll ? "70px 40px" : "16px 32px")};
+  top: ${(props) => (props.scroll ? "0px" : "70px")};
+  left: 0px;
+  width: 100%;
+  transition: ${(props) => (props.scroll ? "all 0.0s " : "all 0.3s ")};
 `;
 
 // EpochComponent
 
 const ComponentWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(props) => (props.scroll ? "column" : "row")};
   margin-right: 16px;
 `;
 const NumberWrapper = styled.div`
-  font-size: 20px;
+  font-size: ${(props) => (props.scroll ? "20px" : "16px")};
   font-weight: 500;
 `;
 
 const TitleWrapper = styled.div`
   font-weight: 600;
-  font-size: 24px;
+  font-size: ${(props) => (props.scroll ? "24px" : "18px")};
   margin-bottom: 12px;
+
+  ::after {
+    content: "${(props) => (props.scroll ? "" : ": ")}";
+    margin-right:${(props) => (props.scroll ? "0px" : "8px")};
+  }
 `;
 
 const progressStyle = {
@@ -87,7 +96,9 @@ const EpochDatesContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
 `;
-const EpochDates = styled.div``;
+const EpochDates = styled.div`
+  visibility: ${(props) => (props.scroll ? "visible" : "hidden")};
+`;
 
 const EpochInfo = styled(EpochDates)`
   /* transform: scale(0.85) translateY(4px); */
@@ -98,6 +109,7 @@ const StatsSection = (props) => {
   const [scrollOffset, setScrollOffset] = useState();
   useScrollPosition(({ prevPos, currPos }) => {
     setScrollOffset(currPos.y);
+    console.log(currPos.y);
   });
 
   StatsSection.propTypes = {
@@ -127,23 +139,27 @@ const StatsSection = (props) => {
 
     const { title, number } = props;
     return (
-      <ComponentWrapper>
-        <TitleWrapper>{title}</TitleWrapper>
+      <ComponentWrapper scroll={scrollOffset >= -700}>
+        <TitleWrapper scroll={scrollOffset >= -700}>{title}</TitleWrapper>
         <NumberWrapper> {number}</NumberWrapper>
       </ComponentWrapper>
     );
   };
 
   return (
-    <SectionWrapper className={classes.section}>
+    <SectionWrapper scroll={scrollOffset >= -700} className={classes.section}>
       <TextWrapper>
         <EpochWrapper>
           <EpochComponent title="Epoch" number={epoch} />
-          <EpochComponent title="Current Slot&nbsp;&nbsp;/" number={curSloth} />
+          <EpochComponent title="Current Slot" number={curSloth} />
           <EpochComponent title="Total Slots" number={totalSlots} />
         </EpochWrapper>
         <BackgroundContainer>
-          <BackgroundImage rotate={scrollOffset * 0.06} src={statsBackground} />{" "}
+          <BackgroundImage
+            scroll={scrollOffset >= -700}
+            rotate={scrollOffset * 0.06}
+            src={statsBackground}
+          />{" "}
         </BackgroundContainer>
         <EpochProgressContainer>
           <CustomLinearProgress
@@ -154,10 +170,16 @@ const StatsSection = (props) => {
           />
 
           <EpochDatesContainer>
-            <EpochDates>{epochStartDate}</EpochDates>{" "}
-            <EpochDates>{epochEndDate}</EpochDates>
+            <EpochDates scroll={scrollOffset >= -700}>
+              {epochStartDate}
+            </EpochDates>{" "}
+            <EpochDates scroll={scrollOffset >= -700}>
+              {epochEndDate}
+            </EpochDates>
           </EpochDatesContainer>
-          <EpochInfo>GMT+0200 (Central European Summer Time)</EpochInfo>
+          <EpochInfo scroll={scrollOffset >= -700}>
+            GMT+0200 (Central European Summer Time)
+          </EpochInfo>
         </EpochProgressContainer>
       </TextWrapper>
     </SectionWrapper>

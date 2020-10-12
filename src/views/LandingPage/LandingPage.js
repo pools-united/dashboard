@@ -45,7 +45,7 @@ const LandingPage = (props) => {
   useEffect(() => {
     const interval = setInterval(() => {
       currentSlot && setCurrentSlot((currentSlot) => currentSlot + 1);
-    }, 1000);
+    }, 122000);
     return () => clearInterval(interval);
   }, [currentSlot]);
 
@@ -62,7 +62,7 @@ const LandingPage = (props) => {
             new Date((Date.now() / 1000 + (totalSlots - currentSlot)) * 1000)
           );
         }
-        console.log(context);
+        // console.log(context);
         return (
           <div>
             <Header
