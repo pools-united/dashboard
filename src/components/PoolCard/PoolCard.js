@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import Divider from '@material-ui/core/Divider';
+
+import Card from '@material-ui/core/Card';
 
 import { InvertColors } from "@material-ui/icons";
 // @material-ui/icons
@@ -19,7 +21,8 @@ const useStyles = makeStyles(styles);
 
 export default function PoolCard(props) {
   const classes = useStyles();
-  const { className, children, plain, carousel,
+  const { className, children,
+    poolLink, detailsLink, delegateLink,
     name, address, margin, fixedFee, pledge, operator, ...rest } = props;
 
   const imageClasses = classNames(
@@ -29,13 +32,20 @@ export default function PoolCard(props) {
     classes.operatorPhoto,
   );
 
+  const [hover, setHover] = useState(false);
+  const handleMouseOver = () => setHover(true);
+  const handleMouseOut = () => setHover(false);
+
   return (
-    <div
+    <Card
       className={classes.card}
+      raised={hover}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
       {...rest}
     >
       <div className={classes.header}>
-        <a href="#">
+        <a href={poolLink}>
           <h2 className={classes.title}>{name}</h2>
         </a>
         <div className={classes.headerLogo}>
@@ -46,7 +56,6 @@ export default function PoolCard(props) {
       <div className={classes.address}>{address}</div>
 
       <div className={classes.stats}>
-        {/* <Divider orientation="vertical" flexItem classname={classes.statsVerticalDivider} /> */}
         <div >
           <div className={classes.statsItem}>{margin}</div>
           <div>{"margin"}</div>
@@ -73,17 +82,15 @@ export default function PoolCard(props) {
       </div>
 
       <div className={classes.buttonWrapper}>
-        <Button className={classes.buttonDelegate} color="primary" href="#" onClick={e => e.preventDefault()}>Delegate now</Button>
-        <Button className={classes.buttonDetails} color="transparent" href="#" onClick={e => e.preventDefault()}>Details</Button>
+        <Button className={classes.buttonDelegate} color="primary" href={delegateLink} onClick={e => e.preventDefault()}>Delegate now</Button>
+        <Button className={classes.buttonDetails} color="transparent" href={detailsLink} onClick={e => e.preventDefault()}>Details</Button>
       </div>
-    </div >
+    </Card>
   );
 }
 
 PoolCard.propTypes = {
   className: PropTypes.string,
-  plain: PropTypes.bool,
-  carousel: PropTypes.bool,
   children: PropTypes.node,
 
   name: PropTypes.string,
@@ -91,6 +98,10 @@ PoolCard.propTypes = {
   margin: PropTypes.string,
   fixedFee: PropTypes.string,
   pledge: PropTypes.string,
+
+  poolLink: PropTypes.string,
+  delegateLink: PropTypes.string,
+  detailslLink: PropTypes.string,
 
   operator: PropTypes.objectOf({
     name: PropTypes.string,
