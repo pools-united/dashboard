@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import AppContext from "./Context";
 import React, { useState, useEffect } from "react";
+import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 const MyProvider = (props) => {
   const [globalStats, setGlobalStats] = useState({});
@@ -11,6 +12,11 @@ const MyProvider = (props) => {
     DEAD: "59d12b7a426724961607014aacea1e584f3ebc1196948f42a10893bc",
     HIVE: "de18050a35497096eecd2f93ddc2ea7e6c05cdae5575325327e223b3",
   };
+  const [scrollOffset, setScrollOffset] = useState(0);
+  useScrollPosition(({ prevPos, currPos }) => {
+    setScrollOffset(currPos.y);
+    // console.log(currPos.y);
+  });
 
   const fetchStats = async (url, stateSet, fetchType, poolTicker) => {
     await fetch(url)
@@ -56,7 +62,9 @@ const MyProvider = (props) => {
   }, []);
 
   return (
-    <AppContext.Provider value={{ globalStats, poolStats, protocol }}>
+    <AppContext.Provider
+      value={{ globalStats, poolStats, protocol, scrollOffset }}
+    >
       {props.children}
     </AppContext.Provider>
   );

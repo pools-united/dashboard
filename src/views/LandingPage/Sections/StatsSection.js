@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import { useScrollPosition } from "@n8tb1t/use-scroll-position";
+// import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 // @material-ui/icons
 // core components
 import PropTypes from "prop-types";
-
 import statsBackground from "../../../assets/img/assetsPageCPU/cardano-ada-logo.png";
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import styled from "styled-components";
+import AppContext from "../../../Context/Context";
 
 //other components
 import CustomLinearProgress from "components/CustomLinearProgress/CustomLinearProgress.js";
@@ -108,11 +108,6 @@ const EpochInfo = styled(EpochDates)`
 
 const StatsSection = (props) => {
   const classes = useStyles();
-  const [scrollOffset, setScrollOffset] = useState(0);
-  useScrollPosition(({ prevPos, currPos }) => {
-    setScrollOffset(currPos.y);
-    console.log(currPos.y);
-  });
 
   StatsSection.propTypes = {
     epoch: PropTypes.string,
@@ -141,50 +136,66 @@ const StatsSection = (props) => {
 
     const { title, number } = props;
     return (
-      <ComponentWrapper scroll={scrollOffset >= -700}>
-        <TitleWrapper scroll={scrollOffset >= -700}>{title}</TitleWrapper>
-        <NumberWrapper> {number}</NumberWrapper>
-      </ComponentWrapper>
+      <AppContext.Consumer>
+        {(context) => {
+          return (
+            <ComponentWrapper scroll={context.scrollOffset >= -700}>
+              <TitleWrapper scroll={context.scrollOffset >= -700}>
+                {title}
+              </TitleWrapper>
+              <NumberWrapper> {number}</NumberWrapper>
+            </ComponentWrapper>
+          );
+        }}
+      </AppContext.Consumer>
     );
   };
-
   return (
-    <SectionWrapper scroll={scrollOffset >= -700} className={classes.section}>
-      <TextWrapper>
-        <EpochWrapper>
-          <EpochComponent title="Epoch" number={epoch} />
-          <EpochComponent title="Current Slot" number={curSloth} />
-          <EpochComponent title="Total Slots" number={totalSlots} />
-        </EpochWrapper>
-        <BackgroundContainer>
-          <BackgroundImage
-            scroll={scrollOffset >= -700}
-            rotate={scrollOffset * 0.06}
-            src={statsBackground}
-          />{" "}
-        </BackgroundContainer>
-        <EpochProgressContainer scroll={scrollOffset >= -700}>
-          <CustomLinearProgress
-            variant="determinate"
-            color="cardano"
-            value={epochProgress}
-            style={progressStyle}
-          />
+    <AppContext.Consumer>
+      {(context) => {
+        return (
+          <SectionWrapper
+            scroll={context.scrollOffset >= -700}
+            className={classes.section}
+          >
+            <TextWrapper>
+              <EpochWrapper>
+                <EpochComponent title="Epoch" number={epoch} />
+                <EpochComponent title="Current Slot" number={curSloth} />
+                <EpochComponent title="Total Slots" number={totalSlots} />
+              </EpochWrapper>
+              <BackgroundContainer>
+                <BackgroundImage
+                  scroll={context.scrollOffset >= -700}
+                  rotate={context.scrollOffset * 0.06}
+                  src={statsBackground}
+                />{" "}
+              </BackgroundContainer>
+              <EpochProgressContainer scroll={context.scrollOffset >= -700}>
+                <CustomLinearProgress
+                  variant="determinate"
+                  color="cardano"
+                  value={epochProgress}
+                  style={progressStyle}
+                />
 
-          <EpochDatesContainer>
-            <EpochDates scroll={scrollOffset >= -700}>
-              {epochStartDate}
-            </EpochDates>{" "}
-            <EpochDates scroll={scrollOffset >= -700}>
-              {epochEndDate}
-            </EpochDates>
-          </EpochDatesContainer>
-          <EpochInfo scroll={scrollOffset >= -700}>
-            GMT+0200 (Central European Summer Time)
-          </EpochInfo>
-        </EpochProgressContainer>
-      </TextWrapper>
-    </SectionWrapper>
+                <EpochDatesContainer>
+                  <EpochDates scroll={context.scrollOffset >= -700}>
+                    {epochStartDate}
+                  </EpochDates>{" "}
+                  <EpochDates scroll={context.scrollOffset >= -700}>
+                    {epochEndDate}
+                  </EpochDates>
+                </EpochDatesContainer>
+                <EpochInfo scroll={context.scrollOffset >= -700}>
+                  GMT+0200 (Central European Summer Time)
+                </EpochInfo>
+              </EpochProgressContainer>
+            </TextWrapper>
+          </SectionWrapper>
+        );
+      }}
+    </AppContext.Consumer>
   );
 };
 export default StatsSection;
