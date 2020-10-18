@@ -25,6 +25,7 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 // Sections for this page
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
+import CardanoIntroSection from "./Sections/CardanoIntroSection.js";
 import WorkSection from "./Sections/WorkSection.js";
 import PoolSection from "./Sections/PoolSection.js";
 import StatsSection from "./Sections/StatsSection.js";
@@ -81,13 +82,10 @@ const LandingPage = (props) => {
               <div className={classes.container}>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>
-                    <h1 className={classes.title}>
-                      Cardano Pools United
-                    </h1>
+                    <h1 className={classes.title}>Cardano Pools United</h1>
                     <h4>
-                      Big collaboration of
-                      small stake pools and
-                      skilled pool operators.
+                      Big collaboration of small stake pools and skilled pool
+                      operators.
                     </h4>
                     <br />
                     <Button
@@ -113,6 +111,7 @@ const LandingPage = (props) => {
                 epochEndDate={epochEndingDate.toString().substr(0, 21)}
               />
               <div className={classes.container}>
+                <CardanoIntroSection />
                 <ProductSection />
 
                 <PoolSection />

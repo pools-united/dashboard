@@ -31,7 +31,7 @@ export default function TeamSection() {
   );
   return (
     <div className={classes.section}>
-      <h2 className={classes.title}>Here is our team</h2>
+      <h2 className={classes.title}>CPU team</h2>
       <div>
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
@@ -42,7 +42,6 @@ export default function TeamSection() {
               <h4 className={classes.cardTitle}>
                 Patricia Mrelec
                 <br />
-                <small className={classes.smallTitle}>Marketing</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
@@ -53,7 +52,7 @@ export default function TeamSection() {
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
-                <Button
+                {/* <Button
                   justIcon
                   color="transparent"
                   className={classes.margin5}
@@ -73,7 +72,7 @@ export default function TeamSection() {
                   className={classes.margin5}
                 >
                   <i className={classes.socials + " fab fa-facebook"} />
-                </Button>
+                </Button> */}
               </CardFooter>
             </Card>
           </GridItem>
@@ -85,7 +84,6 @@ export default function TeamSection() {
               <h4 className={classes.cardTitle}>
                 Pfilip Mrelec
                 <br />
-                <small className={classes.smallTitle}>Founder</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
@@ -96,7 +94,7 @@ export default function TeamSection() {
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
-                <Button
+                {/* <Button
                   justIcon
                   color="transparent"
                   className={classes.margin5}
@@ -109,7 +107,7 @@ export default function TeamSection() {
                   className={classes.margin5}
                 >
                   <i className={classes.socials + " fab fa-linkedin"} />
-                </Button>
+                </Button> */}
               </CardFooter>
             </Card>
           </GridItem>
@@ -121,7 +119,6 @@ export default function TeamSection() {
               <h4 className={classes.cardTitle}>
                 Patricia Mrelec Friend
                 <br />
-                <small className={classes.smallTitle}>Software engineer</small>
               </h4>
               <CardBody>
                 <p className={classes.description}>
@@ -132,7 +129,7 @@ export default function TeamSection() {
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
-                <Button
+                {/* <Button
                   justIcon
                   color="transparent"
                   className={classes.margin5}
@@ -152,7 +149,7 @@ export default function TeamSection() {
                   className={classes.margin5}
                 >
                   <i className={classes.socials + " fab fa-facebook"} />
-                </Button>
+                </Button> */}
               </CardFooter>
             </Card>
           </GridItem>
