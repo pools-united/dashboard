@@ -2,11 +2,13 @@ import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
+
+
 // @material-ui/icons
 import HelpIcon from "@material-ui/icons/Help";
 import SecurityIcon from "@material-ui/icons/Security";
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import Fingerprint from "@material-ui/icons/Fingerprint";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import DeveloperBoardIcon from "@material-ui/icons/DeveloperBoard";
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
@@ -64,8 +66,8 @@ export default function ProductSection() {
             <InfoArea
               title="Contributing to the Cardano ecosystem"
               description="We are determined to accelerate the advent of mass adoption of the Cardano platform by educating the public and developing the tools needed to make the delegation process simple and informative."
-              icon={FavoriteIcon}
-              iconColor="danger"
+              icon={DeveloperBoardIcon}
+              iconColor="cardano"
               vertical
             />
           </GridItem>

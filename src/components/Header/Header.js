@@ -4,6 +4,8 @@ import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // @material-ui/core components
+
+import styled from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -17,6 +19,10 @@ import Menu from "@material-ui/icons/Menu";
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
 const useStyles = makeStyles(styles);
+
+const ButtonLogoStyled = styled(Button)`
+  filter: ${(props) => `hue-rotate(${props.rotateHue}deg)`};
+`;
 
 export default function Header(props) {
   const classes = useStyles();
@@ -53,14 +59,26 @@ export default function Header(props) {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
-  const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
+  const {
+    color,
+    rightLinks,
+    leftLinks,
+    brand,
+    fixed,
+    absolute,
+    rotateHue,
+  } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes[color]]: color,
     [classes.absolute]: absolute,
-    [classes.fixed]: fixed
+    [classes.fixed]: fixed,
   });
-  const brandComponent = <Button className={classes.title}>{brand}</Button>;
+  const brandComponent = (
+    <ButtonLogoStyled rotateHue={rotateHue} className={classes.logo}>
+      {brand}
+    </ButtonLogoStyled>
+  );
   return (
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
@@ -93,7 +111,7 @@ export default function Header(props) {
           anchor={"right"}
           open={mobileOpen}
           classes={{
-            paper: classes.drawerPaper
+            paper: classes.drawerPaper,
           }}
           onClose={handleDrawerToggle}
         >
@@ -108,7 +126,7 @@ export default function Header(props) {
 }
 
 Header.defaultProp = {
-  color: "white"
+  color: "white",
 };
 
 Header.propTypes = {
@@ -121,13 +139,14 @@ Header.propTypes = {
     "transparent",
     "white",
     "rose",
-    "dark"
+    "dark",
   ]),
   rightLinks: PropTypes.node,
   leftLinks: PropTypes.node,
   brand: PropTypes.string,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
+  rotateHue: PropTypes.any,
   // this will cause the sidebar to change the color from
   // props.color (see above) to changeColorOnScroll.color
   // when the window.pageYOffset is heigher or equal to
@@ -145,7 +164,7 @@ Header.propTypes = {
       "transparent",
       "white",
       "rose",
-      "dark"
-    ]).isRequired
-  })
+      "dark",
+    ]).isRequired,
+  }),
 };

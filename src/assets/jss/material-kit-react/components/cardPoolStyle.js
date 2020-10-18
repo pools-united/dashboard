@@ -19,7 +19,7 @@ const cardStyle = {
   icons: {
     width: "20px",
     height: "20px",
-    marginRight: "3px"
+    marginRight: "3px",
   },
   operatorWrapper: {
     display: "flex",
@@ -30,12 +30,12 @@ const cardStyle = {
   operatorPhotosWrapper: {
     display: "flex",
     padding: 0,
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   operatorPhoto: {
     maxWidth: "80px",
     margin: "8px",
-    padding: "2px"
+    padding: "2px",
   },
   operatorTitle: {
     ...title,
@@ -65,10 +65,10 @@ const cardStyle = {
   },
   cardPlain: {
     background: "transparent",
-    boxShadow: "none"
+    boxShadow: "none",
   },
   cardCarousel: {
-    overflow: "hidden"
+    overflow: "hidden",
   },
   title: {
     ...title,
@@ -80,8 +80,8 @@ const cardStyle = {
     textDecoration: "none",
     textAlign: "left",
     "&:hover": {
-      color: `${primaryColor} !important`
-    }
+      color: `${primaryColor} !important`,
+    },
   },
   stats: {
     display: "flex",
@@ -94,7 +94,7 @@ const cardStyle = {
     display: "flex",
     fontSize: "18px",
     padding: "8px",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   address: {
     fontWeight: "bold",
@@ -118,10 +118,10 @@ const cardStyle = {
     paddingTop: "8px",
     display: "flex",
     flexWrap: "wrap",
-    alignItems:"center",
+    alignItems: "center",
     justifyContent: "space-between",
     flex: "1 1 auto",
-  }
+  },
 };
 
 export default cardStyle;
