@@ -61,6 +61,7 @@ const cardStyle = {
     wordWrap: "break-word",
     fontSize: ".875rem",
     padding: "0px 24px 24px 24px",
+    height: "100%",
   },
   cardPlain: {
     background: "transparent",
@@ -103,6 +104,7 @@ const cardStyle = {
   buttonDelegate: {
     margin: "8px",
     flex: "1 1 auto",
+    height: "50px",
   },
   buttonDetails: {
     display: "flex",
@@ -116,6 +118,7 @@ const cardStyle = {
     paddingTop: "8px",
     display: "flex",
     flexWrap: "wrap",
+    alignItems:"center",
     justifyContent: "space-between",
     flex: "1 1 auto",
   }

@@ -30,8 +30,8 @@ const BackgroundContainer = styled.div`
 `;
 
 const BackgroundImage = styled.img`
-  width: ${(props) => (props.scroll ? "250px" : "86px")};
-  padding: ${(props) => (props.scroll ? "32px" : "16px")};
+  width: ${(props) => (props.scroll ? "250px" : "50px")};
+  padding: ${(props) => (props.scroll ? "32px" : "10px")};
   transform: ${(props) => `rotate(${props.rotate}deg)`};
   margin-right: ${(props) => (props.scroll ? "0px" : "20px")};
   transition: transform 0.15s width 0.4s;
@@ -89,7 +89,8 @@ const progressStyle = {
 };
 
 const EpochProgressContainer = styled.div`
-  display: flex;
+  /* display: flex; */
+  display: ${(props) => (props.scroll ? "flex" : "none")};
   flex-direction: column;
 `;
 const EpochDatesContainer = styled.div`
@@ -162,7 +163,7 @@ const StatsSection = (props) => {
             src={statsBackground}
           />{" "}
         </BackgroundContainer>
-        <EpochProgressContainer>
+        <EpochProgressContainer scroll={scrollOffset >= -700}>
           <CustomLinearProgress
             variant="determinate"
             color="cardano"
