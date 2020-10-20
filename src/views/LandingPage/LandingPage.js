@@ -8,7 +8,6 @@ import AppContext from "../../Context/Context";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
 // @material-ui/icons
 
 // core components
@@ -26,7 +25,6 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import CardanoIntroSection from "./Sections/CardanoIntroSection.js";
-import WorkSection from "./Sections/WorkSection.js";
 import PoolSection from "./Sections/PoolSection.js";
 import StatsSection from "./Sections/StatsSection.js";
 
@@ -69,7 +67,9 @@ const LandingPage = (props) => {
             <Header
               color="transparent"
               routes={dashboardRoutes}
-              brand="Logo"
+              // trebalo bi staviti scroll varijablu
+              //  u global context i onda bi mogel na temelju scrolla mjenjat boju logoa (svaki pool ima svoju boju, bisebojni smo :D)
+              rotateHue={context.scrollOffset / 12}
               rightLinks={<HeaderLinks />}
               fixed
               changeColorOnScroll={{
