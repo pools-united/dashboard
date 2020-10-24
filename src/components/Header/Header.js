@@ -21,7 +21,7 @@ import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 const useStyles = makeStyles(styles);
 
 const ButtonLogoStyled = styled(Button)`
-  filter: ${(props) => `hue-rotate(${props.rotateHue}deg)`};
+  filter: ${(props) => `hue-rotate(${props.rotatehue}deg)`};
 `;
 
 export default function Header(props) {
@@ -66,7 +66,7 @@ export default function Header(props) {
     brand,
     fixed,
     absolute,
-    rotateHue,
+    rotatehue,
   } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
@@ -75,7 +75,7 @@ export default function Header(props) {
     [classes.fixed]: fixed,
   });
   const brandComponent = (
-    <ButtonLogoStyled rotateHue={rotateHue} className={classes.logo}>
+    <ButtonLogoStyled rotatehue={rotatehue} className={classes.logo}>
       {brand}
     </ButtonLogoStyled>
   );
@@ -146,7 +146,7 @@ Header.propTypes = {
   brand: PropTypes.string,
   fixed: PropTypes.bool,
   absolute: PropTypes.bool,
-  rotateHue: PropTypes.any,
+  rotatehue: PropTypes.any,
   // this will cause the sidebar to change the color from
   // props.color (see above) to changeColorOnScroll.color
   // when the window.pageYOffset is heigher or equal to

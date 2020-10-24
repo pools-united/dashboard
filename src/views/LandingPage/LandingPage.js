@@ -20,17 +20,28 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
-
+import styled from "styled-components";
+import PropTypes from "prop-types";
 // Sections for this page
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import CardanoIntroSection from "./Sections/CardanoIntroSection.js";
 import PoolSection from "./Sections/PoolSection.js";
 import StatsSection from "./Sections/StatsSection.js";
+import SocialSection from "./Sections/SocialSection.js";
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
+
+const CardanoIntroDivider = styled.div`
+  height: ${(props) => props.heightSet && "260px"};
+  width: 100%;
+`;
+
+CardanoIntroDivider.propTypes = {
+  heightSet: PropTypes.any,
+};
 
 const LandingPage = (props) => {
   const classes = useStyles();
@@ -69,7 +80,7 @@ const LandingPage = (props) => {
               routes={dashboardRoutes}
               // trebalo bi staviti scroll varijablu
               //  u global context i onda bi mogel na temelju scrolla mjenjat boju logoa (svaki pool ima svoju boju, bisebojni smo :D)
-              rotateHue={context.scrollOffset / 12}
+              rotatehue={context.scrollOffset / 12}
               rightLinks={<HeaderLinks />}
               fixed
               changeColorOnScroll={{
@@ -111,12 +122,14 @@ const LandingPage = (props) => {
                 epochEndDate={epochEndingDate.toString().substr(0, 21)}
               />
               <div className={classes.container}>
+                <CardanoIntroDivider heightSet={context.scrollOffset <= -700} />
                 <CardanoIntroSection />
                 <ProductSection />
 
                 <PoolSection />
                 <TeamSection />
               </div>
+              <SocialSection />
             </div>
             <Footer />
           </div>
