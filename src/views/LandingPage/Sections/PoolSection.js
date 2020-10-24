@@ -27,28 +27,26 @@ export default function PoolSection() {
             margin={"25%"}
             fixedFee={"350"}
             pledge={"5000"}
-            poolLink={"#"}
             delegateLink={"#"}
-            detailslLink={"#"}
+            detailslLink={"/test"}
             operator={{
               name: "Name#1",
-              image: face
+              image: face,
             }}
           />
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
-            name={"AdaPool [ADA]"}
-            address={"fb3cc38ce8ca95d45b8c5760be51f16d54cf54a1d0c31820ffd2ddc7"}
-            margin={"25%"}
-            fixedFee={"350"}
-            pledge={"5000"}
-            poolLink={"#"}
+            name={"Fresco Pool [VENUS]"}
+            address={"19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253"}
+            margin={"0.85%"}
+            fixedFee={"340"}
+            pledge={"70000"}
             delegateLink={"#"}
             detailslLink={"#"}
             operator={{
               name: "Name#1",
-              image: face
+              image: face,
             }}
           />
         </GridItem>
@@ -59,12 +57,11 @@ export default function PoolSection() {
             margin={"25%"}
             fixedFee={"350"}
             pledge={"5000"}
-            poolLink={"#"}
             delegateLink={"#"}
             detailslLink={"#"}
             operator={{
               name: "Name#1",
-              image: face
+              image: face,
             }}
           />
         </GridItem>

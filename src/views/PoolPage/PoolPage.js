@@ -35,13 +35,9 @@ const TestStyle = styled.div`
 const LandingPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
-  const [currentSlot, setCurrentSlot] = useState(undefined);
-  // const currentDate = new Date(Date.now());
-  const [epochStartedDate, setEpochStartedDate] = useState("");
-  const [epochEndingDate, setEpochEndingDate] = useState("");
+
   const [poolTicker, setPoolTicker] = useState();
-  const [urlParams, setUrlParams] = useState();
-  const totalSlots = 432000;
+  const [urlParams, setUrlParams] = useState({ id: "CPU" });
 
   const poolsDetails = {
     VENUS: {
@@ -66,13 +62,6 @@ const LandingPage = (props) => {
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      currentSlot && setCurrentSlot((currentSlot) => currentSlot + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [currentSlot]);
-
-  useEffect(() => {
     //get URL params
     let urlParamsObject;
     let match,
@@ -86,7 +75,10 @@ const LandingPage = (props) => {
     while ((match = search.exec(query))) {
       urlParamsObject[decode(match[1])] = decode(match[2]);
     }
-    setUrlParams(urlParamsObject);
+    urlParamsObject.hasOwnProperty("id") && setUrlParams(urlParamsObject);
+
+    !poolsDetails.hasOwnProperty(urlParamsObject.id) &&
+      setUrlParams({ id: "CPU" });
   }, []);
 
   useEffect(() => {
@@ -94,21 +86,23 @@ const LandingPage = (props) => {
     urlParams && setPoolTicker(urlParams.id);
     // urlParams && console.log(urlParams.id);
     urlParams && console.log(poolsDetails[urlParams.id].description);
+
+    console.log(urlParams);
   }, [urlParams]);
   return (
     <AppContext.Consumer>
       {(context) => {
         // console.log(context);
-        if (!currentSlot) {
-          setCurrentSlot(parseInt(context.globalStats.epoch_slot_no));
-        } else if (currentSlot && !epochStartedDate) {
-          setEpochStartedDate(
-            new Date(parseInt(context.globalStats.epoch_started * 1000))
-          );
-          setEpochEndingDate(
-            new Date((Date.now() / 1000 + (totalSlots - currentSlot)) * 1000)
-          );
-        }
+        // if (!currentSlot) {
+        //   setCurrentSlot(parseInt(context.globalStats.epoch_slot_no));
+        // } else if (currentSlot && !epochStartedDate) {
+        //   setEpochStartedDate(
+        //     new Date(parseInt(context.globalStats.epoch_started * 1000))
+        //   );
+        //   setEpochEndingDate(
+        //     new Date((Date.now() / 1000 + (totalSlots - currentSlot)) * 1000)
+        //   );
+        // }
         // console.log(context);
         return (
           <div>
@@ -119,6 +113,7 @@ const LandingPage = (props) => {
               //  u global context i onda bi mogel na temelju scrolla mjenjat boju logoa (svaki pool ima svoju boju, bisebojni smo :D)
               rotateHue={context.scrollOffset / 12}
               rightLinks={<HeaderLinks />}
+              urlParams
               fixed
               changeColorOnScroll={{
                 height: 400,

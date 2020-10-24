@@ -5,9 +5,9 @@ import classNames from "classnames";
 import PropTypes from "prop-types";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-import Divider from '@material-ui/core/Divider';
+import Divider from "@material-ui/core/Divider";
 
-import Card from '@material-ui/core/Card';
+import Card from "@material-ui/core/Card";
 
 import { InvertColors } from "@material-ui/icons";
 // @material-ui/icons
@@ -21,15 +21,25 @@ const useStyles = makeStyles(styles);
 
 export default function PoolCard(props) {
   const classes = useStyles();
-  const { className, children,
-    poolLink, detailsLink, delegateLink,
-    name, address, margin, fixedFee, pledge, operator, ...rest } = props;
+  const {
+    className,
+    children,
+    poolLink,
+    delegateLink,
+    name,
+    address,
+    margin,
+    fixedFee,
+    pledge,
+    operator,
+    ...rest
+  } = props;
 
   const imageClasses = classNames(
     classes.imgRaised,
     classes.imgRoundedCircle,
     classes.imgFluid,
-    classes.operatorPhoto,
+    classes.operatorPhoto
   );
 
   const [hover, setHover] = useState(false);
@@ -56,7 +66,7 @@ export default function PoolCard(props) {
       <div className={classes.address}>{address}</div>
 
       <div className={classes.stats}>
-        <div >
+        <div>
           <div className={classes.statsItem}>{margin}</div>
           <div>{"margin"}</div>
         </div>
@@ -77,13 +87,31 @@ export default function PoolCard(props) {
       <div className={classes.operatorWrapper}>
         <h3 className={classes.operatorTitle}>{"Operated by: "}</h3>
         <div className={classes.operatorPhotosWrapper}>
-          <img src={operator.image} alt={`${operator.name}`} className={imageClasses} />
+          <img
+            src={operator.image}
+            alt={`${operator.name}`}
+            className={imageClasses}
+          />
         </div>
       </div>
 
       <div className={classes.buttonWrapper}>
-        <Button className={classes.buttonDelegate} color="primary" href={delegateLink} onClick={e => e.preventDefault()}>Delegate now</Button>
-        <Button className={classes.buttonDetails} color="transparent" href={detailsLink} onClick={e => e.preventDefault()}>Details</Button>
+        <Button
+          className={classes.buttonDelegate}
+          color="primary"
+          href={delegateLink}
+          onClick={(e) => e.preventDefault()}
+        >
+          Delegate now
+        </Button>
+        <Button
+          className={classes.buttonDetails}
+          color="transparent"
+          href={poolLink}
+          onClick={(e) => e.preventDefault()}
+        >
+          Details
+        </Button>
       </div>
     </Card>
   );
@@ -101,11 +129,9 @@ PoolCard.propTypes = {
 
   poolLink: PropTypes.string,
   delegateLink: PropTypes.string,
-  detailslLink: PropTypes.string,
 
   operator: PropTypes.objectOf({
     name: PropTypes.string,
     image: PropTypes.string,
-  })
+  }),
 };
-
