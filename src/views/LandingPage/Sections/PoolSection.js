@@ -27,8 +27,8 @@ export default function PoolSection() {
             margin={"25%"}
             fixedFee={"350"}
             pledge={"5000"}
-            delegateLink={"#"}
-            detailslLink={"/test"}
+            delegateLink={"/pool"}
+            poolLink={"/pool"}
             operator={{
               name: "Name#1",
               image: face,
@@ -43,7 +43,7 @@ export default function PoolSection() {
             fixedFee={"340"}
             pledge={"70000"}
             delegateLink={"#"}
-            detailslLink={"#"}
+            poolLink={"#"}
             operator={{
               name: "Name#1",
               image: face,
@@ -58,7 +58,7 @@ export default function PoolSection() {
             fixedFee={"350"}
             pledge={"5000"}
             delegateLink={"#"}
-            detailslLink={"#"}
+            poolLink={"#"}
             operator={{
               name: "Name#1",
               image: face,

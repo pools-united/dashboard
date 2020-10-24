@@ -67,9 +67,7 @@ const LandingPage = (props) => {
             <Header
               color="transparent"
               routes={dashboardRoutes}
-              // trebalo bi staviti scroll varijablu
-              //  u global context i onda bi mogel na temelju scrolla mjenjat boju logoa (svaki pool ima svoju boju, bisebojni smo :D)
-              rotateHue={context.scrollOffset / 12}
+              // rotateHue={context.scrollOffset / 12}
               rightLinks={<HeaderLinks />}
               fixed
               changeColorOnScroll={{

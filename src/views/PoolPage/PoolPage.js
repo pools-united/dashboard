@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 // nodejs library that concatenates classes
 
 // Global contextfor API
-
 import AppContext from "../../Context/Context";
 
 import classNames from "classnames";
@@ -19,8 +18,12 @@ import Button from "components/CustomButtons/Button.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
+import VenusBanner from "assets/poolAssets/venus/FrescoBanner.png";
+import VenusLogo from "assets/poolAssets/venus/fresco_logo.png";
+import FileCopyIcon from "@material-ui/icons/FileCopy";
+
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 // Sections for this page
 
 const dashboardRoutes = [];
@@ -32,16 +35,104 @@ const TestStyle = styled.div`
   color: green;
 `;
 
+const PoolId = styled.div`
+  padding-right: 4px;
+  word-break: break-all;
+`;
+
+const IdWrapper = styled.div`
+  display: flex;
+  cursor: copy;
+`;
+const ParallaxStyled = styled(Parallax)`
+  background-color: ${(props) => props.poolColor};
+  @media (max-width: 1110px) {
+    background-position: 145%;
+  }
+  @media (max-width: 960px) {
+    background-position: 145%;
+    background-image: unset !important;
+  }
+`;
+
+const AbsoluteLogo = styled.img`
+  display: none;
+  @media (max-width: 960px) {
+    display: unset;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    object-fit: contain;
+    opacity: 0.6;
+    height: 100%;
+    top: 0;
+  }
+`;
+
+const copyAnimation = keyframes`
+  0% {
+    transform: scale(0.5);
+    opacity:0;
+  }
+
+  40% {
+    transform: scale(1);
+    opacity:1;
+      }
+
+      60% {
+    transform: scale(1);
+    opacity:1;
+      }
+
+      100% {
+  
+    opacity:0;
+      }
+`;
+
+const Copied = styled.div`
+  position: absolute;
+  bottom: -52px;
+  right: 0;
+
+  padding: 6px;
+  border: 1px solid white;
+  border-radius: 25px;
+  animation: ${copyAnimation} 1.5s linear;
+  transition: 0.3s;
+  display: ${(props) => (props.copyState ? "block" : "none")};
+`;
+
 const LandingPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
 
   const [poolTicker, setPoolTicker] = useState();
   const [urlParams, setUrlParams] = useState({ id: "CPU" });
+  const [copyState, setCopyState] = useState();
+
+  const copyId = (text) => {
+    var dummy = document.createElement("textarea");
+    // to avoid breaking orgain page when copying more words
+    // cant copy when adding below this code
+    // dummy.style.display = 'none'
+    document.body.appendChild(dummy);
+    //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
+    dummy.value = text;
+    dummy.select();
+    document.execCommand("copy");
+    document.body.removeChild(dummy);
+    setCopyState(true);
+    setTimeout(() => {
+      setCopyState(false);
+    }, 1500);
+  };
 
   const poolsDetails = {
     VENUS: {
       name: "Fresco Pool |VENUS|",
+      poolColor: "black",
       description: (
         <>
           Fresco pool was initially deployed during a ITN Cardano phase and has
@@ -54,6 +145,10 @@ const LandingPage = (props) => {
           delegation process simple, fast and secure as possible.
         </>
       ),
+
+      banner: VenusBanner,
+      logo: VenusLogo,
+      id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
     },
     CPU: {
       name: "Cardano Pools United |CPU|",
@@ -87,12 +182,13 @@ const LandingPage = (props) => {
     // urlParams && console.log(urlParams.id);
     urlParams && console.log(poolsDetails[urlParams.id].description);
 
-    console.log(urlParams);
+    // console.log(urlParams);
   }, [urlParams]);
   return (
     <AppContext.Consumer>
       {(context) => {
-        // console.log(context);
+        // context.poolStats[urlParams.id] &&
+        //   console.log(context.poolStats[urlParams.id].data);
         // if (!currentSlot) {
         //   setCurrentSlot(parseInt(context.globalStats.epoch_slot_no));
         // } else if (currentSlot && !epochStartedDate) {
@@ -111,7 +207,7 @@ const LandingPage = (props) => {
               routes={dashboardRoutes}
               // trebalo bi staviti scroll varijablu
               //  u global context i onda bi mogel na temelju scrolla mjenjat boju logoa (svaki pool ima svoju boju, bisebojni smo :D)
-              rotateHue={context.scrollOffset / 12}
+              // rotateHue={context.scrollOffset / 12}
               rightLinks={<HeaderLinks />}
               urlParams
               fixed
@@ -121,7 +217,12 @@ const LandingPage = (props) => {
               }}
               {...rest}
             />
-            <Parallax filter image={require("assets/img/landing-bg.jpg")}>
+
+            <ParallaxStyled
+              poolColor={poolsDetails[urlParams.id].poolColor}
+              filter
+              image={poolsDetails[urlParams.id].banner}
+            >
               <div className={classes.container}>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>
@@ -133,6 +234,21 @@ const LandingPage = (props) => {
                       {urlParams && poolsDetails[urlParams.id].description}
                     </h4>
                     <br />
+                    <AbsoluteLogo src={poolsDetails[urlParams.id].logo} />
+                    <IdWrapper
+                      onClick={() => {
+                        !copyState && copyId(poolsDetails[urlParams.id].id);
+                      }}
+                    >
+                      <PoolId>
+                        ID:&nbsp;
+                        {context.poolStats[urlParams.id] &&
+                          context.poolStats[urlParams.id].data.pool_id}
+                      </PoolId>
+                      <FileCopyIcon />
+                      <Copied copyState={copyState}>Copied</Copied>
+                    </IdWrapper>
+
                     {/* <Button
                       color="danger"
                       size="lg"
@@ -146,7 +262,7 @@ const LandingPage = (props) => {
                   </GridItem>
                 </GridContainer>
               </div>
-            </Parallax>
+            </ParallaxStyled>
             <div className={classNames(classes.main, classes.mainRaised)}>
               <div className={classes.container}>
                 <TestStyle>wdqd</TestStyle>

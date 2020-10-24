@@ -23,7 +23,7 @@ import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 const useStyles = makeStyles(styles);
 
 const ButtonLogoStyled = styled(Button)`
-  filter: ${(props) => `hue-rotate(${props.rotateHue}deg)`};
+  /* filter: ${(props) => `hue-rotate(${props.rotateHue}deg)`}; */
 `;
 
 export default function Header(props) {
@@ -68,7 +68,7 @@ export default function Header(props) {
     brand,
     fixed,
     absolute,
-    rotateHue,
+    // rotateHue,
   } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
@@ -78,7 +78,9 @@ export default function Header(props) {
   });
   const brandComponent = (
     <Link to="/">
-      <ButtonLogoStyled rotateHue={rotateHue} className={classes.logo}>
+      <ButtonLogoStyled 
+      // rotateHue={rotateHue}
+       className={classes.logo}>
         {brand}
       </ButtonLogoStyled>
     </Link>
