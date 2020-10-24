@@ -102,6 +102,11 @@ const Copied = styled.div`
   animation: ${copyAnimation} 1.5s linear;
   transition: 0.3s;
   display: ${(props) => (props.copyState ? "block" : "none")};
+
+  @media (max-width: 960px) {
+    bottom: -40px;
+    right: 20px;
+  }
 `;
 
 const LandingPage = (props) => {
@@ -111,6 +116,45 @@ const LandingPage = (props) => {
   const [poolTicker, setPoolTicker] = useState();
   const [urlParams, setUrlParams] = useState({ id: "CPU" });
   const [copyState, setCopyState] = useState();
+  const [mobileState, setMobileState] = useState();
+  window.addEventListener("resize", () => {
+    window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
+  });
+  const poolsDetails = {
+    VENUS: {
+      name: "Fresco Pool |VENUS|",
+      poolColor: "black",
+      secondaryColor: "#1F2833",
+      logoColor: "#1F7078",
+      description: (
+        <>
+          Fresco pool was initially deployed during a ITN Cardano phase and has
+          been working ever since. During that time we gathered a lot of happy
+          and loyal delegators.
+          <br />
+          <br />
+          Fresco pool is community focused pool with big emphasis on educating
+          the delegator about the Cardano ecosystem in order to make the
+          delegation process simple, fast and secure as possible.
+        </>
+      ),
+      descriptionMobile: (
+        <>
+          Fresco pool is community focused pool with big emphasis on educating
+          the delegator about the Cardano ecosystem in order to make the
+          delegation process simple, fast and secure as possible.
+        </>
+      ),
+
+      banner: VenusBanner,
+      logo: VenusLogo,
+      id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
+    },
+    CPU: {
+      name: "Cardano Pools United |CPU|",
+      description: "insert desc here",
+    },
+  };
 
   const copyId = (text) => {
     var dummy = document.createElement("textarea");
@@ -127,33 +171,6 @@ const LandingPage = (props) => {
     setTimeout(() => {
       setCopyState(false);
     }, 1500);
-  };
-
-  const poolsDetails = {
-    VENUS: {
-      name: "Fresco Pool |VENUS|",
-      poolColor: "black",
-      description: (
-        <>
-          Fresco pool was initially deployed during a ITN Cardano phase and has
-          been working ever since. During that time we gathered a lot of happy
-          and loyal delegators.
-          <br />
-          <br />
-          Fresco pool is community focused pool with big emphasis on educating
-          the delegator about the Cardano ecosystem in order to make the
-          delegation process simple, fast and secure as possible.
-        </>
-      ),
-
-      banner: VenusBanner,
-      logo: VenusLogo,
-      id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
-    },
-    CPU: {
-      name: "Cardano Pools United |CPU|",
-      description: "insert desc here",
-    },
   };
 
   useEffect(() => {
@@ -183,6 +200,8 @@ const LandingPage = (props) => {
     urlParams && console.log(poolsDetails[urlParams.id].description);
 
     // console.log(urlParams);
+
+    window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
   }, [urlParams]);
   return (
     <AppContext.Consumer>
@@ -231,7 +250,10 @@ const LandingPage = (props) => {
                       {urlParams && poolsDetails[urlParams.id].name}
                     </h1>
                     <h4>
-                      {urlParams && poolsDetails[urlParams.id].description}
+                      {!mobileState
+                        ? urlParams && poolsDetails[urlParams.id].description
+                        : urlParams &&
+                          poolsDetails[urlParams.id].descriptionMobile}
                     </h4>
                     <br />
                     <AbsoluteLogo src={poolsDetails[urlParams.id].logo} />
