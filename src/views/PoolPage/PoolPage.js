@@ -815,7 +815,6 @@ const PoolPage = (props) => {
                       <RewardComponentWrapper>
                         <RewardsComponent>
                           <div style={{ width: "max-content" }}>
-                            {" "}
                             Your active delegation:
                           </div>
                           <RewardsInputComponent
@@ -860,12 +859,36 @@ const PoolPage = (props) => {
                           />
                         </RewardsComponent>
                         {calculatedUserReward >= 0 && (
-                          <RewardsComponent margintop="42px" fontweight="500">
-                            Estimated rewards with&nbsp;
-                            {context.poolStats[urlParams.id].data.blocks_epoch}
-                            &nbsp;blocks minted:&nbsp;
-                            {calculatedUserReward}₳
-                          </RewardsComponent>
+                          <>
+                            <RewardsComponent margintop="42px" fontweight="500">
+                              Estimated rewards with&nbsp;
+                              {
+                                context.poolStats[urlParams.id].data
+                                  .blocks_epoch
+                              }
+                              &nbsp;blocks minted:&nbsp;
+                              {calculatedUserReward}₳
+                            </RewardsComponent>
+                            <div
+                              style={{
+                                fontSize: "12px",
+
+                                marginTop: "32px",
+                                marginBottom: "-18px",
+                              }}
+                            >
+                              Thank you
+                              <a
+                                href="https://adapools.org"
+                                rel="noreferrer"
+                                target="_blank"
+                              >
+                                {" "}
+                                adaPools
+                              </a>{" "}
+                              for protocol parameters API
+                            </div>
+                          </>
                         )}
                       </RewardComponentWrapper>
                     }
