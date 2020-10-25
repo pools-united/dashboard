@@ -46,6 +46,7 @@ body{
 
  .makeStyles-white-22 {
   background-color:${(props) => props.backgroundColorHeader}!important;
+  border-radius: 0;
 
 
 }
