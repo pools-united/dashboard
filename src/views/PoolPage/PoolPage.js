@@ -109,11 +109,15 @@ const Copied = styled.div`
   }
 `;
 
+const ContentWrapper = styled.div`
+  background-color: ${(props) => props.wrapperBackground};
+`;
+
 const LandingPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
 
-  const [poolTicker, setPoolTicker] = useState();
+  // const [poolTicker, setPoolTicker] = useState();
   const [urlParams, setUrlParams] = useState({ id: "CPU" });
   const [copyState, setCopyState] = useState();
   const [mobileState, setMobileState] = useState();
@@ -195,7 +199,7 @@ const LandingPage = (props) => {
 
   useEffect(() => {
     //set parameters from URL
-    urlParams && setPoolTicker(urlParams.id);
+    // urlParams && setPoolTicker(urlParams.id);
     // urlParams && console.log(urlParams.id);
     urlParams && console.log(poolsDetails[urlParams.id].description);
 
@@ -285,11 +289,14 @@ const LandingPage = (props) => {
                 </GridContainer>
               </div>
             </ParallaxStyled>
-            <div className={classNames(classes.main, classes.mainRaised)}>
+            <ContentWrapper
+              className={classNames(classes.main, classes.mainRaised)}
+              wrapperBackground={poolsDetails[urlParams.id].poolColor}
+            >
               <div className={classes.container}>
                 <TestStyle>wdqd</TestStyle>
               </div>
-            </div>
+            </ContentWrapper>
             <Footer />
           </div>
         );
