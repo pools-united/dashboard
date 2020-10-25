@@ -249,7 +249,9 @@ const LandingPage = (props) => {
     <AppContext.Consumer>
       {(context) => {
         context.poolStats[urlParams.id] &&
-          console.log(context.poolStats[urlParams.id].data);
+          // console.log(context.poolStats[urlParams.id].data);
+          console.log(context.poolStats[urlParams.id].data.hist_bpe);
+
         // console.log(context.globalStats.epoch_last);
 
         // if (!currentSlot) {

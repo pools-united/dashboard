@@ -12,7 +12,7 @@ const BoxTitle = styled.h3`
   background-color: ${(props) => props.backgroundColor};
   margin: unset;
   font-weight: 500;
-  font-size:22px;
+  font-size: 22px;
 `;
 
 const BoxText = styled.div`
@@ -32,7 +32,7 @@ const BoxText = styled.div`
 const TextBox = (props) => {
   TextBox.propTypes = {
     title: PropTypes.string,
-    text: PropTypes.string,
+    text: PropTypes.any,
     titleColor: PropTypes.string,
     backgroundColor: PropTypes.string,
     textBackgroundColor: PropTypes.string,
