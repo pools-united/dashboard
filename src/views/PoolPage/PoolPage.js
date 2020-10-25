@@ -21,6 +21,8 @@ import Parallax from "components/Parallax/Parallax.js";
 import ListItem from "@material-ui/core/ListItem";
 import Tooltip from "@material-ui/core/Tooltip";
 
+import Chart from "react-apexcharts";
+
 //images
 import VenusBanner from "assets/poolAssets/venus/FrescoBanner.png";
 import VenusLogo from "assets/poolAssets/venus/fresco_logo.png";
@@ -30,13 +32,25 @@ import FileCopyIcon from "@material-ui/icons/FileCopy";
 import TextBox from "./Components/Textbox.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, createGlobalStyle } from "styled-components";
+import { number } from "prop-types";
 // Sections for this page
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
+const PoolPageStyle = createGlobalStyle`
+body{
+  background-color:${(props) => props.backgroundColor};
+}
+
+ .makeStyles-white-22 {
+  background-color:${(props) => props.backgroundColorHeader}!important;
+
+
+}
+`;
 const InfoGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -54,6 +68,22 @@ const PoolId = styled.div`
 const IdWrapper = styled.div`
   display: flex;
   cursor: copy;
+`;
+
+const ChartStyled = styled(Chart)`
+  max-width: 700px;
+  height: 370px;
+  margin: auto;
+  .apexcharts-menu {
+    background: black;
+  }
+  .apexcharts-menu-item:hover {
+    background: ${(props) => props.downloadHover};
+  }
+
+  #apexchartsblocksProduced > svg {
+    background-color: ${(props) => props.graphBackground} !important;
+  }
 `;
 const ParallaxStyled = styled(Parallax)`
   background-color: ${(props) => props.poolColor};
@@ -148,14 +178,18 @@ const ContentWrapper = styled.div`
   background-color: ${(props) => props.wrapperBackground};
 `;
 
-const LandingPage = (props) => {
+const PoolPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
 
   // const [poolTicker, setPoolTicker] = useState();
+  const [epochsGraph, setEpochsGraph] = useState([]);
+  const [numberOfBlocks, setNumberOfBlocks] = useState(undefined);
   const [urlParams, setUrlParams] = useState({ id: "CPU" });
   const [copyState, setCopyState] = useState();
   const [mobileState, setMobileState] = useState();
+
+  const [definedRender, setDefinedRender] = useState(0);
   window.addEventListener("resize", () => {
     window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
   });
@@ -198,6 +232,80 @@ const LandingPage = (props) => {
     },
   };
 
+  // const calculateRewards = () => {
+  //   let TotalActiveStake = $(".activeStakeTotal").val();
+  //   let FrescoActiveStake = $(".activeStakeFresco").val();
+  //   let TotalAdaSupply = $(".totalSupplyInput").val();
+  //   let FrescoBlocksProduced = $(".currentEpochBlock").val();
+  //   let yourActiveStake = $(".activeStakeUser").val();
+  //   let decentralisationParam;
+  //   let blocks = 21600 * (1 - decentralisationParam);
+  //   let kParameter = json.nOpt;
+  //   let MaxAdaSupply;
+  //   let apparentPoolPerformance;
+  //   let a0 = json.a0
+  //   let rho = json.rho;
+  //   let tau = json.tau;
+  //   let totalReserves = MaxAdaSupply - TotalAdaSupply;
+  //   let RelativeBlocksProduced = FrescoBlocksProduced / blocks;
+  //   let RelativeActiveStake = FrescoActiveStake / TotalActiveStake;
+  //   let TotalAwardsAvailable = totalReserves * rho;
+  //   let RewardsAfterTreasury = TotalAwardsAvailable * (1 - tau);
+  //   let s = 70000 / TotalAdaSupply;
+  //   let sigma = FrescoActiveStake / TotalAdaSupply;
+  //   let saturationPoint = 1 / kParameter;
+
+  //   if (decentralisationParam >= 0.8) {
+  //     apparentPoolPerformance = 1;
+  //   } else {
+  //     apparentPoolPerformance = RelativeBlocksProduced / RelativeActiveStake;
+  //   }
+
+  //   let realRewards;
+
+  //   let optimalRewards =
+  //     (RewardsAfterTreasury / (1 + a0)) *
+  //     (sigma +
+  //       (s * a0 * (sigma - s * ((saturationPoint - sigma) / saturationPoint))) /
+  //         saturationPoint);
+
+  //   if (FrescoBlocksProduced < 1) {
+  //     realRewards = 0;
+  //   } else {
+  //     realRewards = (optimalRewards * apparentPoolPerformance).toFixed(2);
+  //   }
+  //   let margin = 0.0085;
+  //   let fixedFee = 340;
+  //   let afterFixed = realRewards - fixedFee;
+  //   let rewardsTaxed = (afterFixed * (1 - margin)).toFixed(2);
+  //   if (realRewards <= 0) {
+  //     realRewards = 0;
+  //     rewardsTaxed = 0;
+  //   }
+
+  //   let usersReward = (yourActiveStake / FrescoActiveStake) * rewardsTaxed;
+
+  //   if (usersReward >= realRewards) {
+  //     usersReward = realRewards;
+  //   }
+
+  //   $(".realRewards").html(
+  //     `Total estimated rewards calculation: ${realRewards}`
+  //   );
+  //   $(".rewardsTax").html(
+  //     `Total estimated rewards calculation after tax: ${rewardsTaxed}`
+  //   );
+  //   $(".rewardsTaxUser").html(
+  //     `Your estimated rewards: ${usersReward.toFixed(2)}`
+  //   );
+  //   //$(".estimatedROA").html(`Estimated ROA: ${((rewardsTaxed/FrescoActiveStake)*7200).toFixed(2)}%`);
+  //   $(".estimatedROA").html(``);
+
+  //   $(".expectedBlocks").html(
+  //     `Blocks expected: ${(blocks * RelativeActiveStake).toFixed(1)}`
+  //   );
+  // };
+
   const copyId = (text) => {
     var dummy = document.createElement("textarea");
     // to avoid breaking orgain page when copying more words
@@ -239,7 +347,7 @@ const LandingPage = (props) => {
     //set parameters from URL
     // urlParams && setPoolTicker(urlParams.id);
     // urlParams && console.log(urlParams.id);
-    urlParams && console.log(poolsDetails[urlParams.id].description);
+    // urlParams && console.log(poolsDetails[urlParams.id].description);
 
     // console.log(urlParams);
 
@@ -248,10 +356,44 @@ const LandingPage = (props) => {
   return (
     <AppContext.Consumer>
       {(context) => {
-        context.poolStats[urlParams.id] &&
-          // console.log(context.poolStats[urlParams.id].data);
-          console.log(context.poolStats[urlParams.id].data.hist_bpe);
+        // context.poolStats[urlParams.id] &&
+        //   // console.log(context.poolStats[urlParams.id].data);
+        //   console.log(
+        //     JSON.parse(context.poolStats[urlParams.id].data.hist_bpe)
+        //   );
 
+        if (context.globalStats.epoch_last && definedRender < 1) {
+          setDefinedRender(definedRender + 1);
+
+          for (let i = 10; i > 0; i--) {
+            // const element = array[i];
+            setEpochsGraph((epochsGraph) => [
+              ...epochsGraph,
+              parseInt(context.globalStats.epoch_last) - i,
+            ]);
+          }
+          console.log(epochsGraph);
+        }
+
+        if (!numberOfBlocks && context.poolStats[urlParams.id]) {
+          setNumberOfBlocks([]);
+          // console.log(
+          //   JSON.parse(context.poolStats[urlParams.id].data.hist_bpe)
+          // );
+
+          JSON.parse(context.poolStats[urlParams.id].data.hist_bpe).forEach(
+            (element) => {
+              // console.log(element.val);
+
+              setNumberOfBlocks((numberOfBlocks) => [
+                ...numberOfBlocks,
+                parseInt(element.val),
+              ]);
+            }
+          );
+        }
+
+        // console.log(numberOfBlocks);
         // console.log(context.globalStats.epoch_last);
 
         // if (!currentSlot) {
@@ -267,6 +409,10 @@ const LandingPage = (props) => {
         // console.log(context);
         return (
           <div>
+            <PoolPageStyle
+              backgroundColor={poolsDetails[urlParams.id].logoColor}
+              backgroundColorHeader="black"
+            />
             <Header
               color="transparent"
               routes={dashboardRoutes}
@@ -557,7 +703,48 @@ const LandingPage = (props) => {
                   />
                 </InfoGrid>
 
-                <Spacer heightSpacer={"920px"} />
+                <Spacer heightSpacer={"64px"} />
+
+                <ChartStyled
+                  graphBackground={poolsDetails[urlParams.id].poolColor}
+                  downloadHover={poolsDetails[urlParams.id].logoColor}
+                  options={{
+                    theme: {
+                      mode: "dark",
+                      palette: "palette2",
+                    },
+
+                    tooltip: {
+                      enabled: true,
+                      theme: true,
+                      fillSeriesColor: false,
+                      onDatasetHover: {
+                        highlightDataSeries: true,
+                      },
+                      style: {},
+                    },
+                    fill: {
+                      colors: [
+                        poolsDetails[urlParams.id].logoColor
+                          ? poolsDetails[urlParams.id].logoColor
+                          : "nikaj onda",
+                      ],
+                    },
+                    chart: {
+                      id: "blocksProduced",
+                    },
+                    xaxis: {
+                      categories: epochsGraph,
+                    },
+                  }}
+                  series={[
+                    {
+                      name: "blocks-produced",
+                      data: numberOfBlocks,
+                    },
+                  ]}
+                  type="bar"
+                />
               </div>
             </ContentWrapper>
             <Footer />
@@ -567,4 +754,4 @@ const LandingPage = (props) => {
     </AppContext.Consumer>
   );
 };
-export default LandingPage;
+export default PoolPage;
