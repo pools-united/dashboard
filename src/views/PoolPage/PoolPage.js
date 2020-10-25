@@ -18,9 +18,16 @@ import Button from "components/CustomButtons/Button.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
+import ListItem from "@material-ui/core/ListItem";
+import Tooltip from "@material-ui/core/Tooltip";
+
+//images
 import VenusBanner from "assets/poolAssets/venus/FrescoBanner.png";
 import VenusLogo from "assets/poolAssets/venus/fresco_logo.png";
 import FileCopyIcon from "@material-ui/icons/FileCopy";
+
+//components
+import TextBox from "./Components/Textbox.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import styled, { keyframes } from "styled-components";
@@ -30,9 +37,13 @@ const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
-const TestStyle = styled.div`
-  height: 1000px;
-  color: green;
+const InfoGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  grid-gap: 20px;
+  margin-bottom: 20px;
+  max-width: 700px;
+  margin: 1rem auto 1rem auto;
 `;
 
 const PoolId = styled.div`
@@ -69,6 +80,15 @@ const AbsoluteLogo = styled.img`
   }
 `;
 
+const ContentTitle = styled.h2`
+  text-align: center;
+  margin: 48px 0;
+`;
+
+const Spacer = styled.div`
+  height: ${(props) => props.heightSpacer};
+`;
+
 const copyAnimation = keyframes`
   0% {
     transform: scale(0.5);
@@ -93,7 +113,7 @@ const copyAnimation = keyframes`
 
 const Copied = styled.div`
   position: absolute;
-  bottom: -52px;
+  bottom: 10px;
   right: 0;
 
   padding: 6px;
@@ -104,9 +124,24 @@ const Copied = styled.div`
   display: ${(props) => (props.copyState ? "block" : "none")};
 
   @media (max-width: 960px) {
-    bottom: -40px;
+    bottom: 40px;
     right: 20px;
   }
+`;
+
+const SocialContainer = styled.div`
+  display: flex;
+  padding-top: 12px;
+`;
+
+const ListItemStyled = styled(ListItem)`
+  padding-left: 5px;
+  padding-right: 5px;
+  width: max-content;
+`;
+
+const TooltipStyled = styled(Tooltip)`
+  padding: 8px;
 `;
 
 const ContentWrapper = styled.div`
@@ -129,7 +164,7 @@ const LandingPage = (props) => {
       name: "Fresco Pool |VENUS|",
       poolColor: "black",
       secondaryColor: "#1F2833",
-      logoColor: "#1F7078",
+      logoColor: "#45A29E",
       description: (
         <>
           Fresco pool was initially deployed during a ITN Cardano phase and has
@@ -153,6 +188,9 @@ const LandingPage = (props) => {
       banner: VenusBanner,
       logo: VenusLogo,
       id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
+      twitter: "https://twitter.com/PoolVenus",
+      telegram: "https://t.me/frescopool",
+      github: "https://github.com/filip4428",
     },
     CPU: {
       name: "Cardano Pools United |CPU|",
@@ -210,8 +248,10 @@ const LandingPage = (props) => {
   return (
     <AppContext.Consumer>
       {(context) => {
-        // context.poolStats[urlParams.id] &&
-        //   console.log(context.poolStats[urlParams.id].data);
+        context.poolStats[urlParams.id] &&
+          console.log(context.poolStats[urlParams.id].data);
+        // console.log(context.globalStats.epoch_last);
+
         // if (!currentSlot) {
         //   setCurrentSlot(parseInt(context.globalStats.epoch_slot_no));
         // } else if (currentSlot && !epochStartedDate) {
@@ -274,6 +314,104 @@ const LandingPage = (props) => {
                       <FileCopyIcon />
                       <Copied copyState={copyState}>Copied</Copied>
                     </IdWrapper>
+                    <SocialContainer>
+                      {poolsDetails[urlParams.id].twitter && (
+                        <ListItemStyled className={classes.listItem}>
+                          <TooltipStyled
+                            title={`${urlParams.id} Twitter`}
+                            placement={
+                              window.innerWidth > 959 ? "bottom" : "bottom"
+                            }
+                            classes={{ tooltip: classes.tooltip }}
+                          >
+                            <Button
+                              color="transparent"
+                              href={poolsDetails[urlParams.id].twitter}
+                              target="_blank"
+                              className={classes.navLink}
+                            >
+                              <i
+                                className={
+                                  classes.socialIcons + " fab fa-twitter"
+                                }
+                              />
+                            </Button>
+                          </TooltipStyled>
+                        </ListItemStyled>
+                      )}
+                      {poolsDetails[urlParams.id].telegram && (
+                        <ListItemStyled className={classes.listItem}>
+                          <TooltipStyled
+                            title={`${urlParams.id} Telegram`}
+                            placement={
+                              window.innerWidth > 959 ? "bottom" : "bottom"
+                            }
+                            classes={{ tooltip: classes.tooltip }}
+                          >
+                            <Button
+                              color="transparent"
+                              href={poolsDetails[urlParams.id].telegram}
+                              target="_blank"
+                              className={classes.navLink}
+                            >
+                              <i
+                                className={
+                                  classes.socialIcons + " fab fa-telegram"
+                                }
+                              />
+                            </Button>
+                          </TooltipStyled>
+                        </ListItemStyled>
+                      )}
+                      {poolsDetails[urlParams.id].github && (
+                        <ListItemStyled className={classes.listItem}>
+                          <TooltipStyled
+                            title={`${urlParams.id} Github`}
+                            placement={
+                              window.innerWidth > 959 ? "bottom" : "bottom"
+                            }
+                            classes={{ tooltip: classes.tooltip }}
+                          >
+                            <Button
+                              color="transparent"
+                              href={poolsDetails[urlParams.id].github}
+                              target="_blank"
+                              className={classes.navLink}
+                            >
+                              <i
+                                className={
+                                  classes.socialIcons + " fab fa-github"
+                                }
+                              />
+                            </Button>
+                          </TooltipStyled>
+                        </ListItemStyled>
+                      )}
+                      {poolsDetails[urlParams.id].youtube && (
+                        <ListItemStyled className={classes.listItem}>
+                          <TooltipStyled
+                            title={`${urlParams.id} Youtube`}
+                            placement={
+                              window.innerWidth > 959 ? "bottom" : "bottom"
+                            }
+                            classes={{ tooltip: classes.tooltip }}
+                          >
+                            <Button
+                              color="transparent"
+                              href={poolsDetails[urlParams.id].youtube}
+                              target="_blank"
+                              className={classes.navLink}
+                            >
+                              <i
+                                className={
+                                  classes.socialIcons + " fab fa-youtube"
+                                }
+                              />
+                            </Button>
+                          </TooltipStyled>
+                        </ListItemStyled>
+                      )}
+                    </SocialContainer>
 
                     {/* <Button
                       color="danger"
@@ -294,7 +432,130 @@ const LandingPage = (props) => {
               wrapperBackground={poolsDetails[urlParams.id].poolColor}
             >
               <div className={classes.container}>
-                <TestStyle>wdqd</TestStyle>
+                <Spacer heightSpacer={"64px"} />
+                <InfoGrid>
+                  <TextBox
+                    titleColor={poolsDetails[urlParams.id].logoColor}
+                    textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+                    backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+                    title={"Ticker"}
+                    text={urlParams.id}
+                  />
+                  <TextBox
+                    titleColor={poolsDetails[urlParams.id].logoColor}
+                    textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+                    backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+                    title={"Pledge"}
+                    text={`${
+                      context.poolStats[urlParams.id] &&
+                      context.poolStats[urlParams.id].data.pledge / 1000000
+                    } ₳ `}
+                  />
+                  <TextBox
+                    titleColor={poolsDetails[urlParams.id].logoColor}
+                    textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+                    backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+                    title={"Fee"}
+                    text={
+                      <>
+                        Fixed&nbsp;
+                        {context.poolStats[urlParams.id] &&
+                          context.poolStats[urlParams.id].data.tax_fix /
+                            1000000}
+                        <br />
+                        Margin&nbsp;
+                        {context.poolStats[urlParams.id] &&
+                          (
+                            parseFloat(
+                              context.poolStats[urlParams.id].data.tax_ratio
+                            ) * 100
+                          ).toFixed(2)}
+                        %
+                      </>
+                    }
+                  />
+                  <TextBox
+                    titleColor={poolsDetails[urlParams.id].logoColor}
+                    textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+                    backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+                    title={"Blocks Produced"}
+                    text={
+                      context.poolStats[urlParams.id] &&
+                      parseInt(
+                        context.poolStats[urlParams.id].data.blocks_lifetime
+                      ) +
+                        parseInt(
+                          context.poolStats[urlParams.id].data.blocks_epoch
+                        )
+                    }
+                  />
+                  <TextBox
+                    titleColor={poolsDetails[urlParams.id].logoColor}
+                    textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+                    backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+                    title={"Total Stake"}
+                    text={`${
+                      context.poolStats[urlParams.id] &&
+                      (
+                        context.poolStats[urlParams.id].data.total_stake /
+                        1000000000000
+                      ).toFixed(2)
+                    } M`}
+                  />
+                  <TextBox
+                    titleColor={poolsDetails[urlParams.id].logoColor}
+                    textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+                    backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+                    title={"Yearly ROA"}
+                    text={`${
+                      context.poolStats[urlParams.id] &&
+                      parseFloat(
+                        context.poolStats[urlParams.id].data.roa
+                      ).toFixed(2)
+                    } %`}
+                  />
+                </InfoGrid>
+                <ContentTitle>
+                  Stats for current Epoch ({context.globalStats.epoch_last})
+                </ContentTitle>
+
+                <InfoGrid>
+                  <TextBox
+                    titleColor={poolsDetails[urlParams.id].logoColor}
+                    textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+                    backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+                    title={"Active Stake"}
+                    text={`${
+                      context.poolStats[urlParams.id] &&
+                      (
+                        context.poolStats[urlParams.id].data.active_stake /
+                        1000000000000
+                      ).toFixed(2)
+                    } M`}
+                  />
+                  <TextBox
+                    titleColor={poolsDetails[urlParams.id].logoColor}
+                    textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+                    backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+                    title={"Blocks Estimated"}
+                    text={`${
+                      context.poolStats[urlParams.id] &&
+                      context.poolStats[urlParams.id].data.blocks_estimated
+                    }`}
+                  />
+                  <TextBox
+                    titleColor={poolsDetails[urlParams.id].logoColor}
+                    textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+                    backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+                    title={"Blocks Produced"}
+                    text={
+                      context.poolStats[urlParams.id] &&
+                      context.poolStats[urlParams.id].data.blocks_epoch
+                    }
+                  />
+                </InfoGrid>
+
+                <Spacer heightSpacer={"920px"} />
               </div>
             </ContentWrapper>
             <Footer />
