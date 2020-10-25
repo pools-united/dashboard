@@ -197,10 +197,12 @@ const RewardComponentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  justify-content: space-between;
 `;
 const RewardsInputComponent = styled.input`
   background-color: ${(props) => props.inputBackground};
   color: ${(props) => props.color};
+  width: 30%;
   font-size: 18px;
 `;
 
@@ -442,7 +444,7 @@ const PoolPage = (props) => {
               parseInt(context.globalStats.epoch_last) - i,
             ]);
           }
-          console.log(epochsGraph);
+          // console.log(epochsGraph);
         }
 
         //TODO: ovo mozda nebi trebalo tu biti, usporava render brijem!!!
@@ -812,7 +814,10 @@ const PoolPage = (props) => {
                     text={
                       <RewardComponentWrapper>
                         <RewardsComponent>
-                          Your active delegation:
+                          <div style={{ width: "max-content" }}>
+                            {" "}
+                            Your active delegation:
+                          </div>
                           <RewardsInputComponent
                             type="number"
                             ref={userDelegationRef}
@@ -850,7 +855,7 @@ const PoolPage = (props) => {
                                   context.poolStats[urlParams.id].data.tax_fix
                                 ) / 1000000
                               );
-                              console.log(roaStats);
+                              // console.log(roaStats);
                             }}
                           />
                         </RewardsComponent>
