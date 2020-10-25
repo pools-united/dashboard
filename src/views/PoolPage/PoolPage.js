@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // nodejs library that concatenates classes
 
 // Global contextfor API
@@ -33,8 +33,7 @@ import TextBox from "./Components/Textbox.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import styled, { keyframes, createGlobalStyle } from "styled-components";
-import { number } from "prop-types";
-// Sections for this page
+// import { number } from "prop-types";
 
 const dashboardRoutes = [];
 
@@ -50,7 +49,28 @@ body{
 
 
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
 `;
+
+const RewardsCalculatorWrapper = styled.div`
+  display: flex;
+  margin: auto;
+  max-width: 700px;
+`;
+
 const InfoGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -78,7 +98,7 @@ const ChartStyled = styled(Chart)`
     background: black;
   }
   .apexcharts-menu-item:hover {
-    background: ${(props) => props.downloadHover};
+    background: ${(props) => props.downloadhover};
   }
 
   #apexchartsblocksProduced > svg {
@@ -164,6 +184,26 @@ const SocialContainer = styled.div`
   padding-top: 12px;
 `;
 
+const RewardsComponent = styled.div`
+  display: flex;
+  width: 100%;
+  margin-top: ${(props) => props.margintop};
+  font-weight: ${(props) => props.fontweight};
+  padding: 12px 0;
+  justify-content: space-between;
+  align-items: center;
+`;
+const RewardComponentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
+const RewardsInputComponent = styled.input`
+  background-color: ${(props) => props.inputBackground};
+  color: ${(props) => props.color};
+  font-size: 18px;
+`;
+
 const ListItemStyled = styled(ListItem)`
   padding-left: 5px;
   padding-right: 5px;
@@ -185,9 +225,13 @@ const PoolPage = (props) => {
   // const [poolTicker, setPoolTicker] = useState();
   const [epochsGraph, setEpochsGraph] = useState([]);
   const [numberOfBlocks, setNumberOfBlocks] = useState(undefined);
+  const [roaStats, setRoaStats] = useState(undefined);
+
   const [urlParams, setUrlParams] = useState({ id: "CPU" });
   const [copyState, setCopyState] = useState();
   const [mobileState, setMobileState] = useState();
+  const [calculatedUserReward, setCalculatedUserReward] = useState(-1);
+  const userDelegationRef = useRef(null);
 
   const [definedRender, setDefinedRender] = useState(0);
   window.addEventListener("resize", () => {
@@ -232,79 +276,105 @@ const PoolPage = (props) => {
     },
   };
 
-  // const calculateRewards = () => {
-  //   let TotalActiveStake = $(".activeStakeTotal").val();
-  //   let FrescoActiveStake = $(".activeStakeFresco").val();
-  //   let TotalAdaSupply = $(".totalSupplyInput").val();
-  //   let FrescoBlocksProduced = $(".currentEpochBlock").val();
-  //   let yourActiveStake = $(".activeStakeUser").val();
-  //   let decentralisationParam;
-  //   let blocks = 21600 * (1 - decentralisationParam);
-  //   let kParameter = json.nOpt;
-  //   let MaxAdaSupply;
-  //   let apparentPoolPerformance;
-  //   let a0 = json.a0
-  //   let rho = json.rho;
-  //   let tau = json.tau;
-  //   let totalReserves = MaxAdaSupply - TotalAdaSupply;
-  //   let RelativeBlocksProduced = FrescoBlocksProduced / blocks;
-  //   let RelativeActiveStake = FrescoActiveStake / TotalActiveStake;
-  //   let TotalAwardsAvailable = totalReserves * rho;
-  //   let RewardsAfterTreasury = TotalAwardsAvailable * (1 - tau);
-  //   let s = 70000 / TotalAdaSupply;
-  //   let sigma = FrescoActiveStake / TotalAdaSupply;
-  //   let saturationPoint = 1 / kParameter;
+  const calculateRewards = (
+    totalActiveStake,
+    poolActiveStake,
+    totalAdaSupply,
+    poolBlocksProduced,
+    yourActiveStake,
+    kParameter,
+    a0,
+    rho,
+    tau,
+    decentralisationParam,
+    ownerStake,
+    margin,
+    fixedFee
+  ) => {
+    let TotalActiveStake = totalActiveStake;
+    let PoolActiveStake = poolActiveStake;
+    let TotalAdaSupply = totalAdaSupply;
+    let PoolBlocksProduced = poolBlocksProduced;
+    let YourActiveStake = yourActiveStake;
 
-  //   if (decentralisationParam >= 0.8) {
-  //     apparentPoolPerformance = 1;
-  //   } else {
-  //     apparentPoolPerformance = RelativeBlocksProduced / RelativeActiveStake;
-  //   }
+    let blocks = 21600 * (1 - decentralisationParam);
+    let Kparameter = kParameter;
+    let MaxAdaSupply = 45000000000;
+    let apparentPoolPerformance;
 
-  //   let realRewards;
+    let totalReserves = MaxAdaSupply - TotalAdaSupply;
+    let RelativeBlocksProduced = PoolBlocksProduced / blocks;
+    let RelativeActiveStake = PoolActiveStake / TotalActiveStake;
+    let TotalAwardsAvailable = totalReserves * rho;
+    let RewardsAfterTreasury = TotalAwardsAvailable * (1 - tau);
+    let s = ownerStake / TotalAdaSupply;
+    let sigma = PoolActiveStake / TotalAdaSupply;
+    let saturationPoint = 1 / Kparameter;
 
-  //   let optimalRewards =
-  //     (RewardsAfterTreasury / (1 + a0)) *
-  //     (sigma +
-  //       (s * a0 * (sigma - s * ((saturationPoint - sigma) / saturationPoint))) /
-  //         saturationPoint);
+    if (decentralisationParam >= 0.8) {
+      apparentPoolPerformance = 1;
+    } else {
+      apparentPoolPerformance = RelativeBlocksProduced / RelativeActiveStake;
+    }
 
-  //   if (FrescoBlocksProduced < 1) {
-  //     realRewards = 0;
-  //   } else {
-  //     realRewards = (optimalRewards * apparentPoolPerformance).toFixed(2);
-  //   }
-  //   let margin = 0.0085;
-  //   let fixedFee = 340;
-  //   let afterFixed = realRewards - fixedFee;
-  //   let rewardsTaxed = (afterFixed * (1 - margin)).toFixed(2);
-  //   if (realRewards <= 0) {
-  //     realRewards = 0;
-  //     rewardsTaxed = 0;
-  //   }
+    let realRewards;
 
-  //   let usersReward = (yourActiveStake / FrescoActiveStake) * rewardsTaxed;
+    let optimalRewards =
+      (RewardsAfterTreasury / (1 + a0)) *
+      (sigma +
+        (s * a0 * (sigma - s * ((saturationPoint - sigma) / saturationPoint))) /
+          saturationPoint);
 
-  //   if (usersReward >= realRewards) {
-  //     usersReward = realRewards;
-  //   }
+    if (PoolBlocksProduced < 1) {
+      realRewards = 0;
+    } else {
+      realRewards = (optimalRewards * apparentPoolPerformance).toFixed(2);
+    }
 
-  //   $(".realRewards").html(
-  //     `Total estimated rewards calculation: ${realRewards}`
-  //   );
-  //   $(".rewardsTax").html(
-  //     `Total estimated rewards calculation after tax: ${rewardsTaxed}`
-  //   );
-  //   $(".rewardsTaxUser").html(
-  //     `Your estimated rewards: ${usersReward.toFixed(2)}`
-  //   );
-  //   //$(".estimatedROA").html(`Estimated ROA: ${((rewardsTaxed/FrescoActiveStake)*7200).toFixed(2)}%`);
-  //   $(".estimatedROA").html(``);
+    let afterFixed = realRewards - fixedFee;
+    let rewardsTaxed = (afterFixed * (1 - margin)).toFixed(2);
+    if (realRewards <= 0) {
+      realRewards = 0;
+      rewardsTaxed = 0;
+    }
 
-  //   $(".expectedBlocks").html(
-  //     `Blocks expected: ${(blocks * RelativeActiveStake).toFixed(1)}`
-  //   );
-  // };
+    let usersReward = (YourActiveStake / PoolActiveStake) * rewardsTaxed;
+
+    if (usersReward >= realRewards) {
+      usersReward = realRewards;
+    }
+
+    // $(".realRewards").html(
+    //   `Total estimated rewards calculation: ${realRewards}`
+    // );
+    // $(".rewardsTax").html(
+    //   `Total estimated rewards calculation after tax: ${rewardsTaxed}`
+    // );
+    // $(".rewardsTaxUser").html(
+    //   `Your estimated rewards: ${usersReward.toFixed(2)}`
+    // );
+    // //$(".estimatedROA").html(`Estimated ROA: ${((rewardsTaxed/PoolActiveStake)*7200).toFixed(2)}%`);
+    // $(".estimatedROA").html(``);
+
+    // $(".expectedBlocks").html(
+    //   `Blocks expected: ${(blocks * RelativeActiveStake).toFixed(1)}`
+    // );
+    // console.log("click");
+    setCalculatedUserReward(parseFloat(usersReward).toFixed(2));
+    // console.log(
+    //   totalActiveStake,
+    //   poolActiveStake,
+    //   totalAdaSupply,
+    //   poolBlocksProduced,
+    //   yourActiveStake,
+    //   kParameter,
+    //   a0,
+    //   rho,
+    //   tau,
+    //   decentralisationParam
+    // );
+    // console.log(usersReward);
+  };
 
   const copyId = (text) => {
     var dummy = document.createElement("textarea");
@@ -375,8 +445,11 @@ const PoolPage = (props) => {
           console.log(epochsGraph);
         }
 
+        //TODO: ovo mozda nebi trebalo tu biti, usporava render brijem!!!
+        //TODO: !!!
         if (!numberOfBlocks && context.poolStats[urlParams.id]) {
           setNumberOfBlocks([]);
+          setRoaStats([]);
           // console.log(
           //   JSON.parse(context.poolStats[urlParams.id].data.hist_bpe)
           // );
@@ -391,7 +464,30 @@ const PoolPage = (props) => {
               ]);
             }
           );
+
+          JSON.parse(context.poolStats[urlParams.id].data.hist_roa).forEach(
+            (element) => {
+              // console.log(element.val);
+
+              setRoaStats((roaStats) => [...roaStats, parseFloat(element.val)]);
+            }
+          );
+
+          // calculateRewards();
+
+          // totalActiveStake,
+          // poolActiveStake,
+          // totalAdaSupply,
+          // poolBlocksProduced,
+          // yourActiveStake,
+          // kParameter,
+          // a0,
+          // rho,
+          // tau,
+          // decentralisationParam
         }
+        //TODO: ovo (parseanje ROA I BLOCKOVA (VIDI GORE) )mozda nebi trebalo tu biti, usporava render brijem!!!
+        //TODO: !!!
 
         // console.log(numberOfBlocks);
         // console.log(context.globalStats.epoch_last);
@@ -705,15 +801,182 @@ const PoolPage = (props) => {
 
                 <Spacer heightSpacer={"64px"} />
 
+                <RewardsCalculatorWrapper>
+                  <TextBox
+                    heightBox
+                    width="100%"
+                    titleColor={poolsDetails[urlParams.id].logoColor}
+                    textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+                    backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+                    title={`Rewards calculator for current Epoch (${context.globalStats.epoch_last})`}
+                    text={
+                      <RewardComponentWrapper>
+                        <RewardsComponent>
+                          Your active delegation:
+                          <RewardsInputComponent
+                            type="number"
+                            ref={userDelegationRef}
+                            inputBackground={
+                              poolsDetails[urlParams.id].poolColor
+                            }
+                            color={poolsDetails[urlParams.id].logoColor}
+                            onChange={() => {
+                              // console.log(userDelegationRef.current.value);
+
+                              calculateRewards(
+                                parseFloat(context.globalStats.total_staked) /
+                                  1000000,
+                                parseFloat(
+                                  context.poolStats[urlParams.id].data
+                                    .active_stake
+                                ) / 1000000,
+                                parseFloat(context.globalStats.ada_circ) /
+                                  1000000,
+                                context.poolStats[urlParams.id].data
+                                  .blocks_epoch,
+                                userDelegationRef.current.value,
+                                context.protocol.nOpt,
+                                context.protocol.a0,
+                                context.protocol.rho,
+                                context.protocol.tau,
+                                context.protocol.decentralisationParam,
+                                parseFloat(
+                                  context.poolStats[urlParams.id].data.pledged
+                                ) / 1000000,
+                                parseFloat(
+                                  context.poolStats[urlParams.id].data.tax_ratio
+                                ),
+                                parseFloat(
+                                  context.poolStats[urlParams.id].data.tax_fix
+                                ) / 1000000
+                              );
+                              console.log(roaStats);
+                            }}
+                          />
+                        </RewardsComponent>
+                        {calculatedUserReward >= 0 && (
+                          <RewardsComponent margintop="42px" fontweight="500">
+                            Estimated rewards with&nbsp;
+                            {context.poolStats[urlParams.id].data.blocks_epoch}
+                            &nbsp;blocks minted:&nbsp;
+                            {calculatedUserReward}₳
+                          </RewardsComponent>
+                        )}
+                      </RewardComponentWrapper>
+                    }
+                  />
+                </RewardsCalculatorWrapper>
+                <Spacer heightSpacer={"64px"} />
+                <ContentTitle>Performance history</ContentTitle>
                 <ChartStyled
                   graphBackground={poolsDetails[urlParams.id].poolColor}
-                  downloadHover={poolsDetails[urlParams.id].logoColor}
+                  downloadhover={poolsDetails[urlParams.id].logoColor}
+                  options={{
+                    theme: {
+                      mode: "dark",
+                      palette: "palette9",
+                    },
+                    title: {
+                      align: "left",
+                      margin: 10,
+                      offsetX: 0,
+                      offsetY: 0,
+                      floating: false,
+                      style: {
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                        fontFamily: undefined,
+                        color: "#263238",
+                      },
+                    },
+                    tooltip: {
+                      enabled: true,
+                      theme: true,
+                      decimalsInFloat: 2,
+                      fillSeriesColor: false,
+                      onDatasetHover: {
+                        highlightDataSeries: true,
+                      },
+                      style: {},
+                    },
+                    colors: [
+                      poolsDetails[urlParams.id].secondaryColor
+                        ? poolsDetails[urlParams.id].secondaryColor
+                        : "nikaj onda",
+                      poolsDetails[urlParams.id].logoColor
+                        ? poolsDetails[urlParams.id].logoColor
+                        : "nikaj onda",
+                    ],
+                    fill: {
+                      colors: [
+                        poolsDetails[urlParams.id].secondaryColor
+                          ? poolsDetails[urlParams.id].secondaryColor
+                          : "nikaj onda",
+                        poolsDetails[urlParams.id].logoColor
+                          ? poolsDetails[urlParams.id].logoColor
+                          : "nikaj onda",
+                      ],
+                    },
+                    chart: {
+                      id: "blocksProduced",
+                      zoom: {
+                        type: "x",
+                        enabled: false,
+                        autoScaleYaxis: true,
+                      },
+                    },
+                    xaxis: {
+                      categories: epochsGraph,
+                    },
+
+                    yaxis: [
+                      {
+                        title: {
+                          text: "ROA(%)",
+                        },
+                      },
+                      {
+                        opposite: true,
+                        title: {
+                          text: "Blocks produced",
+                        },
+                      },
+                    ],
+                  }}
+                  series={[
+                    {
+                      name: "ROA (%)",
+                      data: roaStats,
+                    },
+                    {
+                      name: "Blocks produced",
+                      data: numberOfBlocks,
+                      type: "bar",
+                    },
+                  ]}
+                />
+                {/* <ChartStyled
+                  graphBackground={poolsDetails[urlParams.id].poolColor}
+                  downloadhover={poolsDetails[urlParams.id].logoColor}
                   options={{
                     theme: {
                       mode: "dark",
                       palette: "palette2",
                     },
-
+                    title: {
+                      text: "Blocks produced",
+                      align: "left",
+                      margin: 10,
+                      offsetX: 0,
+                      offsetY: 0,
+                      floating: false,
+                      style: {
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                        fontFamily: undefined,
+                        color: "#263238",
+                      },
+                    },
                     tooltip: {
                       enabled: true,
                       theme: true,
@@ -731,7 +994,7 @@ const PoolPage = (props) => {
                       ],
                     },
                     chart: {
-                      id: "blocksProduced",
+                      id: "ROA history",
                     },
                     xaxis: {
                       categories: epochsGraph,
@@ -739,12 +1002,17 @@ const PoolPage = (props) => {
                   }}
                   series={[
                     {
-                      name: "blocks-produced",
+                      name: "ROA history",
+                      data: roaStats,
+                    },
+                    {
+                      name: "ROA history",
                       data: numberOfBlocks,
                     },
                   ]}
-                  type="bar"
-                />
+                  type="line"
+                /> */}
+                <Spacer heightSpacer={"42px"} />
               </div>
             </ContentWrapper>
             <Footer />

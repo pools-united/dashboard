@@ -3,7 +3,9 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const BoxWrapper = styled.div``;
+const BoxWrapper = styled.div`
+  width: ${(props) => props.width};
+`;
 
 const BoxTitle = styled.h3`
   padding: 2px 12px;
@@ -22,7 +24,7 @@ const BoxText = styled.div`
   background-color: ${(props) => props.textBackgroundColor};
   font-weight: 400;
   font-size: 18px;
-  height: 50px;
+  height: ${(props) => (props.heightBox ? "100%" : "50px")};
   line-height: 1;
   display: flex;
   justify-content: center;
@@ -36,6 +38,8 @@ const TextBox = (props) => {
     titleColor: PropTypes.string,
     backgroundColor: PropTypes.string,
     textBackgroundColor: PropTypes.string,
+    width: PropTypes.string,
+    heightBox: PropTypes.string,
   };
   const {
     title,
@@ -43,14 +47,18 @@ const TextBox = (props) => {
     titleColor,
     backgroundColor,
     textBackgroundColor,
+    width,
+    heightBox,
   } = props;
 
   return (
-    <BoxWrapper>
+    <BoxWrapper width={width}>
       <BoxTitle backgroundColor={backgroundColor} titleColor={titleColor}>
         {title}
       </BoxTitle>
-      <BoxText textBackgroundColor={textBackgroundColor}>{text}</BoxText>
+      <BoxText heightBox={heightBox} textBackgroundColor={textBackgroundColor}>
+        {text}
+      </BoxText>
     </BoxWrapper>
   );
 };
