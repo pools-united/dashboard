@@ -1,6 +1,8 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+
+import { Link } from "react-router-dom";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // @material-ui/core components
@@ -21,7 +23,7 @@ import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 const useStyles = makeStyles(styles);
 
 const ButtonLogoStyled = styled(Button)`
-  filter: ${(props) => `hue-rotate(${props.rotateHue}deg)`};
+  /* filter: ${(props) => `hue-rotate(${props.rotateHue}deg)`}; */
 `;
 
 export default function Header(props) {
@@ -66,7 +68,7 @@ export default function Header(props) {
     brand,
     fixed,
     absolute,
-    rotateHue,
+    // rotateHue,
   } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
@@ -75,9 +77,13 @@ export default function Header(props) {
     [classes.fixed]: fixed,
   });
   const brandComponent = (
-    <ButtonLogoStyled rotateHue={rotateHue} className={classes.logo}>
-      {brand}
-    </ButtonLogoStyled>
+    <Link to="/">
+      <ButtonLogoStyled 
+      // rotateHue={rotateHue}
+       className={classes.logo}>
+        {brand}
+      </ButtonLogoStyled>
+    </Link>
   );
   return (
     <AppBar className={appBarClasses}>

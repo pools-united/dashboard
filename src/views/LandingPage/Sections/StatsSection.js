@@ -188,7 +188,7 @@ const StatsSection = (props) => {
                   </EpochDates>
                 </EpochDatesContainer>
                 <EpochInfo scroll={context.scrollOffset >= -700}>
-                  GMT+0200 (Central European Summer Time)
+                  {/* GMT+0200 (Central European Summer Time) */}
                 </EpochInfo>
               </EpochProgressContainer>
             </TextWrapper>
