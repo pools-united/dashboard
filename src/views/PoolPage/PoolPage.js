@@ -245,6 +245,8 @@ const PoolPage = (props) => {
   const [calculatedUserReward, setCalculatedUserReward] = useState(-1);
   const userDelegationRef = useRef(null);
 
+  const [parsedDataRoaFinished, setParsedDataRoaFinished] = useState(false);
+
   const [definedRender, setDefinedRender] = useState(0);
   window.addEventListener("resize", () => {
     window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
@@ -467,15 +469,12 @@ const PoolPage = (props) => {
   return (
     <AppContext.Consumer>
       {(context) => {
-        console.log(context.poolStats);
-        context.poolStats[urlParams.id] &&
-          console.log(context.poolStats[urlParams.id]);
+        // console.log(context.poolStats);
+        // context.poolStats[urlParams.id] &&
+        //   console.log(context.poolStats[urlParams.id]);
         // console.log(
         //     JSON.parse(context.poolStats[urlParams.id].data.hist_bpe)
         //   );
-
-        //TODO: ovo mozda nebi trebalo tu biti, usporava render brijem!!!
-        //TODO: !!!
 
         if (context.globalStats.epoch_last && definedRender < 1) {
           setDefinedRender(definedRender + 1);
@@ -486,11 +485,19 @@ const PoolPage = (props) => {
               ...epochsGraph,
               parseInt(context.globalStats.epoch_last) - i,
             ]);
+            console.log(epochsGraph);
           }
-          // console.log(epochsGraph);
+          console.log(epochsGraph);
         }
+        //TODO: ovo mozda nebi trebalo tu biti, usporava render brijem!!!
+        //TODO: !!!
 
-        if (!numberOfBlocks && context.poolStats[urlParams.id]) {
+        if (
+          !numberOfBlocks &&
+          context.poolStats[urlParams.id] &&
+          !parsedDataRoaFinished
+        ) {
+          console.log("testiram");
           setNumberOfBlocks([]);
           setRoaStats([]);
           // console.log(
@@ -499,7 +506,7 @@ const PoolPage = (props) => {
 
           JSON.parse(context.poolStats[urlParams.id].data.hist_bpe).forEach(
             (element) => {
-              // console.log(element.val);
+              console.log(element.val);
 
               setNumberOfBlocks((numberOfBlocks) => [
                 ...numberOfBlocks,
@@ -510,7 +517,7 @@ const PoolPage = (props) => {
 
           JSON.parse(context.poolStats[urlParams.id].data.hist_roa).forEach(
             (element) => {
-              // console.log(element.val);
+              console.log(element.val);
 
               setRoaStats((roaStats) => [...roaStats, parseFloat(element.val)]);
             }
@@ -528,6 +535,8 @@ const PoolPage = (props) => {
           // rho,
           // tau,
           // decentralisationParam
+
+          setParsedDataRoaFinished(true);
         }
         //TODO: ovo (parseanje ROA I BLOCKOVA (VIDI GORE) )mozda nebi trebalo tu biti, usporava render brijem!!!
         //TODO: !!!
