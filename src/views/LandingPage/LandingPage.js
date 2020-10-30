@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 // nodejs library that concatenates classes
 
 // Global contextfor API
+import PropTypes from "prop-types";
 
 import AppContext from "../../Context/Context";
 
@@ -20,7 +21,7 @@ import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
-
+import styled from "styled-components";
 // Sections for this page
 import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
@@ -40,6 +41,15 @@ const LandingPage = (props) => {
   const [epochStartedDate, setEpochStartedDate] = useState("");
   const [epochEndingDate, setEpochEndingDate] = useState("");
   const totalSlots = 432000;
+
+  const CardanoIntroDivider = styled.div`
+    height: ${(props) => props.heightSet && "260px"};
+    width: 100%;
+  `;
+
+  CardanoIntroDivider.propTypes = {
+    heightSet: PropTypes.any,
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -109,6 +119,8 @@ const LandingPage = (props) => {
                 epochEndDate={epochEndingDate.toString().substr(0, 21)}
               />
               <div className={classes.container}>
+                <CardanoIntroDivider heightSet={context.scrollOffset <= -700} />
+
                 <CardanoIntroSection />
                 <ProductSection />
 

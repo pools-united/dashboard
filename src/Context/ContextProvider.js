@@ -9,7 +9,7 @@ const MyProvider = (props) => {
   const [protocol, setProtocol] = useState({});
   const poolIds = {
     VENUS: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
-    DEAD: "59d12b7a426724961607014aacea1e584f3ebc1196948f42a10893bc",
+    ERA: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
     HIVE: "de18050a35497096eecd2f93ddc2ea7e6c05cdae5575325327e223b3",
   };
   const [scrollOffset, setScrollOffset] = useState(0);
@@ -54,10 +54,10 @@ const MyProvider = (props) => {
       "HIVE"
     );
     fetchStats(
-      `https://js.adapools.org/pools/${poolIds.DEAD}/summary.json`,
+      `https://js.adapools.org/pools/${poolIds.ERA}/summary.json`,
       setPoolStats,
       "pool",
-      "DEAD"
+      "ERA"
     );
   }, []);
 

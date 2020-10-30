@@ -25,7 +25,10 @@ import Chart from "react-apexcharts";
 
 //images
 import VenusBanner from "assets/poolAssets/venus/FrescoBanner.png";
+import EraBanner from "assets/poolAssets/era/EraBanner.png";
 import VenusLogo from "assets/poolAssets/venus/fresco_logo.png";
+import EraLogo from "assets/poolAssets/era/era_logo.png";
+
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 
 //components
@@ -122,6 +125,7 @@ const AbsoluteLogo = styled.img`
   @media (max-width: 960px) {
     display: unset;
     position: absolute;
+    padding: 68px;
     width: 100%;
     z-index: -1;
     object-fit: contain;
@@ -205,12 +209,17 @@ const RewardsInputComponent = styled.input`
   color: ${(props) => props.color};
   width: 30%;
   font-size: 18px;
+  border: 0;
 `;
 
 const ListItemStyled = styled(ListItem)`
   padding-left: 5px;
   padding-right: 5px;
   width: max-content;
+`;
+
+const DescriptionText = styled.h4`
+  font-weight: 400;
 `;
 
 const TooltipStyled = styled(Tooltip)`
@@ -236,6 +245,8 @@ const PoolPage = (props) => {
   const [calculatedUserReward, setCalculatedUserReward] = useState(-1);
   const userDelegationRef = useRef(null);
 
+  const [parsedDataRoaFinished, setParsedDataRoaFinished] = useState(false);
+
   const [definedRender, setDefinedRender] = useState(0);
   window.addEventListener("resize", () => {
     window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
@@ -245,6 +256,8 @@ const PoolPage = (props) => {
       name: "Fresco Pool |VENUS|",
       poolColor: "black",
       secondaryColor: "#1F2833",
+      bodyBackgroundColor: "#45A29E",
+
       logoColor: "#45A29E",
       description: (
         <>
@@ -276,6 +289,33 @@ const PoolPage = (props) => {
     CPU: {
       name: "Cardano Pools United |CPU|",
       description: "insert desc here",
+    },
+    ERA: {
+      name: "Nova Pool |ERA|",
+      poolColor: "black",
+      secondaryColor: "#000",
+      logoColor: "#0D4022",
+      bodyBackgroundColor: "#0D4022",
+      description: (
+        <>
+          We're two sisters handling one Nova |ERA| pool. We have been ADA
+          holders since 2017, now we decieded to collaborate with CPU team and
+          try our best to contribute to Cardano family.
+        </>
+      ),
+      descriptionMobile: (
+        <>
+          We're two sisters handling one Nova |ERA| pool. We have been ADA
+          holders since 2017, now we decieded to collaborate with CPU team and
+          try our best to contribute to Cardano family.
+        </>
+      ),
+
+      banner: EraBanner,
+      logo: EraLogo,
+      id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
+      twitter: "https://twitter.com/ERA_NovaPool",
+      telegram: "https://t.me/CPUPools",
     },
   };
 
@@ -429,9 +469,10 @@ const PoolPage = (props) => {
   return (
     <AppContext.Consumer>
       {(context) => {
+        // console.log(context.poolStats);
         // context.poolStats[urlParams.id] &&
-        //   // console.log(context.poolStats[urlParams.id].data);
-        //   console.log(
+        //   console.log(context.poolStats[urlParams.id]);
+        // console.log(
         //     JSON.parse(context.poolStats[urlParams.id].data.hist_bpe)
         //   );
 
@@ -444,13 +485,19 @@ const PoolPage = (props) => {
               ...epochsGraph,
               parseInt(context.globalStats.epoch_last) - i,
             ]);
+            console.log(epochsGraph);
           }
-          // console.log(epochsGraph);
+          console.log(epochsGraph);
         }
-
         //TODO: ovo mozda nebi trebalo tu biti, usporava render brijem!!!
         //TODO: !!!
-        if (!numberOfBlocks && context.poolStats[urlParams.id]) {
+
+        if (
+          !numberOfBlocks &&
+          context.poolStats[urlParams.id] &&
+          !parsedDataRoaFinished
+        ) {
+          console.log("testiram");
           setNumberOfBlocks([]);
           setRoaStats([]);
           // console.log(
@@ -459,7 +506,7 @@ const PoolPage = (props) => {
 
           JSON.parse(context.poolStats[urlParams.id].data.hist_bpe).forEach(
             (element) => {
-              // console.log(element.val);
+              console.log(element.val);
 
               setNumberOfBlocks((numberOfBlocks) => [
                 ...numberOfBlocks,
@@ -470,7 +517,7 @@ const PoolPage = (props) => {
 
           JSON.parse(context.poolStats[urlParams.id].data.hist_roa).forEach(
             (element) => {
-              // console.log(element.val);
+              console.log(element.val);
 
               setRoaStats((roaStats) => [...roaStats, parseFloat(element.val)]);
             }
@@ -488,6 +535,8 @@ const PoolPage = (props) => {
           // rho,
           // tau,
           // decentralisationParam
+
+          setParsedDataRoaFinished(true);
         }
         //TODO: ovo (parseanje ROA I BLOCKOVA (VIDI GORE) )mozda nebi trebalo tu biti, usporava render brijem!!!
         //TODO: !!!
@@ -509,7 +558,7 @@ const PoolPage = (props) => {
         return (
           <div>
             <PoolPageStyle
-              backgroundColor={poolsDetails[urlParams.id].logoColor}
+              backgroundColor={poolsDetails[urlParams.id].bodyBackgroundColor}
               backgroundColorHeader="black"
             />
             <Header
@@ -540,12 +589,12 @@ const PoolPage = (props) => {
                       {" "}
                       {urlParams && poolsDetails[urlParams.id].name}
                     </h1>
-                    <h4>
+                    <DescriptionText>
                       {!mobileState
                         ? urlParams && poolsDetails[urlParams.id].description
                         : urlParams &&
                           poolsDetails[urlParams.id].descriptionMobile}
-                    </h4>
+                    </DescriptionText>
                     <br />
                     <AbsoluteLogo src={poolsDetails[urlParams.id].logo} />
                     <IdWrapper
@@ -930,7 +979,9 @@ const PoolPage = (props) => {
                     },
                     colors: [
                       poolsDetails[urlParams.id].secondaryColor
-                        ? poolsDetails[urlParams.id].secondaryColor
+                        ? poolsDetails[urlParams.id].secondaryColor == "#000"
+                          ? "#808281"
+                          : poolsDetails[urlParams.id].secondaryColor
                         : "nikaj onda",
                       poolsDetails[urlParams.id].logoColor
                         ? poolsDetails[urlParams.id].logoColor
@@ -939,7 +990,9 @@ const PoolPage = (props) => {
                     fill: {
                       colors: [
                         poolsDetails[urlParams.id].secondaryColor
-                          ? poolsDetails[urlParams.id].secondaryColor
+                          ? poolsDetails[urlParams.id].secondaryColor == "#000"
+                            ? "#808281"
+                            : poolsDetails[urlParams.id].secondaryColor
                           : "nikaj onda",
                         poolsDetails[urlParams.id].logoColor
                           ? poolsDetails[urlParams.id].logoColor
