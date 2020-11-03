@@ -387,7 +387,6 @@ const PoolPage = (props) => {
       usersReward = realRewards;
     }
 
-   
     setCalculatedUserReward(parseFloat(usersReward).toFixed(2));
     // console.log(
     //   totalActiveStake,
