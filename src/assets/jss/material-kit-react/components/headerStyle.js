@@ -38,6 +38,7 @@ const headerStyle = {
     height: "46px",
     minWidth: "1px",
     backgroundImage: `url(${logoImage})`,
+    backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
     "&:hover": {
       backgroundColor: "transparent",

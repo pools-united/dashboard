@@ -10,7 +10,7 @@ const MyProvider = (props) => {
   const poolIds = {
     VENUS: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
     ERA: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
-    HIVE: "de18050a35497096eecd2f93ddc2ea7e6c05cdae5575325327e223b3",
+    CPU: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
   };
   const [scrollOffset, setScrollOffset] = useState(0);
   useScrollPosition(({ prevPos, currPos }) => {
@@ -48,10 +48,10 @@ const MyProvider = (props) => {
       "VENUS"
     );
     fetchStats(
-      `https://js.adapools.org/pools/${poolIds.HIVE}/summary.json`,
+      `https://js.adapools.org/pools/${poolIds.CPU}/summary.json`,
       setPoolStats,
       "pool",
-      "HIVE"
+      "CPU"
     );
     fetchStats(
       `https://js.adapools.org/pools/${poolIds.ERA}/summary.json`,
