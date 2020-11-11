@@ -10,8 +10,15 @@ import GridItem from "components/Grid/GridItem.js";
 import PoolCard from "components/PoolCard/PoolCard.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
+import styled from "styled-components";
 
 import face from "assets/img/faces/marc.jpg";
+
+const CpuContainerStyled = styled(GridContainer)`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+`;
 
 const useStyles = makeStyles(styles);
 
@@ -19,6 +26,24 @@ export default function PoolSection() {
   const classes = useStyles();
   return (
     <div className={classes.section}>
+      <CpuContainerStyled>
+        <GridItem xs={12} sm={12} md={4}>
+          <PoolCard
+            name={"Cardano Pools United [CPU]"}
+            address={"fb3cc38ce8ca95d45b8c5760be51f16d54cf54a1d0c31820ffd2ddc7"}
+            margin={"25%"}
+            fixedFee={"350"}
+            pledge={"5000"}
+            delegateLink={"#"}
+            poolLink={"#"}
+            operator={{
+              name: "Name#1",
+              image: face,
+            }}
+          />
+        </GridItem>
+      </CpuContainerStyled>
+
       <GridContainer>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard

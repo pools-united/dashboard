@@ -32,7 +32,24 @@ import StatsSection from "./Sections/StatsSection.js";
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
-
+const ParallaxStyled = styled(Parallax)`
+  background-color: rgb(14, 12, 12);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  &:before {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  @media (max-width: 1290px) {
+    &:before {
+      background: rgba(0, 0, 0, 0.8);
+    }
+  }
+`;
+const CardanoIntroDivider = styled.div`
+  height: ${(props) => props.heightSet && "260px"};
+  width: 100%;
+`;
 const LandingPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
@@ -42,12 +59,7 @@ const LandingPage = (props) => {
   const [epochEndingDate, setEpochEndingDate] = useState("");
   const totalSlots = 432000;
 
-  const CardanoIntroDivider = styled.div`
-    height: ${(props) => props.heightSet && "260px"};
-    width: 100%;
-  `;
-
-  CardanoIntroDivider.propTypes = {
+  LandingPage.propTypes = {
     heightSet: PropTypes.any,
   };
 
@@ -86,7 +98,7 @@ const LandingPage = (props) => {
               }}
               {...rest}
             />
-            <Parallax filter image={require("assets/img/landing-bg.jpg")}>
+            <ParallaxStyled filter image={require("assets/img/landing-bg.png")}>
               <div className={classes.container}>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>
@@ -109,7 +121,7 @@ const LandingPage = (props) => {
                   </GridItem>
                 </GridContainer>
               </div>
-            </Parallax>
+            </ParallaxStyled>
             <div className={classNames(classes.main, classes.mainRaised)}>
               <StatsSection
                 epoch={context.globalStats.epoch_last}

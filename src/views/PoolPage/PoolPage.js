@@ -291,10 +291,10 @@ const PoolPage = (props) => {
     CPU: {
       name: "CPU Pool |CPU|",
       poolColor: "black",
-      secondaryColor: "#1F2833",
-      bodyBackgroundColor: "#45A29E",
+      secondaryColor: "black",
+      bodyBackgroundColor: "rgb(7,67,89)",
 
-      logoColor: "#45A29E",
+      logoColor: "rgb(7,67,89)",
       description: (
         <>
           Official pool of Cardano pools united collaboration. The part of the
