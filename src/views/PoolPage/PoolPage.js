@@ -28,6 +28,8 @@ import VenusBanner from "assets/poolAssets/venus/FrescoBanner.png";
 import EraBanner from "assets/poolAssets/era/EraBanner.png";
 import VenusLogo from "assets/poolAssets/venus/fresco_logo.png";
 import EraLogo from "assets/poolAssets/era/era_logo.png";
+import CpuLogo from "assets/poolAssets/cpu/cpu_logo.png";
+import CpuBanner from "assets/poolAssets/cpu/CpuBanner.png";
 
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 
@@ -287,8 +289,40 @@ const PoolPage = (props) => {
       github: "https://github.com/filip4428",
     },
     CPU: {
-      name: "Cardano Pools United |CPU|",
-      description: "insert desc here",
+      name: "CPU Pool |CPU|",
+      poolColor: "black",
+      secondaryColor: "#1F2833",
+      bodyBackgroundColor: "#45A29E",
+
+      logoColor: "#45A29E",
+      description: (
+        <>
+          Official pool of Cardano pools united collaboration. The part of the
+          profits from this pool will be used to pay for the relays for the
+          pools. CPU collaborators decided to donate the rest to the charitable
+          cause of our delegators choice.
+          <br />
+          <br />
+          In the near future, when CPU pool starts to generate a profit, we will
+          implement a voting system where you will be able to choose which
+          charitable cause CPU pool will donate to.
+        </>
+      ),
+      descriptionMobile: (
+        <>
+          Official pool of Cardano pools united collaboration. The part of the
+          profits from this pool will be used to pay for the relays for the
+          pools. CPU collaborators decided to donate the rest to the charitable
+          cause of our delegators choice.
+        </>
+      ),
+
+      banner: CpuBanner,
+      logo: CpuLogo,
+      id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
+      twitter: "https://twitter.com/PoolVenus",
+      telegram: "https://t.me/frescopool",
+      github: "https://github.com/filip4428",
     },
     ERA: {
       name: "Nova Pool |ERA|",
