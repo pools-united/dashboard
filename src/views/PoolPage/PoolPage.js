@@ -37,6 +37,7 @@ import FileCopyIcon from "@material-ui/icons/FileCopy";
 
 //components
 import TextBox from "./Components/Textbox.js";
+import ShowAda from "./Components/ShowAda.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import styled, { keyframes, createGlobalStyle } from "styled-components";
@@ -581,7 +582,7 @@ const PoolPage = (props) => {
   return (
     <AppContext.Consumer>
       {(context) => {
-        // console.log(context.poolStats);
+        console.log(context);
         // context.poolStats[urlParams.id] &&
         //   console.log(context.poolStats[urlParams.id]);
         // console.log(
@@ -688,7 +689,17 @@ const PoolPage = (props) => {
               }}
               {...rest}
             />
-
+            <ShowAda
+              titleColor={poolsDetails[urlParams.id].logoColor}
+              textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+              backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+              title={"Pledge"}
+              width="180px"
+              text={`${
+                context.adaPrice.RAW &&
+                context.adaPrice.RAW.ADA.USD.PRICE.toFixed(4)
+              } USD `}
+            />
             <ParallaxStyled
               poolColor={poolsDetails[urlParams.id].poolColor}
               filter
