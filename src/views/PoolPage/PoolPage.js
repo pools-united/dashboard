@@ -702,7 +702,6 @@ const PoolPage = (props) => {
             />
             <ParallaxStyled
               poolColor={poolsDetails[urlParams.id].poolColor}
-              filter
               image={poolsDetails[urlParams.id].banner}
             >
               {poolsDetails[urlParams.id].logoAnimation && (
