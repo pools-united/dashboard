@@ -27,6 +27,8 @@ import Chart from "react-apexcharts";
 import VenusBanner from "assets/poolAssets/venus/FrescoBanner.png";
 import EraBanner from "assets/poolAssets/era/EraBanner.png";
 import VenusLogo from "assets/poolAssets/venus/fresco_logo.png";
+import VenusLogoStatic from "assets/poolAssets/venus/spinning_static.png";
+import VenusLogoDynamic from "assets/poolAssets/venus/spinning_dynamic.png";
 import EraLogo from "assets/poolAssets/era/era_logo.png";
 import CpuLogo from "assets/poolAssets/cpu/cpu_logo.png";
 import CpuBanner from "assets/poolAssets/cpu/CpuBanner.png";
@@ -35,6 +37,7 @@ import FileCopyIcon from "@material-ui/icons/FileCopy";
 
 //components
 import TextBox from "./Components/Textbox.js";
+import ShowAda from "./Components/ShowAda.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import styled, { keyframes, createGlobalStyle } from "styled-components";
@@ -55,6 +58,11 @@ body{
 
 
 }
+
+.makeStyles-filter-94::before {
+    background: rgba(0, 0, 0, 0.0);
+}
+
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -112,6 +120,7 @@ const ChartStyled = styled(Chart)`
   }
 `;
 const ParallaxStyled = styled(Parallax)`
+  position: relative;
   background-color: ${(props) => props.poolColor};
   @media (max-width: 1110px) {
     background-position: 145%;
@@ -120,6 +129,56 @@ const ParallaxStyled = styled(Parallax)`
     background-position: 145%;
     background-image: unset !important;
   }
+`;
+
+const frescoAnimation = keyframes`
+0% {
+  transform: rotate(90deg) scale(1.2);
+}
+
+30% {
+  transform: rotate(90deg) scale(1.0);
+}
+
+60%
+{
+  transform: rotate(90deg) scale(1.0);
+
+}
+
+100%
+{
+  transform: rotate(0deg) scale(1.0);
+
+}
+
+`;
+
+const frescoInitialState = "transform: rotate(90deg) scale(1.2);";
+
+const frescoLogoCustomCss = "filter: drop-shadow(0px 0px 32px #207179);";
+
+const BannerLogoContainer = styled.div`
+  position: absolute;
+  right: 180px;
+  width: 400px;
+  height: 400px;
+  @media (max-width: 1200px) {
+    right: 80px;
+  }
+
+  @media (max-width: 960px) {
+    display: none;
+  }
+`;
+const LogoSection = styled.img`
+  animation: ${(props) => props.animation} 1.2s linear;
+  transition: 0.2s all;
+  position: absolute;
+  width: 100%;
+
+  ${(props) => props.logoCustomCss}
+  ${(props) => props.initialState}
 `;
 
 const AbsoluteLogo = styled.img`
@@ -250,6 +309,8 @@ const PoolPage = (props) => {
   const [parsedDataRoaFinished, setParsedDataRoaFinished] = useState(false);
 
   const [definedRender, setDefinedRender] = useState(0);
+
+  const [startAnimation, setStartAnimation] = useState(false);
   window.addEventListener("resize", () => {
     window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
   });
@@ -281,12 +342,19 @@ const PoolPage = (props) => {
         </>
       ),
 
-      banner: VenusBanner,
-      logo: VenusLogo,
       id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
       twitter: "https://twitter.com/PoolVenus",
       telegram: "https://t.me/frescopool",
       github: "https://github.com/filip4428",
+      banner: VenusBanner,
+      logoMobile: VenusLogo,
+      logo: VenusLogo,
+      logoStatic: VenusLogoStatic,
+      logoDynamic: VenusLogoDynamic,
+      animation: frescoAnimation,
+      initialLogoState: frescoInitialState,
+      logoCustomCss: frescoLogoCustomCss,
+      logoAnimation: true,
     },
     CPU: {
       name: "CPU Pool |CPU|",
@@ -318,7 +386,9 @@ const PoolPage = (props) => {
       ),
 
       banner: CpuBanner,
-      logo: CpuLogo,
+      logoMobile: CpuLogo,
+
+      logoAnimation: false,
       id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
       twitter: "https://twitter.com/PoolVenus",
       telegram: "https://t.me/frescopool",
@@ -346,10 +416,13 @@ const PoolPage = (props) => {
       ),
 
       banner: EraBanner,
-      logo: EraLogo,
+      logoMobile: EraLogo,
+      logoStatic: "",
+      logoDynamic: "",
       id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
       twitter: "https://twitter.com/ERA_NovaPool",
       telegram: "https://t.me/CPUPools",
+      logoAnimation: false,
     },
   };
 
@@ -472,6 +545,12 @@ const PoolPage = (props) => {
 
   useEffect(() => {
     //get URL params
+
+    console.log("testirammm");
+
+    setTimeout(() => {
+      setStartAnimation(true);
+    }, 800);
     let urlParamsObject;
     let match,
       pl = /\+/g, // Regex for replacing addition symbol with a space
@@ -503,7 +582,7 @@ const PoolPage = (props) => {
   return (
     <AppContext.Consumer>
       {(context) => {
-        // console.log(context.poolStats);
+        console.log(context);
         // context.poolStats[urlParams.id] &&
         //   console.log(context.poolStats[urlParams.id]);
         // console.log(
@@ -519,9 +598,9 @@ const PoolPage = (props) => {
               ...epochsGraph,
               parseInt(context.globalStats.epoch_last) - i,
             ]);
-            console.log(epochsGraph);
+            // console.log(epochsGraph);
           }
-          console.log(epochsGraph);
+          // console.log(epochsGraph);
         }
         //TODO: ovo mozda nebi trebalo tu biti, usporava render brijem!!!
         //TODO: !!!
@@ -531,7 +610,7 @@ const PoolPage = (props) => {
           context.poolStats[urlParams.id] &&
           !parsedDataRoaFinished
         ) {
-          console.log("testiram");
+          // console.log("testiram");
           setNumberOfBlocks([]);
           setRoaStats([]);
           // console.log(
@@ -551,7 +630,7 @@ const PoolPage = (props) => {
 
           JSON.parse(context.poolStats[urlParams.id].data.hist_roa).forEach(
             (element) => {
-              console.log(element.val);
+              // console.log(element.val);
 
               setRoaStats((roaStats) => [...roaStats, parseFloat(element.val)]);
             }
@@ -610,12 +689,44 @@ const PoolPage = (props) => {
               }}
               {...rest}
             />
-
+            <ShowAda
+              titleColor={poolsDetails[urlParams.id].logoColor}
+              textBackgroundColor={poolsDetails[urlParams.id].logoColor}
+              backgroundColor={poolsDetails[urlParams.id].secondaryColor}
+              title={"Pledge"}
+              width="180px"
+              text={`${
+                context.adaPrice.RAW &&
+                context.adaPrice.RAW.ADA.USD.PRICE.toFixed(4)
+              } USD `}
+            />
             <ParallaxStyled
               poolColor={poolsDetails[urlParams.id].poolColor}
-              filter
               image={poolsDetails[urlParams.id].banner}
             >
+              {poolsDetails[urlParams.id].logoAnimation && (
+                <BannerLogoContainer>
+                  <LogoSection
+                    logoCustomCss={
+                      poolsDetails[urlParams.id].logoCustomCss +
+                      (startAnimation &&
+                        `transform:rotate(${context.scrollOffset / 25}deg);`)
+                    }
+                    src={poolsDetails[urlParams.id].logoStatic}
+                  />
+                  <LogoSection
+                    initialState={
+                      !startAnimation &&
+                      poolsDetails[urlParams.id].initialLogoState
+                    }
+                    animation={
+                      startAnimation && poolsDetails[urlParams.id].animation
+                    }
+                    src={poolsDetails[urlParams.id].logoDynamic}
+                  />
+                </BannerLogoContainer>
+              )}
+
               <div className={classes.container}>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>
@@ -630,7 +741,7 @@ const PoolPage = (props) => {
                           poolsDetails[urlParams.id].descriptionMobile}
                     </DescriptionText>
                     <br />
-                    <AbsoluteLogo src={poolsDetails[urlParams.id].logo} />
+                    <AbsoluteLogo src={poolsDetails[urlParams.id].logoMobile} />
                     <IdWrapper
                       onClick={() => {
                         !copyState && copyId(poolsDetails[urlParams.id].id);
