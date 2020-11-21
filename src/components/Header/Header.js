@@ -20,15 +20,22 @@ import Menu from "@material-ui/icons/Menu";
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 
+import Stats from "components/Stats/Stats.js";
+
 const useStyles = makeStyles(styles);
 
 const ButtonLogoStyled = styled(Button)`
   /* filter: ${(props) => `hue-rotate(${props.rotateHue}deg)`}; */
 `;
 
+const StatsButtonWrapper = styled.div`
+  margin: 2px 24px;
+`;
+
 export default function Header(props) {
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
   React.useEffect(() => {
     if (props.changeColorOnScroll) {
       window.addEventListener("scroll", headerColorChange);
@@ -39,9 +46,11 @@ export default function Header(props) {
       }
     };
   });
+
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
   const headerColorChange = () => {
     const { color, changeColorOnScroll } = props;
     const windowsScrollTop = window.pageYOffset;
@@ -61,6 +70,7 @@ export default function Header(props) {
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
+
   const {
     color,
     rightLinks,
@@ -70,18 +80,20 @@ export default function Header(props) {
     absolute,
     // rotateHue,
   } = props;
+
   const appBarClasses = classNames({
     [classes.appBar]: true,
     [classes[color]]: color,
     [classes.absolute]: absolute,
     [classes.fixed]: fixed,
   });
+
   const brandComponent = (
     <Link to="/">
       <ButtonLogoStyled 
       // rotateHue={rotateHue}
-       className={classes.logo}>
-        {brand}
+      className={classes.logo}>
+        {/* {brand} */}
       </ButtonLogoStyled>
     </Link>
   );
@@ -100,6 +112,11 @@ export default function Header(props) {
         </div>
         <Hidden smDown implementation="css">
           {rightLinks}
+        </Hidden>
+        <Hidden smDown implementation="css">
+          <StatsButtonWrapper>
+            <Stats />
+          </StatsButtonWrapper>
         </Hidden>
         <Hidden mdUp>
           <IconButton

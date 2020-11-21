@@ -1,7 +1,6 @@
 /*eslint-disable*/
 import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
+import HomeIcon from "@material-ui/icons/Home";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -27,6 +26,16 @@ export default function HeaderLinks(props) {
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
+        <Button
+          href="/"
+          color="transparent"
+          // target="_blank"
+          className={classes.navLink}
+        >
+          <HomeIcon className={classes.icons} /> HOME
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
         <CustomDropdown
           noLiPadding
           buttonText="Pools"
@@ -36,32 +45,15 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={InvertColors}
           dropdownList={[
-            <Link to="#" className={classes.dropdownLink}>Main Pool</Link>,
-            <Link to="#" className={classes.dropdownLink}>ADA Pool</Link>,
-            <Link to="#" className={classes.dropdownLink}>Fresco Pool</Link>,
-            // <a
-            //   href="#"
-            //   target="_blank"
-            //   className={classes.dropdownLink}
-            // >
-            //   Fresco Pool
-            // </a>
+            <Link to="/pool?id=CPU" target="_blank" className={classes.dropdownLink}>Main Pool [CPU]</Link>,
+            <Link to="/pool?id=ERA" target="_blank" className={classes.dropdownLink}>ERA Pool [ERA]</Link>,
+            <Link to="/pool?id=VENUS" target="_blank" className={classes.dropdownLink}>Fresco Pool [VENUS]</Link>,
           ]}
         />
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="#"
-          color="transparent"
-          // target="_blank"
-          className={classes.navLink}
-        >
-          <People className={classes.icons} /> About Us
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          href="#"
+          href="/faq"
           color="transparent"
           // target="_blank"
           className={classes.navLink}
@@ -76,8 +68,8 @@ export default function HeaderLinks(props) {
           </IconButton>
         </Tooltip>*/}
         <Tooltip
-          id="instagram-twitter"
-          title="Follow us on twitter"
+          id="twitter-tooltip"
+          title="Follow us"
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
@@ -93,8 +85,8 @@ export default function HeaderLinks(props) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Tooltip
-          id="instagram-facebook"
-          title="Follow us on facebook"
+          id="facebook-tooltip"
+          title="Send us a message"
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
@@ -104,14 +96,14 @@ export default function HeaderLinks(props) {
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-facebook"} />
+            <i className={classes.socialIcons + " fab fa-telegram"} />
           </Button>
         </Tooltip>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Tooltip
           id="instagram-tooltip"
-          title="Follow us on instagram"
+          title="Check out our channel"
           placement={window.innerWidth > 959 ? "top" : "left"}
           classes={{ tooltip: classes.tooltip }}
         >
@@ -121,7 +113,7 @@ export default function HeaderLinks(props) {
             target="_blank"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-instagram"} />
+            <i className={classes.socialIcons + " fab fa-youtube"} />
           </Button>
         </Tooltip>
       </ListItem>

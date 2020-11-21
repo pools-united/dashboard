@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 // nodejs library that concatenates classes
 
+import Drawer from '@material-ui/core/Drawer';
+
 // Global contextfor API
 import PropTypes from "prop-types";
 
@@ -27,7 +29,6 @@ import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import CardanoIntroSection from "./Sections/CardanoIntroSection.js";
 import PoolSection from "./Sections/PoolSection.js";
-import StatsSection from "./Sections/StatsSection.js";
 
 const dashboardRoutes = [];
 
@@ -53,36 +54,14 @@ const CardanoIntroDivider = styled.div`
 const LandingPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
-  const [currentSlot, setCurrentSlot] = useState(undefined);
-  // const currentDate = new Date(Date.now());
-  const [epochStartedDate, setEpochStartedDate] = useState("");
-  const [epochEndingDate, setEpochEndingDate] = useState("");
-  const totalSlots = 432000;
 
   LandingPage.propTypes = {
     heightSet: PropTypes.any,
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      currentSlot && setCurrentSlot((currentSlot) => currentSlot + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [currentSlot]);
-
   return (
     <AppContext.Consumer>
       {(context) => {
-        if (!currentSlot) {
-          setCurrentSlot(parseInt(context.globalStats.epoch_slot_no));
-        } else if (currentSlot && !epochStartedDate) {
-          setEpochStartedDate(
-            new Date(parseInt(context.globalStats.epoch_started * 1000))
-          );
-          setEpochEndingDate(
-            new Date((Date.now() / 1000 + (totalSlots - currentSlot)) * 1000)
-          );
-        }
         // console.log(context);
         return (
           <div>
@@ -111,7 +90,7 @@ const LandingPage = (props) => {
                     <Button
                       color="danger"
                       size="lg"
-                      href="https://www.youtube.com/watch?v=dQw4w9WgXcQ&ref=creativetim"
+                      href="/pool?id=CPU"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -123,21 +102,12 @@ const LandingPage = (props) => {
               </div>
             </ParallaxStyled>
             <div className={classNames(classes.main, classes.mainRaised)}>
-              <StatsSection
-                epoch={context.globalStats.epoch_last}
-                curSloth={currentSlot}
-                epochProgress={(currentSlot / totalSlots) * 100}
-                epochStartDate={epochStartedDate.toString().substr(0, 21)}
-                epochEndDate={epochEndingDate.toString().substr(0, 21)}
-              />
               <div className={classes.container}>
-                <CardanoIntroDivider heightSet={context.scrollOffset <= -700} />
-
-                <CardanoIntroSection />
                 <ProductSection />
-
                 <PoolSection />
                 <TeamSection />
+                <CardanoIntroSection />
+                <CardanoIntroDivider heightSet={context.scrollOffset <= -700} />
               </div>
             </div>
             <Footer />

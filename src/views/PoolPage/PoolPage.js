@@ -546,8 +546,6 @@ const PoolPage = (props) => {
   useEffect(() => {
     //get URL params
 
-    console.log("testirammm");
-
     setTimeout(() => {
       setStartAnimation(true);
     }, 800);
@@ -1242,7 +1240,7 @@ const PoolPage = (props) => {
                 <Spacer heightSpacer={"42px"} />
               </div>
             </ContentWrapper>
-            <Footer />
+            {/* <Footer /> */}
           </div>
         );
       }}
