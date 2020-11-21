@@ -90,7 +90,7 @@ const LandingPage = (props) => {
                     <Button
                       color="danger"
                       size="lg"
-                      href="/pool?id=CPU"
+                      href="/faq"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
