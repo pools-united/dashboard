@@ -35,7 +35,7 @@ export default function PoolSection() {
             margin={"25%"}
             fixedFee={"350"}
             pledge={"5000"}
-            delegateLink={"#"}
+            delegateLink={"/faq"}
             poolLink={"/pool?id=ERA"}
             kickstart
             operator={{
@@ -51,7 +51,7 @@ export default function PoolSection() {
             margin={"25%"}
             fixedFee={"350"}
             pledge={"5000"}
-            delegateLink={"#"}
+            delegateLink={"/faq"}
             poolLink={"/pool?id=CPU"}
             isMain
             operator={{
@@ -67,7 +67,7 @@ export default function PoolSection() {
             margin={"25%"}
             fixedFee={"350"}
             pledge={"5000"}
-            delegateLink={"#"}
+            delegateLink={"/faq"}
             poolLink={"/pool?id=TBD"}
             operator={{
               name: "Name#1",
@@ -83,7 +83,7 @@ export default function PoolSection() {
             margin={"0.85%"}
             fixedFee={"340"}
             pledge={"70000"}
-            delegateLink={"#"}
+            delegateLink={"/faq"}
             poolLink={"/pool?id=VENUS"}
             operator={{
               name: "Name#1",
@@ -98,7 +98,7 @@ export default function PoolSection() {
             margin={"0.85%"}
             fixedFee={"340"}
             pledge={"70000"}
-            delegateLink={"#"}
+            delegateLink={"/faq"}
             poolLink={"/pool?id=RANDO"}
             operator={{
               name: "Name#1",

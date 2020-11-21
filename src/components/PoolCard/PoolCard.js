@@ -108,7 +108,10 @@ export default function PoolCard(props) {
             className={classes.buttonDelegate}
             color="primary"
             href={delegateLink}
-            onClick={(e) => e.preventDefault()}
+            onClick={(e) => {
+              e.preventDefault()
+              window.location.href = delegateLink
+            }}
           >
             Delegate now
           </Button>
