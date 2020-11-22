@@ -32,39 +32,28 @@ export default function Footer(props) {
         <div className={classes.left}>
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="#"
-                className={classes.block}
-                // target="_blank"
-              >
-                Cardano Pools United
+              <a href="/pool?id=CPU" className={classes.block}>
+                [CPU]
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="#"
-                className={classes.block}
-                // target="_blank"
-              >
-                About us
+              <a href="/pool?id=VENUS" className={classes.block}>
+                [VENUS]
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="#"
-                className={classes.block}
-                // target="_blank"
-              >
-                Blog
+              <a href="/pool?id=ERA" className={classes.block}>
+                [ERA]
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a
-                href="#"
-                className={classes.block}
-                // target="_blank"
-              >
-                Licenses
+              <a href="/pool?id=TBD" className={classes.block}>
+                [TBD]
+              </a>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a href="/pool?id=RANDO" className={classes.block}>
+                [RANDO]
               </a>
             </ListItem>
           </List>
@@ -78,6 +67,10 @@ export default function Footer(props) {
           >
             Cardano Pools United
           </a>
+        </div>
+        <div className={classes.left}>
+          The information on this site may contain errors or mistakes, please do your own research. Unofficial Cardano website.
+          Past performance is not indicative of future results. Any investment in blockchain assets involves the risk of loss of part or all of your investment. The value of the blockchain assets you exchange is subject to market and other investment risks.
         </div>
       </div>
     </footer>

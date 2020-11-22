@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // nodejs library to set properties for components
@@ -19,6 +20,10 @@ import styles from "assets/jss/material-kit-react/components/cardPoolStyle.js";
 
 const useStyles = makeStyles(styles);
 
+const CardWrapper = styled.div`
+  marginTop: 24px;
+`;
+
 export default function PoolCard(props) {
   const classes = useStyles();
   const {
@@ -31,6 +36,8 @@ export default function PoolCard(props) {
     margin,
     fixedFee,
     pledge,
+    kickstart = false,
+    isMain = false,
     operator,
     ...rest
   } = props;
@@ -42,78 +49,91 @@ export default function PoolCard(props) {
     classes.operatorPhoto
   );
 
-  const [hover, setHover] = useState(false);
-  const handleMouseOver = () => setHover(true);
-  const handleMouseOut = () => setHover(false);
+  const [hover, setHover] = useState(kickstart);
+  const handleMouseOver = () => !kickstart && setHover(true);
+  const handleMouseOut = () => !kickstart && setHover(false);
 
   return (
-    <Card
-      className={classes.card}
-      raised={hover}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-      {...rest}
-    >
-      <div className={classes.header}>
-        <a href={poolLink}>
-          <h2 className={classes.title}>{name}</h2>
-        </a>
-        <div className={classes.headerLogo}>
-          <InvertColors style={{ fontSize: 48 }} />
+    <CardWrapper>
+      <Card
+        className={isMain ? classes.cardCPU : classes.card}
+        raised={hover}
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+        {...rest}
+      >
+        <div className={classes.header}>
+          <a href={poolLink}>
+            <h2 className={classes.title}>{name}</h2>
+          </a>
+          <div className={classes.headerLogo}>
+            <InvertColors style={{ fontSize: 48 }} />
+          </div>
         </div>
-      </div>
 
-      <div className={classes.address}>{address}</div>
+        <div className={classes.address}>{address}</div>
 
-      <div className={classes.stats}>
-        <div>
-          <div className={classes.statsItem}>{margin}</div>
-          <div>{"margin"}</div>
+        <div className={classes.stats}>
+          <div>
+            <div className={classes.statsItem}>{margin}</div>
+            <div>{"margin"}</div>
+          </div>
+          <Divider orientation="vertical" flexItem />
+          <div>
+            <div className={classes.statsItem}>{fixedFee}</div>
+            <div>{"fee"}</div>
+          </div>
+          <Divider orientation="vertical" flexItem />
+          <div>
+            <div className={classes.statsItem}>{pledge}</div>
+            <div>{"pledge"}</div>
+          </div>
         </div>
-        <Divider orientation="vertical" flexItem />
-        <div>
-          <div className={classes.statsItem}>{fixedFee}</div>
-          <div>{"fee"}</div>
-        </div>
-        <Divider orientation="vertical" flexItem />
-        <div>
-          <div className={classes.statsItem}>{pledge}</div>
-          <div>{"pledge"}</div>
-        </div>
-      </div>
 
-      <Divider type={"middle"} />
+        <Divider type={"middle"} />
 
-      <div className={classes.operatorWrapper}>
-        <h3 className={classes.operatorTitle}>{"Operated by: "}</h3>
-        <div className={classes.operatorPhotosWrapper}>
-          <img
-            src={operator.image}
-            alt={`${operator.name}`}
-            className={imageClasses}
-          />
+        {/* <div className={classes.operatorWrapper}>
+          <h3 className={classes.operatorTitle}>{"Operated by: "}</h3>
+          <div className={classes.operatorPhotosWrapper}>
+            <img
+              src={operator.image}
+              alt={`${operator.name}`}
+              className={imageClasses}
+            />
+          </div>
+        </div> */}
+
+        <div className={classes.buttonWrapper}>
+          <Button
+            className={classes.buttonDelegate}
+            color="primary"
+            href={delegateLink}
+            onClick={(e) => {
+              e.preventDefault()
+              window.location.href = delegateLink
+            }}
+          >
+            Delegate now
+          </Button>
+          <Button
+            className={classes.buttonDetails}
+            color="transparent"
+            href={poolLink}
+            onClick={(e) => {
+              e.preventDefault()
+              window.location.href = poolLink
+            }}
+          >
+            Details
+          </Button>
         </div>
-      </div>
-
-      <div className={classes.buttonWrapper}>
-        <Button
-          className={classes.buttonDelegate}
-          color="primary"
-          href={delegateLink}
-          onClick={(e) => e.preventDefault()}
-        >
-          Delegate now
-        </Button>
-        <Button
-          className={classes.buttonDetails}
-          color="transparent"
-          href={poolLink}
-          onClick={(e) => e.preventDefault()}
-        >
-          Details
-        </Button>
-      </div>
-    </Card>
+        {kickstart &&
+          <div className={classes.kickstart}>
+            Help kickstart this pool!
+        </div>
+        }
+      </Card>
+    </CardWrapper>
   );
 }
 
@@ -129,6 +149,9 @@ PoolCard.propTypes = {
 
   poolLink: PropTypes.string,
   delegateLink: PropTypes.string,
+
+  kickstart: PropTypes.bool,
+  isMain: PropTypes.bool,
 
   operator: PropTypes.objectOf({
     name: PropTypes.string,

@@ -2,6 +2,23 @@ import { primaryColor, title } from "assets/jss/material-kit-react.js";
 
 import imagesStyle from "assets/jss/material-kit-react/imagesStyles.js";
 
+const card = {
+  border: `0`,
+  marginBottom: "30px",
+  marginTop: "30px",
+  borderRadius: "6px",
+  color: "rgba(0, 0, 0, 0.87)",
+  background: "#fff",
+  display: "flex",
+  flex: "1 1 auto",
+  flexDirection: "column",
+  // minWidth: "380px",
+  wordWrap: "break-word",
+  fontSize: ".875rem",
+  padding: "0px 24px 24px 24px",
+  height: "100%",
+}
+
 const cardStyle = {
   ...imagesStyle,
   header: {
@@ -9,7 +26,6 @@ const cardStyle = {
     justifyContent: "space-between",
     flex: "1 1 auto",
     marginTop: "32px",
-    marginBottom: "24px",
   },
   headerLogo: {
     display: "flex",
@@ -25,7 +41,7 @@ const cardStyle = {
     display: "flex",
     justifyContent: "space-around",
     flexWrap: "wrap",
-    marginTop: "16px",
+    marginTop: "24px",
   },
   operatorPhotosWrapper: {
     display: "flex",
@@ -39,29 +55,18 @@ const cardStyle = {
   },
   operatorTitle: {
     ...title,
+    marginTop: "30px",
     display: "inline-block",
     alignItems: "center",
     marginBottom: "1rem",
-    marginTop: "30px",
     minHeight: "32px",
     textDecoration: "none",
     textAlign: "left",
   },
-  card: {
-    border: "0",
-    marginBottom: "30px",
-    marginTop: "30px",
-    borderRadius: "6px",
-    color: "rgba(0, 0, 0, 0.87)",
-    background: "#fff",
-    display: "flex",
-    flex: "1 1 auto",
-    flexDirection: "column",
-    // minWidth: "380px",
-    wordWrap: "break-word",
-    fontSize: ".875rem",
-    padding: "0px 24px 24px 24px",
-    height: "100%",
+  card: { ...card },
+  cardCPU: {
+    ...card,
+    border: `2px solid ${primaryColor}`,
   },
   cardPlain: {
     background: "transparent",
@@ -97,6 +102,7 @@ const cardStyle = {
     fontWeight: "bold",
   },
   address: {
+    marginTop: "12px",
     fontWeight: "bold",
     textAlign: "left",
     padding: "0px 8px",
@@ -115,13 +121,19 @@ const cardStyle = {
     flex: "1 1 auto",
   },
   buttonWrapper: {
-    paddingTop: "8px",
+    paddingTop: "12px",
     display: "flex",
     flexWrap: "wrap",
     alignItems: "center",
     justifyContent: "space-between",
     flex: "1 1 auto",
   },
+  kickstart: {
+    color: "red",
+    fontWeight: "bold",
+    fontSize: "16px",
+    marginTop: "12px"
+  }
 };
 
 export default cardStyle;
