@@ -687,7 +687,7 @@ const PoolPage = (props) => {
               }}
               {...rest}
             />
-            <ShowAda
+            {/* <ShowAda
               titleColor={poolsDetails[urlParams.id].logoColor}
               textBackgroundColor={poolsDetails[urlParams.id].logoColor}
               backgroundColor={poolsDetails[urlParams.id].secondaryColor}
@@ -697,7 +697,7 @@ const PoolPage = (props) => {
                 context.adaPrice.RAW &&
                 context.adaPrice.RAW.ADA.USD.PRICE.toFixed(4)
               } USD `}
-            />
+            /> */}
             <ParallaxStyled
               poolColor={poolsDetails[urlParams.id].poolColor}
               image={poolsDetails[urlParams.id].banner}

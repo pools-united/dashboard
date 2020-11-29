@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
 import PropTypes from "prop-types";
+import Divider from "@material-ui/core/Divider";
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
 import styled from "styled-components";
 import AppContext from "Context/Context";
 import Drawer from '@material-ui/core/Drawer';
 import Button from "components/CustomButtons/Button.js";
 
-import AdaPrice from "components/AdaPrice/AdaPrice.js";
+import AdaPriceV2 from "components/AdaPriceV2/AdaPriceV2.js";
 
 //other components
 import CustomLinearProgress from "components/CustomLinearProgress/CustomLinearProgress.js";
@@ -67,6 +68,10 @@ const EpochDatesContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+`;
+
+const Spacer = styled.div`
+  height: 12px
 `;
 
 const Stats = (props) => {
@@ -134,7 +139,7 @@ const Stats = (props) => {
 
         return (
           <React.Fragment key={stats}>
-            <Button color="danger" onClick={toggleDrawer(true)}>{"VIEW EPOCH"}</Button>
+            <Button color="danger" onClick={toggleDrawer(true)}>{"VIEW STATS"}</Button>
             <Drawer anchor={'top'} open={stats} onClose={toggleDrawer(false)}>
               <SectionWrapper className={classes.section}>
                 <TextWrapper>
@@ -159,7 +164,8 @@ const Stats = (props) => {
                     </div>
                   </EpochProgressContainer>
                 </TextWrapper>
-                {/* <AdaPrice
+                <Spacer />
+                <AdaPriceV2
                   titleColor={"rgb(255,255,255)"}
                   textBackgroundColor={"rgba(255, 0, 0, 0);"}
                   backgroundColor={"rgba(255, 0, 0, 0);"}
@@ -169,7 +175,7 @@ const Stats = (props) => {
                     context.adaPrice.RAW &&
                     context.adaPrice.RAW.ADA.USD.PRICE.toFixed(4)
                   } USD `}
-                /> */}
+                />
               </SectionWrapper>
             </Drawer>
           </React.Fragment>
