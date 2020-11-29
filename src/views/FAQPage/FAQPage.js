@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-// @material-ui/icons
-import Camera from "@material-ui/icons/Camera";
-import Palette from "@material-ui/icons/Palette";
-import Favorite from "@material-ui/icons/Favorite";
+
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
@@ -16,67 +13,150 @@ import GridItem from "components/Grid/GridItem.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import Typography from '@material-ui/core/Typography';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Accordion from "@material-ui/core/Accordion";
+import AccordionSummary from "@material-ui/core/AccordionSummary";
+import AccordionDetails from "@material-ui/core/AccordionDetails";
+import Typography from "@material-ui/core/Typography";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import styled from "styled-components";
 import styles from "assets/jss/material-kit-react/views/faqPage.js";
 
+import ReactPlayer from "react-player";
+
 const useStyles = makeStyles(styles);
 
-const BottomSpacer = styled.div`
-  height: 260px;
+const PlayerStyled = styled(ReactPlayer)`
+  margin: auto;
+`;
+
+const AccordionWrapper = styled.div`
   width: 100%;
+`;
+
+// const InitialAccordionState = {
+//   1: false,
+//   2: false,
+//   3: false,
+// };
+
+const TypographyStyled = styled(Typography)`
+  width: 100%;
+  transition: 0.3s all;
+  text-align: ${(props) => (props.animation ? "center" : "unset")};
+  font-size: ${(props) => (props.animation ? "22px" : "16px")};
 `;
 
 function SimpleAccordion() {
   const classes = useStyles();
 
+  // function AccordionState(id) {
+  //   console.log(id);
+  //   setAccordionState({
+  //     ...accordionState,
+  //     1: true,
+  //   });
+  // }
+
+  // const [accordionState, setAccordionState] = useState(InitialAccordionState);
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
   return (
-    <div className={classes.root}>
-      <Accordion>
+    <AccordionWrapper>
+      <Accordion
+        expanded={expanded === "panel1"}
+        onChange={handleChange("panel1")}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
         >
-          <Typography className={classes.heading}>What is Cardano?</Typography>
+          <TypographyStyled
+            animation={expanded === "panel1"}
+            className={classes.heading}
+          >
+What is Cardano?          </TypographyStyled>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
+          <PlayerStyled url="https://www.youtube.com/watch?v=UVCP4bKy9Iw" />
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        expanded={expanded === "panel2"}
+        onChange={handleChange("panel2")}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
+          aria-controls="panel2bh-content"
+          id="panel2bh-header"
         >
-          <Typography className={classes.heading}>How to delegate ADA?</Typography>
+          <TypographyStyled
+            animation={expanded === "panel2"}
+            className={classes.heading}
+          >
+            Users
+          </TypographyStyled>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget.
-          </Typography>
+          <TypographyStyled>
+            Donec placerat, lectus sed mattis semper, neque lectus feugiat
+            lectus, varius pulvinar diam eros in elit. Pellentesque convallis
+            laoreet laoreet.
+          </TypographyStyled>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion
+        expanded={expanded === "panel3"}
+        onChange={handleChange("panel3")}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
+          aria-controls="panel3bh-content"
+          id="panel3bh-header"
         >
-          <Typography className={classes.heading}>Disabled Accordion</Typography>
+          <TypographyStyled
+            animation={expanded === "panel3"}
+            className={classes.heading}
+          >
+            Advanced settings
+          </TypographyStyled>
         </AccordionSummary>
+        <AccordionDetails>
+          <TypographyStyled>
+            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
+            sit amet egestas eros, vitae egestas augue. Duis vel est augue.
+          </TypographyStyled>
+        </AccordionDetails>
       </Accordion>
-    </div>
+      <Accordion
+        expanded={expanded === "panel4"}
+        onChange={handleChange("panel4")}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel4bh-content"
+          id="panel4bh-header"
+        >
+          <TypographyStyled
+            animation={expanded === "panel4"}
+            className={classes.heading}
+          >
+            Personal data
+          </TypographyStyled>
+        </AccordionSummary>
+        <AccordionDetails>
+          <TypographyStyled>
+            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
+            sit amet egestas eros, vitae egestas augue. Duis vel est augue.
+          </TypographyStyled>
+        </AccordionDetails>
+      </Accordion>
+    </AccordionWrapper>
   );
 }
 
@@ -93,24 +173,18 @@ export default function ProfilePage(props) {
         fixed
         changeColorOnScroll={{
           height: 200,
-          color: "white"
+          color: "white",
         }}
         {...rest}
       />
-      <Parallax small filter image={require("assets/poolAssets/cpu/CpuBanner.png")} />
+      <Parallax
+        small
+        filter
+        image={require("assets/poolAssets/cpu/CpuBanner.png")}
+      />
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>
-          <GridContainer justify="center">
-            <GridItem xs={12} sm={12} md={12}>
-              <h2 className={classes.title}>How to delegate ADA?</h2>
-              <h5 className={classes.description}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                sit amet blandit leo lobortis eget.
-              </h5>
-            </GridItem>
-          </GridContainer>
-          <BottomSpacer />
-        </div>
+        <SimpleAccordion />
+        {/* <BottomSpacer /> */}
       </div>
       <Footer />
     </div>

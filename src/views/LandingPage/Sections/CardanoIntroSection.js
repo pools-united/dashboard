@@ -34,7 +34,10 @@ export default function CardanoInfoSection() {
                 <a href="#">How to buy/sell ADA?</a>
               </li>
               <li>
-                <a href="#">Storing your ADA in official wallets?</a>
+                <a href="#">Storing your ADA in official wallets</a>
+              </li>
+              <li>
+                <a href="#">How to delegate your ADA</a>
               </li>
               <li>
                 <a href="#">Future of Cardano network?</a>
