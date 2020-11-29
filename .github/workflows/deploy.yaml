@@ -18,11 +18,12 @@ jobs:
       - run: npm run build
         env:
           CI: false # TODO: Temp solution, fix code warnings so builds start passing again
-      - uses: jsmrcaga/action-netlify-deploy@v1.1.0
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v1.1
         with:
-          install_command: ""
-          build_command: ""
+          publish-dir: './build'
+          deploy-message: "Deploy from GitHub Actions"
+        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_DEPLOY_TO_PROD: true
-          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+        timeout-minutes: 10
