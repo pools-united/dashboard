@@ -100,7 +100,6 @@ const ShowAda = (props) => {
         adaShown={adaShown}
         onClick={() => {
           setAdaShown(!adaShown);
-          console.log(adaShown);
         }}
         backgroundColor={textBackgroundColor}
         src={AdaSymbol}

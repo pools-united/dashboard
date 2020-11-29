@@ -12,12 +12,13 @@ const ShowAdaWrapper = styled.div`
 `;
 
 const GraphBox = styled.div`
-  background-color: ${(props) => props.textBackgroundColor};
+  /* background-color: ${(props) => props.textBackgroundColor}; */
+  color
   margin-top: 8px;
 `;
 
 const GraphImg = styled.img`
-  filter: brightness(0);
+  filter: hue-rotate(118deg);
 `;
 
 const AdaPriceV2 = (props) => {
