@@ -1,2 +1,2 @@
-/fresco-pool/extendedMeta.json /fresco-pool/extendedMeta.json 200!
 /* /index.html 200
+/fresco/:file /fresco/:file.json 200!
