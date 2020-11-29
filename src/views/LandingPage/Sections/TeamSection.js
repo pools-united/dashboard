@@ -15,12 +15,17 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
-
-import team1 from "assets/img/faces/avatar.jpg";
-import team2 from "assets/img/faces/christian.jpg";
-import team3 from "assets/img/faces/kendall.jpg";
+import styled from "styled-components";
+import team1 from "assets/img/faces/Patricia.png";
+import team2 from "assets/img/faces/Filip.jpg";
+import team3 from "assets/img/faces/Nora.jpg";
 
 const useStyles = makeStyles(styles);
+
+const TwoCards = styled.div`
+  display: flex;
+  justify-content: center;
+`;
 
 export default function TeamSection() {
   const classes = useStyles();
@@ -40,15 +45,16 @@ export default function TeamSection() {
                 <img src={team1} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Patricia Mrelec
+                Patricia Mlinarić
                 <br />
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                  Patricia has Master's degree in enviromental engineering. She
+                  can see the future where Cardano has a major role improving
+                  not only peoples lives but the whole ecosystems.
+                  <br /> You can find her in the forrest, picking mushrooms or
+                  taking care of her plants.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -82,15 +88,18 @@ export default function TeamSection() {
                 <img src={team2} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Pfilip Mrelec
+                Filip Strelec
                 <br />
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
+                  Filip Strelec is Geo-environmental engineer that is currently
+                  working as JavaScript developer in{" "}
+                  <a href="https://www.speck.agency/" target="_blank">
+                    Speck d.o.o. <br />
+                  </a>
+                  He started <a href="/pool?id=VENUS">Fresco Pool </a> during an
+                  ITN Shelley phase and has been Stake pool operator ever since.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -117,16 +126,11 @@ export default function TeamSection() {
                 <img src={team3} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Patricia Mrelec Friend
+                Dario Uršulin
                 <br />
               </h4>
               <CardBody>
-                <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
-                </p>
+                <p className={classes.description}>He da man</p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
                 {/* <Button
@@ -153,6 +157,94 @@ export default function TeamSection() {
               </CardFooter>
             </Card>
           </GridItem>
+
+          <TwoCards>
+            {" "}
+            <GridItem xs={12} sm={12} md={4}>
+              <Card plain>
+                <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                  <img src={team3} alt="..." className={imageClasses} />
+                </GridItem>
+                <h4 className={classes.cardTitle}>
+                 Emil Balint
+                  <br />
+                </h4>
+                <CardBody>
+                  <p className={classes.description}>
+                  He da man
+                  </p>
+                </CardBody>
+                <CardFooter className={classes.justifyCenter}>
+                  {/* <Button
+                  justIcon
+                  color="transparent"
+                  className={classes.margin5}
+                >
+                  <i className={classes.socials + " fab fa-twitter"} />
+                </Button>
+                <Button
+                  justIcon
+                  color="transparent"
+                  className={classes.margin5}
+                >
+                  <i className={classes.socials + " fab fa-instagram"} />
+                </Button>
+                <Button
+                  justIcon
+                  color="transparent"
+                  className={classes.margin5}
+                >
+                  <i className={classes.socials + " fab fa-facebook"} />
+                </Button> */}
+                </CardFooter>
+              </Card>
+            </GridItem>
+            <GridItem xs={12} sm={12} md={4}>
+              <Card plain>
+                <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                  <img src={team3} alt="..." className={imageClasses} />
+                </GridItem>
+                <h4 className={classes.cardTitle}>
+                  Nora Mlinarić
+                  <br />
+                </h4>
+                <CardBody>
+                  <p className={classes.description}>
+                    After earning her Bachelor's degree in Journalism, Nora went
+                    for Master's in PR. She entered the Crypto world to explore
+                    her passion for technology, digital marketing and writing.{" "}
+                    <br />
+                    By day you can find her on college or as a Sales Person in
+                    H&M, and by night she's typically writing, tweeting or
+                    curating content.
+                  </p>
+                </CardBody>
+                <CardFooter className={classes.justifyCenter}>
+                  {/* <Button
+                  justIcon
+                  color="transparent"
+                  className={classes.margin5}
+                >
+                  <i className={classes.socials + " fab fa-twitter"} />
+                </Button>
+                <Button
+                  justIcon
+                  color="transparent"
+                  className={classes.margin5}
+                >
+                  <i className={classes.socials + " fab fa-instagram"} />
+                </Button>
+                <Button
+                  justIcon
+                  color="transparent"
+                  className={classes.margin5}
+                >
+                  <i className={classes.socials + " fab fa-facebook"} />
+                </Button> */}
+                </CardFooter>
+              </Card>
+            </GridItem>
+          </TwoCards>
         </GridContainer>
       </div>
     </div>

@@ -17,7 +17,7 @@ const card = {
   fontSize: ".875rem",
   padding: "0px 24px 24px 24px",
   height: "100%",
-}
+};
 
 const cardStyle = {
   ...imagesStyle,
@@ -77,11 +77,14 @@ const cardStyle = {
   },
   title: {
     ...title,
-    display: "flex",
+
     fontSize: "26px",
     padding: "0px 8px",
     margin: 0,
-    minHeight: "32px",
+    minHeight: "78px",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     textDecoration: "none",
     textAlign: "left",
     "&:hover": {
@@ -132,8 +135,8 @@ const cardStyle = {
     color: "red",
     fontWeight: "bold",
     fontSize: "16px",
-    marginTop: "12px"
-  }
+    marginTop: "12px",
+  },
 };
 
 export default cardStyle;
