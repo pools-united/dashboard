@@ -35,6 +35,11 @@ import CpuBanner from "assets/poolAssets/cpu/CpuBanner.png";
 
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 
+//operator images
+import Filip from "assets/img/faces/Filip.jpg";
+import Nora from "assets/img/faces/Nora.jpg";
+import Patricia from "assets/img/faces/Patricia.jpg";
+
 //components
 import TextBox from "./Components/Textbox.js";
 import ShowAda from "./Components/ShowAda.js";
@@ -250,6 +255,23 @@ const SocialContainer = styled.div`
   padding-top: 12px;
 `;
 
+const OperatorWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const OperatedByText = styled.div`
+  color: ${(props) => props.color};
+  font-weight: 400;
+  font-size: 20px;
+`;
+
+const OperatorPic = styled.img`
+  width: 54px;
+  border-radius: 100px;
+  margin-left: 20px;
+`;
 const RewardsComponent = styled.div`
   display: flex;
   width: 100%;
@@ -355,6 +377,9 @@ const PoolPage = (props) => {
       initialLogoState: frescoInitialState,
       logoCustomCss: frescoLogoCustomCss,
       logoAnimation: true,
+      operators: true,
+      firstOperator: Filip,
+      secondOperator: false,
     },
     CPU: {
       name: "CPU Pool |CPU|",
@@ -393,6 +418,7 @@ const PoolPage = (props) => {
       twitter: "https://twitter.com/PoolVenus",
       telegram: "https://t.me/frescopool",
       github: "https://github.com/filip4428",
+      operators: false,
     },
     ERA: {
       name: "Nova Pool |ERA|",
@@ -423,6 +449,9 @@ const PoolPage = (props) => {
       twitter: "https://twitter.com/ERA_NovaPool",
       telegram: "https://t.me/CPUPools",
       logoAnimation: false,
+      operators: true,
+      firstOperator: Patricia,
+      secondOperator: Nora,
     },
   };
 
@@ -580,7 +609,7 @@ const PoolPage = (props) => {
   return (
     <AppContext.Consumer>
       {(context) => {
-        console.log(context);
+        // console.log(context);
         // context.poolStats[urlParams.id] &&
         //   console.log(context.poolStats[urlParams.id]);
         // console.log(
@@ -617,8 +646,6 @@ const PoolPage = (props) => {
 
           JSON.parse(context.poolStats[urlParams.id].data.hist_bpe).forEach(
             (element) => {
-              console.log(element.val);
-
               setNumberOfBlocks((numberOfBlocks) => [
                 ...numberOfBlocks,
                 parseInt(element.val),
@@ -682,7 +709,7 @@ const PoolPage = (props) => {
               urlParams
               fixed
               changeColorOnScroll={{
-                height: 400,
+                height: 200,
                 color: "white",
               }}
               {...rest}
@@ -851,6 +878,25 @@ const PoolPage = (props) => {
                         </ListItemStyled>
                       )}
                     </SocialContainer>
+                    {poolsDetails[urlParams.id].operators && (
+                      <OperatorWrapper>
+                        <OperatedByText
+                          color={poolsDetails[urlParams.id].bodyBackgroundColor}
+                        >
+                          Operated by
+                        </OperatedByText>
+                        <div>
+                          <OperatorPic
+                            src={poolsDetails[urlParams.id].firstOperator}
+                          />
+                          {poolsDetails[urlParams.id].secondOperator && (
+                            <OperatorPic
+                              src={poolsDetails[urlParams.id].secondOperator}
+                            />
+                          )}
+                        </div>
+                      </OperatorWrapper>
+                    )}
 
                     {/* <Button
                       color="danger"
