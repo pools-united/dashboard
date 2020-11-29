@@ -381,6 +381,50 @@ const PoolPage = (props) => {
       firstOperator: Filip,
       secondOperator: false,
     },
+    MINES: {
+      name: "Fresco Pool |VENUS|",
+      poolColor: "black",
+      secondaryColor: "#1F2833",
+      bodyBackgroundColor: "#45A29E",
+
+      logoColor: "#45A29E",
+      description: (
+        <>
+          Fresco pool was initially deployed during a ITN Cardano phase and has
+          been working ever since. During that time we gathered a lot of happy
+          and loyal delegators.
+          <br />
+          <br />
+          Fresco pool is community focused pool with big emphasis on educating
+          the delegator about the Cardano ecosystem in order to make the
+          delegation process simple, fast and secure as possible.
+        </>
+      ),
+      descriptionMobile: (
+        <>
+          Fresco pool is community focused pool with big emphasis on educating
+          the delegator about the Cardano ecosystem in order to make the
+          delegation process simple, fast and secure as possible.
+        </>
+      ),
+
+      id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
+      twitter: "https://twitter.com/PoolVenus",
+      telegram: "https://t.me/frescopool",
+      github: "https://github.com/filip4428",
+      banner: VenusBanner,
+      logoMobile: VenusLogo,
+      logo: VenusLogo,
+      logoStatic: VenusLogoStatic,
+      logoDynamic: VenusLogoDynamic,
+      animation: frescoAnimation,
+      initialLogoState: frescoInitialState,
+      logoCustomCss: frescoLogoCustomCss,
+      logoAnimation: true,
+      operators: true,
+      firstOperator: Filip,
+      secondOperator: false,
+    },
     CPU: {
       name: "CPU Pool |CPU|",
       poolColor: "black",
