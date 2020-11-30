@@ -351,16 +351,18 @@ const PoolPage = (props) => {
           and loyal delegators.
           <br />
           <br />
-          Fresco pool is community focused pool with big emphasis on educating
-          the delegator about the Cardano ecosystem in order to make the
-          delegation process simple, fast and secure as possible.
+          Fresco pool is community focused pool inspired by Jacque Fresco with
+          big emphasis on educating the delegator about the Cardano ecosystem in
+          order to make the delegation process simple, fast and secure as
+          possible.
         </>
       ),
       descriptionMobile: (
         <>
-          Fresco pool is community focused pool with big emphasis on educating
-          the delegator about the Cardano ecosystem in order to make the
-          delegation process simple, fast and secure as possible.
+          Fresco pool is community focused pool inspired by Jacque Fresco with
+          big emphasis on educating the delegator about the Cardano ecosystem in
+          order to make the delegation process simple, fast and secure as
+          possible.
         </>
       ),
 
