@@ -53,14 +53,15 @@ export default function Header(props) {
 
   const headerColorChange = () => {
     const { color, changeColorOnScroll } = props;
+
     const windowsScrollTop = window.pageYOffset;
+
     if (windowsScrollTop > changeColorOnScroll.height) {
       document.body
         .getElementsByTagName("header")[0]
         .classList.remove(classes[color]);
-      document.body
-        .getElementsByTagName("header")[0]
-        .classList.add(classes[changeColorOnScroll.color]);
+      document.body.getElementsByTagName("header")[0].style.background =
+        changeColorOnScroll.color;
     } else {
       document.body
         .getElementsByTagName("header")[0]
@@ -90,9 +91,10 @@ export default function Header(props) {
 
   const brandComponent = (
     <Link to="/">
-      <ButtonLogoStyled 
-      // rotateHue={rotateHue}
-      className={classes.logo}>
+      <ButtonLogoStyled
+        // rotateHue={rotateHue}
+        className={classes.logo}
+      >
         {/* {brand} */}
       </ButtonLogoStyled>
     </Link>
