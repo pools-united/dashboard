@@ -397,15 +397,14 @@ const PoolPage = (props) => {
       logoColor: "#45A29E",
       description: (
         <>
-          Founded in the dark times of Covid-19, in order to help delegators and
-          Cardano community to rise above 2020 darkness, so that we could all
-          enjoy more meaningful future where Cardano will help civilization for
-          the next step in our evolution. Because all people deserve their
-          rights!
+          Founded in the 2020, in order to help delegators and
+          Cardano community. Adastra Pool is proud member of Cardano pools 
+          united collaboration. For all information you can contact us via
+          twitter or telegram.
           <br />
           <br />
-          Join Adastra mines and be the part of community who want better
-          tommorrow. Lets touch the stars!
+          Join Adastra mines and be the part of community who wants better
+          tommorrow.
         </>
       ),
       descriptionMobile: <>In dev</>,
