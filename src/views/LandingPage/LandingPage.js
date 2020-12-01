@@ -59,6 +59,8 @@ const LandingPage = (props) => {
     heightSet: PropTypes.any,
   };
 
+  alert("The website is still in development, should be done tomorrow :)");
+
   return (
     <AppContext.Consumer>
       {(context) => {

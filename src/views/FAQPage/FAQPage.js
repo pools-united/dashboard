@@ -30,135 +30,147 @@ const PlayerStyled = styled(ReactPlayer)`
   margin: auto;
 `;
 
-const AccordionWrapper = styled.div`
-  width: 100%;
+const TitleHeading = styled.div`
+  font-size: 24px;
+  font-weight: 500;
+  text-align: center;
+  padding: 8px 0;
 `;
 
-// const InitialAccordionState = {
-//   1: false,
-//   2: false,
-//   3: false,
+const FaqContainer  = styled.div`
+
+
+`
+// const AccordionWrapper = styled.div`
+//   width: 100%;
+// `;
+
+// // const InitialAccordionState = {
+// //   1: false,
+// //   2: false,
+// //   3: false,
+// // };
+
+// const TypographyStyled = styled(Typography)`
+//   width: 100%;
+//   transition: 0.3s all;
+//   text-align: ${(props) => (props.animation ? "center" : "unset")};
+//   font-size: ${(props) => (props.animation ? "22px" : "16px")};
+// `;
+
+// function SimpleAccordion() {
+// const classes = useStyles();
+
+// function AccordionState(id) {
+//   console.log(id);
+//   setAccordionState({
+//     ...accordionState,
+//     1: true,
+//   });
+// }
+
+// const [accordionState, setAccordionState] = useState(InitialAccordionState);
+// const [expanded, setExpanded] = React.useState(false);
+
+// const handleChange = (panel) => (event, isExpanded) => {
+//   setExpanded(isExpanded ? panel : false);
 // };
 
-const TypographyStyled = styled(Typography)`
-  width: 100%;
-  transition: 0.3s all;
-  text-align: ${(props) => (props.animation ? "center" : "unset")};
-  font-size: ${(props) => (props.animation ? "22px" : "16px")};
-`;
+// return (
+//     <AccordionWrapper>
+//       <Accordion
+//         expanded={expanded === "panel1"}
+//         onChange={handleChange("panel1")}
+//       >
+//         <AccordionSummary
+//           expandIcon={<ExpandMoreIcon />}
+//           aria-controls="panel1bh-content"
+//           id="panel1bh-header"
+//         >
+//           <TypographyStyled
+//             animation={expanded === "panel1"}
+//             className={classes.heading}
+//           >
+// What is Cardano?          </TypographyStyled>
+//         </AccordionSummary>
+//         <AccordionDetails>
+//           <PlayerStyled url="https://www.youtube.com/watch?v=UVCP4bKy9Iw" />
+//         </AccordionDetails>
+//       </Accordion>
+//       <Accordion
+//         expanded={expanded === "panel2"}
+//         onChange={handleChange("panel2")}
+//       >
+//         <AccordionSummary
+//           expandIcon={<ExpandMoreIcon />}
+//           aria-controls="panel2bh-content"
+//           id="panel2bh-header"
+//         >
+//           <TypographyStyled
+//             animation={expanded === "panel2"}
+//             className={classes.heading}
+//           >
+//             Users
+//           </TypographyStyled>
+//         </AccordionSummary>
+//         <AccordionDetails>
+//           <TypographyStyled>
+//             Donec placerat, lectus sed mattis semper, neque lectus feugiat
+//             lectus, varius pulvinar diam eros in elit. Pellentesque convallis
+//             laoreet laoreet.
+//           </TypographyStyled>
+//         </AccordionDetails>
+//       </Accordion>
+//       <Accordion
+//         expanded={expanded === "panel3"}
+//         onChange={handleChange("panel3")}
+//       >
+//         <AccordionSummary
+//           expandIcon={<ExpandMoreIcon />}
+//           aria-controls="panel3bh-content"
+//           id="panel3bh-header"
+//         >
+//           <TypographyStyled
+//             animation={expanded === "panel3"}
+//             className={classes.heading}
+//           >
+//             Advanced settings
+//           </TypographyStyled>
+//         </AccordionSummary>
+//         <AccordionDetails>
+//           <TypographyStyled>
+//             Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
+//             sit amet egestas eros, vitae egestas augue. Duis vel est augue.
+//           </TypographyStyled>
+//         </AccordionDetails>
+//       </Accordion>
+//       <Accordion
+//         expanded={expanded === "panel4"}
+//         onChange={handleChange("panel4")}
+//       >
+//         <AccordionSummary
+//           expandIcon={<ExpandMoreIcon />}
+//           aria-controls="panel4bh-content"
+//           id="panel4bh-header"
+//         >
+//           <TypographyStyled
+//             animation={expanded === "panel4"}
+//             className={classes.heading}
+//           >
+//             Personal data
+//           </TypographyStyled>
+//         </AccordionSummary>
+//         <AccordionDetails>
+//           <TypographyStyled>
+//             Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
+//             sit amet egestas eros, vitae egestas augue. Duis vel est augue.
+//           </TypographyStyled>
+//         </AccordionDetails>
+//       </Accordion>
+//     </AccordionWrapper>
 
-function SimpleAccordion() {
-  const classes = useStyles();
-
-  // function AccordionState(id) {
-  //   console.log(id);
-  //   setAccordionState({
-  //     ...accordionState,
-  //     1: true,
-  //   });
-  // }
-
-  // const [accordionState, setAccordionState] = useState(InitialAccordionState);
-  const [expanded, setExpanded] = React.useState(false);
-
-  const handleChange = (panel) => (event, isExpanded) => {
-    setExpanded(isExpanded ? panel : false);
-  };
-
-  return (
-    <AccordionWrapper>
-      <Accordion
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <TypographyStyled
-            animation={expanded === "panel1"}
-            className={classes.heading}
-          >
-What is Cardano?          </TypographyStyled>
-        </AccordionSummary>
-        <AccordionDetails>
-          <PlayerStyled url="https://www.youtube.com/watch?v=UVCP4bKy9Iw" />
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "panel2"}
-        onChange={handleChange("panel2")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
-        >
-          <TypographyStyled
-            animation={expanded === "panel2"}
-            className={classes.heading}
-          >
-            Users
-          </TypographyStyled>
-        </AccordionSummary>
-        <AccordionDetails>
-          <TypographyStyled>
-            Donec placerat, lectus sed mattis semper, neque lectus feugiat
-            lectus, varius pulvinar diam eros in elit. Pellentesque convallis
-            laoreet laoreet.
-          </TypographyStyled>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "panel3"}
-        onChange={handleChange("panel3")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <TypographyStyled
-            animation={expanded === "panel3"}
-            className={classes.heading}
-          >
-            Advanced settings
-          </TypographyStyled>
-        </AccordionSummary>
-        <AccordionDetails>
-          <TypographyStyled>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
-            sit amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </TypographyStyled>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "panel4"}
-        onChange={handleChange("panel4")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel4bh-content"
-          id="panel4bh-header"
-        >
-          <TypographyStyled
-            animation={expanded === "panel4"}
-            className={classes.heading}
-          >
-            Personal data
-          </TypographyStyled>
-        </AccordionSummary>
-        <AccordionDetails>
-          <TypographyStyled>
-            Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer
-            sit amet egestas eros, vitae egestas augue. Duis vel est augue.
-          </TypographyStyled>
-        </AccordionDetails>
-      </Accordion>
-    </AccordionWrapper>
-  );
-}
+//   );
+// }
 
 export default function ProfilePage(props) {
   const classes = useStyles();
@@ -183,8 +195,11 @@ export default function ProfilePage(props) {
         image={require("assets/poolAssets/cpu/CpuBanner.png")}
       />
       <div className={classNames(classes.main, classes.mainRaised)}>
-        <SimpleAccordion />
+        {/* <SimpleAccordion /> */}
         {/* <BottomSpacer /> */}
+        {/* <TitleHeading>How to delegate?</TitleHeading> */}
+
+        <TitleHeading>Coming soon :)</TitleHeading>
       </div>
       <Footer />
     </div>

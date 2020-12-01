@@ -384,7 +384,7 @@ const PoolPage = (props) => {
       secondOperator: false,
     },
     MINES: {
-      name: "Fresco Pool |VENUS|",
+      name: "ADAstra Mines |Mines|",
       poolColor: "black",
       secondaryColor: "#1F2833",
       bodyBackgroundColor: "#45A29E",
@@ -392,23 +392,13 @@ const PoolPage = (props) => {
       logoColor: "#45A29E",
       description: (
         <>
-          Fresco pool was initially deployed during a ITN Cardano phase and has
-          been working ever since. During that time we gathered a lot of happy
-          and loyal delegators.
+          in dev
           <br />
           <br />
-          Fresco pool is community focused pool with big emphasis on educating
-          the delegator about the Cardano ecosystem in order to make the
-          delegation process simple, fast and secure as possible.
+          dev
         </>
       ),
-      descriptionMobile: (
-        <>
-          Fresco pool is community focused pool with big emphasis on educating
-          the delegator about the Cardano ecosystem in order to make the
-          delegation process simple, fast and secure as possible.
-        </>
-      ),
+      descriptionMobile: <>In dev</>,
 
       id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
       twitter: "https://twitter.com/PoolVenus",
@@ -650,8 +640,12 @@ const PoolPage = (props) => {
 
     // console.log(urlParams);
 
+
     window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
   }, [urlParams]);
+
+  alert("The website is still in development, should be done tomorrow :)");
+
   return (
     <AppContext.Consumer>
       {(context) => {
