@@ -1,12 +1,14 @@
 import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
 
 // core components
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/cardanoIntroStyle.js";
+import { Route } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
@@ -25,22 +27,36 @@ export default function CardanoInfoSection() {
             for more info or take a look at the following links:
             <ul>
               <li>
-                <a href="#">What is Cardano?</a>
+                <a href="https://cardano.org/" target="_blank">
+                  What is Cardano?
+                </a>
               </li>
               <li>
-                <a href="#">What is ADA?</a>
+                <a href="https://cardano.org/what-is-ada/" targer="_blank">
+                  What is ADA?
+                </a>
               </li>
               <li>
-                <a href="#">How to buy/sell ADA?</a>
+                <a
+                  href="https://cardano.org/what-is-ada#how-to"
+                  target="_blank"
+                >
+                  How to buy/sell ADA?
+                </a>
               </li>
               <li>
-                <a href="#">Storing your ADA in official wallets</a>
+                <a
+                  href="https://cardano.org/what-is-ada#wallets"
+                  target="_blank"
+                >
+                  Storing your ADA in official wallets
+                </a>
               </li>
               <li>
-                <a href="#">How to delegate your ADA</a>
+                <Link href="/faq">How to delegate your ADA</Link>
               </li>
               <li>
-                <a href="#">Future of Cardano network?</a>
+                <Link to="/faq">Future of Cardano network?</Link>
               </li>
             </ul>
           </h5>

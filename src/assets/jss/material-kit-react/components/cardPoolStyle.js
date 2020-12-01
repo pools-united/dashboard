@@ -17,6 +17,7 @@ const card = {
   fontSize: ".875rem",
   padding: "0px 24px 24px 24px",
   height: "100%",
+  minHeight: "461px",
 };
 
 const cardStyle = {
@@ -81,7 +82,7 @@ const cardStyle = {
     fontSize: "26px",
     padding: "0px 8px",
     margin: 0,
-    minHeight: "78px",
+    minHeight: "118px",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",

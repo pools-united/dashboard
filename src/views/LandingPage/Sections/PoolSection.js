@@ -34,7 +34,7 @@ export default function PoolSection() {
             address={"13375a4a5470b564246a3251ea0ccfef046ee5bcaf3ed6de6315abc7"}
             margin={"1%"}
             fixedFee={"340"}
-            pledge={"4000"}
+            pledge={"40000"}
             delegateLink={"/faq"}
             poolLink={"/pool?id=ERA"}
             kickstart
@@ -65,6 +65,7 @@ export default function PoolSection() {
           <PoolCard
             name={"Utterly Determined Pool [UDP]"}
             address={"9f38b462566102fe9bc1061131f298164d51ea54464ad984d486ce87"}
+            kickstart
             margin={"0.85%"}
             fixedFee={"340"}
             pledge={"5000"}

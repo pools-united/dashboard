@@ -87,7 +87,8 @@ const LandingPage = (props) => {
                       operators.
                     </h4>
                     <br />
-                    <Button
+                    {/* TODO: UKLJUCI DOK JE FAQ GOTOV */}
+                    {/* <Button
                       color="danger"
                       size="lg"
                       href="/faq"
@@ -96,7 +97,7 @@ const LandingPage = (props) => {
                     >
                       <i className="fas fa-play" />
                       Delegate now
-                    </Button>
+                    </Button> */}
                   </GridItem>
                 </GridContainer>
               </div>
