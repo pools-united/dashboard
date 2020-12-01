@@ -418,7 +418,7 @@ const PoolPage = (props) => {
           <br />
           <br />
           Join Adastra mines and be the part of community who want better
-          tommorrow. Lets touch the stars!
+          tommorrow.
         </>
       ),
 
