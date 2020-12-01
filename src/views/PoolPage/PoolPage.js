@@ -391,8 +391,8 @@ const PoolPage = (props) => {
     MINES: {
       name: "ADAstra Mines |Mines|",
       poolColor: "black",
-      secondaryColor: "#1F2833",
-      bodyBackgroundColor: "#45A29E",
+      secondaryColor: "#165468",
+      bodyBackgroundColor: "#black",
 
       logoColor: "#45A29E",
       description: (
