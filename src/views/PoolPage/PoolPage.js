@@ -394,7 +394,7 @@ const PoolPage = (props) => {
         <>
           Founded in the dark times of Covid-19, in order to help delegators and Cardano community 
           to rise above 2020 darkness, so that we could all enjoy more meaningful future where Cardano 
-          will help civilization for the next step in our evolution. Because all people deserve their right!
+          will help civilization for the next step in our evolution. Because all people deserve their rights!
           <br />
           <br />
           Join Adastra mines and be the part of community who want better tommorrow. Lets touch the stars!
