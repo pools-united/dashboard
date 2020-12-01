@@ -32,6 +32,8 @@ import VenusLogoDynamic from "assets/poolAssets/venus/spinning_dynamic.png";
 import EraLogo from "assets/poolAssets/era/era_logo.png";
 import CpuLogo from "assets/poolAssets/cpu/cpu_logo.png";
 import CpuBanner from "assets/poolAssets/cpu/CpuBanner.png";
+import MinesLogo from "assets/poolAssets/mines/mines_logo.png";
+import MinesBanner from "assets/poolAssets/mines/MinesBanner.png";
 
 import UdpLogo from "assets/poolAssets/udp/udpLogo.png";
 import UdpBanner from "assets/poolAssets/udp/udpBanner.png";
@@ -391,30 +393,39 @@ const PoolPage = (props) => {
     MINES: {
       name: "ADAstra Mines |Mines|",
       poolColor: "black",
-      secondaryColor: "#1F2833",
-      bodyBackgroundColor: "#45A29E",
+      secondaryColor: "#231035",
+      bodyBackgroundColor: "#21dbdb",
 
-      logoColor: "#45A29E",
+      logoColor: "#21dbdb",
       description: (
         <>
-          Founded in the dark times of Covid-19, in order to help delegators and
-          Cardano community to rise above 2020 darkness, so that we could all
-          enjoy more meaningful future where Cardano will help civilization for
-          the next step in our evolution. Because all people deserve their
-          rights!
+          Founded in the dark times of Covid-19, first because of boredom, then
+          it became a passion realizing how special and ready to help Cardano
+          community is. This pool is determened to help the community and
+          accelerate the advent of Cardano Revolution.
           <br />
           <br />
           Join Adastra mines and be the part of community who want better
           tommorrow. Lets touch the stars!
         </>
       ),
-      descriptionMobile: <>In dev</>,
+      descriptionMobile: (
+        <>
+          Founded in the dark times of Covid-19, first because of boredom, then
+          it became a passion realizing how special and ready to help Cardano
+          community is. This pool is determened to help the community and
+          accelerate the advent of Cardano Revolution.
+          <br />
+          <br />
+          Join Adastra mines and be the part of community who want better
+          tommorrow. Lets touch the stars!
+        </>
+      ),
 
       id: "3e5fcbaf750c0291cecb72384091724a1c2d35da10a71473e16c926f",
-      twitter: "",
+      twitter: "https://twitter.com/cpoolsunited",
       github: "https://github.com/embalint",
-      banner: "",
-      logoMobile: "",
+      telegram: "https://t.me/CPUPools",
       logo: "",
       logoStatic: "",
       logoDynamic: "",
@@ -425,6 +436,8 @@ const PoolPage = (props) => {
       operators: true,
       firstOperator: Emil,
       secondOperator: false,
+      banner: MinesBanner,
+      logoMobile: MinesLogo,
     },
     CPU: {
       name: "CPU Pool |CPU|",
@@ -460,9 +473,11 @@ const PoolPage = (props) => {
 
       logoAnimation: false,
       id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
-      twitter: "https://twitter.com/PoolVenus",
-      telegram: "https://t.me/frescopool",
-      github: "https://github.com/filip4428",
+      twitter: "https://twitter.com/cpoolsunited",
+      telegram: "https://t.me/cpoolsunited",
+      youtube: "https://www.youtube.com/channel/UCPJ4UFyhEpqxYgcAWkplchw",
+
+      // github: "https://github.com/filip4428",
       operators: false,
     },
     ERA: {
@@ -506,12 +521,14 @@ const PoolPage = (props) => {
       bodyBackgroundColor: "#09eab4",
       description: (
         <>
-          The most recent addition to the CPU team. Founded as a way for it's owner to learn more about the
-          Cardano community and explore various use cases of Cardano. 
+          The most recent addition to the CPU team. Founded as a way for it's
+          owner to learn more about the Cardano community and explore various
+          use cases of Cardano.
           <br />
           <br />
-          With the rest of the CPU team, we are hoping to enable community members to utilize the Cardano project
-          by providing tooling, education and support.
+          With the rest of the CPU team, we are hoping to enable community
+          members to utilize the Cardano project by providing tooling, education
+          and support.
         </>
       ),
       descriptionMobile: (
@@ -527,8 +544,8 @@ const PoolPage = (props) => {
       logoMobile: UdpLogo,
       logoStatic: "",
       logoDynamic: "",
-      twitter: "",
-      telegram: "",
+      twitter: "https://twitter.com/cpoolsunited",
+      telegram: "https://t.me/CPUPools",
       github: "https://github.com/dariour",
       logoAnimation: false,
       operators: true,
