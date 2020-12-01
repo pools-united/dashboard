@@ -646,7 +646,7 @@ const PoolPage = (props) => {
     window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
   }, [urlParams]);
 
-  alert("The website is still in development, should be done tomorrow :)");
+  //alert("The website is still in development, should be done tomorrow :)");
 
   return (
     <AppContext.Consumer>
