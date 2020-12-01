@@ -47,13 +47,13 @@ export default function Footer(props) {
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="/pool?id=TBD" className={classes.block}>
-                [TBD]
+              <a href="/pool?id=UDP" className={classes.block}>
+                [UDP]
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="/pool?id=RANDO" className={classes.block}>
-                [RANDO]
+              <a href="/pool?id=MINES" className={classes.block}>
+                [MINES]
               </a>
             </ListItem>
           </List>

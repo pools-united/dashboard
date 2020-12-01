@@ -33,6 +33,9 @@ import EraLogo from "assets/poolAssets/era/era_logo.png";
 import CpuLogo from "assets/poolAssets/cpu/cpu_logo.png";
 import CpuBanner from "assets/poolAssets/cpu/CpuBanner.png";
 
+import UdpLogo from "assets/poolAssets/udp/udpLogo.png";
+import UdpBanner from "assets/poolAssets/udp/udpBanner.png";
+
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 
 //operator images
@@ -40,6 +43,7 @@ import Filip from "assets/img/faces/Filip.jpg";
 import Nora from "assets/img/faces/Nora.jpg";
 import Patricia from "assets/img/faces/Patricia.jpg";
 import Emil from "assets/img/faces/emil_avatar.jpg";
+import Dario from "assets/img/faces/Dario.jpg";
 
 //components
 import TextBox from "./Components/Textbox.js";
@@ -493,6 +497,42 @@ const PoolPage = (props) => {
       operators: true,
       firstOperator: Patricia,
       secondOperator: Nora,
+    },
+    UDP: {
+      name: "Utterly Determined Pool |UDP|",
+      poolColor: "black",
+      secondaryColor: "#000",
+      logoColor: "#09eab4",
+      bodyBackgroundColor: "#09eab4",
+      description: (
+        <>
+          The most recent addition to the CPU team. Founded as a way for it's owner to learn more about the
+          Cardano community and explore various use cases of Cardano. 
+          <br />
+          <br />
+          With the rest of the CPU team, we are hoping to enable community members to utilize the Cardano project
+          by providing tooling, education and support.
+        </>
+      ),
+      descriptionMobile: (
+        <>
+          We're two sisters handling one Nova |ERA| pool. We have been ADA
+          holders since 2017, now we decieded to collaborate with CPU team and
+          try our best to contribute to Cardano family.
+        </>
+      ),
+
+      id: "9f38b462566102fe9bc1061131f298164d51ea54464ad984d486ce87",
+      banner: UdpBanner,
+      logoMobile: UdpLogo,
+      logoStatic: "",
+      logoDynamic: "",
+      twitter: "",
+      telegram: "",
+      github: "https://github.com/dariour",
+      logoAnimation: false,
+      operators: true,
+      firstOperator: Dario,
     },
   };
 

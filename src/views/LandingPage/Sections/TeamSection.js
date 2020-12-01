@@ -20,6 +20,7 @@ import team1 from "assets/img/faces/Patricia.jpg";
 import team2 from "assets/img/faces/Filip.jpg";
 import team3 from "assets/img/faces/Nora.jpg";
 import emil from "assets/img/faces/Emil.jpg";
+import team4 from "assets/img/faces/Dario.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -124,14 +125,16 @@ export default function TeamSection() {
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
               <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={team3} alt="..." className={imageClasses} />
+                <img src={team4} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
                 Dario Uršulin
                 <br />
               </h4>
               <CardBody>
-                <p className={classes.description}>He da man</p>
+                <p className={classes.description}>A problem solver at heart, Dario only recently joined the Cardano community.
+                <br />
+                Interested in exploring various use cases of Cardano and using his experience to further popularize the project.</p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
                 {/* <Button
