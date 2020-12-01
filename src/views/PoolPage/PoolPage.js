@@ -391,8 +391,8 @@ const PoolPage = (props) => {
     MINES: {
       name: "ADAstra Mines |Mines|",
       poolColor: "black",
-      secondaryColor: "#165468",
-      bodyBackgroundColor: "#black",
+      secondaryColor: "#1F2833",
+      bodyBackgroundColor: "#45A29E",
 
       logoColor: "#45A29E",
       description: (
@@ -403,7 +403,7 @@ const PoolPage = (props) => {
           twitter or telegram.
           <br />
           <br />
-          Join Adastra mines and be the part of community who wants better
+          Join Adastra mines and be the part of community who want better
           tommorrow.
         </>
       ),
