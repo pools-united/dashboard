@@ -588,6 +588,7 @@ const PoolPage = (props) => {
     //   a0,
     //   rho,
     //   tau,
+    console.log(calculatedUserReward);
     //   decentralisationParam
     // );
     // console.log(usersReward);
@@ -642,11 +643,8 @@ const PoolPage = (props) => {
 
     // console.log(urlParams);
 
-
     window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
   }, [urlParams]);
-
-  //alert("The website is still in development, should be done tomorrow :)");
 
   return (
     <AppContext.Consumer>
@@ -1143,6 +1141,38 @@ const PoolPage = (props) => {
                           <>
                             <RewardsComponent margintop="42px" fontweight="500">
                               Estimated rewards with&nbsp;
+                              {
+                                context.poolStats[urlParams.id].data
+                                  .blocks_epoch
+                              }
+                              &nbsp;blocks minted:&nbsp;
+                              {calculatedUserReward}₳
+                            </RewardsComponent>
+                            <div
+                              style={{
+                                fontSize: "12px",
+
+                                marginTop: "32px",
+                                marginBottom: "-18px",
+                              }}
+                            >
+                              Thank you
+                              <a
+                                href="https://adapools.org"
+                                rel="noreferrer"
+                                target="_blank"
+                              >
+                                {" "}
+                                adaPools
+                              </a>{" "}
+                              for protocol parameters API
+                            </div>
+                          </>
+                        )}
+                        {!calculatedUserReward && (
+                          <>
+                            <RewardsComponent margintop="42px" fontweight="500">
+                              TEEST rewards with&nbsp;
                               {
                                 context.poolStats[urlParams.id].data
                                   .blocks_epoch

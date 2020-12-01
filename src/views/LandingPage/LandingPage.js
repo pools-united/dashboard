@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 // nodejs library that concatenates classes
 
-import Drawer from '@material-ui/core/Drawer';
+import Drawer from "@material-ui/core/Drawer";
 
 // Global contextfor API
 import PropTypes from "prop-types";
@@ -58,8 +58,6 @@ const LandingPage = (props) => {
   LandingPage.propTypes = {
     heightSet: PropTypes.any,
   };
-
-  alert("The website is still in development, should be done tomorrow :)");
 
   return (
     <AppContext.Consumer>

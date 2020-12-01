@@ -19,6 +19,7 @@ import styled from "styled-components";
 import team1 from "assets/img/faces/Patricia.jpg";
 import team2 from "assets/img/faces/Filip.jpg";
 import team3 from "assets/img/faces/Nora.jpg";
+import emil from "assets/img/faces/Emil.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -163,15 +164,33 @@ export default function TeamSection() {
             <GridItem xs={12} sm={12} md={4}>
               <Card plain>
                 <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                  <img src={team3} alt="..." className={imageClasses} />
+                  <img src={emil} alt="..." className={imageClasses} />
                 </GridItem>
                 <h4 className={classes.cardTitle}>
-                 Emil Balint
+                  Emil Balint
                   <br />
                 </h4>
                 <CardBody>
                   <p className={classes.description}>
-                  He da man
+                    Software engineer from Croatia with massive respect for
+                    Cardano community and its projects. Also a proud Cardano
+                    pool owner of &nbsp;
+                    <a href="/pool?id=MINES" target="_blank">
+                      |MINES| pool
+                    </a>
+                    . &nbsp;He is also hell of a wake boarder and tennis player.
+                    If you have any questions about his pool, or you just want
+                    to chat, you can do it via
+                    <a
+                      href="www.linkedin.com/in/emil-balint-114840a2"
+                      target="_blank"
+                    >
+                      LinkedIn&nbsp;
+                    </a>{" "}
+                    or &nbsp;
+                    <a href="https://twitter.com/embalint" target="_blank">
+                      Twitter
+                    </a>
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>

@@ -30,11 +30,11 @@ export default function PoolSection() {
       <GridContainer>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
-            name={"ERA Pool [ERA]"}
-            address={"fb3cc38ce8ca95d45b8c5760be51f16d54cf54a1d0c31820ffd2ddc7"}
-            margin={"25%"}
-            fixedFee={"350"}
-            pledge={"5000"}
+            name={"Nova Era pool [ERA]"}
+            address={"13375a4a5470b564246a3251ea0ccfef046ee5bcaf3ed6de6315abc7"}
+            margin={"1%"}
+            fixedFee={"340"}
+            pledge={"4000"}
             delegateLink={"/faq"}
             poolLink={"/pool?id=ERA"}
             kickstart
@@ -47,13 +47,14 @@ export default function PoolSection() {
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
             name={"Cardano Pools United [CPU]"}
-            address={"fb3cc38ce8ca95d45b8c5760be51f16d54cf54a1d0c31820ffd2ddc7"}
-            margin={"25%"}
-            fixedFee={"350"}
-            pledge={"5000"}
+            address={"b45c1860e038baa0642b352ccf447ed5e14430342a11dd75bae52f39"}
+            margin={"2%"}
+            fixedFee={"340"}
+            pledge={"50000"}
             delegateLink={"/faq"}
             poolLink={"/pool?id=CPU"}
             isMain
+            kickstart
             operator={{
               name: "Name#1",
               image: face,
@@ -93,13 +94,14 @@ export default function PoolSection() {
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
-            name={"MOBILE Pool [MOBILE]"}
-            address={"19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253"}
-            margin={"0.85%"}
+            name={"ADAstra Mines  [MINES]"}
+            address={"3e5fcbaf750c0291cecb72384091724a1c2d35da10a71473e16c926f"}
+            margin={"1%"}
             fixedFee={"340"}
-            pledge={"70000"}
+            pledge={"5400"}
+            kickstart
             delegateLink={"/faq"}
-            poolLink={"/pool?id=RANDO"}
+            poolLink={"/pool?id=MINES"}
             operator={{
               name: "Name#1",
               image: face,

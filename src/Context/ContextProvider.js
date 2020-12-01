@@ -10,8 +10,8 @@ const MyProvider = (props) => {
   const [adaPrice, setAdaPrice] = useState({});
   const poolIds = {
     VENUS: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
-    ERA: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
-    CPU: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
+    ERA: "13375a4a5470b564246a3251ea0ccfef046ee5bcaf3ed6de6315abc7",
+    CPU: "b45c1860e038baa0642b352ccf447ed5e14430342a11dd75bae52f39",
     MINES: "3e5fcbaf750c0291cecb72384091724a1c2d35da10a71473e16c926f",
   };
   const [scrollOffset, setScrollOffset] = useState(0);
