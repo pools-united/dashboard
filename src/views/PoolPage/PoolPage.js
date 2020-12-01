@@ -392,18 +392,19 @@ const PoolPage = (props) => {
       logoColor: "#45A29E",
       description: (
         <>
-          in dev
+          Founded in the dark times of Covid-19, in order to help delegators and Cardano community 
+          to rise above 2020 darkness, so that we could all enjoy more meaningful future where Cardano 
+          will help civilization for the next step in our evolution. Because all people deserve their right!
           <br />
           <br />
-          dev
+          Join Adastra mines and be the part of community who want better tommorrow. Lets touch the stars!
         </>
       ),
       descriptionMobile: <>In dev</>,
 
-      id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
-      twitter: "https://twitter.com/PoolVenus",
-      telegram: "https://t.me/frescopool",
-      github: "https://github.com/filip4428",
+      id: "3e5fcbaf750c0291cecb72384091724a1c2d35da10a71473e16c926f",
+      twitter: "",
+      github: "https://github.com/embalint",
       banner: VenusBanner,
       logoMobile: VenusLogo,
       logo: VenusLogo,
