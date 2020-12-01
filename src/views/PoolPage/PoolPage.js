@@ -39,6 +39,7 @@ import FileCopyIcon from "@material-ui/icons/FileCopy";
 import Filip from "assets/img/faces/Filip.jpg";
 import Nora from "assets/img/faces/Nora.jpg";
 import Patricia from "assets/img/faces/Patricia.jpg";
+import Emil from "assets/img/faces/emil_avatar.jpg";
 
 //components
 import TextBox from "./Components/Textbox.js";
@@ -415,7 +416,7 @@ const PoolPage = (props) => {
       logoCustomCss: frescoLogoCustomCss,
       logoAnimation: true,
       operators: true,
-      firstOperator: Filip,
+      firstOperator: Emil,
       secondOperator: false,
     },
     CPU: {
