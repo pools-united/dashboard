@@ -37,10 +37,7 @@ const TitleHeading = styled.div`
   padding: 8px 0;
 `;
 
-const FaqContainer  = styled.div`
-
-
-`
+const FaqContainer = styled.div``;
 // const AccordionWrapper = styled.div`
 //   width: 100%;
 // `;
@@ -200,6 +197,10 @@ export default function ProfilePage(props) {
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
 
         <TitleHeading>Coming soon :)</TitleHeading>
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
       <Footer />
     </div>
