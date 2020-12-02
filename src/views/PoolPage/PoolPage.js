@@ -47,6 +47,7 @@ import Nora from "assets/img/faces/Nora.jpg";
 import Patricia from "assets/img/faces/Patricia.jpg";
 import Emil from "assets/img/faces/emil_avatar.jpg";
 import Dario from "assets/img/faces/Dario.jpg";
+import Stjepan from "assets/img/faces/stjepan.jpg";
 
 //components
 import TextBox from "./Components/Textbox.js";
@@ -410,21 +411,23 @@ const PoolPage = (props) => {
       description: (
         <>
           Founded in the dark times of Covid-19, first because of boredom, then
-          it became a passion realizing how special and ready to help Cardano
-          community is. This pool is determened to help the community and
-          accelerate the advent of Cardano Revolution.
+          realizing how special and ready to help Cardano community is,it became a passion.
+          <br />
+          This pool is determened to help the community and accelerate the advent
+          of Cardano future.
           <br />
           <br />
           Join Adastra mines and be the part of community who want better
-          tommorrow. Lets touch the stars!
+          tommorrow.
         </>
       ),
       descriptionMobile: (
         <>
           Founded in the dark times of Covid-19, first because of boredom, then
-          it became a passion realizing how special and ready to help Cardano
-          community is. This pool is determened to help the community and
-          accelerate the advent of Cardano Revolution.
+          realizing how special and ready to help Cardano community is,it became a passion.
+          <br />
+          This pool is determened to help the community and accelerate the advent
+          of Cardano future.
           <br />
           <br />
           Join Adastra mines and be the part of community who want better
@@ -433,7 +436,7 @@ const PoolPage = (props) => {
       ),
 
       id: "3e5fcbaf750c0291cecb72384091724a1c2d35da10a71473e16c926f",
-      twitter: "https://twitter.com/cpoolsunited",
+      twitter: "https://twitter.com/AdastraMines",
       github: "https://github.com/embalint",
       telegram: "https://t.me/CPUPools",
       logo: "",
@@ -445,7 +448,7 @@ const PoolPage = (props) => {
       logoAnimation: false,
       operators: true,
       firstOperator: Emil,
-      secondOperator: false,
+      secondOperator: Stjepan,
       banner: MinesBanner,
       logoMobile: MinesLogo,
     },
