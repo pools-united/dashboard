@@ -450,7 +450,7 @@ const PoolPage = (props) => {
       logoColor: "rgb(7,67,89)",
       description: (
         <>
-          Official pool of Cardano pools united collaboration. The part of the
+          Official pool of Cardano Pools United collaboration. The part of the
           profits from this pool will be used to pay for the relays for the
           pools. CPU collaborators decided to donate the rest to the charitable
           cause of our delegators choice.
@@ -463,7 +463,7 @@ const PoolPage = (props) => {
       ),
       descriptionMobile: (
         <>
-          Official pool of Cardano pools united collaboration. The part of the
+          Official pool of Cardano Pools United collaboration. The part of the
           profits from this pool will be used to pay for the relays for the
           pools. CPU collaborators decided to donate the rest to the charitable
           cause of our delegators choice.

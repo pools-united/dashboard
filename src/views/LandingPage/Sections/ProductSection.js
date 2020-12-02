@@ -22,9 +22,9 @@ export default function ProductSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Cardano pools united collaboration</h2>
+          <h2 className={classes.title}>Cardano Pools United collaboration</h2>
           <h5 className={classes.description}>
-            Cardano pools united is a collaboration of stake pools operators
+            Cardano Pools United is a collaboration of stake pools operators
             with the goal to contribute to the Cardano ecosystem by educating
             the people about Cardano blockchain and using our developer
             knowledge to develop the tools needed to make the delegation process
