@@ -266,6 +266,7 @@ const SocialContainer = styled.div`
 const OperatorWrapper = styled.div`
   display: flex;
   align-items: center;
+
   justify-content: space-between;
 `;
 
@@ -319,6 +320,10 @@ const TooltipStyled = styled(Tooltip)`
 
 const ContentWrapper = styled.div`
   background-color: ${(props) => props.wrapperBackground};
+
+  @media (max-width: 560px) {
+    margin-top: 24px;
+  }
 `;
 
 const PoolPage = (props) => {
@@ -694,8 +699,6 @@ const PoolPage = (props) => {
 
     !poolsDetails.hasOwnProperty(urlParamsObject.id) &&
       setUrlParams({ id: "CPU" });
-
-
   }, []);
 
   const history = useHistory();
