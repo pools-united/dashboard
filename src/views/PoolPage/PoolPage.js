@@ -680,7 +680,7 @@ const PoolPage = (props) => {
 
   useEffect(() => {
     //get URL params
-    setTimeout(async () => {
+    setTimeout( () => {
       setStartAnimation(true);
     }, 800);
     let urlParamsObject;
