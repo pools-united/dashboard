@@ -45,11 +45,11 @@ export default function HeaderLinks(props) {
           }}
           buttonIcon={InvertColors}
           dropdownList={[
-            <Link to="/pool?id=CPU" className={classes.dropdownLink}>Main Pool [CPU]</Link>,
-            <Link to="/pool?id=ERA"  className={classes.dropdownLink}>ERA Pool [ERA]</Link>,
-            <Link to="/pool?id=VENUS"  className={classes.dropdownLink}>Fresco Pool [VENUS]</Link>,
-            <Link to="/pool?id=UDP" className={classes.dropdownLink}>Utterly Determined Pool [UDP]</Link>,
-            <Link to="/pool?id=MINES"  className={classes.dropdownLink}>ADAstra Mines [MINES]</Link>,
+            <a href="/pool?id=CPU" className={classes.dropdownLink}>Main Pool [CPU]</a>,
+            <a href="/pool?id=ERA"  className={classes.dropdownLink}>ERA Pool [ERA]</a>,
+            <a href="/pool?id=VENUS"  className={classes.dropdownLink}>Fresco Pool [VENUS]</a>,
+            <a href="/pool?id=UDP" className={classes.dropdownLink}>Utterly Determined Pool [UDP]</a>,
+            <a href="/pool?id=MINES"  className={classes.dropdownLink}>ADAstra Mines [MINES]</a>,
           ]}
         />
       </ListItem>
