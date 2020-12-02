@@ -53,7 +53,7 @@ export default function CardanoInfoSection() {
                 </a>
               </li>
               <li>
-                <Link href="/faq">How to delegate your ADA</Link>
+                <Link to="/faq">How to delegate your ADA</Link>
               </li>
               <li>
                 <Link to="/faq">Future of Cardano network?</Link>

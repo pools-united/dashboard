@@ -2,8 +2,6 @@ import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
-
-
 // @material-ui/icons
 import HelpIcon from "@material-ui/icons/Help";
 import SecurityIcon from "@material-ui/icons/Security";
@@ -45,7 +43,10 @@ export default function ProductSection() {
               description={[
                 `Our team consists of passionate and skilled developers aiming to contribute to Cardano ecosystem as much as they can. We are always ready to answer your any question regarding the Cardano project and delegating. You can join the chat at our official`,
                 // eslint-disable-next-line react/jsx-key
-                <a href="#"> Telegram channel.</a>,
+                <a href="t.me/cpoolsunited" target="_blank">
+                  {" "}
+                  Telegram channel.
+                </a>,
               ]}
               icon={HelpIcon}
               iconColor="info"
