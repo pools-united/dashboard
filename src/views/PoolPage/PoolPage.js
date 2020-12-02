@@ -411,7 +411,7 @@ const PoolPage = (props) => {
       description: (
         <>
           Founded in the dark times of Covid-19, first because of boredom, then
-          realizing how special and ready to help Cardano community is,it became a passion.
+          realizing how special and ready to help Cardano community is, it became a passion.
           <br />
           This pool is determened to help the community and accelerate the advent
           of Cardano future.
@@ -424,7 +424,7 @@ const PoolPage = (props) => {
       descriptionMobile: (
         <>
           Founded in the dark times of Covid-19, first because of boredom, then
-          realizing how special and ready to help Cardano community is,it became a passion.
+          realizing how special and ready to help Cardano community is, it became a passion.
           <br />
           This pool is determened to help the community and accelerate the advent
           of Cardano future.
