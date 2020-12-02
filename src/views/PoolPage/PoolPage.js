@@ -335,12 +335,15 @@ const PoolPage = (props) => {
   const [numberOfBlocks, setNumberOfBlocks] = useState(undefined);
   const [roaStats, setRoaStats] = useState(undefined);
 
+  const [currentBlocksRewards, setCurrentBlocksRewards] = useState(null);
+
   const [urlParams, setUrlParams] = useState({ id: "CPU" });
 
   const [copyState, setCopyState] = useState();
   const [mobileState, setMobileState] = useState();
   const [calculatedUserReward, setCalculatedUserReward] = useState(-1);
   const userDelegationRef = useRef(null);
+  const userBlocksRef = useRef(null);
 
   const [parsedDataRoaFinished, setParsedDataRoaFinished] = useState(false);
 
@@ -645,6 +648,7 @@ const PoolPage = (props) => {
     // );
     // console.log("click");
     setCalculatedUserReward(parseFloat(usersReward).toFixed(2));
+
     // console.log(
     //   totalActiveStake,
     //   poolActiveStake,
@@ -704,7 +708,7 @@ const PoolPage = (props) => {
   const history = useHistory();
   useEffect(() => {
     return history.listen((location) => {
-      setTimeout( async () => {
+      setTimeout(async () => {
         setStartAnimation(true);
       }, 800);
       let urlParamsObject;
@@ -808,7 +812,11 @@ const PoolPage = (props) => {
           // decentralisationParam
 
           setParsedDataRoaFinished(true);
+          setCurrentBlocksRewards(
+            context.poolStats[urlParams.id].data.blocks_epoch
+          );
         }
+
         //TODO: ovo (parseanje ROA I BLOCKOVA (VIDI GORE) )mozda nebi trebalo tu biti, usporava render brijem!!!
         //TODO: !!!
 
@@ -1208,8 +1216,55 @@ const PoolPage = (props) => {
                                 ) / 1000000,
                                 parseFloat(context.globalStats.ada_circ) /
                                   1000000,
-                                context.poolStats[urlParams.id].data
-                                  .blocks_epoch,
+                                userBlocksRef.current.value,
+                                userDelegationRef.current.value,
+                                context.protocol.nOpt,
+                                context.protocol.a0,
+                                context.protocol.rho,
+                                context.protocol.tau,
+                                context.protocol.decentralisationParam,
+                                parseFloat(
+                                  context.poolStats[urlParams.id].data.pledged
+                                ) / 1000000,
+                                parseFloat(
+                                  context.poolStats[urlParams.id].data.tax_ratio
+                                ),
+                                parseFloat(
+                                  context.poolStats[urlParams.id].data.tax_fix
+                                ) / 1000000
+                              );
+                              // console.log(roaStats);
+                            }}
+                          />
+                        </RewardsComponent>
+
+                        <RewardsComponent>
+                          <div style={{ width: "max-content" }}>
+                            Blocks produced:
+                          </div>
+                          <RewardsInputComponent
+                            type="number"
+                            value={currentBlocksRewards}
+                            ref={userBlocksRef}
+                            inputBackground={
+                              poolsDetails[urlParams.id].poolColor
+                            }
+                            color={poolsDetails[urlParams.id].logoColor}
+                            onChange={() => {
+                              // console.log(userDelegationRef.current.value);
+                              setCurrentBlocksRewards(
+                                userBlocksRef.current.value
+                              );
+                              calculateRewards(
+                                parseFloat(context.globalStats.total_staked) /
+                                  1000000,
+                                parseFloat(
+                                  context.poolStats[urlParams.id].data
+                                    .active_stake
+                                ) / 1000000,
+                                parseFloat(context.globalStats.ada_circ) /
+                                  1000000,
+                                userBlocksRef.current.value,
                                 userDelegationRef.current.value,
                                 context.protocol.nOpt,
                                 context.protocol.a0,
@@ -1234,10 +1289,7 @@ const PoolPage = (props) => {
                           <>
                             <RewardsComponent margintop="42px" fontweight="500">
                               Estimated rewards with&nbsp;
-                              {
-                                context.poolStats[urlParams.id].data
-                                  .blocks_epoch
-                              }
+                              {currentBlocksRewards}
                               &nbsp;blocks minted:&nbsp;
                               {calculatedUserReward}₳
                             </RewardsComponent>
