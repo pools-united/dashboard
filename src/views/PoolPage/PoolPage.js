@@ -704,7 +704,7 @@ const PoolPage = (props) => {
   const history = useHistory();
   useEffect(() => {
     return history.listen((location) => {
-      setTimeout(async () => {
+      setTimeout( () => {
         setStartAnimation(true);
       }, 800);
       let urlParamsObject;
