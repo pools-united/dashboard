@@ -26,6 +26,7 @@ const useStyles = makeStyles(styles);
 
 const TwoCards = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 `;
 
