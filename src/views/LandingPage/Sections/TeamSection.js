@@ -132,9 +132,13 @@ export default function TeamSection() {
                 <br />
               </h4>
               <CardBody>
-                <p className={classes.description}>A problem solver at heart, Dario only recently joined the Cardano community.
-                <br />
-                Interested in exploring various use cases of Cardano and using his experience to further popularize the project.</p>
+                <p className={classes.description}>
+                  A problem solver at heart, Dario only recently joined the
+                  Cardano community.
+                  <br />
+                  Interested in exploring various use cases of Cardano and using
+                  his experience to further popularize the project.
+                </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
                 {/* <Button
@@ -179,21 +183,9 @@ export default function TeamSection() {
                     Cardano community and its projects. Also a proud Cardano
                     pool owner of &nbsp;
                     <a href="/pool?id=MINES" target="_blank">
-                      |MINES| pool
+                      Mines Pool
                     </a>
-                    . &nbsp;He is also hell of a wake boarder and tennis player.
-                    If you have any questions about his pool, or you just want
-                    to chat, you can do it via
-                    <a
-                      href="www.linkedin.com/in/emil-balint-114840a2"
-                      target="_blank"
-                    >
-                      LinkedIn&nbsp;
-                    </a>{" "}
-                    or &nbsp;
-                    <a href="https://twitter.com/embalint" target="_blank">
-                      Twitter
-                    </a>
+                    . He is also hell of a wake boarder and tennis player.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>
@@ -235,10 +227,6 @@ export default function TeamSection() {
                     After earning her Bachelor's degree in Journalism, Nora went
                     for Master's in PR. She entered the Crypto world to explore
                     her passion for technology, digital marketing and writing.{" "}
-                    <br />
-                    By day you can find her on college or as a Sales Person in
-                    H&M, and by night she's typically writing, tweeting or
-                    curating content.
                   </p>
                 </CardBody>
                 <CardFooter className={classes.justifyCenter}>

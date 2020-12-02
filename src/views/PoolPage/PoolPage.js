@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 // nodejs library that concatenates classes
 
+import { useHistory } from "react-router-dom";
 // Global contextfor API
 import AppContext from "../../Context/Context";
 
@@ -241,7 +242,7 @@ const copyAnimation = keyframes`
 
 const Copied = styled.div`
   position: absolute;
-  bottom: 10px;
+  bottom: 100px;
   right: 0;
 
   padding: 6px;
@@ -252,7 +253,7 @@ const Copied = styled.div`
   display: ${(props) => (props.copyState ? "block" : "none")};
 
   @media (max-width: 960px) {
-    bottom: 40px;
+    bottom: 110px;
     right: 20px;
   }
 `;
@@ -330,6 +331,7 @@ const PoolPage = (props) => {
   const [roaStats, setRoaStats] = useState(undefined);
 
   const [urlParams, setUrlParams] = useState({ id: "CPU" });
+
   const [copyState, setCopyState] = useState();
   const [mobileState, setMobileState] = useState();
   const [calculatedUserReward, setCalculatedUserReward] = useState(-1);
@@ -673,8 +675,7 @@ const PoolPage = (props) => {
 
   useEffect(() => {
     //get URL params
-
-    setTimeout(() => {
+    setTimeout(async () => {
       setStartAnimation(true);
     }, 800);
     let urlParamsObject;
@@ -693,7 +694,36 @@ const PoolPage = (props) => {
 
     !poolsDetails.hasOwnProperty(urlParamsObject.id) &&
       setUrlParams({ id: "CPU" });
+
+
   }, []);
+
+  const history = useHistory();
+  useEffect(() => {
+    return history.listen((location) => {
+      setTimeout(async () => {
+        setStartAnimation(true);
+      }, 800);
+      let urlParamsObject;
+      let match,
+        pl = /\+/g, // Regex for replacing addition symbol with a space
+        search = /([^&=]+)=?([^&]*)/g,
+        decode = function (s) {
+          return decodeURIComponent(s.replace(pl, " "));
+        },
+        query = window.location.search.substring(1);
+      urlParamsObject = {};
+      while ((match = search.exec(query))) {
+        urlParamsObject[decode(match[1])] = decode(match[2]);
+      }
+      urlParamsObject.hasOwnProperty("id") && setUrlParams(urlParamsObject);
+
+      // !poolsDetails.hasOwnProperty(urlParamsObject.id) &&
+      //   setUrlParams({ id: "CPU" });
+
+      console.log(`You changed the page to: ${location.pathname}`);
+    });
+  }, [history]);
 
   useEffect(() => {
     //set parameters from URL
