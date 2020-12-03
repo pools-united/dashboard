@@ -453,9 +453,9 @@ const PoolPage = (props) => {
       name: "CPU Pool |CPU|",
       poolColor: "black",
       secondaryColor: "black",
-      bodyBackgroundColor: "rgb(7,67,89)",
+      bodyBackgroundColor: "rgb(44, 155, 196)",
 
-      logoColor: "rgb(7,67,89)",
+      logoColor: "rgb(44, 155, 196)",
       description: (
         <>
           Official pool of Cardano Pools United collaboration. The part of the
@@ -494,8 +494,8 @@ const PoolPage = (props) => {
       name: "Nova Pool |ERA|",
       poolColor: "black",
       secondaryColor: "#000",
-      logoColor: "#0D4022",
-      bodyBackgroundColor: "#0D4022",
+      logoColor: "rgb(150, 206, 107)",
+      bodyBackgroundColor: "rgb(150, 206, 107)",
       description: (
         <>
           We're two sisters handling one Nova |ERA| pool. We have been ADA

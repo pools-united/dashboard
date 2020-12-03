@@ -99,7 +99,7 @@ export default function PoolSection() {
             address={"3e5fcbaf750c0291cecb72384091724a1c2d35da10a71473e16c926f"}
             margin={"1%"}
             fixedFee={"340"}
-            pledge={"5400"}
+            pledge={"10481"}
             kickstart
             delegateLink={"/faq"}
             poolLink={"/pool?id=MINES"}
