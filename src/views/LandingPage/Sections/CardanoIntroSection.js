@@ -27,9 +27,7 @@ export default function CardanoInfoSection() {
             for more info or take a look at the following links:
             <ul>
               <li>
-                <a href="https://cardano.org/" target="_blank">
-                  What is Cardano?
-                </a>
+                <Link to="/faq#WhatIsCardano">What is Cardano?</Link>
               </li>
               <li>
                 <a href="https://cardano.org/what-is-ada/" targer="_blank">
