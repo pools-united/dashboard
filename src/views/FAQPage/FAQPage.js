@@ -28,6 +28,7 @@ const useStyles = makeStyles(styles);
 
 const PlayerStyled = styled(ReactPlayer)`
   margin: auto;
+  margin-top: 34px;
 `;
 
 const TitleHeading = styled.div`
@@ -37,7 +38,14 @@ const TitleHeading = styled.div`
   padding: 8px 0;
 `;
 
-const FaqContainer = styled.div``;
+const FaqContainer = styled.div`
+  padding-top: 32px;
+`;
+
+const Spacer = styled.div`
+  width: 100%;
+  height: ${(props) => props.height};
+`;
 // const AccordionWrapper = styled.div`
 //   width: 100%;
 // `;
@@ -195,8 +203,12 @@ export default function ProfilePage(props) {
         {/* <SimpleAccordion /> */}
         {/* <BottomSpacer /> */}
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
-
-        <TitleHeading>Coming soon :)</TitleHeading>
+        <FaqContainer>
+          <TitleHeading id="WhatIsCardano">What is Cardano?</TitleHeading>
+          <PlayerStyled url="https://www.youtube.com/watch?v=r5lmkrj3-5o" />
+          <Spacer height="64px" />
+          <TitleHeading>Rest of FAQ coming soon :)</TitleHeading>
+        </FaqContainer>
         <br />
         <br />
         <br />
