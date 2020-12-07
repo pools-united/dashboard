@@ -494,7 +494,7 @@ const PoolPage = (props) => {
       operators: false,
     },
     ERA: {
-      name: "Nova Pool |ERA|",
+      name: "Nova Era Pool |ERA|",
       poolColor: "black",
       secondaryColor: "#000",
       logoColor: "rgb(150, 206, 107)",

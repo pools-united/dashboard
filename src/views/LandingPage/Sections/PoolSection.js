@@ -30,7 +30,7 @@ export default function PoolSection() {
       <GridContainer>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
-            name={"Nova Pool [ERA]"}
+            name={"Nova Era Pool [ERA]"}
             address={"13375a4a5470b564246a3251ea0ccfef046ee5bcaf3ed6de6315abc7"}
             margin={"1%"}
             fixedFee={"340"}
