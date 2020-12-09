@@ -243,7 +243,7 @@ const copyAnimation = keyframes`
 
 const Copied = styled.div`
   position: absolute;
-  bottom: 100px;
+  bottom: 86px;
   right: 0;
 
   padding: 6px;
