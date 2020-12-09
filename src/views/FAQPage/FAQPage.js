@@ -29,6 +29,10 @@ const useStyles = makeStyles(styles);
 const PlayerStyled = styled(ReactPlayer)`
   margin: auto;
   margin-top: 34px;
+
+  @media (max-width: 768px) {
+    width: 88% !important;
+  }
 `;
 
 const TitleHeading = styled.div`
@@ -205,7 +209,14 @@ export default function ProfilePage(props) {
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
         <FaqContainer>
           <TitleHeading id="WhatIsCardano">What is Cardano?</TitleHeading>
-          <PlayerStyled url="https://youtu.be/nSNOo7LFTjI" />
+          <PlayerStyled
+            url="https://youtu.be/nSNOo7LFTjI"
+            config={{
+              youtube: {
+                playerVars: { controls: 1 },
+              },
+            }}
+          />
           <Spacer height="64px" />
           <TitleHeading>Rest of FAQ coming soon :)</TitleHeading>
         </FaqContainer>
