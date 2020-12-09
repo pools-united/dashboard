@@ -99,7 +99,7 @@ const Spacer = styled.div`
 // What is Cardano?          </TypographyStyled>
 //         </AccordionSummary>
 //         <AccordionDetails>
-//           <PlayerStyled url="https://www.youtube.com/watch?v=UVCP4bKy9Iw" />
+//           <PlayerStyled url="https://youtu.be/nSNOo7LFTjI" />
 //         </AccordionDetails>
 //       </Accordion>
 //       <Accordion
@@ -205,7 +205,7 @@ export default function ProfilePage(props) {
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
         <FaqContainer>
           <TitleHeading id="WhatIsCardano">What is Cardano?</TitleHeading>
-          <PlayerStyled url="https://www.youtube.com/watch?v=r5lmkrj3-5o" />
+          <PlayerStyled url="https://youtu.be/nSNOo7LFTjI" />
           <Spacer height="64px" />
           <TitleHeading>Rest of FAQ coming soon :)</TitleHeading>
         </FaqContainer>
