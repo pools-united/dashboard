@@ -546,9 +546,13 @@ const PoolPage = (props) => {
       ),
       descriptionMobile: (
         <>
-          We're two sisters handling one Nova |ERA| pool. We have been ADA
-          holders since 2017, now we decieded to collaborate with CPU team and
-          try our best to contribute to Cardano family.
+          The most recent addition to the CPU team. Founded as a way for it's
+          owner to learn more about the Cardano community and explore various
+          use cases of Cardano.
+          <br />
+          With the rest of the CPU team, we are hoping to enable community
+          members to utilize the Cardano project by providing tooling, education
+          and support.
         </>
       ),
 
