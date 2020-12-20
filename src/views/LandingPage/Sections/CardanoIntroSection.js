@@ -30,17 +30,12 @@ export default function CardanoInfoSection() {
                 <Link to="/faq#WhatIsCardano">What is Cardano?</Link>
               </li>
               <li>
-                <a href="https://cardano.org/what-is-ada/" targer="_blank">
+                <a href="https://cardano.org/what-is-ada/" target="_blank">
                   What is ADA?
                 </a>
               </li>
               <li>
-                <a
-                  href="https://cardano.org/what-is-ada#how-to"
-                  target="_blank"
-                >
-                  How to buy/sell ADA?
-                </a>
+                <Link to="/faq#HowToBuySell">How to buy/sell ADA?</Link>
               </li>
               <li>
                 <a
