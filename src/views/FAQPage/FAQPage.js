@@ -218,6 +218,16 @@ export default function ProfilePage(props) {
             }}
           />
           <Spacer height="64px" />
+             <TitleHeading id="HowToBuySell">How to buy/sell ADA?</TitleHeading>
+          <PlayerStyled
+            url="https://www.youtube.com/watch?v=Sw8ju4fKeKI"
+            config={{
+              youtube: {
+                playerVars: { controls: 1 },
+              },
+            }}
+          />
+          <Spacer height="64px" />
           <TitleHeading>Rest of FAQ coming soon :)</TitleHeading>
         </FaqContainer>
         <br />
