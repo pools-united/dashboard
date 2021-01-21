@@ -217,8 +217,8 @@ export default function ProfilePage(props) {
               },
             }}
           />
-          <Spacer height="64px" />
-          <TitleHeading id="HowToBuySell">How to buy/sell ADA?</TitleHeading>
+          <Spacer id="HowToBuySell" height="64px" />
+          <TitleHeading>How to buy/sell ADA?</TitleHeading>
           <PlayerStyled
             url="https://www.youtube.com/watch?v=Sw8ju4fKeKI"
             config={{
@@ -227,8 +227,8 @@ export default function ProfilePage(props) {
               },
             }}
           />
-          <Spacer height="64px" />
-          <TitleHeading id="StoreAndDelegate">
+          <Spacer id="StoreAndDelegate" height="64px" />
+          <TitleHeading>
             Storing and delegating your ADA with official wallets
           </TitleHeading>
           <PlayerStyled
