@@ -27,7 +27,7 @@ export default function CardanoInfoSection() {
             for more info or take a look at the following links:
             <ul>
               <li>
-                <Link to="/faq#WhatIsCardano">What is Cardano?</Link>
+                <Link to="/faq">What is Cardano?</Link>
               </li>
               <li>
                 <a href="https://cardano.org/what-is-ada/" target="_blank">
@@ -38,18 +38,15 @@ export default function CardanoInfoSection() {
                 <Link to="/faq#HowToBuySell">How to buy/sell ADA?</Link>
               </li>
               <li>
-                <a
-                  href="https://cardano.org/what-is-ada#wallets"
-                  target="_blank"
-                >
+                <Link to="/faq#StoreAndDelegate">
                   Storing your ADA in official wallets
-                </a>
+                </Link>
               </li>
               <li>
-                <Link to="/faq">How to delegate your ADA</Link>
+                <Link to="/faq#StoreAndDelegate">How to delegate your ADA</Link>
               </li>
               <li>
-                <Link to="/faq">Future of Cardano network?</Link>
+                <Link to="/faq">How to choose a right pool for you?</Link>
               </li>
             </ul>
           </h5>

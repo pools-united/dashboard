@@ -218,7 +218,7 @@ export default function ProfilePage(props) {
             }}
           />
           <Spacer height="64px" />
-             <TitleHeading id="HowToBuySell">How to buy/sell ADA?</TitleHeading>
+          <TitleHeading id="HowToBuySell">How to buy/sell ADA?</TitleHeading>
           <PlayerStyled
             url="https://www.youtube.com/watch?v=Sw8ju4fKeKI"
             config={{
@@ -228,6 +228,19 @@ export default function ProfilePage(props) {
             }}
           />
           <Spacer height="64px" />
+          <TitleHeading id="StoreAndDelegate">
+            Storing and delegating your ADA with official wallets
+          </TitleHeading>
+          <PlayerStyled
+            url="https://www.youtube.com/watch?v=AWnXwWm37Fk"
+            config={{
+              youtube: {
+                playerVars: { controls: 1 },
+              },
+            }}
+          />
+          <Spacer height="64px" />
+
           <TitleHeading>Rest of FAQ coming soon :)</TitleHeading>
         </FaqContainer>
         <br />
