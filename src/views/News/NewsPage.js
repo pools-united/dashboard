@@ -42,14 +42,12 @@ const TitleHeading = styled.div`
   padding: 8px 0;
 `;
 
-
 const PageTitle = styled.div`
   font-size: 32px;
   font-weight: 500;
   text-align: center;
   padding: 32px 0;
 `;
-
 
 const FaqContainer = styled.div`
   padding-top: 32px;
@@ -194,13 +192,12 @@ const Spacer = styled.div`
 
 const DateText = styled.div`
   /* text-align: center; */
-  margin-top:8px;
+  margin-top: 8px;
 `;
 
 const DescriptionText = styled.div`
-
-margin-top:16px;
-`
+  margin-top: 16px;
+`;
 
 export default function ProfilePage(props) {
   const classes = useStyles();
@@ -229,9 +226,9 @@ export default function ProfilePage(props) {
         {/* <BottomSpacer /> */}
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
         <FaqContainer>
-<PageTitle>NEWS</PageTitle>
+          <PageTitle>NEWS</PageTitle>
 
-          <TitleHeading >
+          <TitleHeading>
             Check out our android new android application with a widget!{" "}
           </TitleHeading>
           <DateText>22.01.2021.</DateText>
@@ -243,11 +240,41 @@ export default function ProfilePage(props) {
               },
             }}
           /> */}
-<DescriptionText>Be sure to check out our application with widget support for all our pools. <br></br>
-  In the next updates we will add widget support to pools outside of CPU collaboration.
-  <br></br><br></br>
-  <a href ="https://play.google.com/store/apps/details?id=com.cardanopoolsunitedwidget" target="_blank">Download link</a>
-</DescriptionText>
+          <DescriptionText>
+            Be sure to check out our application with widget support for all our
+            pools. <br></br>
+            In the next updates we will add widget support to pools outside of
+            CPU collaboration.
+            <br></br>
+            <br></br>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.cardanopoolsunitedwidget"
+              target="_blank"
+            >
+              Download link
+            </a>
+          </DescriptionText>
+          <Spacer height="64px" />
+
+          <TitleHeading>
+            We are giving away our first charity donation!
+          </TitleHeading>
+          <DateText>14.02.2021.</DateText>
+          <DescriptionText>
+            Our CPU pool just got it's first rewards!
+            <br></br>
+            As promised, we are donating a part of our profits, for this first
+            time we decieded to use Twitter. If you think 300 ADA would help you
+            just write a comment why you need our donation.
+            <br></br>
+            <br></br>
+            <a
+              href="https://twitter.com/cpoolsunited/status/1361092133910937601"
+              target="_blank" 
+            >
+              Twitter link
+            </a>
+          </DescriptionText>
           <Spacer height="64px" />
         </FaqContainer>
         <br />
