@@ -561,7 +561,7 @@ const PoolPage = (props) => {
       logoMobile: UdpLogo,
       logoStatic: "",
       logoDynamic: "",
-      twitter: "https://twitter.com/cpoolsunited",
+      twitter: "https://twitter.com/PoolUdp",
       telegram: "https://t.me/CPUPools",
       github: "https://github.com/dariour",
       logoAnimation: false,
