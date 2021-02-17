@@ -530,8 +530,8 @@ const PoolPage = (props) => {
       name: "Utterly Determined Pool |UDP|",
       poolColor: "black",
       secondaryColor: "#000",
-      logoColor: "#09eab4",
-      bodyBackgroundColor: "#09eab4",
+      logoColor: "#93fcec",
+      bodyBackgroundColor: "#93fcec",
       description: (
         <>
           The most recent addition to the CPU team. Founded as a way for it's
