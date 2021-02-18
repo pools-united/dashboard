@@ -387,7 +387,7 @@ const PoolPage = (props) => {
       id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
       twitter: "https://twitter.com/PoolVenus",
       telegram: "https://t.me/frescopool",
-      github: "https://github.com/filip4428",
+      github: "https://github.com/filip-strelec",
       banner: VenusBanner,
       logoMobile: VenusLogo,
       logo: VenusLogo,
