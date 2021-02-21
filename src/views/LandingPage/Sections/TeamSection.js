@@ -97,11 +97,8 @@ export default function TeamSection() {
               <CardBody>
                 <p className={classes.description}>
                   Filip Strelec is Geo-environmental engineer that is currently
-                  working as JavaScript developer in{" "}
-                  <a href="https://www.speck.agency/" target="_blank">
-                    Speck d.o.o. <br />
-                  </a>
-                  He started <a href="/pool?id=VENUS">Fresco Pool </a> during an
+                  working as mobile application developer in IoT firm. He
+                  started <a href="/pool?id=VENUS">Fresco Pool </a> during an
                   ITN Shelley phase and has been Stake pool operator ever since.
                 </p>
               </CardBody>
