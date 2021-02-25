@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import React from "react";
 import HomeIcon from "@material-ui/icons/Home";
-import AnnouncementIcon from '@material-ui/icons/Announcement';
+import AnnouncementIcon from "@material-ui/icons/Announcement";
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -42,15 +42,23 @@ export default function HeaderLinks(props) {
           buttonText="Pools"
           buttonProps={{
             className: classes.navLink,
-            color: "transparent"
+            color: "transparent",
           }}
           buttonIcon={InvertColors}
           dropdownList={[
-            <a href="/pool?id=CPU" className={classes.dropdownLink}>Main Pool [CPU]</a>,
-            <a href="/pool?id=ERA"  className={classes.dropdownLink}>ERA Pool [ERA]</a>,
-            <a href="/pool?id=VENUS"  className={classes.dropdownLink}>Fresco Pool [VENUS]</a>,
-            <a href="/pool?id=UDP" className={classes.dropdownLink}>Utterly Determined Pool [UDP]</a>,
-            <a href="/pool?id=MINES"  className={classes.dropdownLink}>ADAstra Mines [MINES]</a>,
+            <a href="/pool?id=CPU" className={classes.dropdownLink}>
+              CPU Pool [CPU]
+            </a>,
+            <a href="/pool?id=ERA" className={classes.dropdownLink}>
+              ERA Pool [ERA]
+            </a>,
+            <a href="/pool?id=VENUS" className={classes.dropdownLink}>
+              Fresco Pool [VENUS]
+            </a>,
+
+            <a href="/pool?id=MINES" className={classes.dropdownLink}>
+              ADAstra Mines [MINES]
+            </a>,
           ]}
         />
       </ListItem>

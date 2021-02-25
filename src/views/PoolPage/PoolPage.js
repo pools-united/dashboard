@@ -36,8 +36,8 @@ import CpuBanner from "assets/poolAssets/cpu/CpuBanner.png";
 import MinesLogo from "assets/poolAssets/mines/mines_logo.png";
 import MinesBanner from "assets/poolAssets/mines/MinesBanner.png";
 
-import UdpLogo from "assets/poolAssets/udp/udpLogo.png";
-import UdpBanner from "assets/poolAssets/udp/udpBanner.png";
+// import UdpLogo from "assets/poolAssets/udp/udpLogo.png";
+// import UdpBanner from "assets/poolAssets/udp/udpBanner.png";
 
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 
@@ -526,48 +526,48 @@ const PoolPage = (props) => {
       firstOperator: Patricia,
       secondOperator: Nora,
     },
-    UDP: {
-      name: "Utterly Determined Pool |UDP|",
-      poolColor: "black",
-      secondaryColor: "#000",
-      logoColor: "#93fcec",
-      bodyBackgroundColor: "#93fcec",
-      description: (
-        <>
-          The most recent addition to the CPU team. Founded as a way for it's
-          owner to learn more about the Cardano community and explore various
-          use cases of Cardano.
-          <br />
-          <br />
-          With the rest of the CPU team, we are hoping to enable community
-          members to utilize the Cardano project by providing tooling, education
-          and support.
-        </>
-      ),
-      descriptionMobile: (
-        <>
-          The most recent addition to the CPU team. Founded as a way for it's
-          owner to learn more about the Cardano community and explore various
-          use cases of Cardano.
-          <br />
-          With the rest of the CPU team, we are hoping to enable community
-          members to utilize the Cardano project by providing tooling, education
-          and support.
-        </>
-      ),
+    // UDP: {
+    //   name: "Utterly Determined Pool |UDP|",
+    //   poolColor: "black",
+    //   secondaryColor: "#000",
+    //   logoColor: "#93fcec",
+    //   bodyBackgroundColor: "#93fcec",
+    //   description: (
+    //     <>
+    //       The most recent addition to the CPU team. Founded as a way for it's
+    //       owner to learn more about the Cardano community and explore various
+    //       use cases of Cardano.
+    //       <br />
+    //       <br />
+    //       With the rest of the CPU team, we are hoping to enable community
+    //       members to utilize the Cardano project by providing tooling, education
+    //       and support.
+    //     </>
+    //   ),
+    //   descriptionMobile: (
+    //     <>
+    //       The most recent addition to the CPU team. Founded as a way for it's
+    //       owner to learn more about the Cardano community and explore various
+    //       use cases of Cardano.
+    //       <br />
+    //       With the rest of the CPU team, we are hoping to enable community
+    //       members to utilize the Cardano project by providing tooling, education
+    //       and support.
+    //     </>
+    //   ),
 
-      id: "9f38b462566102fe9bc1061131f298164d51ea54464ad984d486ce87",
-      banner: UdpBanner,
-      logoMobile: UdpLogo,
-      logoStatic: "",
-      logoDynamic: "",
-      twitter: "https://twitter.com/PoolUdp",
-      telegram: "https://t.me/CPUPools",
-      github: "https://github.com/dariour",
-      logoAnimation: false,
-      operators: true,
-      firstOperator: Dario,
-    },
+    //   id: "9f38b462566102fe9bc1061131f298164d51ea54464ad984d486ce87",
+    //   banner: UdpBanner,
+    //   logoMobile: UdpLogo,
+    //   logoStatic: "",
+    //   logoDynamic: "",
+    //   twitter: "https://twitter.com/PoolUdp",
+    //   telegram: "https://t.me/CPUPools",
+    //   github: "https://github.com/dariour",
+    //   logoAnimation: false,
+    //   operators: true,
+    //   firstOperator: Dario,
+    // },
   };
 
   const calculateRewards = (

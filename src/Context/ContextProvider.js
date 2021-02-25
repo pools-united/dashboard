@@ -13,7 +13,7 @@ const MyProvider = (props) => {
     ERA: "13375a4a5470b564246a3251ea0ccfef046ee5bcaf3ed6de6315abc7",
     CPU: "b45c1860e038baa0642b352ccf447ed5e14430342a11dd75bae52f39",
     MINES: "3e5fcbaf750c0291cecb72384091724a1c2d35da10a71473e16c926f",
-    UDP: "9f38b462566102fe9bc1061131f298164d51ea54464ad984d486ce87",
+    // UDP: "9f38b462566102fe9bc1061131f298164d51ea54464ad984d486ce87",
   };
   const [scrollOffset, setScrollOffset] = useState(0);
   useScrollPosition(({ prevPos, currPos }) => {
@@ -73,12 +73,12 @@ const MyProvider = (props) => {
       "pool",
       "ERA"
     );
-    fetchStats(
-      `https://js.adapools.org/pools/${poolIds.UDP}/summary.json`,
-      setPoolStats,
-      "pool",
-      "UDP"
-    );
+    // fetchStats(
+    //   `https://js.adapools.org/pools/${poolIds.UDP}/summary.json`,
+    //   setPoolStats,
+    //   "pool",
+    //   "UDP"
+    // );
   }, []);
 
   return (

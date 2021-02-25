@@ -61,7 +61,7 @@ export default function PoolSection() {
             }}
           />
         </GridItem>
-        <GridItem xs={12} sm={12} md={4}>
+        {/* <GridItem xs={12} sm={12} md={4}>
           <PoolCard
             name={"Utterly Determined Pool [UDP]"}
             address={"9f38b462566102fe9bc1061131f298164d51ea54464ad984d486ce87"}
@@ -76,7 +76,7 @@ export default function PoolSection() {
               image: face,
             }}
           />
-        </GridItem>
+        </GridItem> */}
         <GridItem xs={12} sm={12} md={2}></GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
