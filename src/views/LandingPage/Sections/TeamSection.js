@@ -20,7 +20,7 @@ import team1 from "assets/img/faces/Patricia.jpg";
 import team2 from "assets/img/faces/Filip.jpg";
 import team3 from "assets/img/faces/Nora.jpg";
 import emil from "assets/img/faces/Emil.jpg";
-import team4 from "assets/img/faces/Dario.jpg";
+import team4 from "assets/img/faces/Miha.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -126,16 +126,14 @@ export default function TeamSection() {
                 <img src={team4} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Dario Uršulin
+                Mihovil Santek
                 <br />
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  A problem solver at heart, Dario only recently joined the
-                  Cardano community.
-                  <br />
-                  Interested in exploring various use cases of Cardano and using
-                  his experience to further popularize the project.
+                  Mihovil is a React developer from Croatia, entered in the crypto sphere in 2017 as a ICO investor. 
+                  Fascinated by the <a href="https://cardano.org/">Cardano</a> blockchain, now playing an active role 
+                  in Cardano community as a owner of <a href="/pool?id=PROTO">Proto Pool.</a>
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>

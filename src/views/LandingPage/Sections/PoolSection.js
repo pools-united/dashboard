@@ -63,14 +63,14 @@ export default function PoolSection() {
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
-            name={"Utterly Determined Pool [UDP]"}
-            address={"9f38b462566102fe9bc1061131f298164d51ea54464ad984d486ce87"}
+            name={"Proto Pool [PROTO]"}
+            address={"b00b421fbc620f0a2fdcf3243265d253b2e30c40da2c172dc5ab4640"}
             kickstart
             margin={"0.85%"}
             fixedFee={"340"}
             pledge={"5000"}
             delegateLink={"/faq#StoreAndDelegate"}
-            poolLink={"/pool?id=UDP"}
+            poolLink={"/pool?id=PROTO"}
             operator={{
               name: "Name#1",
               image: face,

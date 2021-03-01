@@ -12,7 +12,6 @@ import { makeStyles } from "@material-ui/core/styles";
 
 // core components
 import Header from "components/Header/Header.js";
-import Footer from "components/Footer/Footer.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
@@ -36,8 +35,10 @@ import CpuBanner from "assets/poolAssets/cpu/CpuBanner.png";
 import MinesLogo from "assets/poolAssets/mines/mines_logo.png";
 import MinesBanner from "assets/poolAssets/mines/MinesBanner.png";
 
-import UdpLogo from "assets/poolAssets/udp/udpLogo.png";
-import UdpBanner from "assets/poolAssets/udp/udpBanner.png";
+import ProtoLogoGif from "assets/poolAssets/proto/Proto_logo_GIF.gif";
+import ProtoLogoStatic from "assets/poolAssets/proto/Proto_logo_static.png";
+
+// import ProtoBanner from "assets/poolAssets/proto/ProtoBanner.png";
 
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 
@@ -46,12 +47,11 @@ import Filip from "assets/img/faces/Filip.jpg";
 import Nora from "assets/img/faces/Nora.jpg";
 import Patricia from "assets/img/faces/Patricia.jpg";
 import Emil from "assets/img/faces/emil_avatar.jpg";
-import Dario from "assets/img/faces/Dario.jpg";
+import Miha from "assets/img/faces/Miha.jpg";
 import Stjepan from "assets/img/faces/stjepan.jpg";
 
 //components
 import TextBox from "./Components/Textbox.js";
-import ShowAda from "./Components/ShowAda.js";
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import styled, { keyframes, createGlobalStyle } from "styled-components";
@@ -171,6 +171,7 @@ const frescoAnimation = keyframes`
 const frescoInitialState = "transform: rotate(90deg) scale(1.2);";
 
 const frescoLogoCustomCss = "filter: drop-shadow(0px 0px 32px #207179);";
+const protoLogoCustomCss = "display: none;";
 
 const BannerLogoContainer = styled.div`
   position: absolute;
@@ -411,10 +412,11 @@ const PoolPage = (props) => {
       description: (
         <>
           Founded in the dark times of Covid-19, first because of boredom, then
-          realizing how special and ready to help Cardano community is, it became a passion.
+          realizing how special and ready to help Cardano community is, it
+          became a passion.
           <br />
-          This pool is determened to help the community and accelerate the advent
-          of Cardano future.
+          This pool is determened to help the community and accelerate the
+          advent of Cardano future.
           <br />
           <br />
           Join Adastra mines and be the part of community who want better
@@ -424,10 +426,11 @@ const PoolPage = (props) => {
       descriptionMobile: (
         <>
           Founded in the dark times of Covid-19, first because of boredom, then
-          realizing how special and ready to help Cardano community is, it became a passion.
+          realizing how special and ready to help Cardano community is, it
+          became a passion.
           <br />
-          This pool is determened to help the community and accelerate the advent
-          of Cardano future.
+          This pool is determened to help the community and accelerate the
+          advent of Cardano future.
           <br />
           <br />
           Join Adastra mines and be the part of community who want better
@@ -526,47 +529,51 @@ const PoolPage = (props) => {
       firstOperator: Patricia,
       secondOperator: Nora,
     },
-    UDP: {
-      name: "Utterly Determined Pool |UDP|",
+    PROTO: {
+      name: "Proto Pool |PROTO|",
       poolColor: "black",
-      secondaryColor: "#000",
-      logoColor: "#93fcec",
-      bodyBackgroundColor: "#93fcec",
+      secondaryColor: "	#2d3866",
+      logoColor: "#6e8cff",
+      bodyBackgroundColor: "#6e8cff",
+      logoCustomCss: protoLogoCustomCss,
       description: (
         <>
-          The most recent addition to the CPU team. Founded as a way for it's
-          owner to learn more about the Cardano community and explore various
-          use cases of Cardano.
+          Inspired by the Protomolecule from the TV show "The Expanse," created
+          by extra-terrestrials, the technology that was superior to everything
+          humans knew, much like Cardano is to the majority of blockchains
+          today.
           <br />
           <br />
-          With the rest of the CPU team, we are hoping to enable community
-          members to utilize the Cardano project by providing tooling, education
-          and support.
+          With Proto pool, we are supporting{" "}
+          <a href="https://cardano.org/"> Cardano</a> community and ensuring our
+          delegators secure and smooth process. We are building a better future
+          one block at the time.
         </>
       ),
       descriptionMobile: (
         <>
-          The most recent addition to the CPU team. Founded as a way for it's
-          owner to learn more about the Cardano community and explore various
-          use cases of Cardano.
+          Inspired by the Protomolecule from the TV show "The Expanse," created
+          by extra-terrestrials, the technology that was superior to everything
+          humans knew, much like Cardano is to the majority of blockchains
+          today.
           <br />
-          With the rest of the CPU team, we are hoping to enable community
-          members to utilize the Cardano project by providing tooling, education
-          and support.
+          PROTO is a stake pool that tries to be as reliable, secure and
+          profitable as possible while supporting the
+          <a href="https://cardano.org/"> Cardano</a> community.
         </>
       ),
 
-      id: "9f38b462566102fe9bc1061131f298164d51ea54464ad984d486ce87",
-      banner: UdpBanner,
-      logoMobile: UdpLogo,
-      logoStatic: "",
-      logoDynamic: "",
-      twitter: "https://twitter.com/PoolUdp",
+      id: "b00b421fbc620f0a2fdcf3243265d253b2e30c40da2c172dc5ab4640",
+      banner: VenusBanner,
+      logoMobile: ProtoLogoStatic,
+      logoStatic: ProtoLogoGif,
+      logoDynamic: ProtoLogoGif,
+      twitter: "https://twitter.com/Proto_Pool",
       telegram: "https://t.me/CPUPools",
-      github: "https://github.com/dariour",
-      logoAnimation: false,
+      github: "https://github.com/miha2010",
+      logoAnimation: true,
       operators: true,
-      firstOperator: Dario,
+      firstOperator: Miha,
     },
   };
 
@@ -691,6 +698,7 @@ const PoolPage = (props) => {
 
   useEffect(() => {
     //get URL params
+
     setTimeout(async () => {
       setStartAnimation(true);
     }, 800);
