@@ -25,6 +25,7 @@ import Chart from "react-apexcharts";
 
 //images
 import VenusBanner from "assets/poolAssets/venus/FrescoBanner.png";
+import ProtoBanner from "assets/poolAssets/proto/ProtoBanner.png";
 import EraBanner from "assets/poolAssets/era/EraBanner.png";
 import VenusLogo from "assets/poolAssets/venus/fresco_logo.png";
 import VenusLogoStatic from "assets/poolAssets/venus/spinning_static.png";
@@ -38,7 +39,7 @@ import MinesBanner from "assets/poolAssets/mines/MinesBanner.png";
 import ProtoLogoGif from "assets/poolAssets/proto/Proto_logo_GIF.gif";
 import ProtoLogoStatic from "assets/poolAssets/proto/Proto_logo_static.png";
 
-// import ProtoBanner from "assets/poolAssets/proto/ProtoBanner.png";
+
 
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 
@@ -531,7 +532,7 @@ const PoolPage = (props) => {
     },
     PROTO: {
       name: "Proto Pool |PROTO|",
-      poolColor: "black",
+      poolColor: "#030303",
       secondaryColor: "	#2d3866",
       logoColor: "#6e8cff",
       bodyBackgroundColor: "#6e8cff",
@@ -564,7 +565,7 @@ const PoolPage = (props) => {
       ),
 
       id: "b00b421fbc620f0a2fdcf3243265d253b2e30c40da2c172dc5ab4640",
-      banner: VenusBanner,
+      banner: ProtoBanner,
       logoMobile: ProtoLogoStatic,
       logoStatic: ProtoLogoGif,
       logoDynamic: ProtoLogoGif,
