@@ -171,7 +171,6 @@ const frescoAnimation = keyframes`
 const frescoInitialState = "transform: rotate(90deg) scale(1.2);";
 
 const frescoLogoCustomCss = "filter: drop-shadow(0px 0px 32px #207179);";
-const protoLogoCustomCss = "display: none;";
 
 const BannerLogoContainer = styled.div`
   position: absolute;
@@ -535,7 +534,6 @@ const PoolPage = (props) => {
       secondaryColor: "	#2d3866",
       logoColor: "#6e8cff",
       bodyBackgroundColor: "#6e8cff",
-      logoCustomCss: protoLogoCustomCss,
       description: (
         <>
           Inspired by the Protomolecule from the TV show "The Expanse," created
@@ -559,12 +557,19 @@ const PoolPage = (props) => {
           <br />
           PROTO is a stake pool that tries to be as reliable, secure and
           profitable as possible while supporting the
-          <a href="https://cardano.org/"> Cardano</a> community.
+          <a
+            href="https://cardano.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cardano
+          </a>
+          community.
         </>
       ),
 
       id: "b00b421fbc620f0a2fdcf3243265d253b2e30c40da2c172dc5ab4640",
-      banner: VenusBanner,
+      // banner: ProtoLogoGif,
       logoMobile: ProtoLogoStatic,
       logoStatic: ProtoLogoGif,
       logoDynamic: ProtoLogoGif,
