@@ -489,7 +489,7 @@ const PoolPage = (props) => {
 
       logoAnimation: false,
       id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
-      twitter: "https://twitter.com/cpoolsunited",
+      twitter: "https://twitter.com/C_PoolsUnited",
       telegram: "https://t.me/cpoolsunited",
       youtube: "https://www.youtube.com/channel/UCPJ4UFyhEpqxYgcAWkplchw",
 

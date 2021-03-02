@@ -256,26 +256,6 @@ export default function ProfilePage(props) {
           </DescriptionText>
           <Spacer height="64px" />
 
-          <TitleHeading>
-            We are giving away our first charity donation!
-          </TitleHeading>
-          <DateText>14.02.2021.</DateText>
-          <DescriptionText>
-            Our CPU pool just got it's first rewards!
-            <br></br>
-            As promised, we are donating a part of our profits, for this first
-            time we decieded to use Twitter. If you think 300 ADA would help you
-            just write a comment why you need our donation.
-            <br></br>
-            <br></br>
-            <a
-              href="https://twitter.com/cpoolsunited/status/1361092133910937601"
-              target="_blank" 
-            >
-              Twitter link
-            </a>
-          </DescriptionText>
-          <Spacer height="64px" />
         </FaqContainer>
         <br />
         <br />
