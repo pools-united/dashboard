@@ -541,10 +541,13 @@ const PoolPage = (props) => {
           today.
           <br />
           <br />
-          With Proto pool, we are supporting{" "}
-          <a href="https://cardano.org/"> Cardano</a> community and ensuring our
-          delegators secure and smooth process. We are building a better future
-          one block at the time.
+          With Proto pool, we are supporting the{" "}
+          <a href="https://cardano.org/" target="_blank" rel="noreferrer">
+            {" "}
+            Cardano
+          </a>{" "}
+          community and ensuring our delegators secure and smooth process. We
+          are building a better future one block at a time.
         </>
       ),
       descriptionMobile: (
@@ -554,8 +557,9 @@ const PoolPage = (props) => {
           humans knew, much like Cardano is to the majority of blockchains
           today.
           <br />
-          PROTO is a stake pool that tries to be as reliable, secure and
-          profitable as possible while supporting the
+          With Proto pool, we are supporting the Cardano community and ensuring
+          our delegators secure and smooth process. We are building a better
+          future one block at a time.
           <a
             href="https://cardano.org/"
             target="_blank"
