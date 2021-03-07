@@ -327,7 +327,7 @@ const ContentWrapper = styled.div`
 `;
 
 const PoolTitle = styled.h1`
-margin-top: 46px
+margin-top: 70px
 
 `
 
