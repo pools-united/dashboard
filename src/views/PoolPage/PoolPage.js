@@ -326,6 +326,11 @@ const ContentWrapper = styled.div`
   }
 `;
 
+const PoolTitle = styled.h1`
+margin-top: 46px
+
+`
+
 const PoolPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
@@ -557,17 +562,17 @@ const PoolPage = (props) => {
           humans knew, much like Cardano is to the majority of blockchains
           today.
           <br />
-          With Proto pool, we are supporting the Cardano community and ensuring
-          our delegators secure and smooth process. We are building a better
-          future one block at a time.
-          <a
+          With Proto pool, we are supporting the  <a
             href="https://cardano.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Cardano
           </a>
-          community.
+          community and ensuring
+          our delegators secure and smooth process. We are building a better
+          future one block at a time.
+         
         </>
       ),
 
@@ -919,10 +924,10 @@ const PoolPage = (props) => {
               <div className={classes.container}>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>
-                    <h1 className={classes.title}>
+                    <PoolTitle className={classes.title}>
                       {" "}
                       {urlParams && poolsDetails[urlParams.id].name}
-                    </h1>
+                    </PoolTitle>
                     <DescriptionText>
                       {!mobileState
                         ? urlParams && poolsDetails[urlParams.id].description
