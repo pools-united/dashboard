@@ -570,8 +570,7 @@ const PoolPage = (props) => {
             Cardano
           </a>
           community and ensuring
-          our delegators secure and smooth process. We are building a better
-          future one block at a time.
+          our delegators secure and smooth process.
          
         </>
       ),
