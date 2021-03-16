@@ -153,11 +153,11 @@ const defaultBoxShadow = {
   boxShadow:
     "0 10px 20px -12px rgba(0, 0, 0, 0.42), 0 3px 20px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2)",
   padding: "10px 0",
-  transition: "all 150ms ease 0s"
+  transition: "all 150ms ease 0.1s"
 };
 
 const title = {
-  color: "#3C4858",
+  color: "#3C4858", 
   margin: "1.75rem 0 0.875rem",
   textDecoration: "none",
   fontWeight: "700",
