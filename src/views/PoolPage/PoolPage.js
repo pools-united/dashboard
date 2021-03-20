@@ -755,7 +755,7 @@ const PoolPage = (props) => {
       // !poolsDetails.hasOwnProperty(urlParamsObject.id) &&
       //   setUrlParams({ id: "CPU" });
 
-      console.log(`You changed the page to: ${location.pathname}`);
+      // console.log(`You changed the page to: ${location.pathname}`);
     });
   }, [history]);
 
@@ -803,7 +803,7 @@ const PoolPage = (props) => {
         ) {
           // console.log("testiram");
           setNumberOfBlocks([]);
-          setRoaStats([]);
+          setRoaStats([null]);
           // console.log(
           //   JSON.parse(context.poolStats[urlParams.id].data.hist_bpe)
           // );
@@ -816,7 +816,7 @@ const PoolPage = (props) => {
               ]);
             }
           );
-
+console.log(context.poolStats[urlParams.id])
           JSON.parse(context.poolStats[urlParams.id].data.hist_roa).forEach(
             (element) => {
               // console.log(element.val);
@@ -824,6 +824,9 @@ const PoolPage = (props) => {
               setRoaStats((roaStats) => [...roaStats, parseFloat(element.val)]);
             }
           );
+
+          setRoaStats((roaStats) => [...roaStats, null]);
+
 
           // calculateRewards();
 
@@ -1260,7 +1263,7 @@ const PoolPage = (props) => {
                                   context.poolStats[urlParams.id].data.tax_fix
                                 ) / 1000000
                               );
-                              // console.log(roaStats);
+                            
                             }}
                           />
                         </RewardsComponent>
@@ -1309,6 +1312,7 @@ const PoolPage = (props) => {
                                 ) / 1000000
                               );
                               // console.log(roaStats);
+                              // console.log("VAZNO")
                             }}
                           />
                         </RewardsComponent>
