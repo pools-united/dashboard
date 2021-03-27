@@ -35,6 +35,8 @@ import CpuLogo from "assets/poolAssets/cpu/cpu_logo.png";
 import CpuBanner from "assets/poolAssets/cpu/CpuBanner.png";
 import MinesLogo from "assets/poolAssets/mines/mines_logo.png";
 import MinesBanner from "assets/poolAssets/mines/MinesBanner.png";
+import CurieLogo from "assets/poolAssets/curie/curie_logo.png";
+import CurieBanner from "assets/poolAssets/curie/CurieBanner.png";
 
 import ProtoLogoGif from "assets/poolAssets/proto/Proto_logo_GIF.gif";
 import ProtoLogoStatic from "assets/poolAssets/proto/Proto_logo_static.png";
@@ -48,6 +50,7 @@ import Patricia from "assets/img/faces/Patricia.jpg";
 import Emil from "assets/img/faces/emil_avatar.jpg";
 import Miha from "assets/img/faces/Miha.jpg";
 import Stjepan from "assets/img/faces/stjepan.jpg";
+import Zvonimir from "assets/img/faces/Zvonimir.jpg";
 
 //components
 import TextBox from "./Components/Textbox.js";
@@ -327,9 +330,8 @@ const ContentWrapper = styled.div`
 `;
 
 const PoolTitle = styled.h1`
-margin-top: 70px
-
-`
+  margin-top: 70px;
+`;
 
 const PoolPage = (props) => {
   const classes = useStyles();
@@ -407,20 +409,26 @@ const PoolPage = (props) => {
     },
     CURIE: {
       name: "Marie Curie Pool |CURIE|",
-      poolColor: "blue",
+      poolColor: "black",
       secondaryColor: "#000",
-      logoColor: "rgb(52, 163, 108)",
+      logoColor: "#336699",
       bodyBackgroundColor: "rgb(52, 163, 108)",
       description: (
         <>
-Marie Curie Pool is operated by young scientist, pharmacist and crypto enthusiast from Croatia who realized the potential of new technologies like blockchain in science and biomedicine. 
-It is inspired by Marie Curie who was dedicated to improvement of science despite all the obstacles she encountered.
+          Marie Curie Pool is operated by young scientist, pharmacist and crypto
+          enthusiast from Croatia who realized the potential of new technologies
+          like blockchain in science and biomedicine. It is inspired by Marie
+          Curie who was dedicated to improvement of science despite all the
+          obstacles she encountered.
         </>
       ),
       descriptionMobile: (
         <>
-Marie Curie Pool is operated by young scientist, pharmacist and crypto enthusiast from Croatia who realized the potential of new technologies like blockchain in science and biomedicine. 
-It is inspired by Marie Curie who was dedicated to improvement of science despite all the obstacles she encountered.         
+          Marie Curie Pool is operated by young scientist, pharmacist and crypto
+          enthusiast from Croatia who realized the potential of new technologies
+          like blockchain in science and biomedicine. It is inspired by Marie
+          Curie who was dedicated to improvement of science despite all the
+          obstacles she encountered.
         </>
       ),
       banner: CurieBanner,
@@ -432,9 +440,10 @@ It is inspired by Marie Curie who was dedicated to improvement of science despit
       telegram: "https://t.me/mariecuriepool",
       logoAnimation: false,
       operators: true,
-      // firstOperator: Zvonimir,
+      firstOperator: Zvonimir,
+      secondOperator: false,
     },
-  
+
     MINES: {
       name: "ADAstra Mines |Mines|",
       poolColor: "black",
@@ -592,16 +601,15 @@ It is inspired by Marie Curie who was dedicated to improvement of science despit
           humans knew, much like Cardano is to the majority of blockchains
           today.
           <br />
-          With Proto pool, we are supporting the  <a
+          With Proto pool, we are supporting the{" "}
+          <a
             href="https://cardano.org/"
             target="_blank"
             rel="noopener noreferrer"
           >
             Cardano
           </a>
-          community and ensuring
-          our delegators secure and smooth process.
-         
+          community and ensuring our delegators secure and smooth process.
         </>
       ),
 
@@ -846,7 +854,7 @@ It is inspired by Marie Curie who was dedicated to improvement of science despit
               ]);
             }
           );
-console.log(context.poolStats[urlParams.id])
+          console.log(context.poolStats[urlParams.id]);
           JSON.parse(context.poolStats[urlParams.id].data.hist_roa).forEach(
             (element) => {
               // console.log(element.val);
@@ -856,7 +864,6 @@ console.log(context.poolStats[urlParams.id])
           );
 
           setRoaStats((roaStats) => [...roaStats, null]);
-
 
           // calculateRewards();
 
@@ -1293,7 +1300,6 @@ console.log(context.poolStats[urlParams.id])
                                   context.poolStats[urlParams.id].data.tax_fix
                                 ) / 1000000
                               );
-                            
                             }}
                           />
                         </RewardsComponent>
