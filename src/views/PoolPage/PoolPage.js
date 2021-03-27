@@ -405,6 +405,36 @@ const PoolPage = (props) => {
       firstOperator: Filip,
       secondOperator: false,
     },
+    CURIE: {
+      name: "Marie Curie Pool |CURIE|",
+      poolColor: "blue",
+      secondaryColor: "#000",
+      logoColor: "rgb(52, 163, 108)",
+      bodyBackgroundColor: "rgb(52, 163, 108)",
+      description: (
+        <>
+Marie Curie Pool is operated by young scientist, pharmacist and crypto enthusiast from Croatia who realized the potential of new technologies like blockchain in science and biomedicine. 
+It is inspired by Marie Curie who was dedicated to improvement of science despite all the obstacles she encountered.
+        </>
+      ),
+      descriptionMobile: (
+        <>
+Marie Curie Pool is operated by young scientist, pharmacist and crypto enthusiast from Croatia who realized the potential of new technologies like blockchain in science and biomedicine. 
+It is inspired by Marie Curie who was dedicated to improvement of science despite all the obstacles she encountered.         
+        </>
+      ),
+      banner: CurieBanner,
+      logoMobile: CurieLogo,
+      logoStatic: "",
+      logoDynamic: "",
+      id: " 6c81475fe8b32b5dfde307325a2cb115de26a466037d0ec76bb499b3",
+      twitter: "https://twitter.com/CuriePool",
+      telegram: "https://t.me/mariecuriepool",
+      logoAnimation: false,
+      operators: true,
+      // firstOperator: Zvonimir,
+    },
+  
     MINES: {
       name: "ADAstra Mines |Mines|",
       poolColor: "black",
