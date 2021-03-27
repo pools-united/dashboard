@@ -1199,7 +1199,7 @@ const PoolPage = (props) => {
                     titleColor={poolsDetails[urlParams.id].logoColor}
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
-                    title={"Yearly ROA"}
+                    title={"ROA (30 day avg) "}
                     text={`${
                       context.poolStats[urlParams.id] &&
                       parseFloat(
