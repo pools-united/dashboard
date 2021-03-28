@@ -2,6 +2,7 @@
 import React from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import AnnouncementIcon from '@material-ui/icons/Announcement';
+import ContactMailIcon from '@material-ui/icons/ContactMail';
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -72,6 +73,14 @@ export default function HeaderLinks(props) {
           className={classes.navLink}
         >
           <AnnouncementIcon className={classes.icons} /> News
+        </Button>
+        <Button
+          href="/contact-us"
+          color="transparent"
+          // target="_blank"
+          className={classes.navLink}
+        >
+          <ContactMailIcon className={classes.icons} /> CONTACT US
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>

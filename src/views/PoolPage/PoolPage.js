@@ -27,6 +27,7 @@ import Chart from "react-apexcharts";
 import VenusBanner from "assets/poolAssets/venus/FrescoBanner.png";
 import ProtoBanner from "assets/poolAssets/proto/ProtoBanner.png";
 import EraBanner from "assets/poolAssets/era/EraBanner.png";
+import EraLogoGif from "assets/poolAssets/era/era_logo.gif";
 import VenusLogo from "assets/poolAssets/venus/fresco_logo.png";
 import VenusLogoStatic from "assets/poolAssets/venus/spinning_static.png";
 import VenusLogoDynamic from "assets/poolAssets/venus/spinning_dynamic.png";
@@ -520,14 +521,14 @@ const PoolPage = (props) => {
         </>
       ),
 
-      banner: EraBanner,
+      banner: '',
       logoMobile: EraLogo,
       logoStatic: "",
-      logoDynamic: "",
+      logoDynamic: EraLogoGif,
       id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
       twitter: "https://twitter.com/ERA_NovaPool",
       telegram: "https://t.me/CPUPools",
-      logoAnimation: false,
+      logoAnimation: true,
       operators: true,
       firstOperator: Patricia,
       secondOperator: Nora,
