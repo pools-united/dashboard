@@ -80,7 +80,7 @@ export default function HeaderLinks(props) {
           // target="_blank"
           className={classes.navLink}
         >
-          <ContactMailIcon className={classes.icons} /> CONTACT US
+          <ContactMailIcon className={classes.icons} /> CONTACT
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>

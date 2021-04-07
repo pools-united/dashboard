@@ -50,7 +50,7 @@ export default function ContactUs(props) {
         image={require("assets/poolAssets/cpu/CpuBanner.png")}
       />
       <div className={classNames(classes.main, classes.mainRaised)}>
-      <PageTitle>We would love to hear from you!</PageTitle>
+      <PageTitle>Got a question?</PageTitle>
       <EmailJSForm />
       <Footer />
     </div>
