@@ -620,7 +620,7 @@ const PoolPage = (props) => {
       logoStatic: ProtoLogoGif,
       logoDynamic: ProtoLogoGif,
       twitter: "https://twitter.com/Proto_Pool",
-      telegram: "https://t.me/CPUPools",
+      telegram: "https://t.me/joinchat/iAnhOUtj9Aw3NzA0",
       github: "https://github.com/miha2010",
       logoAnimation: true,
       operators: true,

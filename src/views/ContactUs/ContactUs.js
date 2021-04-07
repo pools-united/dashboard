@@ -49,7 +49,7 @@ export default function ContactUs(props) {
         filter
         image={require("assets/poolAssets/cpu/CpuBanner.png")}
       />
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <div style={{paddingTop: "18px"}} className={classNames(classes.main, classes.mainRaised)}>
       <PageTitle>Got a question?</PageTitle>
       <EmailJSForm />
       <Footer />
