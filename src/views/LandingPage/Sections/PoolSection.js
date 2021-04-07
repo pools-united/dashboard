@@ -77,7 +77,22 @@ export default function PoolSection() {
             }}
           />
         </GridItem>
-        <GridItem xs={12} sm={12} md={2}></GridItem>
+        <GridItem xs={12} sm={12} md={4}>
+          <PoolCard
+            name={"Marie Curie Pool [Curie]"}
+            address={"6c81475fe8b32b5dfde307325a2cb115de26a466037d0ec76bb499b3"}
+            margin={"1%"}
+            kickstart
+            fixedFee={"340"}
+            pledge={"5000"}
+            delegateLink={"/faq#StoreAndDelegate"}
+            poolLink={"/pool?id=CURIE"}
+            operator={{
+              name: "Name#1",
+              image: face,
+            }}
+          />
+        </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
             name={"Fresco Pool [VENUS]"}
