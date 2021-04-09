@@ -228,6 +228,23 @@ export default function ProfilePage(props) {
         <FaqContainer>
           <PageTitle>NEWS</PageTitle>
 
+
+
+          <TitleHeading>
+            Some of us were guests on Cardano Hotel podcast, check us out! :)
+          </TitleHeading>
+          <DateText>08.04.2021.</DateText>
+          {<PlayerStyled
+            url="https://www.youtube.com/watch?v=ST7_erZlm_0"
+            config={{
+              youtube: {
+                playerVars: { controls: 1 },
+              },
+            }}
+          />}
+
+          <Spacer height="64px" />
+
           <TitleHeading>
             Check out our android new android application with a widget!{" "}
           </TitleHeading>
@@ -254,7 +271,9 @@ export default function ProfilePage(props) {
               Download link
             </a>
           </DescriptionText>
-          <Spacer height="64px" />
+
+
+
 
         </FaqContainer>
         <br />
