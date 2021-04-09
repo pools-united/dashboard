@@ -50,9 +50,11 @@ const PageTitle = styled.div`
 `;
 
 const FaqContainer = styled.div`
+  padding:16px;
   padding-top: 32px;
   max-width: 728px;
   margin: auto;
+
 `;
 
 const Spacer = styled.div`
