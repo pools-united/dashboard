@@ -3,6 +3,7 @@ import React from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import AnnouncementIcon from '@material-ui/icons/Announcement';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
+import DonutSmallIcon from '@material-ui/icons/DonutSmall';
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -84,6 +85,14 @@ export default function HeaderLinks(props) {
           className={classes.navLink}
         >
           <ContactMailIcon className={classes.icons} /> CONTACT
+        </Button>
+        <Button
+          href="/cpu-token"
+          color="transparent"
+          // target="_blank"
+          className={classes.navLink}
+        >
+          <DonutSmallIcon className={classes.icons} /> CPU TOKEN
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>

@@ -14,6 +14,7 @@ import PoolPage from "views/PoolPage/PoolPage.js";
 import FAQPage from "views/FAQPage/FAQPage.js";
 import NewsPage from "views/News/NewsPage.js";
 import ContactUs from "views/ContactUs/ContactUs";
+import CpuToken from "views/Cpu_token/CpuTokenPage"
 
 var hist = createBrowserHistory();
 
@@ -26,6 +27,7 @@ ReactDOM.render(
         {/* <Route path="/components" component={Components} /> */}
         <Route path="/faq" component={FAQPage} />
         <Route path="/news" component={NewsPage} />
+        <Route path="/cpu-token" component={CpuToken} />
         <Route path="/pool" component={PoolPage} />
         <Route path="/contact-us" component={ContactUs} />
         <Route path="/" component={LandingPage} />
