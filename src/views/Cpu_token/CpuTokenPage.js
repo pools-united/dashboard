@@ -274,7 +274,7 @@ export default function ProfilePage(props) {
 
 
           <TitleHeading>
-            By delegating to one of CPU pools you have a chance to get CPU Token
+            By delegating to one of our CPU pools you have a chance to get CPU Token
           </TitleHeading>
 
 
