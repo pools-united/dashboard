@@ -4,6 +4,10 @@ import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
+
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
@@ -23,6 +27,17 @@ import styled from "styled-components";
 import styles from "assets/jss/material-kit-react/views/faqPage.js";
 
 import ReactPlayer from "react-player";
+
+
+
+//PRINT PICTURES
+import cardanoCoin from "assets/poolAssets/prints/cardano.jpg";
+import cpuCoaster from "assets/poolAssets/prints/cpu.jpg";
+import daedalusCoaster from "assets/poolAssets/prints/daedalus.jpg";
+import frescoCoaster from "assets/poolAssets/prints/fresco.jpg";
+
+
+
 
 const useStyles = makeStyles(styles);
 
@@ -206,25 +221,31 @@ const DescriptionText = styled.div`
   margin-top: 16px;
 `;
 
+const ExamplePrintsText = styled.div`
+text-align: center;
+font-weight:500;
+`
+
+
 export default function ProfilePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
 
-function AccordionState(id) {
-  console.log(id);
-  setAccordionState({
-    ...accordionState,
-    1: true,
-  });
-}
+  function AccordionState(id) {
+    console.log(id);
+    setAccordionState({
+      ...accordionState,
+      1: true,
+    });
+  }
 
-const [accordionState, setAccordionState] = useState(InitialAccordionState);
-const [expanded, setExpanded] = React.useState(false);
+  const [accordionState, setAccordionState] = useState(InitialAccordionState);
+  const [expanded, setExpanded] = React.useState(false);
 
-const handleChange = (panel) => (event, isExpanded) => {
-  setExpanded(isExpanded ? panel : false);
-};
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
 
   return (
@@ -253,104 +274,163 @@ const handleChange = (panel) => (event, isExpanded) => {
 
 
           <TitleHeading>
-         By delegating to one of CPU pools you have a chance to get CPU Token
+            By delegating to one of CPU pools you have a chance to get CPU Token
           </TitleHeading>
-        
-        
+
+
           <DescriptionText>
-           We will occasionally giveaway our CPU tokens to our delegators. You can exchange your CPU token for cool Cardano or CPU pools related 3d prints.
+            We will occasionally giveaway our CPU tokens to our delegators. You can exchange your CPU token for cool Cardano or CPU pools related 3D prints.
             <br></br>
             <br></br>
-          
+
           </DescriptionText>
 
           <AccordionWrapper>
-       <Accordion
-        expanded={expanded === "panel1"}
-        onChange={handleChange("panel1")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1bh-content"
-          id="panel1bh-header"
-        >
-          <TypographyStyled
-            animation={expanded === "panel1"}
-            className={classes.heading}
-          >
-How can i get a CPU token?        </TypographyStyled>
-        </AccordionSummary>
-        <AccordionDetails><div>
-          Any delegator of CPU pools is able to get a CPU token.<br/>
+            <Accordion
+              expanded={expanded === "panel1"}
+              onChange={handleChange("panel1")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+                <TypographyStyled
+                  animation={expanded === "panel1"}
+                  className={classes.heading}
+                >
+                  How can i get a CPU token?        </TypographyStyled>
+              </AccordionSummary>
+              <AccordionDetails><div>
+                Any delegator of CPU pools is able to get a CPU token.<br />
        Just follow us on our <a href="https://twitter.com/C_PoolsUnited" target="_blank"> Twitter</a>, we will occasionally post CPU token giveaways.
        <br></br>       <br></br>
 
        All you need to do is:
 <br></br>
 
-       <ulStyled>
-  <li>Like the giveaway tweet</li>
-  <li>Retweet the giveaway tweet</li>
-  <li>Hold your delegation for atleast 10 days</li>
-  <br></br>
+                <ulStyled>
+                  <li>Like the giveaway tweet</li>
+                  <li>Retweet the giveaway tweet</li>
+                  <li>Hold your delegation for atleast 10 days</li>
+                  <br></br>
 
 
 
   After 10 days, if your delegation is still in one of our CPU pools, we will send you a CPU token.
-</ulStyled> 
-       </div>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "panel2"}
-        onChange={handleChange("panel2")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2bh-content"
-          id="panel2bh-header"
-        >
-          <TypographyStyled
-            animation={expanded === "panel2"}
-            className={classes.heading}
-          >
-            What is the minimum delegation amount in order to be eligible for a giveaway?
+</ulStyled>
+              </div>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              expanded={expanded === "panel2"}
+              onChange={handleChange("panel2")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel2bh-content"
+                id="panel2bh-header"
+              >
+                <TypographyStyled
+                  animation={expanded === "panel2"}
+                  className={classes.heading}
+                >
+                  What is the minimum delegation amount in order to be eligible for a giveaway?
           </TypographyStyled>
-        </AccordionSummary>
-        <AccordionDetails>
-          <TypographyStyled>
-          Any amount of ADA delegated is just fine :)
+              </AccordionSummary>
+              <AccordionDetails>
+                <TypographyStyled>
+                  Any amount of ADA delegated is just fine :)
           </TypographyStyled>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion
-        expanded={expanded === "panel3"}
-        onChange={handleChange("panel3")}
-      >
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3bh-content"
-          id="panel3bh-header"
-        >
-          <TypographyStyled
-            animation={expanded === "panel3"}
-            className={classes.heading}
-          >
-         What can i do with a CPU Token?
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              expanded={expanded === "panel3"}
+              onChange={handleChange("panel3")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel3bh-content"
+                id="panel3bh-header"
+              >
+                <TypographyStyled
+                  animation={expanded === "panel3"}
+                  className={classes.heading}
+                >
+                  What can i do with a CPU Token?
           </TypographyStyled>
-        </AccordionSummary>
-        <AccordionDetails>
-          <TypographyStyled>
-         You can exchange your tokens for unique, CPU made 3d prints.
+              </AccordionSummary>
+              <AccordionDetails>
+                <TypographyStyled>
+                  You can exchange your tokens for unique, CPU made 3D prints.
 
-         The more tokens you have, bigger (more complex) the print will be, all you need is to decide if you want your print to be Cardano or CPU pools related. <br/><br/>
+         The more tokens you have, bigger (more complex) the print will be, all you need is to decide if you want your print to be Cardano or CPU pools related.<br /><br />
          With 3 tokens or more, you can even request a personalized print (custom text, etc.) and we will see what we can do.
           </TypographyStyled>
-        </AccordionDetails>
-      </Accordion>
-    
-     
-    </AccordionWrapper>
+              </AccordionDetails>
+            </Accordion>
+
+            <Accordion
+              expanded={expanded === "panel4"}
+              onChange={handleChange("panel4")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel4bh-content"
+                id="panel3bh-header"
+              >
+                <TypographyStyled
+                  animation={expanded === "panel4"}
+                  className={classes.heading}
+                >
+               Can i choose what 3D print i want?
+          </TypographyStyled>
+              </AccordionSummary>
+              <AccordionDetails>
+                <TypographyStyled>
+            Nope, we like to surprise our delegators. <br></br>If you exchange more that 3 CPU tokens, you can ask for a personalized print tho.
+          </TypographyStyled>
+              </AccordionDetails>
+            </Accordion>
+
+
+          </AccordionWrapper>
+          <br />   <br />
+          <ExamplePrintsText>  Some of our example prints, we will have new designs every month!</ExamplePrintsText>
+        
+          <br />
+          <Carousel>
+            <div>
+              <img src={cardanoCoin} />
+              {/* <p className="legend">Legend 1</p> */}
+            </div>
+            <div>
+              <img src={cpuCoaster} />
+              {/* <p className="legend">Legend 2</p> */}
+            </div>
+            <div>
+              <img src={daedalusCoaster} />
+              {/* <p className="legend">Legend 3</p> */}
+            </div>
+            <div>
+              <img src={frescoCoaster} />
+              {/* <p className="legend">Legend 3</p> */}
+            </div>
+          </Carousel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         </FaqContainer>
@@ -358,6 +438,8 @@ How can i get a CPU token?        </TypographyStyled>
         <br />
         <br />
         <br />
+
+
       </div>
       <Footer />
     </div>
