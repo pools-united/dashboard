@@ -388,7 +388,7 @@ export default function ProfilePage(props) {
               </AccordionSummary>
               <AccordionDetails>
                 <TypographyStyled>
-                  Nope, we like to surprise our delegators. <br></br>If you exchange more that 3 CPU tokens, you can ask for a personalized print tho.
+                  Nope, we like to surprise our delegators. <br></br>You can request a theme (Cardano or one of CPU pools), and if you exchange more that 3 CPU tokens, you can ask for a personalized print.
           </TypographyStyled>
               </AccordionDetails>
             </Accordion>
