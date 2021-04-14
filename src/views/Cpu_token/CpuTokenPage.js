@@ -383,12 +383,12 @@ export default function ProfilePage(props) {
                   animation={expanded === "panel4"}
                   className={classes.heading}
                 >
-               Can i choose what 3D print i want?
+                  Can i choose what 3D print i want?
           </TypographyStyled>
               </AccordionSummary>
               <AccordionDetails>
                 <TypographyStyled>
-            Nope, we like to surprise our delegators. <br></br>If you exchange more that 3 CPU tokens, you can ask for a personalized print tho.
+                  Nope, we like to surprise our delegators. <br></br>If you exchange more that 3 CPU tokens, you can ask for a personalized print tho.
           </TypographyStyled>
               </AccordionDetails>
             </Accordion>
@@ -397,7 +397,7 @@ export default function ProfilePage(props) {
           </AccordionWrapper>
           <br />   <br />
           <ExamplePrintsText>  Some of our example prints, we will have new designs every month!</ExamplePrintsText>
-        
+
           <br />
           <Carousel>
             <div>
