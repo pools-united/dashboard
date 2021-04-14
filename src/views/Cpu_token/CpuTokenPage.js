@@ -37,6 +37,7 @@ const PlayerStyled = styled(ReactPlayer)`
 
 const TitleHeading = styled.div`
   font-size: 24px;
+  text-align: center;
   font-weight: 500;
   /* text-align: center; */
   padding: 8px 0;
@@ -48,6 +49,11 @@ const PageTitle = styled.div`
   text-align: center;
   padding: 32px 0;
 `;
+
+const ParallaxStyled = styled(Parallax)`
+background-size:contain;
+
+`
 
 const FaqContainer = styled.div`
   padding:16px;
@@ -61,22 +67,22 @@ const Spacer = styled.div`
   width: 100%;
   height: ${(props) => props.height};
 `;
-// const AccordionWrapper = styled.div`
-//   width: 100%;
-// `;
+const AccordionWrapper = styled.div`
+  width: 100%;
+`;
 
-// // const InitialAccordionState = {
-// //   1: false,
-// //   2: false,
-// //   3: false,
-// // };
+const InitialAccordionState = {
+  1: false,
+  2: false,
+  3: false,
+};
 
-// const TypographyStyled = styled(Typography)`
-//   width: 100%;
-//   transition: 0.3s all;
-//   text-align: ${(props) => (props.animation ? "center" : "unset")};
-//   font-size: ${(props) => (props.animation ? "22px" : "16px")};
-// `;
+const TypographyStyled = styled(Typography)`
+  width: 100%;
+  transition: 0.3s all;
+  text-align: ${(props) => (props.animation ? "center" : "unset")};
+  font-size: ${(props) => (props.animation ? "22px" : "16px")};
+`;
 
 // function SimpleAccordion() {
 // const classes = useStyles();
@@ -192,10 +198,9 @@ const Spacer = styled.div`
 //   );
 // }
 
-const DateText = styled.div`
-  /* text-align: center; */
-  margin-top: 8px;
-`;
+const ulStyled = styled.ul`
+text-align: left;
+`
 
 const DescriptionText = styled.div`
   margin-top: 16px;
@@ -204,6 +209,23 @@ const DescriptionText = styled.div`
 export default function ProfilePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
+
+
+function AccordionState(id) {
+  console.log(id);
+  setAccordionState({
+    ...accordionState,
+    1: true,
+  });
+}
+
+const [accordionState, setAccordionState] = useState(InitialAccordionState);
+const [expanded, setExpanded] = React.useState(false);
+
+const handleChange = (panel) => (event, isExpanded) => {
+  setExpanded(isExpanded ? panel : false);
+};
+
 
   return (
     <div>
@@ -218,63 +240,117 @@ export default function ProfilePage(props) {
         }}
         {...rest}
       />
-      <Parallax
+      <ParallaxStyled
         small
         filter
-        image={require("assets/poolAssets/cpu/CpuBanner.png")}
+        image={require("assets/img/bannerToken.jpg")}
       />
       <div className={classNames(classes.main, classes.mainRaised)}>
-        {/* <SimpleAccordion /> */}
         {/* <BottomSpacer /> */}
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
         <FaqContainer>
-          <PageTitle>NEWS</PageTitle>
-
+          <PageTitle>CPU TOKEN</PageTitle>
 
 
           <TitleHeading>
-            Some of us were guests on Cardano Hotel podcast, check us out! :)
+         By delegating to one of CPU pools you have a chance to get CPU Token
           </TitleHeading>
-          <DateText>08.04.2021.</DateText>
-          {<PlayerStyled
-            url="https://www.youtube.com/watch?v=ST7_erZlm_0"
-            config={{
-              youtube: {
-                playerVars: { controls: 1 },
-              },
-            }}
-          />}
-
-          <Spacer height="64px" />
-
-          <TitleHeading>
-            Check out our android new android application with a widget!{" "}
-          </TitleHeading>
-          <DateText>22.01.2021.</DateText>
-          {/* <PlayerStyled
-            url="https://youtu.be/nSNOo7LFTjI"
-            config={{
-              youtube: {
-                playerVars: { controls: 1 },
-              },
-            }}
-          /> */}
+        
+        
           <DescriptionText>
-            Be sure to check out our application with widget support for all our
-            pools. <br></br>
-            In the next updates we will add widget support to pools outside of
-            CPU collaboration.
+           We will occasionally giveaway our CPU tokens to our delegators. You can exchange your CPU token for cool Cardano or CPU pools related 3d prints.
             <br></br>
             <br></br>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.cardanopoolsunitedwidget"
-              target="_blank"
-            >
-              Download link
-            </a>
+          
           </DescriptionText>
 
+          <AccordionWrapper>
+       <Accordion
+        expanded={expanded === "panel1"}
+        onChange={handleChange("panel1")}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel1bh-content"
+          id="panel1bh-header"
+        >
+          <TypographyStyled
+            animation={expanded === "panel1"}
+            className={classes.heading}
+          >
+How can i get a CPU token?        </TypographyStyled>
+        </AccordionSummary>
+        <AccordionDetails><div>
+          Any delegator of CPU pools is able to get a CPU token.<br/>
+       Just follow us on our <a href="https://twitter.com/C_PoolsUnited" target="_blank"> Twitter</a>, we will occasionally post CPU token giveaways.
+       <br></br>       <br></br>
 
+       All you need to do is:
+<br></br>
+
+       <ulStyled>
+  <li>Like the giveaway tweet</li>
+  <li>Retweet the giveaway tweet</li>
+  <li>Hold your delegation for atleast 10 days</li>
+  <br></br>
+
+  <br></br>
+
+  After 10 days, if your delegation is still in one of our CPU pools, we will send you a CPU token.
+</ulStyled> 
+       </div>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={expanded === "panel2"}
+        onChange={handleChange("panel2")}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel2bh-content"
+          id="panel2bh-header"
+        >
+          <TypographyStyled
+            animation={expanded === "panel2"}
+            className={classes.heading}
+          >
+            What is the minimum delegation amount in order to be eligible for a giveaway?
+          </TypographyStyled>
+        </AccordionSummary>
+        <AccordionDetails>
+          <TypographyStyled>
+          Any amount of ADA delegated is just fine :)
+          </TypographyStyled>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion
+        expanded={expanded === "panel3"}
+        onChange={handleChange("panel3")}
+      >
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="panel3bh-content"
+          id="panel3bh-header"
+        >
+          <TypographyStyled
+            animation={expanded === "panel3"}
+            className={classes.heading}
+          >
+         What can i do with a CPU Token?
+          </TypographyStyled>
+        </AccordionSummary>
+        <AccordionDetails>
+          <TypographyStyled>
+         You can exchange your tokens for unique, CPU made 3d prints.
+
+         The more tokens you have, bigger (more complex) the print will be, all you need is to decide if you want your print to be Cardano or CPU pools related. <br/><br/>
+         With 3 tokens or more, you can even request a personalized print (custom text, etc.) and we will see what we can do.
+          </TypographyStyled>
+        </AccordionDetails>
+      </Accordion>
+    
+     
+    </AccordionWrapper>
 
 
         </FaqContainer>
