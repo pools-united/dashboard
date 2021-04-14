@@ -294,7 +294,7 @@ How can i get a CPU token?        </TypographyStyled>
   <li>Hold your delegation for atleast 10 days</li>
   <br></br>
 
-  <br></br>
+
 
   After 10 days, if your delegation is still in one of our CPU pools, we will send you a CPU token.
 </ulStyled> 
