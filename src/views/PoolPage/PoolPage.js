@@ -102,6 +102,15 @@ const RewardsCalculatorWrapper = styled.div`
   max-width: 700px;
 `;
 
+const AdditionalInfo = styled.div`
+color:white;
+max-width: 700px;
+margin:auto;
+display:${(props) => props.displayInfo ? "block" :"none"};
+padding-bottom:32px;
+
+`
+
 const InfoGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -409,6 +418,11 @@ const PoolPage = (props) => {
       secondOperator: false,
     },
     CURIE: {
+      // additionalInfo:(<><h1>Ovo je veliki titl</h1><h2>Malo manji titl</h2><p>Paragraf</p> <br/><br/>br je breaking point ilitiga enter u wordu<br/><br/> <ul>
+      //   <li>lista</li>
+      //   <li>listica</li>
+      //   <li>listlist</li>
+      // </ul> </>),
       name: "Marie Curie Pool |CURIE|",
       poolColor: "black",
       secondaryColor: "#000",
@@ -1570,6 +1584,10 @@ const PoolPage = (props) => {
                 /> */}
                 <Spacer heightSpacer={"42px"} />
               </div>
+              <AdditionalInfo displayInfo = {poolsDetails[urlParams.id].additionalInfo} >
+              <ContentTitle>Additional pool info</ContentTitle>
+                
+                {poolsDetails[urlParams.id].additionalInfo}</AdditionalInfo>
             </ContentWrapper>
             {/* <Footer /> */}
           </div>
