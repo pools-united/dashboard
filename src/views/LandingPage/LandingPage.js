@@ -29,6 +29,7 @@ import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import CardanoIntroSection from "./Sections/CardanoIntroSection.js";
 import PoolSection from "./Sections/PoolSection.js";
+import Newsletter from "views/Newsletter/Newsletter";
 
 const dashboardRoutes = [];
 
@@ -108,6 +109,7 @@ const LandingPage = (props) => {
                 <PoolSection />
                 <TeamSection />
                 <CardanoIntroSection />
+                <Newsletter />
                 <CardanoIntroDivider heightSet={context.scrollOffset <= -700} />
               </div>
             </div>
