@@ -21,9 +21,7 @@ export default function ContactUs() {
     const [emailSentStatus, setEmailSentStatus] = useState("");
 
     function sendEmail(e) {
-
         e.preventDefault();
-
         emailjs.sendForm('gmail', 'template_kk6x27q', e.target, process.env.REACT_APP_USER_KEY)
             .then((result) => {
                 console.log(result.text);
@@ -68,10 +66,7 @@ export default function ContactUs() {
                             <MsgError sent={emailSentStatus}>There has been an error sending your message</MsgError>
                         </div>
                     </div>
-
                 </form>
-
-
             </div>
         </div>
     );
