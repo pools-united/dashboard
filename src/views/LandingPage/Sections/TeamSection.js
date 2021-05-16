@@ -21,7 +21,7 @@ import team2 from "assets/img/faces/Filip.jpg";
 import team3 from "assets/img/faces/Nora.jpg";
 import emil from "assets/img/faces/Emil.jpg";
 import team4 from "assets/img/faces/Miha.jpg";
-import zvonimir from "assets/img/faces/Zvonimir.jpg"
+import zvonimir from "assets/img/faces/Zvonimir.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -127,16 +127,20 @@ export default function TeamSection() {
                 <img src={team4} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Mihovil Santek
+                Ema Simunec
                 <br />
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  Mihovil is a React developer from Croatia, entered in the
-                  crypto sphere in 2017 as a ICO investor. Fascinated by the{" "}
-                  <a href="https://cardano.org/">Cardano</a> blockchain, now
-                  playing an active role in Cardano community as a owner of{" "}
-                  <a href="/pool?id=PROTO">Proto Pool.</a>
+                  Ema is an industrial designer who became fascinated by{" "}
+                  <a href="https://cardano.org/">Cardano</a> blockchain because
+                  it provides a more balanced and sustainable ecosystem for
+                  cryptocurrencies. In her free time, she renders both the
+                  architectural spaces and natural surroundings with a sense of
+                  escapism, and she sells them as NFTs. Travels, hiking, and
+                  good music are her eternal inspiration. Now she is playing an
+                  active role in the Cardano community as the owner of{" "}
+                  <a href="/pool?id=PROTO">Proto Pool.</a>.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
