@@ -635,7 +635,7 @@ const PoolPage = (props) => {
       logoDynamic: ProtoLogoGif,
       twitter: "https://twitter.com/Proto_Pool",
       telegram: "https://t.me/joinchat/iAnhOUtj9Aw3NzA0",
-      github: "https://github.com/miha2010",
+      github: "",
       logoAnimation: true,
       operators: true,
       firstOperator: Miha,
