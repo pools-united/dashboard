@@ -49,7 +49,7 @@ export default function TeamSection() {
                 <img src={team1} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Patricia Mlinarić
+                Patricia Mlinaric
                 <br />
               </h4>
               <CardBody>
@@ -140,7 +140,7 @@ export default function TeamSection() {
                   escapism, and she sells them as NFTs. Travels, hiking, and
                   good music are her eternal inspiration. Now she is playing an
                   active role in the Cardano community as the owner of{" "}
-                  <a href="/pool?id=PROTO">Proto Pool.</a>.
+                  <a href="/pool?id=PROTO">Proto Pool.</a>
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -219,7 +219,7 @@ export default function TeamSection() {
                 <img src={team3} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Nora Mlinarić
+                Nora Mlinaric
                 <br />
               </h4>
               <CardBody>
