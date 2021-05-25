@@ -35,6 +35,7 @@ import cardanoCoin from "assets/poolAssets/prints/cardano.jpg";
 import cpuCoaster from "assets/poolAssets/prints/cpu.jpg";
 import daedalusCoaster from "assets/poolAssets/prints/daedalus.jpg";
 import frescoCoaster from "assets/poolAssets/prints/fresco.jpg";
+import adaStand from "assets/poolAssets/prints/adaStand.jpg";
 
 
 
@@ -226,6 +227,10 @@ text-align: center;
 font-weight:500;
 `
 
+const CarouselImage = styled.img`
+
+`
+
 
 export default function ProfilePage(props) {
   const classes = useStyles();
@@ -399,23 +404,27 @@ export default function ProfilePage(props) {
           <ExamplePrintsText>  Some of our example prints, we will have new designs every month!</ExamplePrintsText>
 
           <br />
-          <Carousel>
-            <div>
-              <img src={cardanoCoin} />
-              {/* <p className="legend">Legend 1</p> */}
-            </div>
-            <div>
-              <img src={cpuCoaster} />
+          <Carousel dynamicHeight={true} >
+     
+          
+
+              <CarouselImage src={adaStand} />
               {/* <p className="legend">Legend 2</p> */}
-            </div>
-            <div>
-              <img src={daedalusCoaster} />
+          
+          
+              <CarouselImage src={cardanoCoin} />
+              {/* <p className="legend">Legend 1</p> */}
+            
+              <CarouselImage src={cpuCoaster} />
+              {/* <p className="legend">Legend 2</p> */}
+          
+              <CarouselImage src={daedalusCoaster} />
               {/* <p className="legend">Legend 3</p> */}
-            </div>
-            <div>
-              <img src={frescoCoaster} />
+           
+         
+              <CarouselImage src={frescoCoaster} />
               {/* <p className="legend">Legend 3</p> */}
-            </div>
+           
           </Carousel>
 
 
