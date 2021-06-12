@@ -323,6 +323,10 @@ const ListItemStyled = styled(ListItem)`
   width: max-content;
 `;
 
+const Notice = styled.div`
+margin-top:28px;
+`
+
 const DescriptionText = styled.h4`
   font-weight: 400;
 `;
@@ -1394,6 +1398,7 @@ const PoolPage = (props) => {
                               </a>{" "}
                               for protocol parameters API
                             </div>
+                            <Notice>The calculator works properly only with amount lower than active stake*</Notice>
                           </>
                         )}
                         {!calculatedUserReward && (
