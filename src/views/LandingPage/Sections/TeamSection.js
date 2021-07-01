@@ -57,7 +57,7 @@ export default function TeamSection() {
                   Patricia has Master's degree in enviromental engineering. She
                   can see the future where Cardano has a major role improving
                   not only peoples lives but the whole ecosystems.
-                  <br /> You can find her in the forrest, picking mushrooms or
+                  <br /> You can find her in the forest, picking mushrooms or
                   taking care of her plants.
                 </p>
               </CardBody>

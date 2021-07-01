@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 // @material-ui/core components
 
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -23,6 +23,18 @@ import styles from "assets/jss/material-kit-react/components/headerStyle.js";
 import Stats from "components/Stats/Stats.js";
 
 const useStyles = makeStyles(styles);
+
+
+const HeaderStyle = createGlobalStyle`
+.makeStyles-container-23, .makeStyles-container-10{
+  max-width:1600px;
+  width:80%;
+ 
+  
+}
+
+
+`;
 
 const ButtonLogoStyled = styled(Button)`
   /* filter: ${(props) => `hue-rotate(${props.rotateHue}deg)`}; */
@@ -100,6 +112,8 @@ export default function Header(props) {
     </Link>
   );
   return (
+    <>
+    <HeaderStyle/>
     <AppBar className={appBarClasses}>
       <Toolbar className={classes.container}>
         {leftLinks !== undefined ? brandComponent : null}
@@ -147,6 +161,7 @@ export default function Header(props) {
         </Drawer>
       </Hidden>
     </AppBar>
+    </>
   );
 }
 

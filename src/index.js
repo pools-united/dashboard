@@ -14,7 +14,8 @@ import PoolPage from "views/PoolPage/PoolPage.js";
 import FAQPage from "views/FAQPage/FAQPage.js";
 import NewsPage from "views/News/NewsPage.js";
 import ContactUs from "views/ContactUs/ContactUs";
-import CpuToken from "views/Cpu_token/CpuTokenPage"
+import CpuToken from "views/Cpu_token/CpuTokenPage";
+import CpuDonations from "views/Cpu_donations/CpuDonationsPage";
 
 var hist = createBrowserHistory();
 
@@ -28,6 +29,7 @@ ReactDOM.render(
         <Route path="/faq" component={FAQPage} />
         <Route path="/news" component={NewsPage} />
         <Route path="/cpu-token" component={CpuToken} />
+        <Route path="/cpu-donations" component={CpuDonations} />
         <Route path="/pool" component={PoolPage} />
         <Route path="/contact-us" component={ContactUs} />
         <Route path="/" component={LandingPage} />

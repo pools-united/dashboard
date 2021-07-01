@@ -4,6 +4,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import AnnouncementIcon from '@material-ui/icons/Announcement';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
 import DonutSmallIcon from '@material-ui/icons/DonutSmall';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 // react components for routing our app without refresh
 import { Link } from "react-router-dom";
 
@@ -15,6 +16,8 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 // @material-ui/icons
 import { Apps, People, LiveHelp, InvertColors } from "@material-ui/icons";
+import styled from "styled-components";
+
 
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
@@ -24,19 +27,26 @@ import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js
 
 const useStyles = makeStyles(styles);
 
+const RouterButtonStyled = styled(Link)`
+
+`
+
+
+
+
 export default function HeaderLinks(props) {
   const classes = useStyles();
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
-        <Button
-          href="/"
+        <RouterButtonStyled
+          to="/"
           color="transparent"
           // target="_blank"
           className={classes.navLink}
         >
           <HomeIcon className={classes.icons} /> HOME
-        </Button>
+        </RouterButtonStyled>
       </ListItem>
       <ListItem className={classes.listItem}>
         <CustomDropdown
@@ -60,40 +70,46 @@ export default function HeaderLinks(props) {
         />
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Button
-          href="/faq"
+        <RouterButtonStyled
+          to="/faq"
           color="transparent"
           // target="_blank"
           className={classes.navLink}
         >
           <LiveHelp className={classes.icons} /> FAQ
-        </Button>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Button
-          href="/news"
+        </RouterButtonStyled>
+        <RouterButtonStyled
+          to="/news"
           color="transparent"
           // target="_blank"
           className={classes.navLink}
         >
           <AnnouncementIcon className={classes.icons} /> News
-        </Button>
-        <Button
-          href="/contact-us"
+        </RouterButtonStyled>
+        <RouterButtonStyled
+          to="/contact-us"
           color="transparent"
           // target="_blank"
           className={classes.navLink}
         >
           <ContactMailIcon className={classes.icons} /> CONTACT
-        </Button>
-        <Button
-          href="/cpu-token"
+        </RouterButtonStyled>
+        <RouterButtonStyled
+          to="/cpu-token"
           color="transparent"
           // target="_blank"
           className={classes.navLink}
         >
           <DonutSmallIcon className={classes.icons} /> CPU TOKEN
-        </Button>
+        </RouterButtonStyled>
+        {/* <RouterButtonStyled
+          to="/cpu-donations"
+          color="transparent"
+          // target="_blank"
+          className={classes.navLink}
+        >
+          <FavoriteIcon className={classes.icons} /> CPU DONATIONS
+        </RouterButtonStyled> */}
       </ListItem>
       <ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">
