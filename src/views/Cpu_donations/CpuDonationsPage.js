@@ -75,13 +75,21 @@ export default function ProfilePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
-  const [data, setData] = useState();
+  // const [data, setData] = useState();
+  //   useEffect(() => {
+  //       fetch("https://pools-united.github.io/Donations/CPU/donations.yml")
+  //           .then(setData)
+  //           .catch(console.error);
+  //   }, []);
+
+
+    const [data, setData] = useState();
     useEffect(() => {
-        fetch("https://pools-united.github.io/Donations/CPU/donations.yml")
+        fetch("https://pools-united.github.io/Donations")
+            .then((res) => res.json())
             .then(setData)
             .catch(console.error);
     }, []);
-
 
 console.log(data);
 console.log("Filip");
