@@ -118,7 +118,7 @@ console.log("Filip");
         {/* <BottomSpacer /> */}
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
         <FaqContainer>
-          <PageTitle>NEWS</PageTitle>
+          <PageTitle>IN DEV</PageTitle>
 
 
 
