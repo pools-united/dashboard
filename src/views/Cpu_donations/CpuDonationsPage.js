@@ -79,12 +79,12 @@ export default function ProfilePage(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
-  const [data, setData] = useState();
+  const [donationData, setDonationData] = useState();
     useEffect(() => {
-      console.log(cpuDonationsJson);
-      setData(cpuDonationsJson);
-      console.log(data);
-    }, []);
+      setDonationData(cpuDonationsJson);
+      //MIHA LOG ZA TEBE
+      console.log(donationData);
+    }, [donationData]);
 
 
 
