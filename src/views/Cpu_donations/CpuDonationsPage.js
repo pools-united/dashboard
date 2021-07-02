@@ -137,50 +137,6 @@ UZMES:
 */}
 <img src="https://pools-united.github.io/Donations/CPU/16-06-2021.png"/>
 
-          <TitleHeading>
-            Some of us were guests on Cardano Hotel podcast, check us out! :)
-          </TitleHeading>
-          <DateText>08.04.2021.</DateText>
-          {<PlayerStyled
-            url="https://www.youtube.com/watch?v=ST7_erZlm_0"
-            config={{
-              youtube: {
-                playerVars: { controls: 1 },
-              },
-            }}
-          />}
-
-          <Spacer height="64px" />
-
-          <TitleHeading>
-            Check out our android new android application with a widget!{" "}
-          </TitleHeading>
-          <DateText>22.01.2021.</DateText>
-          {/* <PlayerStyled
-            url="https://youtu.be/nSNOo7LFTjI"
-            config={{
-              youtube: {
-                playerVars: { controls: 1 },
-              },
-            }}
-          /> */}
-          <DescriptionText>
-            Be sure to check out our application with widget support for all our
-            pools. <br></br>
-            In the next updates we will add widget support to pools outside of
-            CPU collaboration.
-            <br></br>
-            <br></br>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.cardanopoolsunitedwidget"
-              target="_blank"
-            >
-              Download link
-            </a>
-          </DescriptionText>
-
-
-
 
         </FaqContainer>
         <br />
