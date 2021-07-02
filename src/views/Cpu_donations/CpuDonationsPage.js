@@ -114,8 +114,28 @@ export default function ProfilePage(props) {
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
         <FaqContainer>
           <PageTitle>IN DEV</PageTitle>
+{/* PRIMJER SLIKE MIHA
+KAK SAM DOBIL TAJ LINK?
+________________-
+U json fileu ces vidjeti  (EXAMPLE JSON FILE-a i console log njegov je u useEffect-u 82 linija)
+files: Array [ "CPU/16-06-2021.png" ]
+0: "CPU/16-06-2021.png"
+​________________
+
+na taj string dodas samo "https://pools-united.github.io/Donations/" (primjer dole u slici)
+
+slike su u Array-u jer mogu dodavati i pdf i vise slika i slicno (taj files value u jsonu su zapravo files koji su dokazi da smo donirali)... uzimaj samo 1. (tj 0.) stvar u array-u, to ce uvijek biti slika...
 
 
+UZMES: 
+1. names
+2.ada
+3. USD
+4. timestamp (pretvoris timestamp u datum.. lako je... mislim da cak i JS ima built in za to)
+5. fotografiju iz files, 1 file u array-united
+ i svaka donacija u timeline-u to mora imati.. to je to, sretno :)
+*/}
+<img src="https://pools-united.github.io/Donations/CPU/16-06-2021.png"/>
 
           <TitleHeading>
             Some of us were guests on Cardano Hotel podcast, check us out! :)
