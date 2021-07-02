@@ -22,7 +22,7 @@ import YAML from "yamljs"
 import styled from "styled-components";
 import styles from "assets/jss/material-kit-react/views/faqPage.js";
 
-//ZA FILIPA REMINDER: installiral si si yaml2json cli i s komandom yaml2json cpu.yaml > cpu.json updateas json file!
+//ZA FILIPA REMINDER: installiral si si yaml2json cli i s komandom yaml2json cpu.yaml > cpu.json updateas json file! 
 import cpuDonationsJson from './cpu.json';
 import cpuExampleJson from './example.json';
 
@@ -81,8 +81,8 @@ export default function ProfilePage(props) {
 
   const [donationData, setDonationData] = useState();
     useEffect(() => {
-      setDonationData(cpuDonationsJson);
-      //MIHA LOG ZA TEBE
+      setDonationData(cpuExampleJson);
+      //MIHA LOG ZA TEBE, cpuExampleJson koristi za developanje a cpuDonationsJson ssu bas nase donacije
       console.log(donationData);
     }, [donationData]);
 
@@ -128,7 +128,7 @@ slike su u Array-u jer mogu dodavati i pdf i vise slika i slicno (taj files valu
 
 
 UZMES: 
-1. names
+1. name (nezz dal treba i adresa i kontakt, odluci ti...)
 2.ada
 3. USD
 4. timestamp (pretvoris timestamp u datum.. lako je... mislim da cak i JS ima built in za to)
