@@ -26,7 +26,7 @@ const useStyles = makeStyles(styles);
 
 
 const HeaderStyle = createGlobalStyle`
-.makeStyles-container-23, .makeStyles-container-10{
+header > .MuiToolbar-root{
   max-width:1600px;
   width:80%;
  
