@@ -102,14 +102,14 @@ export default function HeaderLinks(props) {
         >
           <DonutSmallIcon className={classes.icons} /> CPU TOKEN
         </RouterButtonStyled>
-        {/* <RouterButtonStyled
+        <RouterButtonStyled
           to="/cpu-donations"
           color="transparent"
           // target="_blank"
           className={classes.navLink}
         >
           <FavoriteIcon className={classes.icons} /> CPU DONATIONS
-        </RouterButtonStyled> */}
+        </RouterButtonStyled>
       </ListItem>
       <ListItem className={classes.listItem}>
         {/*<Tooltip title="Delete">
