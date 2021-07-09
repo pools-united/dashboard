@@ -104,7 +104,7 @@ const TimelineItem = ({ data, dateTest }) => (
 
             </p>
       <p class="donationDesc">The donation was made via {data.intermediate_txs[0].provider}
-      <br/>    Transaction id: <br/> <a target="_blank" href={`https://blockchair.com/${data.intermediate_txs[0].provider.toLowerCase()}/transaction/${data.intermediate_txs[0].tx_id}`}>{data.intermediate_txs[0].tx_id.slice(0,15)}...</a> 
+      <br/>    Transaction id: <br/> <a target="_blank" href={`https://blockchair.com/${data.intermediate_txs[0].provider.toLowerCase()}/transaction/${data.intermediate_txs[0].tx_id}`}>{data.intermediate_txs[0].tx_id.slice(0,11)}...</a> 
       </p> 
       <a href={`https://pools-united.github.io/Donations/${data.files[0]}`} target="_blank"><img class="donationImg" src={`https://pools-united.github.io/Donations/${data.files[0]}`}></img></a>
       
