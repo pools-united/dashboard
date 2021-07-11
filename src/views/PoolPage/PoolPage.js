@@ -566,14 +566,14 @@ const PoolPage = (props) => {
       description: (
         <>
           We're two sisters handling one Nova |ERA| pool. We have been ADA
-          holders since 2017, now we decieded to collaborate with CPU team and
+          holders since 2017, now we decided to collaborate with CPU team and
           try our best to contribute to Cardano family.
         </>
       ),
       descriptionMobile: (
         <>
           We're two sisters handling one Nova |ERA| pool. We have been ADA
-          holders since 2017, now we decieded to collaborate with CPU team and
+          holders since 2017, now we decided to collaborate with CPU team and
           try our best to contribute to Cardano family.
         </>
       ),
