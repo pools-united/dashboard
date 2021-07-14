@@ -66,7 +66,7 @@ export default function PoolSection() {
             name={"Proto Pool [PROTO]"}
             address={"b00b421fbc620f0a2fdcf3243265d253b2e30c40da2c172dc5ab4640"}
             kickstart
-            margin={"0.85%"}
+            margin={"1%"}
             fixedFee={"340"}
             pledge={"5000"}
             delegateLink={"/faq#StoreAndDelegate"}
