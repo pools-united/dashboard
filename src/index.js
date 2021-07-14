@@ -22,9 +22,8 @@ import CpuDonations from "views/Cpu_donations/CpuDonationsPage";
 
 var hist = createBrowserHistory();
 
-const TRACKING_ID = "G-18MP00FC2B"; // YOUR_OWN_TRACKING_ID
+const TRACKING_ID = "UA-202282581-1"; // YOUR_OWN_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
-
 hist.listen(location => {
   ReactGA.set({ page: location.pathname }); // Update the user's current page
   ReactGA.pageview(location.pathname); // Record a pageview for the given page
