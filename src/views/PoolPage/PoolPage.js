@@ -103,13 +103,12 @@ const RewardsCalculatorWrapper = styled.div`
 `;
 
 const AdditionalInfo = styled.div`
-color:white;
-max-width: 700px;
-margin:auto;
-display:${(props) => props.displayInfo ? "block" :"none"};
-padding-bottom:32px;
-
-`
+  color: white;
+  max-width: 700px;
+  margin: auto;
+  display: ${(props) => (props.displayInfo ? "block" : "none")};
+  padding-bottom: 32px;
+`;
 
 const InfoGrid = styled.div`
   display: grid;
@@ -324,8 +323,8 @@ const ListItemStyled = styled(ListItem)`
 `;
 
 const Notice = styled.div`
-margin-top:28px;
-`
+  margin-top: 28px;
+`;
 
 const DescriptionText = styled.h4`
   font-weight: 400;
@@ -578,7 +577,7 @@ const PoolPage = (props) => {
         </>
       ),
 
-      banner: '',
+      banner: "",
       logoMobile: EraLogo,
       logoStatic: "",
       logoDynamic: EraLogoGif,
@@ -595,7 +594,7 @@ const PoolPage = (props) => {
       poolColor: "#030303",
       secondaryColor: "	#2d3866",
       logoColor: "#6e8cff",
-      bodyBackgroundColor: "#6e8cff",
+      bodyBackgroundColor: "black",
       description: (
         <>
           Inspired by the Protomolecule from the TV show "The Expanse," created
@@ -1398,7 +1397,10 @@ const PoolPage = (props) => {
                               </a>{" "}
                               for protocol parameters API
                             </div>
-                            <Notice>The calculator works properly only with amount lower than active stake*</Notice>
+                            <Notice>
+                              The calculator works properly only with amount
+                              lower than active stake*
+                            </Notice>
                           </>
                         )}
                         {!calculatedUserReward && (
@@ -1589,10 +1591,13 @@ const PoolPage = (props) => {
                 /> */}
                 <Spacer heightSpacer={"42px"} />
               </div>
-              <AdditionalInfo displayInfo = {poolsDetails[urlParams.id].additionalInfo} >
-              <ContentTitle>Additional pool info</ContentTitle>
-                
-                {poolsDetails[urlParams.id].additionalInfo}</AdditionalInfo>
+              <AdditionalInfo
+                displayInfo={poolsDetails[urlParams.id].additionalInfo}
+              >
+                <ContentTitle>Additional pool info</ContentTitle>
+
+                {poolsDetails[urlParams.id].additionalInfo}
+              </AdditionalInfo>
             </ContentWrapper>
             {/* <Footer /> */}
           </div>
