@@ -132,15 +132,13 @@ export default function TeamSection() {
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  Ema is an industrial designer who became fascinated by{" "}
-                  <a href="https://cardano.org/">Cardano</a> blockchain because
-                  it provides a more balanced and sustainable ecosystem for
-                  cryptocurrencies. In her free time, she renders both the
-                  architectural spaces and natural surroundings with a sense of
-                  escapism, and she sells them as NFTs. Travels, hiking, and
-                  good music are her eternal inspiration. Now she is playing an
-                  active role in the Cardano community as the owner of{" "}
-                  <a href="/pool?id=PROTO">Proto Pool.</a>
+                  Ema is an industrial designer who became fascinated by
+                  <a href="https://cardano.org/"> Cardano </a>
+                  blockchain because it provides a more balanced and sustainable
+                  ecosystem for cryptocurrencies. She is the owner of
+                  <a href="/pool?id=PROTO"> Proto Pool </a>
+                  and in her free time, she renders both the architectural
+                  spaces and natural surroundings.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
