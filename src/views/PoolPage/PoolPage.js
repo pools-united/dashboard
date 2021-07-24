@@ -323,6 +323,7 @@ const ListItemStyled = styled(ListItem)`
 
 const Notice = styled.div`
   margin-top: 28px;
+  font-size:14px;
 `;
 
 const DescriptionText = styled.h4`
@@ -1374,7 +1375,7 @@ const PoolPage = (props) => {
                               Estimated rewards with&nbsp;
                               {currentBlocksRewards}
                               &nbsp;blocks minted:&nbsp;
-                              {calculatedUserReward}₳
+                              {calculatedUserReward}₳*
                             </RewardsComponent>
                             <div
                               style={{
@@ -1397,7 +1398,7 @@ const PoolPage = (props) => {
                             </div>
                             <Notice>
                               The calculator works properly only with amount
-                              lower than active stake*
+                              lower than active stake and is prone to errors if data from adaPools is fauilty*
                             </Notice>
                           </>
                         )}
