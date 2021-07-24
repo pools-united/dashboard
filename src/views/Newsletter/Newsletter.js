@@ -16,7 +16,7 @@ margin-bottom:32px;
 margin-top:-8px;
 }
 
-button
+input[type=email] + button
 {
 
 box-shadow: 0 2px 2px 0 rgba(68, 162, 157, 0.15), 0 3px 1px -2px rgba(68, 162, 157, 0.3), 0 1px 5px 0 rgba(68, 162, 157, 0.3);
