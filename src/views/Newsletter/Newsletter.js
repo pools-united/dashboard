@@ -75,12 +75,13 @@ input[type=email]{
 `
 
 const Newsletter = () => {
-  return (
+  return (<>
+    <NewsLetterStyle />
     <div class="wrapper-newsletter">
-      <NewsLetterStyle />
       <p class="subscribeParagraph">Subscribe to our Newsletter</p>
       <MailchimpSubscribe url={process.env.REACT_APP_MAILCHIMP_URL} />
     </div>
+    </>
   )
 }
 
