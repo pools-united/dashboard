@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-// nodejs library that concatenates classes
+
+import { Link } from "react-router-dom";
 
 import { useHistory } from "react-router-dom";
-// Global contextfor API
 import AppContext from "../../Context/Context";
 
 import classNames from "classnames";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 
@@ -254,7 +253,7 @@ const copyAnimation = keyframes`
 
 const Copied = styled.div`
   position: absolute;
-  bottom: 86px;
+  bottom: 46px;
   right: 0;
 
   padding: 6px;
@@ -265,7 +264,7 @@ const Copied = styled.div`
   display: ${(props) => (props.copyState ? "block" : "none")};
 
   @media (max-width: 960px) {
-    bottom: 110px;
+    bottom: 40px;
     right: 20px;
   }
 `;
@@ -527,12 +526,11 @@ const PoolPage = (props) => {
           Official pool of Cardano Pools United collaboration. The part of the
           profits from this pool will be used to pay for the relays for the
           pools. CPU collaborators decided to donate the rest to the charitable
-          cause of our delegators choice.
+          causes.
           <br />
           <br />
-          In the near future, when CPU pool starts to generate a profit, we will
-          implement a voting system where you will be able to choose which
-          charitable cause CPU pool will donate to.
+          Every CPU collaboration pool owner/s have the right to choose where to donate next. That decision can also be made by our delegators.
+          If you are a CPU collaboration pool delegator and would like us to help a specific charity, feel free to<Link to="/contact-us">  contact us</Link>.
         </>
       ),
       descriptionMobile: (
