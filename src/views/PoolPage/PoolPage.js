@@ -253,7 +253,7 @@ const copyAnimation = keyframes`
 
 const Copied = styled.div`
   position: absolute;
-  bottom: 46px;
+  bottom: 60px;
   right: 0;
 
   padding: 6px;
@@ -264,7 +264,7 @@ const Copied = styled.div`
   display: ${(props) => (props.copyState ? "block" : "none")};
 
   @media (max-width: 960px) {
-    bottom: 40px;
+    bottom: 60px;
     right: 20px;
   }
 `;
