@@ -26,7 +26,7 @@ export default function PoolSection() {
   const classes = useStyles();
   return (
     <div className={classes.section}>
-      <h2 className={classes.title}>Pools</h2>
+      <h2 className={classes.title}>CPU collaboration Pools</h2>
       <GridContainer>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
@@ -54,7 +54,6 @@ export default function PoolSection() {
             delegateLink={"/faq#StoreAndDelegate"}
             poolLink={"/pool?id=CPU"}
             isMain
-            kickstart
             operator={{
               name: "Name#1",
               image: face,

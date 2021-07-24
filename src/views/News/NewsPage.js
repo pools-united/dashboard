@@ -3,21 +3,13 @@ import React, { useState } from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
+import { Timeline } from 'react-twitter-widgets'
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
-import Button from "components/CustomButtons/Button.js";
-import GridContainer from "components/Grid/GridContainer.js";
-import GridItem from "components/Grid/GridItem.js";
+
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
-
-import Accordion from "@material-ui/core/Accordion";
-import AccordionSummary from "@material-ui/core/AccordionSummary";
-import AccordionDetails from "@material-ui/core/AccordionDetails";
-import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import styled from "styled-components";
 import styles from "assets/jss/material-kit-react/views/faqPage.js";
@@ -48,6 +40,11 @@ const PageTitle = styled.div`
   text-align: center;
   padding: 32px 0;
 `;
+
+const PageTitleTwitter = styled(PageTitle)`
+transform:translateY(68px);
+background:white;
+`
 
 const FaqContainer = styled.div`
   padding:16px;
@@ -274,6 +271,21 @@ export default function ProfilePage(props) {
             </a>
           </DescriptionText>
 
+          <br/>
+
+
+<PageTitleTwitter>Twitter News</PageTitleTwitter>
+
+          <Timeline
+  dataSource={{
+    sourceType: 'list',
+    ownerScreenName: 'C_PoolsUnited',
+    slug:'1418930538711298052'
+  }}
+  options={{
+    height: '1200'
+  }}
+/>
 
 
 

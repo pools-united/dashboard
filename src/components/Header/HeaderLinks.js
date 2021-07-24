@@ -167,7 +167,7 @@ export default function HeaderLinks(props) {
           </Button>
         </Tooltip>
       </ListItem>
-      <ListItem className={classes.listItem}>
+      {/* <ListItem className={classes.listItem}>
         <Tooltip
           id="medium-tooltip"
           title="Flip through our articles"
@@ -183,7 +183,7 @@ export default function HeaderLinks(props) {
             <i className={classes.socialIcons + " fab fa-medium"} />
           </Button>
         </Tooltip>
-      </ListItem>
+      </ListItem> */}
     </List>
   );
 }
