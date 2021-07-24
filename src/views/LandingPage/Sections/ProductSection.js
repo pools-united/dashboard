@@ -1,6 +1,8 @@
 import React from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 // @material-ui/icons
 import HelpIcon from "@material-ui/icons/Help";
@@ -16,6 +18,13 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/prod
 
 const useStyles = makeStyles(styles);
 
+const MissionDriven = styled.div`
+
+font-size:13px;
+margin-top:6px;
+`
+
+
 export default function ProductSection() {
   const classes = useStyles();
   return (
@@ -29,9 +38,11 @@ export default function ProductSection() {
             the people about Cardano blockchain and using our developer
             knowledge to develop the tools needed to make the delegation process
             informative and painless.
-            <br /> Our CPU pool will be used to pay for the cloud based relays
-            and we pledged to donate the rest to the cause voted by the
-            community. To make that happen help kickstart CPU pool.
+            <br /> Our CPU pool is a non-profit pool representing the collaboration, that is used to pay for the infrastructure, the majority of profits are going towards charity donations.
+            <br /> 
+            <br /> 
+            Check out our <Link to="/cpu-donations"> donation efforts timeline </Link><br /> 
+          <MissionDriven>  CPU Pool is a member of <a href="https://missiondrivenpools.org/" target="_blank">Mission Driven Pools</a></MissionDriven>
           </h5>
         </GridItem>
       </GridContainer>

@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-// nodejs library that concatenates classes
+
+import { Link } from "react-router-dom";
 
 import { useHistory } from "react-router-dom";
-// Global contextfor API
 import AppContext from "../../Context/Context";
 
 import classNames from "classnames";
-// @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // @material-ui/icons
 
@@ -103,13 +102,12 @@ const RewardsCalculatorWrapper = styled.div`
 `;
 
 const AdditionalInfo = styled.div`
-color:white;
-max-width: 700px;
-margin:auto;
-display:${(props) => props.displayInfo ? "block" :"none"};
-padding-bottom:32px;
-
-`
+  color: white;
+  max-width: 700px;
+  margin: auto;
+  display: ${(props) => (props.displayInfo ? "block" : "none")};
+  padding-bottom: 32px;
+`;
 
 const InfoGrid = styled.div`
   display: grid;
@@ -255,7 +253,7 @@ const copyAnimation = keyframes`
 
 const Copied = styled.div`
   position: absolute;
-  bottom: 86px;
+  bottom: 60px;
   right: 0;
 
   padding: 6px;
@@ -266,7 +264,7 @@ const Copied = styled.div`
   display: ${(props) => (props.copyState ? "block" : "none")};
 
   @media (max-width: 960px) {
-    bottom: 110px;
+    bottom: 60px;
     right: 20px;
   }
 `;
@@ -321,6 +319,11 @@ const ListItemStyled = styled(ListItem)`
   padding-left: 5px;
   padding-right: 5px;
   width: max-content;
+`;
+
+const Notice = styled.div`
+  margin-top: 28px;
+  font-size:14px;
 `;
 
 const DescriptionText = styled.h4`
@@ -524,12 +527,11 @@ const PoolPage = (props) => {
           Official pool of Cardano Pools United collaboration. The part of the
           profits from this pool will be used to pay for the relays for the
           pools. CPU collaborators decided to donate the rest to the charitable
-          cause of our delegators choice.
+          causes.
           <br />
           <br />
-          In the near future, when CPU pool starts to generate a profit, we will
-          implement a voting system where you will be able to choose which
-          charitable cause CPU pool will donate to.
+          Every CPU collaboration pool owner/s have the right to choose where to donate next. That decision can also be made by our delegators.
+          If you are a CPU collaboration pool delegator and would like us to help a specific charity, feel free to<Link to="/contact-us">  contact us</Link>.
         </>
       ),
       descriptionMobile: (
@@ -562,19 +564,19 @@ const PoolPage = (props) => {
       description: (
         <>
           We're two sisters handling one Nova |ERA| pool. We have been ADA
-          holders since 2017, now we decieded to collaborate with CPU team and
+          holders since 2017, now we decided to collaborate with CPU team and
           try our best to contribute to Cardano family.
         </>
       ),
       descriptionMobile: (
         <>
           We're two sisters handling one Nova |ERA| pool. We have been ADA
-          holders since 2017, now we decieded to collaborate with CPU team and
+          holders since 2017, now we decided to collaborate with CPU team and
           try our best to contribute to Cardano family.
         </>
       ),
 
-      banner: '',
+      banner: "",
       logoMobile: EraLogo,
       logoStatic: "",
       logoDynamic: EraLogoGif,
@@ -591,7 +593,7 @@ const PoolPage = (props) => {
       poolColor: "#030303",
       secondaryColor: "	#2d3866",
       logoColor: "#6e8cff",
-      bodyBackgroundColor: "#6e8cff",
+      bodyBackgroundColor: "black",
       description: (
         <>
           Inspired by the Protomolecule from the TV show "The Expanse," created
@@ -635,7 +637,7 @@ const PoolPage = (props) => {
       logoDynamic: ProtoLogoGif,
       twitter: "https://twitter.com/Proto_Pool",
       telegram: "https://t.me/joinchat/iAnhOUtj9Aw3NzA0",
-      github: "https://github.com/miha2010",
+      github: "",
       logoAnimation: true,
       operators: true,
       firstOperator: Miha,
@@ -1373,7 +1375,7 @@ const PoolPage = (props) => {
                               Estimated rewards with&nbsp;
                               {currentBlocksRewards}
                               &nbsp;blocks minted:&nbsp;
-                              {calculatedUserReward}₳
+                              {calculatedUserReward}₳*
                             </RewardsComponent>
                             <div
                               style={{
@@ -1394,6 +1396,10 @@ const PoolPage = (props) => {
                               </a>{" "}
                               for protocol parameters API
                             </div>
+                            <Notice>
+                              The calculator works properly only with amount
+                              lower than active stake and is prone to errors if data from adaPools is fauilty*
+                            </Notice>
                           </>
                         )}
                         {!calculatedUserReward && (
@@ -1584,10 +1590,13 @@ const PoolPage = (props) => {
                 /> */}
                 <Spacer heightSpacer={"42px"} />
               </div>
-              <AdditionalInfo displayInfo = {poolsDetails[urlParams.id].additionalInfo} >
-              <ContentTitle>Additional pool info</ContentTitle>
-                
-                {poolsDetails[urlParams.id].additionalInfo}</AdditionalInfo>
+              <AdditionalInfo
+                displayInfo={poolsDetails[urlParams.id].additionalInfo}
+              >
+                <ContentTitle>Additional pool info</ContentTitle>
+
+                {poolsDetails[urlParams.id].additionalInfo}
+              </AdditionalInfo>
             </ContentWrapper>
             {/* <Footer /> */}
           </div>

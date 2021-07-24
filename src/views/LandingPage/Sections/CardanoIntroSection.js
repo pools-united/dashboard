@@ -18,7 +18,7 @@ export default function CardanoInfoSection() {
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Cardano</h2>
+          <h2 className={classes.title}>Cardano FAQ</h2>
           <h5 className={classes.description}>
             Are you just getting started with Cardano? Head over to{" "}
             <a target="_blank" rel="noreferrer" href="https://cardano.org/">

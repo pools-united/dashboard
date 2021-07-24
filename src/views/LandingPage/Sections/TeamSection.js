@@ -21,7 +21,7 @@ import team2 from "assets/img/faces/Filip.jpg";
 import team3 from "assets/img/faces/Nora.jpg";
 import emil from "assets/img/faces/Emil.jpg";
 import team4 from "assets/img/faces/Miha.jpg";
-import zvonimir from "assets/img/faces/Zvonimir.jpg"
+import zvonimir from "assets/img/faces/Zvonimir.jpg";
 
 const useStyles = makeStyles(styles);
 
@@ -49,7 +49,7 @@ export default function TeamSection() {
                 <img src={team1} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Patricia Mlinarić
+                Patricia Mlinaric
                 <br />
               </h4>
               <CardBody>
@@ -57,7 +57,7 @@ export default function TeamSection() {
                   Patricia has Master's degree in enviromental engineering. She
                   can see the future where Cardano has a major role improving
                   not only peoples lives but the whole ecosystems.
-                  <br /> You can find her in the forrest, picking mushrooms or
+                  <br /> You can find her in the forest, picking mushrooms or
                   taking care of her plants.
                 </p>
               </CardBody>
@@ -127,16 +127,18 @@ export default function TeamSection() {
                 <img src={team4} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Mihovil Santek
+                Ema Simunec
                 <br />
               </h4>
               <CardBody>
                 <p className={classes.description}>
-                  Mihovil is a React developer from Croatia, entered in the
-                  crypto sphere in 2017 as a ICO investor. Fascinated by the{" "}
-                  <a href="https://cardano.org/">Cardano</a> blockchain, now
-                  playing an active role in Cardano community as a owner of{" "}
-                  <a href="/pool?id=PROTO">Proto Pool.</a>
+                  Ema is an industrial designer who became fascinated by
+                  <a href="https://cardano.org/"> Cardano </a>
+                  blockchain because it provides a more balanced and sustainable
+                  ecosystem for cryptocurrencies. She is the owner of
+                  <a href="/pool?id=PROTO"> Proto Pool </a>
+                  and in her free time, she renders both the architectural
+                  spaces and natural surroundings.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -215,7 +217,7 @@ export default function TeamSection() {
                 <img src={team3} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>
-                Nora Mlinarić
+                Nora Mlinaric
                 <br />
               </h4>
               <CardBody>
