@@ -42,7 +42,7 @@ const PageTitle = styled.div`
 `;
 
 const PageTitleTwitter = styled(PageTitle)`
-transform:translateY(68px);
+transform:translateY(69px);
 background:white;
 `
 
