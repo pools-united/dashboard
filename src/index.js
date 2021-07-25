@@ -17,7 +17,7 @@ import NewsPage from "views/News/NewsPage.js";
 import ContactUs from "views/ContactUs/ContactUs";
 import CpuToken from "views/Cpu_token/CpuTokenPage";
 import CpuDonations from "views/Cpu_donations/CpuDonationsPage";
-
+import DonationsEmbeded from "views/Cpu_donations_embeded/CpuDonationsPage"
 
 
 var hist = createBrowserHistory();
@@ -40,6 +40,7 @@ ReactDOM.render(
         <Route path="/news" component={NewsPage} />
         <Route path="/cpu-token" component={CpuToken} />
         <Route path="/cpu-donations" component={CpuDonations} />
+        <Route path="/cpu-donations-embeded" component={DonationsEmbeded} />
         <Route path="/pool" component={PoolPage} />
         <Route path="/contact-us" component={ContactUs} />
         <Route path="/" component={LandingPage} />

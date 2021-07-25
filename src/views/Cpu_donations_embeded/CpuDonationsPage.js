@@ -15,9 +15,7 @@ import DonationsStyle from "./donationsStyle"
 import styled from "styled-components";
 import styles from "assets/jss/material-kit-react/views/faqPage.js";
 
-//ZA FILIPA REMINDER: installiral si si yaml2json cli i s komandom yaml2json cpu.yaml > cpu.json updateas json file! 
-// import cpuDonationsJson from './cpu.json';
-import cpuDonationsJson from './cpu.json';
+import cpuDonationsJson from '../Cpu_donations/cpu.json';
 
 
 
@@ -98,7 +96,7 @@ const FaqContainer = styled.div`
 `;
 
 
-export default function ProfilePage(props) {
+export default function DonationsEmbeded(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
@@ -106,17 +104,7 @@ export default function ProfilePage(props) {
   return (
     <div>
       <DonationsStyle />
-      <Header
-        color="transparent"
-        brand="Material Kit React"
-        rightLinks={<HeaderLinks />}
-        fixed
-        changeColorOnScroll={{
-          height: 200,
-          color: "white",
-        }}
-        {...rest}
-      />
+  
       <Parallax
         small
         filter
@@ -133,12 +121,9 @@ export default function ProfilePage(props) {
 
 
         </FaqContainer>
-        <br />
-        <br />
-        <br />
-        <br />
+       
       </div>
-      <Footer />
+   
     </div>
   );
 }
