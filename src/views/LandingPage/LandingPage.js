@@ -108,7 +108,7 @@ const LandingPage = (props) => {
                 <ProductSection />
                 <PoolSection />
                 <TeamSection />
-                <Newsletter />
+                {/* <Newsletter /> */}
                 <CardanoIntroSection />
                 
                 <CardanoIntroDivider heightSet={context.scrollOffset <= -700} />
