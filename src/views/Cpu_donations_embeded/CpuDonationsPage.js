@@ -33,7 +33,7 @@ const donationTypeColors = {
 const TimelineItem = ({ data, dateTest }) => (
   <div className="timeline-item">
     <div className="timeline-item-content">
-      <a href={data.recipient.contact} target="_blank" className="tag" style={{ borderRadius:"8px", background: donationTypeColors[data.custom.donationType] }}>
+      <a href={(data.recipient.contact.includes("@")? `mailto:${data.recipient.contact}`: data.recipient.contact)} target="_blank" className="tag" style={{ borderRadius:"8px", background: donationTypeColors[data.custom.donationType] }}>
         {data.recipient.name}
       </a>
       <time>{dateTest}</time>
