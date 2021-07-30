@@ -20,12 +20,20 @@ import styles from "assets/jss/material-kit-react/views/faqPage.js";
 import cpuDonationsJson from './cpu.json';
 
 
+const donationTypeColors = {
 
+  education:"#7b3c9f",
+  nature:"#4b8b3b",
+  animals:"#D0764C",
+  community:"#a9c0c1",
+  
+
+}
 
 const TimelineItem = ({ data, dateTest }) => (
   <div className="timeline-item">
     <div className="timeline-item-content">
-      <a href={data.recipient.contact} target="_blank" className="tag" style={{ background: "#1DA1F2" }}>
+      <a href={data.recipient.contact} target="_blank" className="tag" style={{ borderRadius:"8px", background: donationTypeColors[data.custom.donationType] }}>
         {data.recipient.name}
       </a>
       <time>{dateTest}</time>
