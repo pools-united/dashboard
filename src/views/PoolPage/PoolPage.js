@@ -375,6 +375,11 @@ const PoolPage = (props) => {
   });
   const poolsDetails = {
     VENUS: {
+      //    additionalInfo:(<><h1>Ovo je veliki titl</h1><h2>Malo manji titl</h2><p>Paragraf</p> <br/><br/>br je breaking point ilitiga enter u wordu<br/><br/> <ul>
+      //   <li>lista</li>
+      //   <li>listica</li>
+      //   <li>listlist</li>
+      // </ul> </>),
       name: "Fresco Pool |VENUS|",
       poolColor: "black",
       secondaryColor: "#1F2833",
@@ -407,6 +412,7 @@ const PoolPage = (props) => {
       twitter: "https://twitter.com/PoolVenus",
       telegram: "https://t.me/frescopool",
       github: "https://github.com/filip-strelec",
+      youtube: "https://www.youtube.com/channel/UCPJ4UFyhEpqxYgcAWkplchw",
       banner: VenusBanner,
       logoMobile: VenusLogo,
       logo: VenusLogo,
@@ -454,7 +460,7 @@ const PoolPage = (props) => {
       logoStatic: "",
       logoDynamic: "",
       id: " 6c81475fe8b32b5dfde307325a2cb115de26a466037d0ec76bb499b3",
-      twitter: "https://twitter.com/CuriePool",
+      twitter: "https://twitter.com/MarieCuriePool",
       telegram: "https://t.me/mariecuriepool",
       logoAnimation: false,
       operators: true,
@@ -501,7 +507,7 @@ const PoolPage = (props) => {
       id: "3e5fcbaf750c0291cecb72384091724a1c2d35da10a71473e16c926f",
       twitter: "https://twitter.com/AdastraMines",
       github: "https://github.com/embalint",
-      telegram: "https://t.me/CPUPools",
+      telegram: "https://t.me/cpoolsunited",
       logo: "",
       logoStatic: "",
       logoDynamic: "",
@@ -581,8 +587,8 @@ const PoolPage = (props) => {
       logoStatic: "",
       logoDynamic: EraLogoGif,
       id: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
-      twitter: "https://twitter.com/ERA_NovaPool",
-      telegram: "https://t.me/CPUPools",
+      twitter: "https://twitter.com/NovaERA_pool",
+      telegram: "https://t.me/cpoolsunited",
       logoAnimation: true,
       operators: true,
       firstOperator: Patricia,
@@ -636,7 +642,7 @@ const PoolPage = (props) => {
       logoStatic: ProtoLogoGif,
       logoDynamic: ProtoLogoGif,
       twitter: "https://twitter.com/Proto_Pool",
-      telegram: "https://t.me/joinchat/iAnhOUtj9Aw3NzA0",
+      telegram: "https://t.me/cpoolsunited",
       github: "",
       logoAnimation: true,
       operators: true,
@@ -858,7 +864,7 @@ const PoolPage = (props) => {
         ) {
           // console.log("testiram");
           setNumberOfBlocks([]);
-          setRoaStats([null]);
+          setRoaStats([]);
           // console.log(
           //   JSON.parse(context.poolStats[urlParams.id].data.hist_bpe)
           // );
@@ -880,7 +886,7 @@ const PoolPage = (props) => {
             }
           );
 
-          setRoaStats((roaStats) => [...roaStats, null]);
+          // setRoaStats((roaStats) => [...roaStats, null]);
 
           // calculateRewards();
 
@@ -918,6 +924,9 @@ const PoolPage = (props) => {
         //   );
         // }
         // console.log(context);
+        console.log(roaStats);
+console.log(numberOfBlocks);
+console.log(epochsGraph)
         return (
           <div>
             <PoolPageStyle
