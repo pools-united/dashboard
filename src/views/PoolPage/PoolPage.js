@@ -924,9 +924,7 @@ const PoolPage = (props) => {
         //   );
         // }
         // console.log(context);
-        console.log(roaStats);
-console.log(numberOfBlocks);
-console.log(epochsGraph)
+     
         return (
           <div>
             <PoolPageStyle
