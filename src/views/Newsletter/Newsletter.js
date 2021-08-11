@@ -73,7 +73,7 @@ input[type=email]{
 
 
 `
-
+//TODO MIHA
 const Newsletter = () => {
   return (<>
     <NewsLetterStyle />
