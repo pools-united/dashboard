@@ -36,6 +36,8 @@ import cpuCoaster from "assets/poolAssets/prints/cpu.jpg";
 import daedalusCoaster from "assets/poolAssets/prints/daedalus.jpg";
 import frescoCoaster from "assets/poolAssets/prints/fresco.jpg";
 import adaStand from "assets/poolAssets/prints/adaStand.jpg";
+import penHolder from "assets/poolAssets/prints/penHolder.jpg";
+
 
 
 
@@ -406,7 +408,7 @@ export default function ProfilePage(props) {
           <br />
           <Carousel dynamicHeight={true} >
      
-          
+          <CarouselImage src={penHolder} />
 
               <CarouselImage src={adaStand} />
               {/* <p className="legend">Legend 2</p> */}
@@ -423,6 +425,7 @@ export default function ProfilePage(props) {
            
          
               <CarouselImage src={frescoCoaster} />
+          
               {/* <p className="legend">Legend 3</p> */}
            
           </Carousel>
