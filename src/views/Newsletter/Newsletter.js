@@ -140,7 +140,7 @@ const CustomForm = ({ status, message, onValidated }) => {
               onChange={(event) => setFirstName(event.target.value)}
               type="text"
               value={firstName}
-              placeholder="Jane"
+              placeholder="First name"
           />
 
           <input
@@ -148,7 +148,7 @@ const CustomForm = ({ status, message, onValidated }) => {
               onChange={(event) => setLastName(event.target.value)}
               type="text"
               value={lastName}
-              placeholder="Doe"
+              placeholder="Last name"
           />
 
           <input
