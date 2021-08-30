@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import AnnouncementIcon from '@material-ui/icons/Announcement';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
@@ -38,6 +38,19 @@ const RouterButtonStyled = styled(Link)`
 export default function HeaderLinks(props) {
   const classes = useStyles();
   const [show, setShow] = useState(false)
+
+  const closeOnEscapeKeyDown = (e) => {
+    if ((e.charCode || e.keyCode) === 27) {
+      setShow(false)
+    }
+  }
+
+  useEffect(() => {
+    document.body.addEventListener('keydown', closeOnEscapeKeyDown)
+    return function cleanup () {
+      document.body.removeEventListener('keydown', closeOnEscapeKeyDown)
+    }
+  }, [])
 
   return (
     <List className={classes.list}>
