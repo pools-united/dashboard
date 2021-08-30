@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React from "react";
+import React, {useState} from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import AnnouncementIcon from '@material-ui/icons/Announcement';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
@@ -22,6 +22,7 @@ import styled from "styled-components";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
+import Newsletter from "views/Newsletter/Newsletter"
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
@@ -36,6 +37,8 @@ const RouterButtonStyled = styled(Link)`
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
+  const [show, setShow] = useState(false)
+
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
@@ -167,6 +170,25 @@ export default function HeaderLinks(props) {
           </Button>
         </Tooltip>
       </ListItem>
+      <ListItem className={classes.listItem}>
+        <Tooltip
+          id="newsletter"
+          title="Subscribe to our Newsletter"
+          placement={window.innerWidth > 959 ? "top" : "left"}
+          classes={{ tooltip: classes.tooltip }}
+        >
+          <Button
+            color="transparent"
+            target="_blank"
+            onClick={() => setShow(!show)}
+            className={classes.navLink}
+          >
+            <i className={classes.socialIcons + " far fa-newspaper"} />
+          </Button>
+        </Tooltip>
+        <Newsletter onClose={() => setShow(false)} show={show} />
+      </ListItem>
+
       {/* <ListItem className={classes.listItem}>
         <Tooltip
           id="medium-tooltip"

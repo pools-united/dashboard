@@ -76,11 +76,12 @@ import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 
 
-const CustomForm = ({ status, message, onValidated }) => {
+const CustomForm = ({ status, message, onValidated, onClose }) => {
 
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
+
 
 
   useEffect(() => {
@@ -91,6 +92,10 @@ const CustomForm = ({ status, message, onValidated }) => {
     setFirstName('');
     setLastName('');
     setEmail('');
+      setTimeout(() => {
+          onClose()
+      }, 2000);
+
   }
 
   const handleSubmit = (e) => {
@@ -162,18 +167,38 @@ const CustomForm = ({ status, message, onValidated }) => {
         </div>
 
         <button
-            label="subscribe"
+            label="Subscribe"
             type="submit"
         >Submit</button>
+          <button
+            label="Cancel"
+            onClick={onClose}
+        >Cancel</button>
       </form>
   );
 };
 
 //TODO MIHA
 const Newsletter = (props) => {
+    if (!props.show) {
+        return null
+    }
+
+    const modalStyle = {
+        position: 'fixed',
+        left: '0',
+        right: '0',
+        to: '0',
+        bottom: '0',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+
+    }
+
   return (
-    <div >
-      <p >Subscribe to our Newsletter</p>
+    <div style={modalStyle} >
       <MailchimpSubscribe
           url={"https://cpoolsunited.us1.list-manage.com/subscribe/post?u=d80a6235cdb29d8c8281bc4c4&amp;id=3a338bf6de"}
           render={({ subscribe, status, message }) => (
@@ -181,6 +206,7 @@ const Newsletter = (props) => {
                   status={status}
                   message={message}
                   onValidated={formData => subscribe(formData)}
+                  onClose={props.onClose}
               />
           )}
       />
