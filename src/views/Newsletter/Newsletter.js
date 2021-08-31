@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import MailchimpSubscribe from "react-mailchimp-subscribe"
-
+import styled from "styled-components";
+import cancel from "../../assets/img/misc/cancel_shrinked.png"
 
 // import { createGlobalStyle } from 'styled-components';
 //
@@ -74,8 +75,70 @@ import MailchimpSubscribe from "react-mailchimp-subscribe"
 //
 // `
 
+const CancelButton = styled.img`
+position: absolute;
+top: 12px;
+right: 12px;
+width:32px;
+height:32px;
+
+@media (max-width: 600px) {
+width:24px;
+height:24px;
+bottom:20px;
+right:20px;
+top:unset;
+}
+
+`
+
+const Form = styled.form`
+padding:20px 0;
+color: white !important;
+display:flex;
+flex-direction:column;
+`
+
+const H3Styled = styled.h3`
+
+text-align: center;
+`
+
+const InputStyled = styled.input`
+padding: 4px;
+background: unset;
+margin: 10px 12px;
+text-align: center;
+color: white;
+border-radius: 24px;
+border: solid 2px;
+`
+
+const SubmitButton = styled.button`
+width: 34%;
+align-self: center;
+height: 33px;
+margin-top: 14px;
+background-color: #074459;
+color: white;
+border-radius: 24px;
+border: 0px;
+font-size: 16px;
+font-weight: 600;
+}
+`
+
+const InputContainer = styled.div`
+display:flex;
 
 
+@media (max-width: 600px) {
+  flex-direction: column;
+}
+
+
+
+`
 const CustomForm = ({ status, message, onValidated, onClose }) => {
 
   const [email, setEmail] = useState('');
@@ -113,13 +176,13 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
 
 
   return (
-      <form className=""
+      <Form className=""
             onSubmit={(e) => handleSubmit(e)}>
-        <h3 className="">
+        <H3Styled className="">
           {status === "success"
             ? "Success!"
             : "Join our email list for future updates."
-        }</h3>
+        }</H3Styled>
 
         {status === "sending" && (
             <div className="">
@@ -139,8 +202,8 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
             />
         )}
 
-        <div className="">
-          <input
+        <InputContainer className="">
+          <InputStyled
               label="First Name"
               onChange={(event) => setFirstName(event.target.value)}
               type="text"
@@ -148,7 +211,7 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
               placeholder="First name"
           />
 
-          <input
+          <InputStyled
               label="Last Name"
               onChange={(event) => setLastName(event.target.value)}
               type="text"
@@ -156,7 +219,7 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
               placeholder="Last name"
           />
 
-          <input
+          <InputStyled
               label="Email"
               onChange={(event) => setEmail(event.target.value)}
               type="email"
@@ -164,17 +227,17 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
               placeholder="your@email.com"
           />
 
-        </div>
+        </InputContainer>
 
-        <button
+        <SubmitButton
             label="Subscribe"
             type="submit"
-        >Submit</button>
-          <button
+        >Submit</SubmitButton>
+          <CancelButton src={cancel}
             label="Cancel"
             onClick={onClose}
-        >Cancel</button>
-      </form>
+        />
+      </Form>
   );
 };
 
@@ -190,7 +253,7 @@ const Newsletter = (props) => {
         right: '0',
         to: '0',
         bottom: '0',
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: 'rgba(0, 0, 0, 0.9)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center'
