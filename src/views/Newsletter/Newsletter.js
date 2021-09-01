@@ -1,5 +1,8 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
 import MailchimpSubscribe from "react-mailchimp-subscribe"
+import {useForm} from 'react-hook-form'
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 
 
 // import { createGlobalStyle } from 'styled-components';
@@ -78,43 +81,35 @@ import MailchimpSubscribe from "react-mailchimp-subscribe"
 
 const CustomForm = ({ status, message, onValidated, onClose }) => {
 
-  const [email, setEmail] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-
-
-
-  useEffect(() => {
-    if(status === "success") clearFields();
-  }, [status])
-
-  const clearFields = () => {
-    setFirstName('');
-    setLastName('');
-    setEmail('');
-      setTimeout(() => {
-          onClose()
-      }, 2000);
-
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    email &&
-    firstName &&
-    lastName &&
-    email.indexOf("@") > -1 &&
-    onValidated({
-      EMAIL: email,
-      MERGE1: firstName,
-      MERGE2: lastName,
+    const schema = yup.object().shape({
+        firstName: yup.string().required('First name is required'),
+        lastName: yup.string().required('Last name is required'),
+        email: yup.string().email('This is not a valid email'),
     });
-  }
 
+    const {register, handleSubmit, formState: { errors }} = useForm({
+        resolver: yupResolver(schema),
+    })
+
+    useEffect(() => {
+        if(status === "success") setTimeout(() => {
+            onClose()
+        }, 2000);;
+    }, [status])
+
+    const onSubmit = (data) => {
+    onValidated({
+      EMAIL: data.email,
+      MERGE1: data.firstName,
+      MERGE2: data.lastName,
+    });
+    }
+
+    console.log(errors.email)
 
   return (
       <form className=""
-            onSubmit={(e) => handleSubmit(e)}>
+            onSubmit={handleSubmit(onSubmit)}>
         <h3 className="">
           {status === "success"
             ? "Success!"
@@ -141,28 +136,26 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
 
         <div className="">
           <input
-              label="First Name"
-              onChange={(event) => setFirstName(event.target.value)}
+              placeholder="First Name"
               type="text"
-              value={firstName}
-              placeholder="First name"
+              {...register('firstName')}
           />
+            <p>{errors.firstName?.message}</p>
 
           <input
-              label="Last Name"
-              onChange={(event) => setLastName(event.target.value)}
+              placeholder="Last Name"
               type="text"
-              value={lastName}
-              placeholder="Last name"
+              {...register('lastName')}
           />
+            <p>{errors.lastName?.message}</p>
 
           <input
-              label="Email"
-              onChange={(event) => setEmail(event.target.value)}
+              noValidate="novalidate"
+              placeholder="Email"
               type="email"
-              value={email}
-              placeholder="your@email.com"
+              {...register('email')}
           />
+            <p>{errors.email?.message}</p>
 
         </div>
 
