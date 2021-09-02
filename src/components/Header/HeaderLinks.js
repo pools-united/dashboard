@@ -37,7 +37,7 @@ const RouterButtonStyled = styled(Link)`
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
 
   const closeOnEscapeKeyDown = (e) => {
     if ((e.charCode || e.keyCode) === 27) {

@@ -10,78 +10,6 @@ import styled from "styled-components";
 import cancel from "../../assets/img/misc/cancel_shrinked.png"
 
 
-// import { createGlobalStyle } from 'styled-components';
-//
-// const NewsLetterStyle = createGlobalStyle`
-//
-// .wrapper-newsletter{
-//
-//   display:flex;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-// margin-bottom:32px;
-// margin-top:-8px;
-// }
-//
-// input[type=email] + button
-// {
-//
-// box-shadow: 0 2px 2px 0 rgba(68, 162, 157, 0.15), 0 3px 1px -2px rgba(68, 162, 157, 0.3), 0 1px 5px 0 rgba(68, 162, 157, 0.3);
-// background-color: #074459;
-// text-transform: uppercase;
-// color: #FFFFFF;
-// border: none;
-// cursor: pointer;
-// padding: 12px 30px;
-// position: relative;
-// font-size: 16px;
-// min-width: auto;
-// box-shadow: 0 2px 2px 0 rgba(153, 153, 153, 0.14), 0 3px 1px -2px rgba(153, 153, 153, 0.2), 0 1px 5px 0 rgba(153, 153, 153, 0.12);
-// min-height: auto;
-// text-align: center;
-// transition: box-shadow 0.2s cubic-bezier(0.4, 0, 1, 1), background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-// font-weight: 400;
-// margin-top:8px;
-// line-height: 1.42857143;
-// white-space: nowrap;
-// border-radius:6px;
-//
-// }
-//
-// .subscribeParagraph{
-//   color: #3C4858;
-//
-//     margin-top: 0;
-//
-// margin-top: 30px;
-// min-height: 32px;
-// font-family: "Roboto Slab", "Times New Roman", serif;
-// font-weight: 700;
-// margin-bottom: 16px;
-// text-decoration: none;
-// font-size:2rem;
-// }
-//
-// input[type=email]{
-//
-//   border-radius:6px;
-//   text-indent: 8px;
-//   min-height:48px;
-//
-// }
-//
-// .subscribeParagraph + div{
-//
-//   width:100%;
-//   display:flex;
-//   flex-direction:column;
-// }
-//
-//
-//
-// `
-
 const CancelButton = styled.img`
 position: absolute;
 top: 12px;
@@ -96,7 +24,6 @@ bottom:20px;
 right:20px;
 top:unset;
 }
-
 `
 
 const Form = styled.form`
@@ -142,11 +69,8 @@ display:flex;
 @media (max-width: 600px) {
   flex-direction: column;
 }
-
-
-
 `
-const CustomForm = ({ status, message, onValidated, onClose }) => {
+const CustomForm = ({ status, message, onValidated, onClose, reject }) => {
 
     const schema = yup.object().shape({
         firstName: yup.string().required('First name is required'),
@@ -159,9 +83,13 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
     })
 
     useEffect(() => {
-        if(status === "success") setTimeout(() => {
-            onClose()
-        }, 2000);;
+        if(status === "success") {
+            localStorage.setItem('subscribed', true);
+            localStorage.setItem('rejected_sub', false);
+            setTimeout(() => {
+                onClose()
+            }, 2000);
+        }
     }, [status])
 
     const onSubmit = (data) => {
@@ -172,10 +100,7 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
     });
     }
 
-    console.log(errors.email)
-
   return (
-
       <Form className=""
             onSubmit={handleSubmit(onSubmit)}>
         <H3Styled className="">
@@ -205,8 +130,7 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
 
         <InputContainer className="">
           <InputStyled
-              label="First Name"
-              onChange={(event) => setFirstName(event.target.value)}
+              placeholder="First Name"
               type="text"
               {...register('firstName')}
           />
@@ -214,17 +138,15 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
 
 
           <InputStyled
-              label="Last Name"
-              onChange={(event) => setLastName(event.target.value)}
+              placeholder="Last Name"
               type="text"
               {...register('lastName')}
           />
             <p>{errors.lastName?.message}</p>
 
           <InputStyled
-              label="Email"
+              placeholder="Email"
               noValidate="novalidate"
-              onChange={(event) => setEmail(event.target.value)}
               type="email"
               {...register('email')}
           />
@@ -238,13 +160,15 @@ const CustomForm = ({ status, message, onValidated, onClose }) => {
         >Submit</SubmitButton>
           <CancelButton src={cancel}
             label="Cancel"
-            onClick={onClose}
+            onClick={() => {
+                onClose()
+                reject()
+            }}
         />
       </Form>
   );
 };
 
-//TODO MIHA
 const Newsletter = (props) => {
     if (!props.show) {
         return null
@@ -259,8 +183,8 @@ const Newsletter = (props) => {
         backgroundColor: 'rgba(0, 0, 0, 0.9)',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
-
+        justifyContent: 'center',
+        zIndex: '50'
     }
 
   return (
@@ -273,6 +197,7 @@ const Newsletter = (props) => {
                   message={message}
                   onValidated={formData => subscribe(formData)}
                   onClose={props.onClose}
+                  reject={props.reject}
               />
           )}
       />
