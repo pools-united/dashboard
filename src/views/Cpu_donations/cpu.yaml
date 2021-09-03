@@ -162,10 +162,31 @@
   files:
     - CPU/23-08-2021.png
   charity_tx_id: 497df3e9775d91e28d7aee062eb11bec07103c3b900d76583fe7b10bd8a8376d
+  announcement_url: https://twitter.com/C_PoolsUnited/status/1429922584007745540
   intermediate_txs: 
     - provider: Litecoin 
       tx_id: 497df3e9775d91e28d7aee062eb11bec07103c3b900d76583fe7b10bd8a8376d
   custom:
     donationType: community
+
+- ticker: CPU
+  recipient: 
+    name: American Foundation for Suicide Prevention
+    address: 199 Water St. 11th Floor New York, NY 10038
+    tel: (212) 363-3500
+    contact: info@afsp.org
+  ada: 100 
+  usd: 304.3
+  timestamp: 1630686198
+  files:
+    - CPU/03-09-2021.png
+  charity_tx_id: 7271018f96fdfe20c39bf1d5751fa76c6c9dcd63232151e803fc4b282b353b29
+  intermediate_txs: 
+    - provider: Litecoin 
+      tx_id: 7271018f96fdfe20c39bf1d5751fa76c6c9dcd63232151e803fc4b282b353b29
+  custom:
+    donationType: community
+
+
 
 
