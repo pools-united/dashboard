@@ -84,7 +84,15 @@ const LandingPage = (props) => {
         setLoadNewsletter(true);
       }, 5000);
     }
+    document.body.addEventListener('keydown', closeOnEscapeKeyDown)
   }, [])
+
+  const closeOnEscapeKeyDown = (e) => {
+    if ((e.charCode || e.keyCode) === 27) {
+      setLoadNewsletter(false)
+      rejectSubscription()
+    }
+  }
 
   const rejectSubscription = () => {
     localStorage.setItem('rejected_sub', true);
