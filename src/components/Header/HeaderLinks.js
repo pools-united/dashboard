@@ -22,7 +22,6 @@ import styled from "styled-components";
 // core components
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
-import Newsletter from "views/Newsletter/Newsletter"
 
 import styles from "assets/jss/material-kit-react/components/headerLinksStyle.js";
 
@@ -37,20 +36,6 @@ const RouterButtonStyled = styled(Link)`
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
-  const [show, setShow] = useState(false)
-
-  const closeOnEscapeKeyDown = (e) => {
-    if ((e.charCode || e.keyCode) === 27) {
-      setShow(false)
-    }
-  }
-
-  useEffect(() => {
-    document.body.addEventListener('keydown', closeOnEscapeKeyDown)
-    return function cleanup () {
-      document.body.removeEventListener('keydown', closeOnEscapeKeyDown)
-    }
-  }, [])
 
   return (
     <List className={classes.list}>
@@ -110,14 +95,14 @@ export default function HeaderLinks(props) {
         >
           <ContactMailIcon className={classes.icons} /> CONTACT
         </RouterButtonStyled>
-        <RouterButtonStyled
+        {/* <RouterButtonStyled
           to="/cpu-token"
           color="transparent"
           // target="_blank"
           className={classes.navLink}
         >
           <DonutSmallIcon className={classes.icons} /> CPU TOKEN
-        </RouterButtonStyled>
+        </RouterButtonStyled> */}
         <RouterButtonStyled
           to="/cpu-donations"
           color="transparent"
@@ -182,24 +167,6 @@ export default function HeaderLinks(props) {
             <i className={classes.socialIcons + " fab fa-youtube"} />
           </Button>
         </Tooltip>
-      </ListItem>
-      <ListItem className={classes.listItem}>
-        <Tooltip
-          id="newsletter"
-          title="Subscribe to our Newsletter"
-          placement={window.innerWidth > 959 ? "top" : "left"}
-          classes={{ tooltip: classes.tooltip }}
-        >
-          <Button
-            color="transparent"
-            target="_blank"
-            onClick={() => setShow(!show)}
-            className={classes.navLink}
-          >
-            <i className={classes.socialIcons + " far fa-newspaper"} />
-          </Button>
-        </Tooltip>
-        <Newsletter onClose={() => setShow(false)} show={show} />
       </ListItem>
 
       {/* <ListItem className={classes.listItem}>

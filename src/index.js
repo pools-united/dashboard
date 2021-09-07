@@ -38,7 +38,7 @@ ReactDOM.render(
         {/* <Route path="/components" component={Components} /> */}
         <Route path="/faq" component={FAQPage} />
         <Route path="/news" component={NewsPage} />
-        <Route path="/cpu-token" component={CpuToken} />
+        {/* <Route path="/cpu-token" component={CpuToken} /> */}
         <Route path="/cpu-donations" component={CpuDonations} />
         <Route path="/cpu-donations-embeded" component={DonationsEmbeded} />
         <Route path="/pool" component={PoolPage} />
