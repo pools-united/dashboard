@@ -21,6 +21,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
+import Newsletter from "views/Newsletter/Newsletter"
 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import styled from "styled-components";
@@ -29,7 +30,6 @@ import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import CardanoIntroSection from "./Sections/CardanoIntroSection.js";
 import PoolSection from "./Sections/PoolSection.js";
-import Newsletter from "views/Newsletter/Newsletter";
 
 const dashboardRoutes = [];
 
@@ -55,10 +55,51 @@ const CardanoIntroDivider = styled.div`
 const LandingPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
+  const [isSubscribed, setIsSubscribed] = useState(localStorage.getItem('subscribed'))
+  const [didRejectSub, setDidRejectSub] = useState(localStorage.getItem('rejected_sub'))
+  const [didRejectSessionSub, setDidRejectSessionSub] = useState(sessionStorage.getItem('rejected_sub'))
+  const [loadNewsletter, setLoadNewsletter] = useState(false)
+
 
   LandingPage.propTypes = {
     heightSet: PropTypes.any,
   };
+
+  useEffect(() => {
+    setIsSubscribed(localStorage.getItem('subscribed'))
+    setDidRejectSub(sessionStorage.getItem('rejected_sub'))
+
+    if (isSubscribed || didRejectSessionSub) {
+      return setLoadNewsletter(false)
+    } else if (!isSubscribed && didRejectSub) {
+      const generator = Math.floor(Math.random() * 3)
+      console.log('number ' + generator)
+      if (generator === 1) {
+        setTimeout(() => {
+          setLoadNewsletter(true);
+        }, 5000);
+      }
+    } else {
+      setTimeout(() => {
+        setLoadNewsletter(true);
+      }, 5000);
+    }
+    document.body.addEventListener('keydown', closeOnEscapeKeyDown)
+  }, [])
+
+  const closeOnEscapeKeyDown = (e) => {
+    if ((e.charCode || e.keyCode) === 27) {
+      setLoadNewsletter(false)
+      rejectSubscription()
+    }
+  }
+
+  const rejectSubscription = () => {
+    localStorage.setItem('rejected_sub', true);
+    sessionStorage.setItem('rejected_sub', true);
+    setDidRejectSub(sessionStorage.getItem('rejected_sub'))
+    setDidRejectSessionSub(sessionStorage.getItem('rejected_sub'))
+  }
 
   return (
     <AppContext.Consumer>
@@ -77,6 +118,11 @@ const LandingPage = (props) => {
                 color: "white",
               }}
               {...rest}
+            />
+            <Newsletter
+                show={loadNewsletter}
+                onClose={() => setLoadNewsletter(false)}
+                reject={rejectSubscription}
             />
             <ParallaxStyled filter image={require("assets/img/landing-bg.png")}>
               <div className={classes.container}>
@@ -108,7 +154,7 @@ const LandingPage = (props) => {
                 <ProductSection />
                 <PoolSection />
                 <TeamSection />
-                {/* <Newsletter /> */}
+                <Newsletter />
                 <CardanoIntroSection />
                 
                 <CardanoIntroDivider heightSet={context.scrollOffset <= -700} />

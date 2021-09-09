@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import React from "react";
+import React, {useState, useEffect} from "react";
 import HomeIcon from "@material-ui/icons/Home";
 import AnnouncementIcon from '@material-ui/icons/Announcement';
 import ContactMailIcon from '@material-ui/icons/ContactMail';
@@ -36,6 +36,7 @@ const RouterButtonStyled = styled(Link)`
 
 export default function HeaderLinks(props) {
   const classes = useStyles();
+
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>
@@ -94,14 +95,14 @@ export default function HeaderLinks(props) {
         >
           <ContactMailIcon className={classes.icons} /> CONTACT
         </RouterButtonStyled>
-        <RouterButtonStyled
+        {/* <RouterButtonStyled
           to="/cpu-token"
           color="transparent"
           // target="_blank"
           className={classes.navLink}
         >
           <DonutSmallIcon className={classes.icons} /> CPU TOKEN
-        </RouterButtonStyled>
+        </RouterButtonStyled> */}
         <RouterButtonStyled
           to="/cpu-donations"
           color="transparent"
@@ -167,6 +168,7 @@ export default function HeaderLinks(props) {
           </Button>
         </Tooltip>
       </ListItem>
+
       {/* <ListItem className={classes.listItem}>
         <Tooltip
           id="medium-tooltip"
