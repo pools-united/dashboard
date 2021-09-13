@@ -4,7 +4,7 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch } from "react-router-dom";
 import MyProvider from "./Context/ContextProvider";
 import "assets/scss/material-kit-react.scss?v=1.9.0";
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
 
 // pages for this product
 // import Components from "views/Components/Components.js";
@@ -17,14 +17,15 @@ import NewsPage from "views/News/NewsPage.js";
 import ContactUs from "views/ContactUs/ContactUs";
 import CpuToken from "views/Cpu_token/CpuTokenPage";
 import CpuDonations from "views/Cpu_donations/CpuDonationsPage";
-import DonationsEmbeded from "views/Cpu_donations_embeded/CpuDonationsPage"
-
+import DonationsEmbeded from "views/Cpu_donations_embeded/CpuDonationsPage";
+import PrivacyPolicy from "views/PrivacyPolicy/PrivacyPolicy";
+import CookiePolicy from "views/CookiePolicy/CookiePolicy";
 
 var hist = createBrowserHistory();
 
 const TRACKING_ID = "UA-202282581-1"; // YOUR_OWN_TRACKING_ID
 ReactGA.initialize(TRACKING_ID);
-hist.listen(location => {
+hist.listen((location) => {
   ReactGA.set({ page: location.pathname }); // Update the user's current page
   ReactGA.pageview(location.pathname); // Record a pageview for the given page
 });
@@ -43,6 +44,8 @@ ReactDOM.render(
         <Route path="/cpu-donations-embeded" component={DonationsEmbeded} />
         <Route path="/pool" component={PoolPage} />
         <Route path="/contact-us" component={ContactUs} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/cookie-policy" component={CookiePolicy} />
         <Route path="/" component={LandingPage} />
       </Switch>
     </Router>

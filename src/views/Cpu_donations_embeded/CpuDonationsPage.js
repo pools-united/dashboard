@@ -10,44 +10,65 @@ import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-
-import DonationsStyle from "./donationsStyle"
+import DonationsStyle from "./donationsStyle";
 import styled from "styled-components";
 import styles from "assets/jss/material-kit-react/views/faqPage.js";
 
-import cpuDonationsJson from '../Cpu_donations/cpu.json';
-
-
-
+import cpuDonationsJson from "../Cpu_donations/cpu.json";
 
 const donationTypeColors = {
-
-  education:"#7b3c9f",
-  nature:"#4b8b3b",
-  animals:"#D0764C",
-  community:"#a9c0c1",
-  
-
-}
+  education: "#7b3c9f",
+  nature: "#4b8b3b",
+  animals: "#D0764C",
+  community: "#a9c0c1",
+};
 
 const TimelineItem = ({ data, dateTest }) => (
   <div className="timeline-item">
     <div className="timeline-item-content">
-      <a href={(data.recipient.contact.includes("@")? `mailto:${data.recipient.contact}`: data.recipient.contact)} target="_blank" className="tag" style={{ borderRadius:"8px", background: donationTypeColors[data.custom.donationType] }}>
+      <a
+        href={
+          data.recipient.contact.includes("@")
+            ? `mailto:${data.recipient.contact}`
+            : data.recipient.contact
+        }
+        target="_blank"
+        className="tag"
+        style={{
+          borderRadius: "8px",
+          background: donationTypeColors[data.custom.donationType],
+        }}
+      >
         {data.recipient.name}
       </a>
       <time>{dateTest}</time>
 
-      <p class="donated"><span class="donateTitle">Donated</span>
+      <p className="donated">
+        <span className="donateTitle">Donated</span>
         ADA: {data.ada}₳<br />
         USD: {data.usd}$
-
       </p>
-      <p class="donationDesc">The donation was made via {data.intermediate_txs[0].provider}
-        <br />    Transaction id: <br /> <a target="_blank" href={`https://blockchair.com/${data.intermediate_txs[0].provider.toLowerCase()}/transaction/${data.intermediate_txs[0].tx_id}`}>{data.intermediate_txs[0].tx_id.slice(0, 11)}...</a>
+      <p className="donationDesc">
+        The donation was made via {data.intermediate_txs[0].provider}
+        <br /> Transaction id: <br />{" "}
+        <a
+          target="_blank"
+          href={`https://blockchair.com/${data.intermediate_txs[0].provider.toLowerCase()}/transaction/${
+            data.intermediate_txs[0].tx_id
+          }`}
+        >
+          {data.intermediate_txs[0].tx_id.slice(0, 11)}...
+        </a>
       </p>
-      <a href={`https://pools-united.github.io/Donations/${data.files[0]}`} target="_blank"><img class="donationImg" src={`https://pools-united.github.io/Donations/${data.files[0]}`}></img></a>
-
+      <a
+        href={`https://pools-united.github.io/Donations/${data.files[0]}`}
+        target="_blank"
+      >
+        <img
+          className="donationImg"
+          src={`https://pools-united.github.io/Donations/${data.files[0]}`}
+        ></img>
+      </a>
 
       <span className="circle" />
     </div>
@@ -60,7 +81,6 @@ const Timeline = () => {
     cpuDonationsReversed.push(cpuDonationsJson[i]);
   }
   return (
-
     <div className="timeline-container">
       {cpuDonationsReversed.map((data, idx) => {
         // let date = new Date( data.timestamp * 1000);
@@ -69,26 +89,34 @@ const Timeline = () => {
         // var minutes = "0" + date.getMinutes();
         // // Seconds part from the timestamp
         // var seconds = "0" + date.getSeconds();
-        // // var formatted_date = timestampDate.getDate() + "/" + timestampDate.getMonth() + 1 + "/" + timestampDate.getFullYear() 
+        // // var formatted_date = timestampDate.getDate() + "/" + timestampDate.getMonth() + 1 + "/" + timestampDate.getFullYear()
 
         var a = new Date(data.timestamp * 1000);
-        var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        var months = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
         var year = a.getFullYear();
         var month = months[a.getMonth()];
         var date = a.getDate();
 
-        var time = date + ' ' + month + ' ' + year;
+        var time = date + " " + month + " " + year;
 
-
-
-        return (
-          <TimelineItem dateTest={time} data={data} key={idx} />
-        )
+        return <TimelineItem dateTest={time} data={data} key={idx} />;
       })}
     </div>
-  )
-}
-
+  );
+};
 
 const useStyles = makeStyles(styles);
 const PageTitle = styled.div`
@@ -99,22 +127,20 @@ const PageTitle = styled.div`
 `;
 
 const FaqContainer = styled.div`
-  padding:16px;
+  padding: 16px;
   padding-top: 32px;
   max-width: 1200px;
   margin: auto;
 `;
 
-
 export default function DonationsEmbeded(props) {
   const classes = useStyles();
   const { ...rest } = props;
 
-
   return (
     <div>
       <DonationsStyle />
-  
+
       <Parallax
         small
         filter
@@ -128,12 +154,8 @@ export default function DonationsEmbeded(props) {
           <PageTitle>Cardano Pools United Donation Timeline</PageTitle>
 
           <Timeline />
-
-
         </FaqContainer>
-       
       </div>
-   
     </div>
   );
 }

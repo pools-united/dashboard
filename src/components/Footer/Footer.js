@@ -61,6 +61,16 @@ export default function Footer(props) {
                 [CURIE]
               </a>
             </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a href="/privacy-policy" className={classes.block}>
+                Privacy Policy
+              </a>
+            </ListItem>
+            <ListItem className={classes.inlineBlock}>
+              <a href="/cookie-policy" className={classes.block}>
+                Cookie Policy
+              </a>
+            </ListItem>
           </List>
         </div>
         <div className={classes.right}>
