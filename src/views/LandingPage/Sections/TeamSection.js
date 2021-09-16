@@ -20,6 +20,7 @@ import team1 from "assets/img/faces/Patricia.jpg";
 import team2 from "assets/img/faces/Filip.jpg";
 import team3 from "assets/img/faces/Nora.jpg";
 import emil from "assets/img/faces/Emil.jpg";
+import stjepan from "assets/img/faces/stjepan.jpg";
 import team4 from "assets/img/faces/Miha.jpg";
 import zvonimir from "assets/img/faces/Zvonimir.jpg";
 
@@ -291,6 +292,40 @@ export default function TeamSection() {
                   className={classes.margin5}
                 >
                   <i className={classes.socials + " fab fa-facebook"} />
+                </Button> */}
+              </CardFooter>
+            </Card>
+          </GridItem>
+          <GridItem xs={12} sm={12} md={4}>
+            <Card plain>
+              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                <img src={stjepan} alt="..." className={imageClasses} />
+              </GridItem>
+              <h4 className={classes.cardTitle}>
+                Stjepan Crncic
+                <br />
+              </h4>
+              <CardBody>
+                <p className={classes.description}>
+                  Software engineer with 2 years of experience in
+                  development of web applications and 7 years in system
+                  administration. Together with Emil he started and operates <a href="/pool?id=MINES">Mines pool</a>.
+                </p>
+              </CardBody>
+              <CardFooter className={classes.justifyCenter}>
+                {/* <Button
+                  justIcon
+                  color="transparent"
+                  className={classes.margin5}
+                >
+                  <i className={classes.socials + " fab fa-twitter"} />
+                </Button>
+                <Button
+                  justIcon
+                  color="transparent"
+                  className={classes.margin5}
+                >
+                  <i className={classes.socials + " fab fa-linkedin"} />
                 </Button> */}
               </CardFooter>
             </Card>
