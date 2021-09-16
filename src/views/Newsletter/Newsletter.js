@@ -175,11 +175,10 @@ const Newsletter = (props) => {
     }
 
     const modalStyle = {
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
         position: 'fixed',
-        left: '0',
-        right: '0',
-        to: '0',
-        bottom: '0',
         backgroundColor: 'rgba(0, 0, 0, 0.9)',
         display: 'flex',
         alignItems: 'center',
