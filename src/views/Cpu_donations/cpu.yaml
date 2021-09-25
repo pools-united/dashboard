@@ -219,14 +219,31 @@
   files:
     - CPU/14-09-2021.png
   charity_tx_id: b9ed45e4cc7d167ad257453587bca8f2a447f1488e6947da7661c1ec6ed87546
-  announcement_url: 
+  announcement_url: https://twitter.com/C_PoolsUnited/status/1437894404916789252
   intermediate_txs:
     - provider: Litecoin
       tx_id: b9ed45e4cc7d167ad257453587bca8f2a447f1488e6947da7661c1ec6ed87546
   custom:
     donationType: animals
 
-
+- ticker: CPU
+  recipient:
+    name: Orangutan Outreach
+    address: P.O. Box 833 Hudson, NY 12534, USA
+    tel: 1 (917) 328 7934
+    contact: info@redapes.org
+  ada: 100
+  usd: 233.9
+  timestamp: 1632565880
+  files:
+    - CPU/25-09-2021.png
+  charity_tx_id: 65ccea57242e985eeca3f8e52c5aa5cff09183669d7b5e5cc773077ffec01f9f
+  announcement_url: 
+  intermediate_txs:
+    - provider: Litecoin
+      tx_id: 65ccea57242e985eeca3f8e52c5aa5cff09183669d7b5e5cc773077ffec01f9f
+  custom:
+    donationType: animals
 
 
 
