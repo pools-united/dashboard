@@ -10,10 +10,16 @@ import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-import styled from "styled-components";
+import styled, { createGlobalStyle} from "styled-components";
 import styles from "assets/jss/material-kit-react/views/faqPage.js";
 
 const useStyles = makeStyles(styles);
+
+const PrivacyStyle = createGlobalStyle`
+
+p, li{ text-align: left;
+font-size:14px;}
+`;
 
 const PageTitle = styled.div`
   font-size: 32px;
@@ -39,6 +45,7 @@ export default function PrivacyPolicy(props) {
 
   return (
     <div>
+      <PrivacyStyle/>
       <Header
         color="transparent"
         brand="Material Kit React"
@@ -78,9 +85,9 @@ export default function PrivacyPolicy(props) {
               that they shared and/or collect in Cardano Pools United. This
               policy is not applicable to any information collected offline or
               via channels other than this website. Our Privacy Policy was
-              created with the help of the{" "}
+              created with the help of the Privacy Policy Generator from {" "}
               <a href="https://www.cookiepolicygenerator.com/privacy-policy-generator/">
-                Privacy Policy Generator from CookiePolicyGenerator.com
+                CookiePolicyGenerator.com
               </a>
               .
             </p>
@@ -135,21 +142,6 @@ export default function PrivacyPolicy(props) {
               <li>Find and prevent fraud</li>
             </ul>
 
-            <h2>Log Files</h2>
-
-            <p>
-              Cardano Pools United follows a standard procedure of using log
-              files. These files log visitors when they visit websites. All
-              hosting companies do this and a part of hosting services'
-              analytics. The information collected by log files include internet
-              protocol (IP) addresses, browser type, Internet Service Provider
-              (ISP), date and time stamp, referring/exit pages, and possibly the
-              number of clicks. These are not linked to any information that is
-              personally identifiable. The purpose of the information is for
-              analyzing trends, administering the site, tracking users' movement
-              on the website, and gathering demographic information.
-            </p>
-
             <h2>Cookies and Web Beacons</h2>
 
             <p>
@@ -167,29 +159,6 @@ export default function PrivacyPolicy(props) {
                 "Cookies" article from the Privacy Policy Generator
               </a>
               .
-            </p>
-
-            <h2>Advertising Partners Privacy Policies</h2>
-
-            <p>
-              You may consult this list to find the Privacy Policy for each of
-              the advertising partners of Cardano Pools United.
-            </p>
-
-            <p>
-              Third-party ad servers or ad networks uses technologies like
-              cookies, JavaScript, or Web Beacons that are used in their
-              respective advertisements and links that appear on Cardano Pools
-              United, which are sent directly to users' browser. They
-              automatically receive your IP address when this occurs. These
-              technologies are used to measure the effectiveness of their
-              advertising campaigns and/or to personalize the advertising
-              content that you see on websites that you visit.
-            </p>
-
-            <p>
-              Note that Cardano Pools United has no access to or control over
-              these cookies that are used by third-party advertisers.
             </p>
 
             <h2>Third Party Privacy Policies</h2>

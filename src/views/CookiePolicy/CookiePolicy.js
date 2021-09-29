@@ -10,10 +10,16 @@ import Footer from "components/Footer/Footer.js";
 import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
 
-import styled from "styled-components";
+import styled, {createGlobalStyle} from "styled-components";
 import styles from "assets/jss/material-kit-react/views/faqPage.js";
 
 const useStyles = makeStyles(styles);
+
+const CookieStyle = createGlobalStyle`
+
+p, li{ text-align: left;
+  font-size:14px;}
+`;
 
 const PageTitle = styled.div`
   font-size: 32px;
@@ -39,6 +45,7 @@ export default function CookiePolicy(props) {
 
   return (
     <div>
+      <CookieStyle/>
       <Header
         color="transparent"
         brand="Material Kit React"
@@ -60,10 +67,6 @@ export default function CookiePolicy(props) {
           <PageTitle>Cookie Policy for Cardano Pools United</PageTitle>
 
           <DescriptionText>
-            <p>
-              This is the Cookie Policy for Cardano Pools United, accessible
-              from cpoolsunited.com
-            </p>
             <p>
               <strong>What Are Cookies</strong>
             </p>
@@ -99,9 +102,9 @@ export default function CookiePolicy(props) {
               usually result in also disabling certain functionality and
               features of the this site. Therefore it is recommended that you do
               not disable cookies. This Cookies Policy was created with the help
-              of the{" "}
+              of the Cookies Policy Generator from {" "}
               <a href="https://www.cookiepolicygenerator.com/cookie-policy-generator/">
-                Cookies Policy Generator from CookiePolicyGenerator.com
+               CookiePolicyGenerator.com
               </a>
               .
             </p>
@@ -121,14 +124,6 @@ export default function CookiePolicy(props) {
 
               <li>
                 <p>Site preferences cookies</p>
-                <p>
-                  In order to provide you with a great experience on this site
-                  we provide the functionality to set your preferences for how
-                  this site runs when you use it. In order to remember your
-                  preferences we need to set cookies so that this information
-                  can be called whenever you interact with a page is affected by
-                  your preferences.
-                </p>
               </li>
             </ul>
 
@@ -184,7 +179,9 @@ export default function CookiePolicy(props) {
             </p>
 
             <ul>
-              <li>Email: cpoolsunited@gmail.com</li>
+              <p>Email: <a href="mailto:cpoolsunited@gmail.com"> cpoolsunited@gmail.com</a>  <br/>
+             Telegram: <a href="https://t.me/cpoolsunited"> cpoolsunited</a> <br/>
+              Twitter: <a href="https://twitter.com/C_PoolsUnited"> C_PoolsUnited</a> </p>
             </ul>
           </DescriptionText>
 

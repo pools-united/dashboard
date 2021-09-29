@@ -7,6 +7,8 @@ import classNames from "classnames";
 // material-ui core components
 import { List, ListItem } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+
 
 // @material-ui/icons
 import Favorite from "@material-ui/icons/Favorite";
@@ -62,14 +64,14 @@ export default function Footer(props) {
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="/privacy-policy" className={classes.block}>
+              <Link to="/privacy-policy" className={classes.block}>
                 Privacy Policy
-              </a>
+              </Link>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
-              <a href="/cookie-policy" className={classes.block}>
+              <Link to="/cookie-policy" className={classes.block}>
                 Cookie Policy
-              </a>
+              </Link>
             </ListItem>
           </List>
         </div>
