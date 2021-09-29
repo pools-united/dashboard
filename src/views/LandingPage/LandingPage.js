@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import CookieConsent from "react-cookie-consent";
 // nodejs library that concatenates classes
 
 import Drawer from "@material-ui/core/Drawer";
@@ -154,12 +155,20 @@ const LandingPage = (props) => {
                 <ProductSection />
                 <PoolSection />
                 <TeamSection />
-                <Newsletter />
                 <CardanoIntroSection />
-                
                 <CardanoIntroDivider heightSet={context.scrollOffset <= -700} />
               </div>
             </div>
+            <CookieConsent
+                location="bottom"
+                cookieName="cookieAccepted"
+                expires={999}
+                overlay
+                buttonStyle={{ background: "#44A29D", color: "white", borderRadius: "3px", textTransform: "uppercase", fontSize: "12px", fontWeight: "400"}}
+                style={{background: "rgba(0, 0, 0, 0.9)"}}
+            >
+              This website uses cookies to enhance the user experience.
+            </CookieConsent>
             <Footer />
           </div>
         );

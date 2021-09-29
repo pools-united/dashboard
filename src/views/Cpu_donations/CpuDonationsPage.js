@@ -95,8 +95,13 @@ const PageTitle = styled.div`
   font-size: 32px;
   font-weight: 500;
   text-align: center;
-  padding: 32px 0;
+  padding: 32px 0 0 0;
 `;
+
+const DonationsMade = styled(PageTitle)`
+font-size:24px;
+padding top: 0px;
+`
 
 const FaqContainer = styled.div`
   padding:16px;
@@ -135,8 +140,8 @@ export default function ProfilePage(props) {
         {/* <BottomSpacer /> */}
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
         <FaqContainer>
-          <PageTitle>Cardano Pools United Donation Timeline</PageTitle>
-
+          <PageTitle>Cardano Pools United Donation Timeline </PageTitle>
+ <DonationsMade> Donations made: {cpuDonationsJson.length}</DonationsMade>
           <Timeline />
 
 
