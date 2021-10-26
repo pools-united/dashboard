@@ -54,6 +54,7 @@ export default function PoolSection() {
             delegateLink={"/faq#StoreAndDelegate"}
             poolLink={"/pool?id=CPU"}
             isMain
+            kickstart
             operator={{
               name: "Name#1",
               image: face,
