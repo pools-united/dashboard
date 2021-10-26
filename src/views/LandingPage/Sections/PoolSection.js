@@ -51,6 +51,7 @@ export default function PoolSection() {
             margin={"2%"}
             fixedFee={"340"}
             pledge={"50000"}
+            kickstart
             delegateLink={"/faq#StoreAndDelegate"}
             poolLink={"/pool?id=CPU"}
             isMain
