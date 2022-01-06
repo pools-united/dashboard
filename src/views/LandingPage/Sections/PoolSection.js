@@ -27,7 +27,7 @@ export default function PoolSection() {
   return (
     <div className={classes.section}>
       <h2 className={classes.title}>CPU collaboration Pools</h2>
-      <GridContainer>
+      <GridContainer style={{justifyContent: 'center'}}>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
             name={"Nova Era Pool [ERA]"}
@@ -63,14 +63,13 @@ export default function PoolSection() {
         </GridItem>
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
-            name={"Proto Pool [PROTO]"}
-            address={"b00b421fbc620f0a2fdcf3243265d253b2e30c40da2c172dc5ab4640"}
-            kickstart
-            margin={"1%"}
+            name={"Fresco Pool [VENUS]"}
+            address={"19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253"}
+            margin={"0.85%"}
             fixedFee={"340"}
-            pledge={"5000"}
+            pledge={"70000"}
             delegateLink={"/faq#StoreAndDelegate"}
-            poolLink={"/pool?id=PROTO"}
+            poolLink={"/pool?id=VENUS"}
             operator={{
               name: "Name#1",
               image: face,
@@ -93,21 +92,7 @@ export default function PoolSection() {
             }}
           />
         </GridItem>
-        <GridItem xs={12} sm={12} md={4}>
-          <PoolCard
-            name={"Fresco Pool [VENUS]"}
-            address={"19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253"}
-            margin={"0.85%"}
-            fixedFee={"340"}
-            pledge={"70000"}
-            delegateLink={"/faq#StoreAndDelegate"}
-            poolLink={"/pool?id=VENUS"}
-            operator={{
-              name: "Name#1",
-              image: face,
-            }}
-          />
-        </GridItem>
+      
         <GridItem xs={12} sm={12} md={4}>
           <PoolCard
             name={"ADAstra Mines  [MINES]"}
@@ -124,7 +109,6 @@ export default function PoolSection() {
             }}
           />
         </GridItem>
-        <GridItem xs={12} sm={12} md={2}></GridItem>
       </GridContainer>
     </div>
   );

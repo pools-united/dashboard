@@ -125,51 +125,6 @@ export default function TeamSection() {
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
               <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={team4} alt="..." className={imageClasses} />
-              </GridItem>
-              <h4 className={classes.cardTitle}>
-                Ema Simunec
-                <br />
-              </h4>
-              <CardBody>
-                <p className={classes.description}>
-                  Ema is an industrial designer who became fascinated by
-                  <a href="https://cardano.org/"> Cardano </a>
-                  blockchain because it provides a more balanced and sustainable
-                  ecosystem for cryptocurrencies. She is the owner of
-                  <a href="/pool?id=PROTO"> Proto Pool </a>
-                  and in her free time, she renders both the architectural
-                  spaces and natural surroundings.
-                </p>
-              </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                {/* <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-twitter"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-instagram"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-facebook"} />
-                </Button> */}
-              </CardFooter>
-            </Card>
-          </GridItem>{" "}
-          <GridItem xs={12} sm={12} md={4}>
-            <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
                 <img src={emil} alt="..." className={imageClasses} />
               </GridItem>
               <h4 className={classes.cardTitle}>

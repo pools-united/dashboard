@@ -24,7 +24,6 @@ import Chart from "react-apexcharts";
 
 //images
 import VenusBanner from "assets/poolAssets/venus/FrescoBanner.png";
-import ProtoBanner from "assets/poolAssets/proto/ProtoBanner.png";
 import EraBanner from "assets/poolAssets/era/EraBanner.png";
 import EraLogoGif from "assets/poolAssets/era/era_logo.gif";
 import VenusLogo from "assets/poolAssets/venus/fresco_logo.png";
@@ -38,8 +37,6 @@ import MinesBanner from "assets/poolAssets/mines/MinesBanner.png";
 import CurieLogo from "assets/poolAssets/curie/curie_logo.png";
 import CurieBanner from "assets/poolAssets/curie/CurieBanner.png";
 
-import ProtoLogoGif from "assets/poolAssets/proto/Proto_logo_GIF.gif";
-import ProtoLogoStatic from "assets/poolAssets/proto/Proto_logo_static.png";
 
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 
@@ -593,60 +590,6 @@ const PoolPage = (props) => {
       operators: true,
       firstOperator: Patricia,
       secondOperator: Nora,
-    },
-    PROTO: {
-      name: "Proto Pool |PROTO|",
-      poolColor: "#030303",
-      secondaryColor: "	#2d3866",
-      logoColor: "#6e8cff",
-      bodyBackgroundColor: "black",
-      description: (
-        <>
-          Inspired by the Protomolecule from the TV show "The Expanse," created
-          by extra-terrestrials, the technology that was superior to everything
-          humans knew, much like Cardano is to the majority of blockchains
-          today.
-          <br />
-          <br />
-          With Proto pool, we are supporting the{" "}
-          <a href="https://cardano.org/" target="_blank" rel="noreferrer">
-            {" "}
-            Cardano
-          </a>{" "}
-          community and ensuring our delegators secure and smooth process. We
-          are building a better future one block at a time.
-        </>
-      ),
-      descriptionMobile: (
-        <>
-          Inspired by the Protomolecule from the TV show "The Expanse," created
-          by extra-terrestrials, the technology that was superior to everything
-          humans knew, much like Cardano is to the majority of blockchains
-          today.
-          <br />
-          With Proto pool, we are supporting the{" "}
-          <a
-            href="https://cardano.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Cardano
-          </a>
-          community and ensuring our delegators secure and smooth process.
-        </>
-      ),
-
-      id: "b00b421fbc620f0a2fdcf3243265d253b2e30c40da2c172dc5ab4640",
-      // banner: ProtoLogoGif,
-      logoMobile: ProtoLogoStatic,
-      logoStatic: ProtoLogoGif,
-      logoDynamic: ProtoLogoGif,
-      twitter: "https://twitter.com/Proto_Pool",
-      telegram: "https://t.me/cpoolsunited",
-      github: "",
-      logoAnimation: true,
-      operators: true,
-      firstOperator: Miha,
     },
   };
 
