@@ -731,9 +731,11 @@ const PoolPage = (props) => {
       urlParamsObject[decode(match[1])] = decode(match[2]);
     }
     urlParamsObject.hasOwnProperty("id") && setUrlParams(urlParamsObject);
-
     !poolsDetails.hasOwnProperty(urlParamsObject.id) &&
       setUrlParams({ id: "CPU" });
+      urlParamsObject.id === "VEN" && setUrlParams({id: "VENUS"});
+      urlParamsObject.id === "CUR" && setUrlParams({id: "CURIE"});
+
   }, []);
 
   const history = useHistory();
