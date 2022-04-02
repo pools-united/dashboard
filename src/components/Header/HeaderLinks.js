@@ -63,7 +63,6 @@ export default function HeaderLinks(props) {
             <a href="/pool?id=ERA"  className={classes.dropdownLink}>Nova Era Pool [ERA]</a>,
             <a href="/pool?id=VENUS"  className={classes.dropdownLink}>Fresco Pool [VENUS]</a>,
             <a href="/pool?id=MINES"  className={classes.dropdownLink}>ADAstra Mines [MINES]</a>,
-            <a href="/pool?id=CURIE"  className={classes.dropdownLink}>Marie Curie Pool [CURIE]</a>,
 
             
           ]}

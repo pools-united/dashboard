@@ -208,49 +208,7 @@ export default function TeamSection() {
               </CardFooter>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={zvonimir} alt="..." className={imageClasses} />
-              </GridItem>
-              <h4 className={classes.cardTitle}>
-                Zvonimir Mlinaric
-                <br />
-              </h4>
-              <CardBody>
-                <p className={classes.description}>
-                  Zvonimir is a young scientist and soon to be Master of
-                  pharmacy who realized the potential of new technologies like
-                  blockchain in science and biomedicine and therefore founded
-                  his Marie Curie Pool. In his free time, he likes to watch a
-                  good movie and drink a good beer in a good company.
-                </p>
-              </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                {/* <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-twitter"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-instagram"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-facebook"} />
-                </Button> */}
-              </CardFooter>
-            </Card>
-          </GridItem>
+    
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
               <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
