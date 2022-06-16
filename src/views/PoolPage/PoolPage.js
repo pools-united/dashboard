@@ -368,10 +368,11 @@ margin-bottom: ${(props) => props.marginBottom};
   text-decoration: none;
   transform: scale(1.02);
 }
-
-
 `
-const additionalInfoVenus = (<>
+const AdditionalInfoWrapper = styled.div`
+padding:12px;
+`
+const additionalInfoVenus = (<AdditionalInfoWrapper>
 
 <LinkWrapper target="_blank" marginTop ="48px" marginBottom= "48px" href="https://www.ecocashew.com">
   <H1StyledCenter>Fresco Pool is currently supporting Eco Cashew project</H1StyledCenter>
@@ -424,7 +425,7 @@ const additionalInfoVenus = (<>
   <H1StyledCenter>Fresco Pool was a part of Sundae Swap RISO</H1StyledCenter>
   <AdditionalInfoImgs src={SundaeSwapRISO}/>
   </LinkWrapper>
-   </>)
+   </AdditionalInfoWrapper>)
 
 const PoolPage = (props) => {
   const classes = useStyles();
