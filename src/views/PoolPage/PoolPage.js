@@ -373,7 +373,7 @@ margin-bottom: ${(props) => props.marginBottom};
 `
 const additionalInfoVenus = (<>
 
-<LinkWrapper target="_blank" marginTop ="48px" marginBottom= "48px" href="https://iso.sundaeswap.finance/#/reverse-pools">
+<LinkWrapper target="_blank" marginTop ="48px" marginBottom= "48px" href="https://www.ecocashew.com">
   <H1StyledCenter>Fresco Pool is currently supporting Eco Cashew project</H1StyledCenter>
   <AdditionalInfoImgs src={EcoCashewISO}/>
   </LinkWrapper>
