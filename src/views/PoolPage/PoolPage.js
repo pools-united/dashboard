@@ -397,24 +397,24 @@ const additionalInfoVenus = (<>
 
               <p  >
                   
-                    <a class="inline" href="https://t.me/EcoCashewF/">
+                    <a    href="https://t.me/EcoCashewF/">
                     EcoCashew Telegram
                     </a>
                 </p>
                 <p  >
-                    <a class="inline" href="https://www.ecocashew.com/roadmap.html">
+                    <a    href="https://www.ecocashew.com/roadmap.html">
                     EcoCashew Road Map 
                     </a>
                 </p>
 
                 <p  >
-                    <a class="inline" href="https://www.ecocashew.com/assets/pdf/cashewf-whitepaper.pdf">
+                    <a    href="https://www.ecocashew.com/assets/pdf/cashewf-whitepaper.pdf">
                     EcoCashew Whitepaper 
                     </a>
                 </p>
 
                 <p  >
-                    <a class="inline" href="https://www.ecocashew.com/assets/mp4/cashewf-fanfilm.mp4">
+                    <a    href="https://www.ecocashew.com/assets/mp4/cashewf-fanfilm.mp4">
                     EcoCashew Fan Film
                     </a>
                 </p>

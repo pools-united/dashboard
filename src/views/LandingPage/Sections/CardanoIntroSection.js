@@ -45,11 +45,11 @@ export default function CardanoInfoSection() {
               <li>
                 <a href="/faq#StoreAndDelegate">How to delegate your ADA</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="/faq#StoreAndDelegate">
                   How to choose a right pool for you?
                 </a>
-              </li>
+              </li> */}
             </ul>
           </h5>
         </GridItem>
