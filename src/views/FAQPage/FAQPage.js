@@ -241,7 +241,7 @@ export default function ProfilePage(props) {
           />
           <Spacer height="64px" />
 
-          <TitleHeading>Rest of FAQ coming soon :)</TitleHeading>
+        
         </FaqContainer>
         <br />
         <br />

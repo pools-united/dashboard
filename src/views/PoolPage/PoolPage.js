@@ -37,6 +37,8 @@ import MinesBanner from "assets/poolAssets/mines/MinesBanner.png";
 // import CurieLogo from "assets/poolAssets/curie/curie_logo.png";
 // import CurieBanner from "assets/poolAssets/curie/CurieBanner.png";
 
+import SundaeSwapRISO from "assets/poolAssets/venus/sundaeswap-reverse-iso.webp"
+import EcoCashewISO from "assets/poolAssets/venus/cashewF.png"
 
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 
@@ -202,6 +204,8 @@ const LogoSection = styled.img`
   ${(props) => props.initialState}
 `;
 
+
+
 const AbsoluteLogo = styled.img`
   display: none;
   @media (max-width: 960px) {
@@ -217,7 +221,7 @@ const AbsoluteLogo = styled.img`
   }
 `;
 
-const ContentTitle = styled.h2`
+const ContentTitle = styled.h1`
   text-align: center;
   margin: 48px 0;
 `;
@@ -343,6 +347,85 @@ const PoolTitle = styled.h1`
   margin-top: 70px;
 `;
 
+const H1StyledCenter = styled.h1`
+text-align: center;
+padding: 8px;
+`;
+
+const AdditionalInfoImgs = styled.img `
+width:100%;
+`
+
+const LinkWrapper = styled.a`
+color: white;
+transition: 0.3s all;
+display:block;
+margin-top: ${(props) => props.marginTop};
+margin-bottom: ${(props) => props.marginBottom};
+
+&:hover {
+  color: white;
+  text-decoration: none;
+  transform: scale(1.02);
+}
+
+
+`
+const additionalInfoVenus = (<>
+
+<LinkWrapper target="_blank" marginTop ="48px" marginBottom= "48px" href="https://iso.sundaeswap.finance/#/reverse-pools">
+  <H1StyledCenter>Fresco Pool is currently supporting Eco Cashew project</H1StyledCenter>
+  <AdditionalInfoImgs src={EcoCashewISO}/>
+  </LinkWrapper>
+  <p >
+                    Fresco Pool |VENUS| is a proud supporter of the EcoCashew project, Working to create Fair Trade for Local Cashew farmers with 90% reduction in C02 emissions by processing the farmers Cashews on location instead of transporting them all around the world to get them processed in Asia.
+                </p>
+
+                <p  >
+                    Click on the image above to learn more about Eco Cashews project to create jobs and help the environment.
+                </p>
+
+                <p  >
+                    Fresco Pool |VENUS| is participating in Eco Cashew's CashewF ISPO which is seven epochs long from epoch 350 until the end of epoch 356. By staking with us you can support the environment and earn rewards from Eco cashew.
+                </p>
+
+                <p  >
+                     You will earn twice the EcoCashew CashewF ISPO Rewards by Delegating before June 30th. 
+
+                 By buying CashewF tokens You have opportunity to participate in creating 100 + jobs, help establish fair trade Cashew prices in Africa and reduce CO2 Emission caused by Cashew processing by 90%.
+                </p>
+
+              <p  >
+                  
+                    <a class="inline" href="https://t.me/EcoCashewF/">
+                    EcoCashew Telegram
+                    </a>
+                </p>
+                <p  >
+                    <a class="inline" href="https://www.ecocashew.com/roadmap.html">
+                    EcoCashew Road Map 
+                    </a>
+                </p>
+
+                <p  >
+                    <a class="inline" href="https://www.ecocashew.com/assets/pdf/cashewf-whitepaper.pdf">
+                    EcoCashew Whitepaper 
+                    </a>
+                </p>
+
+                <p  >
+                    <a class="inline" href="https://www.ecocashew.com/assets/mp4/cashewf-fanfilm.mp4">
+                    EcoCashew Fan Film
+                    </a>
+                </p>
+
+
+<LinkWrapper target="_blank" marginTop ="48px" href="https://iso.sundaeswap.finance/#/reverse-pools">
+  <H1StyledCenter>Fresco Pool was a part of Sundae Swap RISO</H1StyledCenter>
+  <AdditionalInfoImgs src={SundaeSwapRISO}/>
+  </LinkWrapper>
+   </>)
+
 const PoolPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
@@ -370,13 +453,10 @@ const PoolPage = (props) => {
   window.addEventListener("resize", () => {
     window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
   });
+
   const poolsDetails = {
     VENUS: {
-      //    additionalInfo:(<><h1>Ovo je veliki titl</h1><h2>Malo manji titl</h2><p>Paragraf</p> <br/><br/>br je breaking point ilitiga enter u wordu<br/><br/> <ul>
-      //   <li>lista</li>
-      //   <li>listica</li>
-      //   <li>listlist</li>
-      // </ul> </>),
+      additionalInfo: additionalInfoVenus,
       name: "Fresco Pool |VENUS|",
       poolColor: "black",
       secondaryColor: "#1F2833",
@@ -640,7 +720,7 @@ const PoolPage = (props) => {
       (RewardsAfterTreasury / (1 + a0)) *
       (sigma +
         (s * a0 * (sigma - s * ((saturationPoint - sigma) / saturationPoint))) /
-          saturationPoint);
+        saturationPoint);
 
     if (PoolBlocksProduced < 1) {
       realRewards = 0;
@@ -733,7 +813,7 @@ const PoolPage = (props) => {
     urlParamsObject.hasOwnProperty("id") && setUrlParams(urlParamsObject);
     !poolsDetails.hasOwnProperty(urlParamsObject.id) &&
       setUrlParams({ id: "CPU" });
-      urlParamsObject.id === "VEN" && setUrlParams({id: "VENUS"});
+    urlParamsObject.id === "VEN" && setUrlParams({ id: "VENUS" });
   }, []);
 
   const history = useHistory();
@@ -867,7 +947,7 @@ const PoolPage = (props) => {
         //   );
         // }
         // console.log(context);
-     
+
         return (
           <div>
             <PoolPageStyle
@@ -938,7 +1018,7 @@ const PoolPage = (props) => {
                       {!mobileState
                         ? urlParams && poolsDetails[urlParams.id].description
                         : urlParams &&
-                          poolsDetails[urlParams.id].descriptionMobile}
+                        poolsDetails[urlParams.id].descriptionMobile}
                     </DescriptionText>
                     <br />
                     <AbsoluteLogo src={poolsDetails[urlParams.id].logoMobile} />
@@ -1106,10 +1186,9 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Pledge"}
-                    text={`${
-                      context.poolStats[urlParams.id] &&
+                    text={`${context.poolStats[urlParams.id] &&
                       context.poolStats[urlParams.id].data.pledge / 1000000
-                    } ₳ `}
+                      } ₳ `}
                   />
                   <TextBox
                     titleColor={poolsDetails[urlParams.id].logoColor}
@@ -1121,7 +1200,7 @@ const PoolPage = (props) => {
                         Fixed&nbsp;
                         {context.poolStats[urlParams.id] &&
                           context.poolStats[urlParams.id].data.tax_fix /
-                            1000000}
+                          1000000}
                         <br />
                         Margin&nbsp;
                         {context.poolStats[urlParams.id] &&
@@ -1144,9 +1223,9 @@ const PoolPage = (props) => {
                       parseInt(
                         context.poolStats[urlParams.id].data.blocks_lifetime
                       ) +
-                        parseInt(
-                          context.poolStats[urlParams.id].data.blocks_epoch
-                        )
+                      parseInt(
+                        context.poolStats[urlParams.id].data.blocks_epoch
+                      )
                     }
                   />
                   <TextBox
@@ -1154,25 +1233,23 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Total Stake"}
-                    text={`${
-                      context.poolStats[urlParams.id] &&
+                    text={`${context.poolStats[urlParams.id] &&
                       (
                         context.poolStats[urlParams.id].data.total_stake /
                         1000000000000
                       ).toFixed(2)
-                    } M`}
+                      } M`}
                   />
                   <TextBox
                     titleColor={poolsDetails[urlParams.id].logoColor}
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"ROA (30 day avg) "}
-                    text={`${
-                      context.poolStats[urlParams.id] &&
+                    text={`${context.poolStats[urlParams.id] &&
                       parseFloat(
                         context.poolStats[urlParams.id].data.roa
                       ).toFixed(2)
-                    } %`}
+                      } %`}
                   />
                 </InfoGrid>
                 <ContentTitle>
@@ -1185,23 +1262,21 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Active Stake"}
-                    text={`${
-                      context.poolStats[urlParams.id] &&
+                    text={`${context.poolStats[urlParams.id] &&
                       (
                         context.poolStats[urlParams.id].data.active_stake /
                         1000000000000
                       ).toFixed(2)
-                    } M`}
+                      } M`}
                   />
                   <TextBox
                     titleColor={poolsDetails[urlParams.id].logoColor}
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Blocks Estimated"}
-                    text={`${
-                      context.poolStats[urlParams.id] &&
+                    text={`${context.poolStats[urlParams.id] &&
                       context.poolStats[urlParams.id].data.blocks_estimated
-                    }`}
+                      }`}
                   />
                   <TextBox
                     titleColor={poolsDetails[urlParams.id].logoColor}
@@ -1243,13 +1318,13 @@ const PoolPage = (props) => {
 
                               calculateRewards(
                                 parseFloat(context.globalStats.total_staked) /
-                                  1000000,
+                                1000000,
                                 parseFloat(
                                   context.poolStats[urlParams.id].data
                                     .active_stake
                                 ) / 1000000,
                                 parseFloat(context.globalStats.ada_circ) /
-                                  1000000,
+                                1000000,
                                 userBlocksRef.current.value,
                                 userDelegationRef.current.value,
                                 context.protocol.nOpt,
@@ -1290,13 +1365,13 @@ const PoolPage = (props) => {
                               );
                               calculateRewards(
                                 parseFloat(context.globalStats.total_staked) /
-                                  1000000,
+                                1000000,
                                 parseFloat(
                                   context.poolStats[urlParams.id].data
                                     .active_stake
                                 ) / 1000000,
                                 parseFloat(context.globalStats.ada_circ) /
-                                  1000000,
+                                1000000,
                                 userBlocksRef.current.value,
                                 userDelegationRef.current.value,
                                 context.protocol.nOpt,
