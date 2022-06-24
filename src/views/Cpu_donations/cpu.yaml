@@ -343,7 +343,7 @@
 - ticker: CPU
   recipient:
     name: Rainforest Rescue
-    address: PO Box 40 Mullumbimby NSW 2482 Australia Bundjalung Nation, Arakwal Country
+    address: PO Box 40 Mullumbimby NSW 2482 Australia Bundjalung Nation – Arakwal Country
     tel: + 61 2 6684 4360
     contact: https://www.rainforestrescue.org.au/contact/
   ada: 100
@@ -378,6 +378,32 @@
       tx_id: 23765f5abcc1661f8a8d35151322222dfeffd1b5b3bc3db9201a0e2b7f33c7cd
   custom:
     donationType: community 
+
+- ticker: CPU
+  recipient:
+    name: Dazzle Africa
+    address: 11700 West Charleston Blvd 170-66 Las Vegas, NV 89135
+    tel: 720-831-8606
+    contact: https://dazzleafrica.org/contact/
+  ada: 100
+  usd: 49.3
+  timestamp: 1647179161
+  files:
+    - CPU/24-06-2022.png
+  charity_tx_id: 0763a4940576e9da0be1c0432575fcdc9d4c4f3c518e4a369e7e74ee9ddb546e
+  announcement_url: https://twitter.com/C_PoolsUnited/status/1540411510169763842
+  intermediate_txs:
+    - provider: Litecoin
+      tx_id: 0763a4940576e9da0be1c0432575fcdc9d4c4f3c518e4a369e7e74ee9ddb546e
+  custom:
+    donationType: nature
+
+
+
+
+
+
+
 
 
 
