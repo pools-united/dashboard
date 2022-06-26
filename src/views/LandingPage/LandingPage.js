@@ -31,6 +31,7 @@ import ProductSection from "./Sections/ProductSection.js";
 import TeamSection from "./Sections/TeamSection.js";
 import CardanoIntroSection from "./Sections/CardanoIntroSection.js";
 import PoolSection from "./Sections/PoolSection.js";
+import { Link } from "react-router-dom";
 
 const dashboardRoutes = [];
 
@@ -39,11 +40,11 @@ const ParallaxStyled = styled(Parallax)`
   background-color: rgb(14, 12, 12);
   background-size: contain;
   background-repeat: no-repeat;
-  background-position-x: 95%;
+  background-position-x: 85%;
   &:before {
     background: rgba(0, 0, 0, 0.2);
   }
-  @media (max-width: 1290px) {
+  @media (max-width: 1430px) {
     &:before {
       background: rgba(0, 0, 0, 0.8);
     }
@@ -53,6 +54,27 @@ const CardanoIntroDivider = styled.div`
   height: ${(props) => props.heightSet && "260px"};
   width: 100%;
 `;
+
+const TitleDescription = styled.h4`
+font-size: 26px;
+`;
+
+const DelegateStyledI = styled.i`
+margin-left: 10px;
+transition: all 0.3s ease-in-out;
+`;
+
+const ButtonStyled = styled(Button)`
+&:hover #styled-play{
+  transform:translateX(4px);
+}
+`
+const ButtonStyledLink = styled(Link)`
+&:hover #styled-play{
+  transform:translateX(4px);
+}
+`
+
 const LandingPage = (props) => {
   const classes = useStyles();
   const { ...rest } = props;
@@ -61,6 +83,9 @@ const LandingPage = (props) => {
   // const [didRejectSessionSub, setDidRejectSessionSub] = useState(sessionStorage.getItem('rejected_sub'))
   // const [loadNewsletter, setLoadNewsletter] = useState(false)
 
+const TitleStyled = styled.h1`
+font-Size: 56px;
+`
 
   LandingPage.propTypes = {
     heightSet: PropTypes.any,
@@ -129,23 +154,25 @@ const LandingPage = (props) => {
               <div className={classes.container}>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>
-                    <h1 className={classes.title}>Cardano Pools United</h1>
+                    <TitleStyled className={classes.title}>Cardano Pools United</TitleStyled>
                     <h4>
                       Big collaboration of small stake pools and skilled pool
                       operators.
                     </h4>
                     <br />
                     {/* TODO: UKLJUCI DOK JE FAQ GOTOV */}
-                    {/* <Button
+
+                    <ButtonStyledLink to="/faq#StoreAndDelegate">
+                    <ButtonStyled
                       color="danger"
                       size="lg"
-                      href="/faq"
-                      target="_blank"
-                      rel="noopener noreferrer"
                     >
-                      <i className="fas fa-play" />
-                      Delegate now
-                    </Button> */}
+                    
+                      Start staking
+                      <DelegateStyledI id="styled-play" className="fas fa-arrow-circle-right" />
+
+                    </ButtonStyled>
+                    </ButtonStyledLink>
                   </GridItem>
                 </GridContainer>
               </div>

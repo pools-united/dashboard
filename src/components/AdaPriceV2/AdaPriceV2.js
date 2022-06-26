@@ -19,6 +19,7 @@ const GraphBox = styled.div`
 
 const GraphImg = styled.img`
   filter: hue-rotate(118deg);
+  margin-top: 8px;
 `;
 
 const AdaPriceV2 = (props) => {
@@ -57,7 +58,7 @@ const AdaPriceV2 = (props) => {
           titleColor={titleColor}
           textBackgroundColor={textBackgroundColor}
           backgroundColor={backgroundColor}
-          title={"Graph (7 days)"}
+          title={" Graph (7 days)"}
         />
         <GraphBox textBackgroundColor={titleColor}>
           <GraphImg src="https://s3.coinmarketcap.com/generated/sparklines/web/7d/usd/2010.png" />

@@ -50,16 +50,12 @@ export default function PoolCard(props) {
   );
 
   const [hover, setHover] = useState(kickstart);
-  const handleMouseOver = () => !kickstart && setHover(true);
-  const handleMouseOut = () => !kickstart && setHover(false);
 
   return (
     <CardWrapper>
       <Card
         className={isMain ? classes.cardCPU : classes.card}
         raised={hover}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
         {...rest}
       >
         <div className={classes.header}>

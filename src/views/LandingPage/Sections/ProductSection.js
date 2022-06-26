@@ -41,9 +41,12 @@ export default function ProductSection() {
             <br /> Our CPU pool is a non-profit pool representing the collaboration, that is used to pay for the infrastructure, the majority of profits are going towards charity donations.
             <br /> 
             <br /> 
+            CPU Pool is a member of <a href="https://missiondrivenpools.org/" target="_blank">Mission Driven Pools</a>
+            <br /> 
             Check out our <Link to="/cpu-donations"> donation efforts timeline </Link><br /> 
-          <MissionDriven>  CPU Pool is a member of <a href="https://missiondrivenpools.org/" target="_blank">Mission Driven Pools</a></MissionDriven>
           </h5>
+          <br /> 
+          <br /> 
         </GridItem>
       </GridContainer>
       <div>

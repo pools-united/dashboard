@@ -26,6 +26,8 @@ import zvonimir from "assets/img/faces/Zvonimir.jpg";
 
 const useStyles = makeStyles(styles);
 
+
+
 const TwoCards = styled.div`
   display: flex;
   flex-wrap: wrap;

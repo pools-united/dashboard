@@ -139,14 +139,14 @@ const Stats = (props) => {
 
         return (
           <React.Fragment key={stats}>
-            <Button color="danger" onClick={toggleDrawer(true)}>{"VIEW STATS"}</Button>
+            <Button color="danger" onClick={toggleDrawer(true)}>{"Epoch Stats"}</Button>
             <Drawer anchor={'top'} open={stats} onClose={toggleDrawer(false)}>
               <SectionWrapper className={classes.section}>
                 <TextWrapper>
                   <EpochWrapper>
                     <EpochComponent title="Epoch" number={context.globalStats.epoch_last} />
                     <EpochComponent title="Current Slot" number={currentSlot} />
-                    <EpochComponent title="Total Slots" number={totalSlots} />
+                    <EpochComponent title="Slots in Epoch" number={totalSlots} />
                   </EpochWrapper>
                   <EpochProgressContainer >
                     <CustomLinearProgress
