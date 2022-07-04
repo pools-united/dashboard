@@ -24,6 +24,13 @@ const CardWrapper = styled.div`
   marginTop: 24px;
 `;
 
+const PoolLogo = styled.img`
+width: 3.6em;
+`;
+
+const NameStyled = styled.h2`
+height:100%;
+`
 export default function PoolCard(props) {
   const classes = useStyles();
   const {
@@ -36,6 +43,7 @@ export default function PoolCard(props) {
     margin,
     fixedFee,
     pledge,
+    poolLogo,
     kickstart = false,
     isMain = false,
     operator,
@@ -49,21 +57,32 @@ export default function PoolCard(props) {
     classes.operatorPhoto
   );
 
+const ButtonStyled = styled(Button)`
+transition: all 0.2s ease-in-out;
+
+&:hover {
+text-decoration: underline;
+transform: scale(1.05);
+
+}
+`
+
+
   const [hover, setHover] = useState(kickstart);
 
   return (
     <CardWrapper>
       <Card
         className={isMain ? classes.cardCPU : classes.card}
-        raised={hover}
+        raised={true} //for box shadow
         {...rest}
       >
         <div className={classes.header}>
           <a href={poolLink}>
-            <h2 className={classes.title}>{name}</h2>
+            <NameStyled className={classes.title}>{name}</NameStyled>
           </a>
           <div className={classes.headerLogo}>
-            <InvertColors style={{ fontSize: 48 }} />
+            <PoolLogo src={poolLogo} alt="pool logo" />
           </div>
         </div>
 
@@ -111,7 +130,7 @@ export default function PoolCard(props) {
           >
             Delegate now
           </Button>
-          <Button
+          <ButtonStyled
             className={classes.buttonDetails}
             color="transparent"
             href={poolLink}
@@ -121,7 +140,7 @@ export default function PoolCard(props) {
             }}
           >
             Details
-          </Button>
+          </ButtonStyled>
         </div>
         {kickstart &&
           <div className={classes.kickstart}>
@@ -142,7 +161,7 @@ PoolCard.propTypes = {
   margin: PropTypes.string,
   fixedFee: PropTypes.string,
   pledge: PropTypes.string,
-
+  poolLogo: PropTypes.string, 
   poolLink: PropTypes.string,
   delegateLink: PropTypes.string,
 

@@ -25,6 +25,8 @@ export default function CardanoInfoSection() {
               Cardano.org{" "}
             </a>
             for more info or take a look at the following links:
+            <br></br>
+            <br></br>
             <ul>
               <li>
                 <a href="/faq">What is Cardano?</a>

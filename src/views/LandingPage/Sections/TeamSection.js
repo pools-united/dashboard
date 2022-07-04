@@ -34,6 +34,11 @@ const TwoCards = styled.div`
   justify-content: center;
 `;
 
+
+const GridContainerStyled = styled(GridContainer)`
+
+justify-content: space-evenly;
+`;
 export default function TeamSection() {
   const classes = useStyles();
   const imageClasses = classNames(
@@ -45,7 +50,7 @@ export default function TeamSection() {
     <div className={classes.section}>
       <h2 className={classes.title}>CPU team</h2>
       <div>
-        <GridContainer>
+        <GridContainerStyled>
           <GridItem xs={12} sm={12} md={4}>
             <Card plain>
               <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
@@ -245,7 +250,7 @@ export default function TeamSection() {
               </CardFooter>
             </Card>
           </GridItem>
-        </GridContainer>
+        </GridContainerStyled>
       </div>
     </div>
   );

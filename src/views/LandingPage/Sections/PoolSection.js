@@ -45,6 +45,7 @@ export default function PoolSection() {
             fixedFee={"340"}
             pledge={"50000"}
             kickstart
+            poolLogo={"https://pools-united.github.io/pools/CPU/assets/cpu_64.png"}
             delegateLink={"/faq#StoreAndDelegate"}
             poolLink={"/pool?id=CPU"}
             isMain
@@ -60,6 +61,7 @@ export default function PoolSection() {
             address={"13375a4a5470b564246a3251ea0ccfef046ee5bcaf3ed6de6315abc7"}
             margin={"1%"}
             fixedFee={"340"}
+            poolLogo={"https://pools-united.github.io/pools/ERA/assets/era_64.png"}
             pledge={"40000"}
             delegateLink={"/faq#StoreAndDelegate"}
             poolLink={"/pool?id=ERA"}
@@ -77,6 +79,7 @@ export default function PoolSection() {
             margin={"0.85%"}
             fixedFee={"340"}
             pledge={"70000"}
+            poolLogo = {"https://pools-united.github.io/pools/VENUS/assets/fresco_64.png"}
             delegateLink={"/faq#StoreAndDelegate"}
             poolLink={"/pool?id=VENUS"}
             operator={{
@@ -93,6 +96,7 @@ export default function PoolSection() {
             fixedFee={"340"}
             pledge={"10481"}
             kickstart
+            poolLogo={"https://pools-united.github.io/pools/MINES/assets/mines_64.png"}
             delegateLink={"/faq#StoreAndDelegate"}
             poolLink={"/pool?id=MINES"}
             operator={{
