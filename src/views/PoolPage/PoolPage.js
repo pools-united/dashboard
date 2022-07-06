@@ -120,10 +120,25 @@ const InfoGrid = styled.div`
 const PoolId = styled.div`
   padding-right: 4px;
   word-break: break-all;
+  color: black;
 `;
+
+const BigIdWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 64px;
+  margin-bottom: 6px;
+  
+  `
 
 const IdWrapper = styled.div`
   display: flex;
+  transition: all 0.3s ease-in-out;
+  opacity: ${(props) => (props.visible ? "1" : "0")};
+  padding: 8px;
+  border-radius: 4px;
+  background: white;
+  color: black;
   cursor: copy;
 `;
 
@@ -232,41 +247,54 @@ const Spacer = styled.div`
 
 const copyAnimation = keyframes`
   0% {
-    transform: scale(0.5);
+    transform: translateY(-48px);
     opacity:0;
+    color: black;
+
   }
 
   40% {
-    transform: scale(1);
+    transform: translateY(-8px);
     opacity:1;
+    color: black;
+
       }
 
       60% {
-    transform: scale(1);
+        transform: translateY(-8px);
     opacity:1;
       }
-
+      90% {
+        transform: translateY(-20px);
+        color: white;
+    opacity:1;
+      }
       100% {
-  
+        transform: translateY(-32px);
+        color: white;
     opacity:0;
       }
 `;
 
 const Copied = styled.div`
-  position: absolute;
-  bottom: 60px;
-  right: 0;
-
+  //position: absolute;
+  //bottom: 60px;
+  //right: 0;
+  color: black;
+  width: min-content;
+  transform: translateY(-48px);
+  background: white;
   padding: 6px;
   border: 1px solid white;
-  border-radius: 25px;
-  animation: ${copyAnimation} 1.5s linear;
+  border-radius: 8px;
+  animation: ${copyAnimation} 2s linear;
   transition: 0.3s;
+  align-self: end;
   display: ${(props) => (props.copyState ? "block" : "none")};
 
   @media (max-width: 960px) {
-    bottom: 60px;
-    right: 20px;
+   // bottom: 60px;
+    //right: 20px;
   }
 `;
 
@@ -790,7 +818,7 @@ const PoolPage = (props) => {
     setCopyState(true);
     setTimeout(() => {
       setCopyState(false);
-    }, 1500);
+    }, 2000);
   };
 
   useEffect(() => {
@@ -1023,7 +1051,8 @@ const PoolPage = (props) => {
                     </DescriptionText>
                     <br />
                     <AbsoluteLogo src={poolsDetails[urlParams.id].logoMobile} />
-                    <IdWrapper
+                    <BigIdWrapper>
+                    <IdWrapper visible={context.poolStats[urlParams.id]}
                       onClick={() => {
                         !copyState && copyId(poolsDetails[urlParams.id].id);
                       }}
@@ -1034,8 +1063,9 @@ const PoolPage = (props) => {
                           context.poolStats[urlParams.id].data.pool_id}
                       </PoolId>
                       <FileCopyIcon />
+                      </IdWrapper>
                       <Copied copyState={copyState}>Copied</Copied>
-                    </IdWrapper>
+                      </BigIdWrapper>
                     <SocialContainer>
                       {poolsDetails[urlParams.id].twitter && (
                         <ListItemStyled className={classes.listItem}>
