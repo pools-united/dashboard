@@ -587,12 +587,11 @@ const PoolPage = (props) => {
           realizing how special and ready to help Cardano community is, it
           became a passion.
           <br />
-          This pool is determened to help the community and accelerate the
+          This pool is determined to help the community and accelerate the
           advent of Cardano future.
           <br />
           <br />
-          Join Adastra mines and be the part of community who want better
-          tommorrow.
+          Join ADAstra mines and be a part of a community that wants a fair future for everybody.
         </>
       ),
       descriptionMobile: (
@@ -601,12 +600,11 @@ const PoolPage = (props) => {
           realizing how special and ready to help Cardano community is, it
           became a passion.
           <br />
-          This pool is determened to help the community and accelerate the
+          This pool is determined to help the community and accelerate the
           advent of Cardano future.
           <br />
           <br />
-          Join Adastra mines and be the part of community who want better
-          tommorrow.
+          Join ADAstra mines and be a part of a community that wants a fair future for everybody.
         </>
       ),
 
