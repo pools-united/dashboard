@@ -252,6 +252,7 @@ const AbsoluteLogo = styled.img`
 
 const ContentTitle = styled.h1`
   text-align: center;
+
   margin: 48px 0;
   color:black;
 `;
@@ -393,8 +394,9 @@ const PoolTitle = styled.h1`
   margin-top: 70px;
 `;
 
-const H1StyledCenter = styled.h1`
+const H1StyledCenter = styled.h2`
 text-align: center;
+
 color:black;
 padding: 8px;
 `;
