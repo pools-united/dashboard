@@ -146,15 +146,29 @@ const ChartStyled = styled(Chart)`
   max-width: 700px;
   height: 370px;
   margin: auto;
+  border-radius: 42px;
+
+  .apexcharts-tooltip-title::before {
+    content: "Epoch: ";
+  }
+
   .apexcharts-menu {
     background: black;
   }
+   .apexcharts-tooltip-title{
+    color:black;
+    background:#D8D8D8;
+    margin-bottom:unset;
+  }
+  
   .apexcharts-menu-item:hover {
     background: ${(props) => props.downloadhover};
   }
 
   #apexchartsblocksProduced > svg {
     background-color: ${(props) => props.graphBackground} !important;
+    border-radius: 16px;
+
   }
 `;
 const ParallaxStyled = styled(Parallax)`
@@ -239,6 +253,7 @@ const AbsoluteLogo = styled.img`
 const ContentTitle = styled.h1`
   text-align: center;
   margin: 48px 0;
+  color:black;
 `;
 
 const Spacer = styled.div`
@@ -341,7 +356,10 @@ const RewardsInputComponent = styled.input`
   color: ${(props) => props.color};
   width: 30%;
   font-size: 18px;
-  border: 0;
+  border: 2px solid #D8D8D8;
+  border-radius: 4px;
+padding: 4px;
+
 `;
 
 const ListItemStyled = styled(ListItem)`
@@ -377,6 +395,7 @@ const PoolTitle = styled.h1`
 
 const H1StyledCenter = styled.h1`
 text-align: center;
+color:black;
 padding: 8px;
 `;
 
@@ -399,6 +418,7 @@ margin-bottom: ${(props) => props.marginBottom};
 `
 const AdditionalInfoWrapper = styled.div`
 padding:12px;
+color:black;
 `
 const additionalInfoVenus = (<AdditionalInfoWrapper>
 
@@ -487,7 +507,7 @@ const PoolPage = (props) => {
     VENUS: {
       additionalInfo: additionalInfoVenus,
       name: "Fresco Pool |VENUS|",
-      poolColor: "black",
+      poolColor: "white",
       secondaryColor: "#1F2833",
       bodyBackgroundColor: "#45A29E",
 
@@ -576,7 +596,7 @@ const PoolPage = (props) => {
 
     MINES: {
       name: "ADAstra Mines |Mines|",
-      poolColor: "black",
+      poolColor: "white",
       secondaryColor: "#231035",
       bodyBackgroundColor: "#21dbdb",
 
@@ -627,7 +647,7 @@ const PoolPage = (props) => {
     },
     CPU: {
       name: "CPU Pool |CPU|",
-      poolColor: "black",
+      poolColor: "white",
       secondaryColor: "black",
       bodyBackgroundColor: "rgb(44, 155, 196)",
 
@@ -667,7 +687,7 @@ const PoolPage = (props) => {
     },
     ERA: {
       name: "Nova Era Pool |ERA|",
-      poolColor: "#030303",
+      poolColor: "white",
       secondaryColor: "#000",
       logoColor: "rgb(150, 206, 107)",
       bodyBackgroundColor: "rgb(150, 206, 107)",
@@ -1008,7 +1028,7 @@ const PoolPage = (props) => {
               } USD `}
             /> */}
             <ParallaxStyled
-              poolColor={poolsDetails[urlParams.id].poolColor}
+              poolColor="#030303"
               image={poolsDetails[urlParams.id].banner}
             >
               {poolsDetails[urlParams.id].logoAnimation && (
@@ -1208,14 +1228,14 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Ticker"}
-                    text={urlParams.id}
+                    text={context.poolStats[urlParams.id] && urlParams.id}
                   />
                   <TextBox
                     titleColor={poolsDetails[urlParams.id].logoColor}
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Pledge"}
-                    text={`${context.poolStats[urlParams.id] &&
+                    text={context.poolStats[urlParams.id] &&`${context.poolStats[urlParams.id] &&
                       context.poolStats[urlParams.id].data.pledge / 1000000
                       } ₳ `}
                   />
@@ -1224,7 +1244,7 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Fee"}
-                    text={
+                    text={context.poolStats[urlParams.id] &&
                       <>
                         Fixed&nbsp;
                         {context.poolStats[urlParams.id] &&
@@ -1262,7 +1282,7 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Total Stake"}
-                    text={`${context.poolStats[urlParams.id] &&
+                    text={context.poolStats[urlParams.id] &&`${context.poolStats[urlParams.id] &&
                       (
                         context.poolStats[urlParams.id].data.total_stake /
                         1000000000000
@@ -1274,7 +1294,7 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"ROA (30 day avg) "}
-                    text={`${context.poolStats[urlParams.id] &&
+                    text={context.poolStats[urlParams.id]  &&` ${context.poolStats[urlParams.id] &&
                       parseFloat(
                         context.poolStats[urlParams.id].data.roa
                       ).toFixed(2)
@@ -1291,7 +1311,7 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Active Stake"}
-                    text={`${context.poolStats[urlParams.id] &&
+                    text={ context.poolStats[urlParams.id] &&`${context.poolStats[urlParams.id] &&
                       (
                         context.poolStats[urlParams.id].data.active_stake /
                         1000000000000
@@ -1303,7 +1323,7 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Blocks Estimated"}
-                    text={`${context.poolStats[urlParams.id] &&
+                    text={context.poolStats[urlParams.id] && `${context.poolStats[urlParams.id] &&
                       context.poolStats[urlParams.id].data.blocks_estimated
                       }`}
                   />
@@ -1495,12 +1515,13 @@ const PoolPage = (props) => {
                 <Spacer heightSpacer={"64px"} />
                 <ContentTitle>Performance history</ContentTitle>
                 <ChartStyled
-                  graphBackground={poolsDetails[urlParams.id].poolColor}
+                  graphBackground="#D8D8D8"
+  //
                   downloadhover={poolsDetails[urlParams.id].logoColor}
                   options={{
                     theme: {
-                      mode: "dark",
-                      palette: "palette9",
+                      mode: "light",
+                      palette: "palette5",
                     },
                     title: {
                       align: "left",
@@ -1519,11 +1540,11 @@ const PoolPage = (props) => {
                       enabled: true,
                       theme: true,
                       decimalsInFloat: 2,
-                      fillSeriesColor: false,
+                      fillSeriesColor: true,
                       onDatasetHover: {
                         highlightDataSeries: true,
                       },
-                      style: {},
+                      style: {color:"black"},
                     },
                     colors: [
                       poolsDetails[urlParams.id].secondaryColor
@@ -1577,6 +1598,7 @@ const PoolPage = (props) => {
                     {
                       name: "ROA (%)",
                       data: roaStats,
+                      
                     },
                     {
                       name: "Blocks produced",
