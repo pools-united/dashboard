@@ -62,10 +62,18 @@ const TitleHeading = styled.div`
 `;
 
 const PageTitle = styled.div`
-  font-size: 32px;
+  font-size: 52px;
   font-weight: 500;
   text-align: center;
+  
+  text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
   padding: 32px 0;
+  transform: translateY(-200px);
+  color: white;
+}
 `;
 
 const ParallaxStyled = styled(Parallax)`

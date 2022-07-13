@@ -97,14 +97,25 @@ const Timeline = () => {
 
 const useStyles = makeStyles(styles);
 const PageTitle = styled.div`
-  font-size: 32px;
+  font-size: 52px;
   font-weight: 500;
   text-align: center;
-  padding: 32px 0 0 0;
+  
+  text-transform: uppercase;
+  @media (max-width: 900px) {
+    font-size: 32px;
+  }
+  padding: 32px 0;
+  transform: translateY(-200px);
+  color: white;
+}
 `;
 
-const DonationsMade = styled(PageTitle)`
-font-size:24px;
+const DonationsMade = styled.div`
+font-weight: 500;
+text-align: center;
+margin: -60px 0 0 0;
+font-size:36px;
 padding top: 0px;
 `
 
@@ -145,7 +156,7 @@ export default function ProfilePage(props) {
         {/* <BottomSpacer /> */}
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
         <FaqContainer>
-          <PageTitle>Cardano Pools United Donation Timeline </PageTitle>
+          <PageTitle>Donation Timeline </PageTitle>
           <DonationsMade> Donations made: {cpuDonationsJson.length}</DonationsMade>
           <Timeline />
 

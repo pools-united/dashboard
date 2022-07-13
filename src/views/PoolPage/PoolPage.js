@@ -419,6 +419,10 @@ margin-bottom: ${(props) => props.marginBottom};
 const AdditionalInfoWrapper = styled.div`
 padding:12px;
 color:black;
+p{
+font-weight: bold;
+
+}
 `
 const additionalInfoVenus = (<AdditionalInfoWrapper>
 
