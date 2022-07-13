@@ -384,7 +384,7 @@ const TooltipStyled = styled(Tooltip)`
 
 const ContentWrapper = styled.div`
   background-color: ${(props) => props.wrapperBackground};
-
+margin-bottom:46px;
   @media (max-width: 560px) {
     margin-top: 24px;
   }
