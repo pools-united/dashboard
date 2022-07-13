@@ -62,7 +62,7 @@ export default function PrivacyPolicy(props) {
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
-          height: 200,
+          height: 100,
           color: "white",
         }}
         {...rest}
