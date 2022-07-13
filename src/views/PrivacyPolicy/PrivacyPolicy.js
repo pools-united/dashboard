@@ -23,6 +23,8 @@ font-size:14px;}
 
 const PageTitle = styled.div`
   font-size: 52px;
+  line-height: normal;
+
   font-weight: 500;
   text-align: center;
   

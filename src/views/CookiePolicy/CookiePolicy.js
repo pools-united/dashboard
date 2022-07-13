@@ -25,7 +25,7 @@ const PageTitle = styled.div`
   font-size: 52px;
   font-weight: 500;
   text-align: center;
-  
+  line-height: normal;
   text-transform: uppercase;
   @media (max-width: 768px) {
     font-size: 32px;
@@ -60,7 +60,7 @@ export default function CookiePolicy(props) {
         rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
-          height: 200,
+          height: 100,
           color: "white",
         }}
         {...rest}
