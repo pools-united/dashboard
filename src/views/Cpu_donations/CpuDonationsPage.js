@@ -18,27 +18,30 @@ import styles from "assets/jss/material-kit-react/views/faqPage.js";
 //ZA FILIPA REMINDER: installiral si si yaml2json cli i s komandom yaml2json cpu.yaml > cpu.json updateas json file! 
 // import cpuDonationsJson from './cpu.json';
 import cpuDonationsJson from './cpu.json';
+import { CenterFocusStrong } from "@material-ui/icons";
 
 
 const donationTypeColors = {
 
-  education:"#7b3c9f",
-  nature:"#4b8b3b",
-  animals:"#D0764C",
-  community:"#a9c0c1",
-  
+  education: "#7b3c9f",
+  nature: "#4b8b3b",
+  animals: "#D0764C",
+  community: "#a9c0c1",
+
 
 }
 
-const TimelineItem = ({ data, dateTest }) => (
+
+
+const TimelineItem = ({ data, date }) => (
   <div className="timeline-item">
     <div className="timeline-item-content">
-      <a href={(data.recipient.contact.includes("@")? `mailto:${data.recipient.contact}`: data.recipient.contact)} target="_blank" className="tag" style={{ borderRadius:"8px", background: donationTypeColors[data.custom.donationType] }}>
+      <a href={(data.recipient.contact.includes("@") ? `mailto:${data.recipient.contact}` : data.recipient.contact)} target="_blank" className="timeline-tag-wrapper" style={{  alignItems:"center", display:"flex", justifyContent:"center", borderRadius: "8px", textAlign: "center", width: "calc(100%)", background: donationTypeColors[data.custom.donationType] }}>
+      <div  className="tag" style={{  padding:"8px", textAlign: "center" }}>
         {data.recipient.name}
+      </div>
       </a>
-      <time>{dateTest}</time>
-
-      <p class="donated"><span class="donateTitle">Donated</span>
+      <p class="donated">
         ADA: {data.ada}₳<br />
         USD: {data.usd}$
 
@@ -48,7 +51,9 @@ const TimelineItem = ({ data, dateTest }) => (
       </p>
       <a href={`https://pools-united.github.io/Donations/${data.files[0]}`} target="_blank"><img class="donationImg" src={`https://pools-united.github.io/Donations/${data.files[0]}`}></img></a>
 
-
+      <div class="donateWrapper">
+        <time style={{ fontSize:"24px", color: donationTypeColors[data.custom.donationType] }} class="donateDate">{date}</time>
+        <span className="donateTitle"> Donated</span></div>
       <span className="circle" />
     </div>
   </div>
@@ -82,7 +87,7 @@ const Timeline = () => {
 
 
         return (
-          <TimelineItem dateTest={time} data={data} key={idx} />
+          <TimelineItem date={time} data={data} key={idx} />
         )
       })}
     </div>
@@ -141,7 +146,7 @@ export default function ProfilePage(props) {
         {/* <TitleHeading>How to delegate?</TitleHeading> */}
         <FaqContainer>
           <PageTitle>Cardano Pools United Donation Timeline </PageTitle>
- <DonationsMade> Donations made: {cpuDonationsJson.length}</DonationsMade>
+          <DonationsMade> Donations made: {cpuDonationsJson.length}</DonationsMade>
           <Timeline />
 
 

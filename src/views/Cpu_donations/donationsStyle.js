@@ -11,6 +11,11 @@ const DonationsStyle = createGlobalStyle`
 .donated {
     width: 100%;
     text-align: center;
+    font-size: 22px !important;
+    margin-top: 32px !important;
+    margin-bottom: 32px !important;
+    font-weight: bold;
+    line-height: 28px!important;
 }
 
 
@@ -94,14 +99,21 @@ h1 {
 
 .timeline-item-content .tag {
     color: #fff;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
-    top: 5px;
-    left: 5px;
-    letter-spacing: 1px;
-    padding: 5px;
-    position: absolute;
+    
     text-transform: uppercase;
+    display: block;
+    letter-spacing: 1px;
+  
+}
+
+.timeline-tag-wrapper
+{
+    transition: all 0.3s ease-in-out;
+}
+.timeline-tag-wrapper:hover{
+    transform: scaleX(1.02);
 }
 
 .donateTitle {
@@ -111,10 +123,35 @@ h1 {
     display: block;
 }
 
-.timeline-item:nth-child(odd) .timeline-item-content .tag {
-    left: auto;
-    right: 5px;
+.donateDate{
+    font-size: 12px;
 }
+
+
+.timeline-item:nth-child(odd) .donateWrapper{
+    
+    position: absolute;
+    top: calc(50% - 34px);
+    left: -200px;
+    font-size: 22px;
+}
+
+.donateWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+
+}
+
+.timeline-item:nth-child(even) .donateWrapper{
+    
+    position: absolute;
+    top: calc(50% - 34px);
+    right: -200px;
+    font-size: 22px;
+ }
+
+
 
 .donationDesc{
     margin-top:unset !important;
@@ -164,6 +201,7 @@ h1 {
     z-index: 100;
 }
 
+
 .timeline-item:nth-child(odd) .timeline-item-content .circle {
     right: auto;
     left: -40px;
@@ -188,21 +226,40 @@ h1 {
         text-align: center;
     }
 
-    .timeline-item-content time {
-      transform:translateY(-38px);
+  
+
+    .timeline-item:nth-child(odd) .donateWrapper{
+    
+        top: calc(50% - 34px);
+        left: -162px;
+        font-size: 16px;
+    }
+    
+    .donateWrapper{
+        display: flex;
+        flex-direction: column;
+        align-items: center;   
+    
     }
 
-.donateTitle {
-    margin-top:36px;
-}
-
-    .timeline-item-content a {
-        text-decoration: underline;
+    .tag{
+        font-size: 12px !important;
     }
+    .donateDate{
+        font-size: 18px !important;}
+    
+    .timeline-item:nth-child(even) .donateWrapper{
+        
+        top: calc(50% - 34px);
+        right: -162px;
+        font-size: 18px;
+     }
+    
+    
 
-    .timeline-item-content a::after {
-        display: none;
-    }
+
+  
+    
 }
 
 `;
