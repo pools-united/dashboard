@@ -69,8 +69,9 @@ export default function ContactUs(props) {
              Telegram: <a href="https://t.me/cpoolsunited"> cpoolsunited</a> <br/>
               Twitter: <a href="https://twitter.com/C_PoolsUnited"> C_PoolsUnited</a> </ParagraphStyled>
               <br/><br/>
-      <Footer />
+    
     </div>
+    <Footer />
     </div>
   );
 }
