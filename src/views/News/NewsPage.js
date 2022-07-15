@@ -52,6 +52,9 @@ const PageTitle = styled.div`
 const PageTitleTwitter = styled(PageTitle)`
 transform:translateY(69px);
 background:white;
+color:black;
+padding: 32px 0 42px 0;
+text-transform: none;
 `
 
 const FaqContainer = styled.div`
