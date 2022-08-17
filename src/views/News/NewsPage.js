@@ -270,9 +270,8 @@ export default function ProfilePage(props) {
           <DescriptionText>
             Be sure to check out our application with widget support for all our
             pools. <br></br>
-            In the next updates we will add widget support to pools outside of
-            CPU collaboration.
-            <br></br>
+          
+        
             <br></br>
             <a
               href="https://play.google.com/store/apps/details?id=com.cardanopoolsunitedwidget"
