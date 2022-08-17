@@ -128,10 +128,15 @@ const Stats = (props) => {
       {(context) => {
         if (!currentSlot) {
           setCurrentSlot(parseInt(context.globalStats.epoch_slot_no));
+          
         } else if (currentSlot && !epochStartDate) {
-          setEpochStartDate(
+
+          context.globalStats.epoch_started ?     setEpochStartDate(
             new Date(parseInt(context.globalStats.epoch_started * 1000)).toDateString()
+          ):    setEpochStartDate(
+            new Date(parseInt(context.globalStats.ended_before * 1000)).toDateString()
           );
+      
           setEpochEndDate(
             new Date((Date.now() / 1000 + (totalSlots - currentSlot)) * 1000).toDateString()
           );

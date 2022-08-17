@@ -29,6 +29,9 @@ const HeaderStyle = createGlobalStyle`
 header > .MuiToolbar-root{
   max-width:1600px;
   width:80%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
  
   
 }
@@ -38,6 +41,9 @@ header > .MuiToolbar-root{
 
 const ButtonLogoStyled = styled(Button)`
   /* filter: ${(props) => `hue-rotate(${props.rotateHue}deg)`}; */
+  position: absolute;
+left: 14px;
+top: 14px;
 `;
 
 const StatsButtonWrapper = styled.div`

@@ -121,6 +121,7 @@ const PoolId = styled.div`
   padding-right: 4px;
   word-break: break-all;
   color: black;
+  font-size: 15px;
 `;
 
 const BigIdWrapper = styled.div`
@@ -263,21 +264,21 @@ const Spacer = styled.div`
 
 const copyAnimation = keyframes`
   0% {
-    transform: translateY(-48px);
+    transform: translateY(-42px);
     opacity:0;
     color: black;
 
   }
 
   40% {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
     opacity:1;
     color: black;
 
       }
 
       60% {
-        transform: translateY(-8px);
+        transform: translateY(-6px);
     opacity:1;
       }
       90% {

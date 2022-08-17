@@ -24,8 +24,8 @@ const BoxText = styled.div`
   background-color: "white";
   font-weight: 400;
   font-size: 18px;
-  border: 4px solid #D8D8D8;
-  border-radius: 20px;
+  border: 2px solid #D8D8D8;
+  border-radius: 10px;
   height: ${(props) => (props.heightBox ? "100%" : "50px")};
   line-height: 1;
   display: flex;
