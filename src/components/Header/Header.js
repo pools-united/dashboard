@@ -44,6 +44,10 @@ const ButtonLogoStyled = styled(Button)`
   position: absolute;
 left: 14px;
 top: 14px;
+
+@media (max-width: 958px) {
+top:2px;
+}
 `;
 
 const StatsButtonWrapper = styled.div`
