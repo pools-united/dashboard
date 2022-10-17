@@ -135,7 +135,6 @@ const Stats = (props) => {
             ).getTime()) / 1000)));
          }
         } else if (currentSlot && !epochStartDate) {
-console.log("SLAZEM DATUM");
        
 setEpochStartDate(new Date(context?.globalStatsCx?.data.epoch.start_time).toDateString());
           setEpochEndDate(
