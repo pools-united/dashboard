@@ -5,7 +5,6 @@ import { useScrollPosition } from "@n8tb1t/use-scroll-position";
 
 const MyProvider = (props) => {
   const [adaPrice, setAdaPrice] = useState({});
-  const [poolStats, setPoolStats] = useState({});
   const [globalStatsCx, setGlobalStatsCx] = useState({});
   const [poolStatsCx, setPoolStatsCx] = useState({});
   const [customApi, setCustomApi] = useState({});
@@ -58,32 +57,6 @@ const MyProvider = (props) => {
       setAdaPrice,
       "normal"
     );
-
-    fetchStats(
-      `https://js.adapools.org/pools/${poolIds.VENUS}/summary.json`,
-      setPoolStats,
-      "pool",
-      "VENUS"
-    );
-    fetchStats(
-      `https://js.adapools.org/pools/${poolIds.MINES}/summary.json`,
-      setPoolStats,
-      "pool",
-      "MINES"
-    );
-    fetchStats(
-      `https://js.adapools.org/pools/${poolIds.CPU}/summary.json`,
-      setPoolStats,
-      "pool",
-      "CPU"
-    );
-    fetchStats(
-      `https://js.adapools.org/pools/${poolIds.ERA}/summary.json`,
-      setPoolStats,
-      "pool",
-      "ERA"
-    );
-
     fetchStats(
       `https://js.cexplorer.io/api-static/pool/${poolIdsBech.VENUS}.json`,
       setPoolStatsCx,
@@ -114,7 +87,7 @@ const MyProvider = (props) => {
 
   return (
     <AppContext.Provider
-      value={{  globalStatsCx, customApi, poolStats, poolStatsCx, scrollOffset, adaPrice }}
+      value={{  globalStatsCx, customApi, poolStatsCx, scrollOffset, adaPrice }}
     >
       {props.children}
     </AppContext.Provider>

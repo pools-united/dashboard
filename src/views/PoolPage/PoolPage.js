@@ -1485,18 +1485,18 @@ setTimeout(() => {
                             >
                               Thank you
                               <a
-                                href="https://adapools.org"
+                                href="https://cexplorer.io"
                                 rel="noreferrer"
                                 target="_blank"
                               >
                                 {" "}
-                                adaPools
+                                Cardano Explorer
                               </a>{" "}
                               for protocol parameters API
                             </div>
                             <Notice>
                               The calculator works properly only with amount
-                              lower than active stake and is prone to errors if data from adaPools is fauilty*
+                              lower than active stake and is prone to errors if data from Cexplorer is fauilty*
                             </Notice>
                           </>
                         )}
