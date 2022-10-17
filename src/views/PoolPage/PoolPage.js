@@ -402,7 +402,7 @@ color:black;
 padding: 8px;
 `;
 
-const AdditionalInfoImgs = styled.img `
+const AdditionalInfoImgs = styled.img`
 width:100%;
 `
 
@@ -429,58 +429,58 @@ font-weight: bold;
 `
 const additionalInfoVenus = (<AdditionalInfoWrapper>
 
-<LinkWrapper target="_blank" marginTop ="48px" marginBottom= "48px" href="https://www.ecocashew.com">
-  <H1StyledCenter>Fresco Pool is currently supporting Eco Cashew project</H1StyledCenter>
-  <AdditionalInfoImgs src={EcoCashewISO}/>
+  <LinkWrapper target="_blank" marginTop="48px" marginBottom="48px" href="https://www.ecocashew.com">
+    <H1StyledCenter>Fresco Pool is currently supporting Eco Cashew project</H1StyledCenter>
+    <AdditionalInfoImgs src={EcoCashewISO} />
   </LinkWrapper>
   <p >
-                    Fresco Pool |VENUS| is a proud supporter of the EcoCashew project, Working to create Fair Trade for Local Cashew farmers with 90% reduction in C02 emissions by processing the farmers Cashews on location instead of transporting them all around the world to get them processed in Asia.
-                </p>
+    Fresco Pool |VENUS| is a proud supporter of the EcoCashew project, Working to create Fair Trade for Local Cashew farmers with 90% reduction in C02 emissions by processing the farmers Cashews on location instead of transporting them all around the world to get them processed in Asia.
+  </p>
 
-                <p  >
-                    Click on the image above to learn more about Eco Cashews project to create jobs and help the environment.
-                </p>
+  <p  >
+    Click on the image above to learn more about Eco Cashews project to create jobs and help the environment.
+  </p>
 
-                <p  >
-                    Fresco Pool |VENUS| is participating in Eco Cashew's CashewF ISPO which is seven epochs long from epoch 350 until the end of epoch 356. By staking with us you can support the environment and earn rewards from Eco cashew.
-                </p>
+  <p  >
+    Fresco Pool |VENUS| is participating in Eco Cashew's CashewF ISPO which is seven epochs long from epoch 350 until the end of epoch 356. By staking with us you can support the environment and earn rewards from Eco cashew.
+  </p>
 
-                <p  >
-                     You will earn twice the EcoCashew CashewF ISPO Rewards by Delegating before June 30th. 
+  <p  >
+    You will earn twice the EcoCashew CashewF ISPO Rewards by Delegating before June 30th.
 
-                 By buying CashewF tokens You have opportunity to participate in creating 100 + jobs, help establish fair trade Cashew prices in Africa and reduce CO2 Emission caused by Cashew processing by 90%.
-                </p>
+    By buying CashewF tokens You have opportunity to participate in creating 100 + jobs, help establish fair trade Cashew prices in Africa and reduce CO2 Emission caused by Cashew processing by 90%.
+  </p>
 
-              <p  >
-                  
-                    <a    href="https://t.me/EcoCashewF/">
-                    EcoCashew Telegram
-                    </a>
-                </p>
-                <p  >
-                    <a    href="https://www.ecocashew.com/roadmap.html">
-                    EcoCashew Road Map 
-                    </a>
-                </p>
+  <p  >
 
-                <p  >
-                    <a    href="https://www.ecocashew.com/assets/pdf/cashewf-whitepaper.pdf">
-                    EcoCashew Whitepaper 
-                    </a>
-                </p>
+    <a href="https://t.me/EcoCashewF/">
+      EcoCashew Telegram
+    </a>
+  </p>
+  <p  >
+    <a href="https://www.ecocashew.com/roadmap.html">
+      EcoCashew Road Map
+    </a>
+  </p>
 
-                <p  >
-                    <a    href="https://www.ecocashew.com/assets/mp4/cashewf-fanfilm.mp4">
-                    EcoCashew Fan Film
-                    </a>
-                </p>
+  <p  >
+    <a href="https://www.ecocashew.com/assets/pdf/cashewf-whitepaper.pdf">
+      EcoCashew Whitepaper
+    </a>
+  </p>
+
+  <p  >
+    <a href="https://www.ecocashew.com/assets/mp4/cashewf-fanfilm.mp4">
+      EcoCashew Fan Film
+    </a>
+  </p>
 
 
-<LinkWrapper target="_blank" marginTop ="48px" href="https://iso.sundaeswap.finance/#/reverse-pools">
-  <H1StyledCenter>Fresco Pool was a part of Sundae Swap RISO</H1StyledCenter>
-  <AdditionalInfoImgs src={SundaeSwapRISO}/>
+  <LinkWrapper target="_blank" marginTop="48px" href="https://iso.sundaeswap.finance/#/reverse-pools">
+    <H1StyledCenter>Fresco Pool was a part of Sundae Swap RISO</H1StyledCenter>
+    <AdditionalInfoImgs src={SundaeSwapRISO} />
   </LinkWrapper>
-   </AdditionalInfoWrapper>)
+</AdditionalInfoWrapper>)
 
 const PoolPage = (props) => {
   const classes = useStyles();
@@ -488,8 +488,9 @@ const PoolPage = (props) => {
 
   // const [poolTicker, setPoolTicker] = useState();
   const [epochsGraph, setEpochsGraph] = useState([]);
-  const [numberOfBlocks, setNumberOfBlocks] = useState(undefined);
-  const [roaStats, setRoaStats] = useState(undefined);
+  const [roaStatsCx, setRoaStatsCx] = useState(undefined);
+
+  const [numberOfBlocksCx, setNumberOfBlocksCx] = useState(undefined);
 
   const [currentBlocksRewards, setCurrentBlocksRewards] = useState(null);
 
@@ -509,6 +510,8 @@ const PoolPage = (props) => {
   window.addEventListener("resize", () => {
     window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
   });
+
+  const [hackyFix, setHackyFix]=useState(true);
 
   const poolsDetails = {
     VENUS: {
@@ -737,11 +740,12 @@ const PoolPage = (props) => {
     a0,
     rho,
     tau,
-    decentralisationParam,
+    decentralisationParam = 0,
     ownerStake,
     margin,
     fixedFee
   ) => {
+
     let TotalActiveStake = totalActiveStake;
     let PoolActiveStake = poolActiveStake;
     let TotalAdaSupply = totalAdaSupply;
@@ -823,7 +827,6 @@ const PoolPage = (props) => {
     //   a0,
     //   rho,
     //   tau,
-    console.log(calculatedUserReward);
     //   decentralisationParam
     // );
     // console.log(usersReward);
@@ -911,21 +914,20 @@ const PoolPage = (props) => {
   return (
     <AppContext.Consumer>
       {(context) => {
-        // console.log(context);
         // context.poolStats[urlParams.id] &&
         //   console.log(context.poolStats[urlParams.id]);
         // console.log(
         //     JSON.parse(context.poolStats[urlParams.id].data.hist_bpe)
         //   );
 
-        if (context.globalStats.epoch_last && definedRender < 1) {
+        if (context?.globalStatsCx?.data?.epoch?.no && definedRender < 1) {
           setDefinedRender(definedRender + 1);
 
           for (let i = 10; i > 0; i--) {
             // const element = array[i];
             setEpochsGraph((epochsGraph) => [
               ...epochsGraph,
-              parseInt(context.globalStats.epoch_last) - i,
+              parseInt(context?.globalStatsCx?.data?.epoch?.no) - i-1,
             ]);
             // console.log(epochsGraph);
           }
@@ -935,33 +937,61 @@ const PoolPage = (props) => {
         //TODO: !!!
 
         if (
-          !numberOfBlocks &&
-          context.poolStats[urlParams.id] &&
+          !numberOfBlocksCx &&
+          context.poolStatsCx[urlParams.id] &&
           !parsedDataRoaFinished
         ) {
           // console.log("testiram");
-          setNumberOfBlocks([]);
-          setRoaStats([]);
-          // console.log(
-          //   JSON.parse(context.poolStats[urlParams.id].data.hist_bpe)
+          setRoaStatsCx([]);
+          setNumberOfBlocksCx([]);
+
+
+    
+
+          const histCxData =  context?.poolStatsCx[urlParams.id] && context?.poolStatsCx[urlParams.id]?.data?.stats;
+
+          // context.poolStatsCx[urlParams.id]?.data.stats.forEach((element)=>{
+          //   console.log("FILIP SERE MI SE",element)
+          //   setNumberOfBlocks("fawf")
+          // })
+
+          // histCxData.forEach(
+          //   (element) => {
+          //     setNumberOfBlocksCx((numberOfBlocksCx) => [
+          //       ...numberOfBlocksCx,
+          //       parseInt(element.blocks),
+          //     ]);
+          //   }
           // );
 
-          JSON.parse(context.poolStats[urlParams.id].data.hist_bpe).forEach(
-            (element) => {
-              setNumberOfBlocks((numberOfBlocks) => [
-                ...numberOfBlocks,
-                parseInt(element.val),
-              ]);
-            }
-          );
-          console.log(context.poolStats[urlParams.id]);
-          JSON.parse(context.poolStats[urlParams.id].data.hist_roa).forEach(
-            (element) => {
-              // console.log(element.val);
 
-              setRoaStats((roaStats) => [...roaStats, parseFloat(element.val)]);
-            }
-          );
+          
+
+
+if (hackyFix){
+  const blocksArray=[];
+          const roaArray = [];
+  for (let i = histCxData.length; i > 0; i--) {
+    const element = histCxData[i-1];
+    blocksArray.push(element.blocks);
+    roaArray.push(element.return_member);
+  }
+  setNumberOfBlocksCx(blocksArray);
+setRoaStatsCx(roaArray);
+}
+    
+setTimeout(() => {
+  setHackyFix(false);
+}, 3000);
+
+
+
+         
+
+
+
+
+         
 
           // setRoaStats((roaStats) => [...roaStats, null]);
 
@@ -980,27 +1010,14 @@ const PoolPage = (props) => {
 
           setParsedDataRoaFinished(true);
           setCurrentBlocksRewards(
-            context.poolStats[urlParams.id].data.blocks_epoch
+            context.poolStatsCx[urlParams.id].data.blocks_epoch
           );
         }
+
 
         //TODO: ovo (parseanje ROA I BLOCKOVA (VIDI GORE) )mozda nebi trebalo tu biti, usporava render brijem!!!
         //TODO: !!!
 
-        // console.log(numberOfBlocks);
-        // console.log(context.globalStats.epoch_last);
-
-        // if (!currentSlot) {
-        //   setCurrentSlot(parseInt(context.globalStats.epoch_slot_no));
-        // } else if (currentSlot && !epochStartedDate) {
-        //   setEpochStartedDate(
-        //     new Date(parseInt(context.globalStats.epoch_started * 1000))
-        //   );
-        //   setEpochEndingDate(
-        //     new Date((Date.now() / 1000 + (totalSlots - currentSlot)) * 1000)
-        //   );
-        // }
-        // console.log(context);
 
         return (
           <div>
@@ -1077,20 +1094,20 @@ const PoolPage = (props) => {
                     <br />
                     <AbsoluteLogo src={poolsDetails[urlParams.id].logoMobile} />
                     <BigIdWrapper>
-                    <IdWrapper visible={context.poolStats[urlParams.id]}
-                      onClick={() => {
-                        !copyState && copyId(poolsDetails[urlParams.id].id);
-                      }}
-                    >
-                      <PoolId>
-                        ID:&nbsp;
-                        {context.poolStats[urlParams.id] &&
-                          context.poolStats[urlParams.id].data.pool_id}
-                      </PoolId>
-                      <FileCopyIcon />
+                      <IdWrapper visible={context.poolStatsCx[urlParams.id]}
+                        onClick={() => {
+                          !copyState && copyId(poolsDetails[urlParams.id].id);
+                        }}
+                      >
+                        <PoolId>
+                          ID:&nbsp;
+                          {context.poolStatsCx[urlParams.id] &&
+                            context.poolStatsCx[urlParams.id].data.pool_id_hash}
+                        </PoolId>
+                        <FileCopyIcon />
                       </IdWrapper>
                       <Copied copyState={copyState}>Copied</Copied>
-                      </BigIdWrapper>
+                    </BigIdWrapper>
                     <SocialContainer>
                       {poolsDetails[urlParams.id].twitter && (
                         <ListItemStyled className={classes.listItem}>
@@ -1235,15 +1252,15 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Ticker"}
-                    text={context.poolStats[urlParams.id] && urlParams.id}
+                    text={context.poolStatsCx[urlParams.id] && urlParams.id}
                   />
                   <TextBox
                     titleColor={poolsDetails[urlParams.id].logoColor}
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Pledge"}
-                    text={context.poolStats[urlParams.id] &&`${context.poolStats[urlParams.id] &&
-                      context.poolStats[urlParams.id].data.pledge / 1000000
+                    text={context.poolStatsCx[urlParams.id] && `${context.poolStatsCx[urlParams.id] &&
+                      context.poolStatsCx[urlParams.id].data.pledge / 1000000
                       } ₳ `}
                   />
                   <TextBox
@@ -1251,19 +1268,19 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Fee"}
-                    text={context.poolStats[urlParams.id] &&
+                    text={context.poolStatsCx[urlParams.id] &&
                       <>
                         Fixed&nbsp;
-                        {context.poolStats[urlParams.id] &&
-                          context.poolStats[urlParams.id].data.tax_fix /
+                        {context.poolStatsCx[urlParams.id] &&
+                          context.poolStatsCx[urlParams.id].data.tax_fix /
                           1000000}
                         <br />
                         Margin&nbsp;
-                        {context.poolStats[urlParams.id] &&
+                        {context.poolStatsCx[urlParams.id] &&
                           (
                             parseFloat(
-                              context.poolStats[urlParams.id].data.tax_ratio
-                            ) * 100
+                              context.poolStatsCx[urlParams.id].data.tax_ratio
+                            )
                           ).toFixed(2)}
                         %
                       </>
@@ -1275,13 +1292,11 @@ const PoolPage = (props) => {
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Blocks Produced"}
                     text={
-                      context.poolStats[urlParams.id] &&
+                      context?.poolStatsCx[urlParams.id] &&
                       parseInt(
-                        context.poolStats[urlParams.id].data.blocks_lifetime
-                      ) +
-                      parseInt(
-                        context.poolStats[urlParams.id].data.blocks_epoch
+                        context?.poolStatsCx[urlParams.id]?.data.blocks_lifetime
                       )
+
                     }
                   />
                   <TextBox
@@ -1289,9 +1304,9 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Total Stake"}
-                    text={context.poolStats[urlParams.id] &&`${context.poolStats[urlParams.id] &&
+                    text={context?.poolStatsCx[urlParams.id] && `${context?.poolStatsCx[urlParams.id] &&
                       (
-                        context.poolStats[urlParams.id].data.total_stake /
+                        parseInt(context?.poolStatsCx[urlParams.id]?.data?.stake) /
                         1000000000000
                       ).toFixed(2)
                       } M`}
@@ -1300,16 +1315,16 @@ const PoolPage = (props) => {
                     titleColor={poolsDetails[urlParams.id].logoColor}
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
-                    title={"ROA (30 day avg) "}
-                    text={context.poolStats[urlParams.id]  &&` ${context.poolStats[urlParams.id] &&
+                    title={"ROA"}
+                    text={context?.poolStatsCx[urlParams.id] && ` ${context?.poolStatsCx[urlParams.id] &&
                       parseFloat(
-                        context.poolStats[urlParams.id].data.roa
+                        context?.poolStatsCx[urlParams.id]?.data?.roa_lifetime
                       ).toFixed(2)
                       } %`}
                   />
                 </InfoGrid>
                 <ContentTitle>
-                  Stats for current Epoch ({context.globalStats.epoch_last})
+                  Stats for current Epoch({context?.globalStatsCx?.data?.epoch?.no})
                 </ContentTitle>
 
                 <InfoGrid>
@@ -1318,9 +1333,9 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Active Stake"}
-                    text={ context.poolStats[urlParams.id] &&`${context.poolStats[urlParams.id] &&
+                    text={context?.poolStatsCx[urlParams.id] && `${context?.poolStatsCx[urlParams.id] &&
                       (
-                        context.poolStats[urlParams.id].data.active_stake /
+                        context?.poolStatsCx[urlParams.id]?.data?.stake_active /
                         1000000000000
                       ).toFixed(2)
                       } M`}
@@ -1330,8 +1345,8 @@ const PoolPage = (props) => {
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Blocks Estimated"}
-                    text={context.poolStats[urlParams.id] && `${context.poolStats[urlParams.id] &&
-                      context.poolStats[urlParams.id].data.blocks_estimated
+                    text={context?.poolStatsCx[urlParams.id] && `${context?.poolStatsCx[urlParams.id] &&
+                      context?.poolStatsCx[urlParams.id]?.data.blocks_est_epoch
                       }`}
                   />
                   <TextBox
@@ -1340,8 +1355,8 @@ const PoolPage = (props) => {
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
                     title={"Blocks Produced"}
                     text={
-                      context.poolStats[urlParams.id] &&
-                      context.poolStats[urlParams.id].data.blocks_epoch
+                      context?.poolStatsCx[urlParams.id] &&
+                      context?.poolStatsCx[urlParams.id]?.data.blocks_epoch
                     }
                   />
                 </InfoGrid>
@@ -1355,7 +1370,7 @@ const PoolPage = (props) => {
                     titleColor={poolsDetails[urlParams.id].logoColor}
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
-                    title={`Rewards calculator for current Epoch (${context.globalStats.epoch_last})`}
+                    title={`Rewards calculator for current Epoch (${context?.globalStatsCx?.data?.epoch?.no})`}
                     text={
                       <RewardComponentWrapper>
                         <RewardsComponent>
@@ -1372,30 +1387,32 @@ const PoolPage = (props) => {
                             onChange={() => {
                               // console.log(userDelegationRef.current.value);
 
+
+
                               calculateRewards(
-                                parseFloat(context.globalStats.total_staked) /
+                                parseFloat(context?.customApi?.epochInfo?.activeStake) /
                                 1000000,
                                 parseFloat(
-                                  context.poolStats[urlParams.id].data
-                                    .active_stake
+                                  context.poolStatsCx[urlParams.id].data
+                                    .stake_active
                                 ) / 1000000,
-                                parseFloat(context.globalStats.ada_circ) /
+                                parseFloat(context?.globalStatsCx?.data?.supply?.now) /
                                 1000000,
                                 userBlocksRef.current.value,
                                 userDelegationRef.current.value,
-                                context.protocol.nOpt,
-                                context.protocol.a0,
-                                context.protocol.rho,
-                                context.protocol.tau,
-                                context.protocol.decentralisationParam,
+                                parseFloat(context?.globalStatsCx?.data?.epoch_param?.optimal_pool_count),
+                                parseFloat(context?.globalStatsCx?.data?.epoch_param?.influence),
+                                parseFloat(context?.globalStatsCx?.data?.epoch_param?.monetary_expand_rate),
+                                parseFloat(context?.globalStatsCx?.data?.epoch_param?.treasury_growth_rate),
+                                parseFloat(context?.globalStatsCx?.data?.epoch_param?.decentralisation),
                                 parseFloat(
-                                  context.poolStats[urlParams.id].data.pledged
+                                  context?.poolStatsCx[urlParams.id]?.data?.pledge
                                 ) / 1000000,
+                                (parseFloat(
+                                  context?.poolStatsCx[urlParams.id]?.data?.tax_ratio
+                                ).toFixed(4) / 100),
                                 parseFloat(
-                                  context.poolStats[urlParams.id].data.tax_ratio
-                                ),
-                                parseFloat(
-                                  context.poolStats[urlParams.id].data.tax_fix
+                                  context?.poolStatsCx[urlParams.id]?.data?.tax_fix
                                 ) / 1000000
                               );
                             }}
@@ -1420,29 +1437,29 @@ const PoolPage = (props) => {
                                 userBlocksRef.current.value
                               );
                               calculateRewards(
-                                parseFloat(context.globalStats.total_staked) /
+                                parseFloat(context?.customApi?.epochInfo?.activeStake) /
                                 1000000,
                                 parseFloat(
-                                  context.poolStats[urlParams.id].data
-                                    .active_stake
+                                  context.poolStatsCx[urlParams.id].data
+                                    .stake_active
                                 ) / 1000000,
-                                parseFloat(context.globalStats.ada_circ) /
+                                parseFloat(context?.globalStatsCx?.data?.supply?.now) /
                                 1000000,
                                 userBlocksRef.current.value,
                                 userDelegationRef.current.value,
-                                context.protocol.nOpt,
-                                context.protocol.a0,
-                                context.protocol.rho,
-                                context.protocol.tau,
-                                context.protocol.decentralisationParam,
+                                parseFloat(context?.globalStatsCx?.data?.epoch_param?.optimal_pool_count),
+                                parseFloat(context?.globalStatsCx?.data?.epoch_param?.influence),
+                                parseFloat(context?.globalStatsCx?.data?.epoch_param?.monetary_expand_rate),
+                                parseFloat(context?.globalStatsCx?.data?.epoch_param?.treasury_growth_rate),
+                                parseFloat(context?.globalStatsCx?.data?.epoch_param?.decentralisation),
                                 parseFloat(
-                                  context.poolStats[urlParams.id].data.pledged
+                                  context?.poolStatsCx[urlParams.id]?.data?.pledge
                                 ) / 1000000,
+                                (parseFloat(
+                                  context?.poolStatsCx[urlParams.id]?.data?.tax_ratio
+                                ).toFixed(4) / 100),
                                 parseFloat(
-                                  context.poolStats[urlParams.id].data.tax_ratio
-                                ),
-                                parseFloat(
-                                  context.poolStats[urlParams.id].data.tax_fix
+                                  context?.poolStatsCx[urlParams.id]?.data?.tax_fix
                                 ) / 1000000
                               );
                               // console.log(roaStats);
@@ -1483,38 +1500,6 @@ const PoolPage = (props) => {
                             </Notice>
                           </>
                         )}
-                        {!calculatedUserReward && (
-                          <>
-                            <RewardsComponent margintop="42px" fontweight="500">
-                              TEEST rewards with&nbsp;
-                              {
-                                context.poolStats[urlParams.id].data
-                                  .blocks_epoch
-                              }
-                              &nbsp;blocks minted:&nbsp;
-                              {calculatedUserReward}₳
-                            </RewardsComponent>
-                            <div
-                              style={{
-                                fontSize: "12px",
-
-                                marginTop: "32px",
-                                marginBottom: "-18px",
-                              }}
-                            >
-                              Thank you
-                              <a
-                                href="https://adapools.org"
-                                rel="noreferrer"
-                                target="_blank"
-                              >
-                                {" "}
-                                adaPools
-                              </a>{" "}
-                              for protocol parameters API
-                            </div>
-                          </>
-                        )}
                       </RewardComponentWrapper>
                     }
                   />
@@ -1523,7 +1508,7 @@ const PoolPage = (props) => {
                 <ContentTitle>Performance history</ContentTitle>
                 <ChartStyled
                   graphBackground="#D8D8D8"
-  //
+                  //
                   downloadhover={poolsDetails[urlParams.id].logoColor}
                   options={{
                     theme: {
@@ -1551,7 +1536,7 @@ const PoolPage = (props) => {
                       onDatasetHover: {
                         highlightDataSeries: true,
                       },
-                      style: {color:"black"},
+                      style: { color: "black" },
                     },
                     colors: [
                       poolsDetails[urlParams.id].secondaryColor
@@ -1604,12 +1589,12 @@ const PoolPage = (props) => {
                   series={[
                     {
                       name: "ROA (%)",
-                      data: roaStats,
-                      
+                      data: roaStatsCx,
+
                     },
                     {
                       name: "Blocks produced",
-                      data: numberOfBlocks,
+                      data: numberOfBlocksCx  ,
                       type: "bar",
                     },
                   ]}

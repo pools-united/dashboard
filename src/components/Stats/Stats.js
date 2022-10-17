@@ -127,19 +127,21 @@ const Stats = (props) => {
     <AppContext.Consumer>
       {(context) => {
         if (!currentSlot) {
-          setCurrentSlot(parseInt(context.globalStats.epoch_slot_no));
-          
+         if (context.globalStatsCx.data){
+          setCurrentSlot(parseInt(Math.floor((new Date().getTime() - new Date(
+            context.globalStatsCx.data.epoch.start_time.slice(0,11)+(parseInt(context.globalStatsCx.data.epoch.start_time
+              .slice(11,13))+2)+ context.globalStatsCx.data.epoch.start_time
+              .slice(13)
+            ).getTime()) / 1000)));
+         }
         } else if (currentSlot && !epochStartDate) {
-
-          context.globalStats.epoch_started ?     setEpochStartDate(
-            new Date(parseInt(context.globalStats.epoch_started * 1000)).toDateString()
-          ):    setEpochStartDate(
-            new Date(parseInt(context.globalStats.ended_before * 1000)).toDateString()
-          );
-      
+console.log("SLAZEM DATUM");
+       
+setEpochStartDate(new Date(context?.globalStatsCx?.data.epoch.start_time).toDateString());
           setEpochEndDate(
             new Date((Date.now() / 1000 + (totalSlots - currentSlot)) * 1000).toDateString()
           );
+
         }
 
         return (
@@ -149,7 +151,7 @@ const Stats = (props) => {
               <SectionWrapper className={classes.section}>
                 <TextWrapper>
                   <EpochWrapper>
-                    <EpochComponent title="Epoch" number={context.globalStats.epoch_last} />
+                    <EpochComponent title="Epoch" number={context.globalStatsCx?.data?.epoch.no} />
                     <EpochComponent title="Current Slot" number={currentSlot} />
                     <EpochComponent title="Slots in Epoch" number={totalSlots} />
                   </EpochWrapper>
@@ -176,10 +178,9 @@ const Stats = (props) => {
                   backgroundColor={"rgba(255, 0, 0, 0);"}
                   title={"Pledge"}
                   width="180px"
-                  text={`${
-                    context.adaPrice.RAW &&
+                  text={`${context.adaPrice.RAW &&
                     context.adaPrice.RAW.ADA.USD.PRICE.toFixed(4)
-                  } USD `}
+                    } USD `}
                 />
               </SectionWrapper>
             </Drawer>
