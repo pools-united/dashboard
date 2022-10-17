@@ -1320,7 +1320,7 @@ setTimeout(() => {
                       parseFloat(
                         context?.poolStatsCx[urlParams.id]?.data?.roa_lifetime
                       ).toFixed(2)
-                      } %`}
+                      }%`}
                   />
                 </InfoGrid>
                 <ContentTitle>
