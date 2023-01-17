@@ -430,11 +430,11 @@ font-weight: bold;
 const additionalInfoVenus = (<AdditionalInfoWrapper>
 
   <LinkWrapper target="_blank" marginTop="48px" marginBottom="48px" href="https://www.ecocashew.com">
-    <H1StyledCenter>Fresco Pool is currently supporting Eco Cashew project</H1StyledCenter>
+    <H1StyledCenter>Fresco Pool was supporting Eco Cashew project via ISPO</H1StyledCenter>
     <AdditionalInfoImgs src={EcoCashewISO} />
   </LinkWrapper>
   <p >
-    Fresco Pool |VENUS| is a proud supporter of the EcoCashew project, Working to create Fair Trade for Local Cashew farmers with 90% reduction in C02 emissions by processing the farmers Cashews on location instead of transporting them all around the world to get them processed in Asia.
+    Fresco Pool |VENUS| was a proud supporter of the EcoCashew project, Working to create Fair Trade for Local Cashew farmers with 90% reduction in C02 emissions by processing the farmers Cashews on location instead of transporting them all around the world to get them processed in Asia.
   </p>
 
   <p  >
@@ -442,12 +442,10 @@ const additionalInfoVenus = (<AdditionalInfoWrapper>
   </p>
 
   <p  >
-    Fresco Pool |VENUS| is participating in Eco Cashew's CashewF ISPO which is seven epochs long from epoch 350 until the end of epoch 356. By staking with us you can support the environment and earn rewards from Eco cashew.
+    Fresco Pool |VENUS| was participating in Eco Cashew's CashewF ISPO which is seven epochs long from epoch 350 until the end of epoch 356. By staking with us you can support the environment and earn rewards from Eco cashew.
   </p>
 
   <p  >
-    You will earn twice the EcoCashew CashewF ISPO Rewards by Delegating before June 30th.
-
     By buying CashewF tokens You have opportunity to participate in creating 100 + jobs, help establish fair trade Cashew prices in Africa and reduce CO2 Emission caused by Cashew processing by 90%.
   </p>
 
