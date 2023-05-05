@@ -93,7 +93,7 @@ const ShowAda = (props) => {
         Graph (7 days)
       </GraphTitle>
       <GraphBox textBackgroundColor={titleColor}>
-        <GraphImg src="https://s3.coinmarketcap.com/generated/sparklines/web/7d/usd/2010.png" />
+        <GraphImg src="https://s3.coinmarketcap.com/generated/sparklines/web/7d/2781/2010.svg" />
       </GraphBox>
       <AdaButton
         textBackgroundColor={titleColor}
