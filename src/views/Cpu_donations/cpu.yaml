@@ -398,6 +398,25 @@
   custom:
     donationType: nature
 
+- ticker: CPU
+  recipient:
+    name: The Michael J. Fox Foundation for Parkinson's Research
+    address: Grand Central Station, P.O. Box 4777, New York, NY 10163-4777
+    tel: 1-212-509-0995
+    contact: https://www.michaeljfox.org/contact-us
+  ada: 100
+  usd: 37.8
+  timestamp: 1684404300
+  files:
+    - CPU/18-05-2023.png
+  charity_tx_id: 2ece6b313536f1868a0420bc6041ab0731485eecb071396611dd575c3b5ee7be
+  announcement_url: https://twitter.com/C_PoolsUnited/status/1659603892273922067
+  intermediate_txs:
+    - provider: Litecoin
+      tx_id: 2ece6b313536f1868a0420bc6041ab0731485eecb071396611dd575c3b5ee7be
+  custom:
+    donationType: community
+
 
 
 

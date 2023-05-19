@@ -63,7 +63,8 @@ export default function ContactUs(props) {
       <div style={{paddingTop: "18px"}} className={classNames(classes.main, classes.mainRaised)}>
       <PageTitle style={{marginBottom:"-60px"}}>Got a question?</PageTitle>
       <h2 style={{textAlign:"center"}}>Contact Us</h2>
-      <EmailJSForm  />
+      {/* <EmailJSForm  /> */}
+      <br></br>
 
       <ParagraphStyled>Email: <a href="mailto:cpoolsunited@gmail.com"> cpoolsunited@gmail.com</a>  <br/>
              Telegram: <a href="https://t.me/cpoolsunited"> cpoolsunited</a> <br/>
