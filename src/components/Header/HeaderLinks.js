@@ -77,14 +77,14 @@ export default function HeaderLinks(props) {
         >
           <LiveHelp className={classes.icons} /> FAQ
         </RouterButtonStyled>
-        <RouterButtonStyled
+        {/* <RouterButtonStyled
           to="/news"
           color="transparent"
           // target="_blank"
           className={classes.navLink}
         >
           <AnnouncementIcon className={classes.icons} /> News
-        </RouterButtonStyled>
+        </RouterButtonStyled> */}
         <RouterButtonStyled
           to="/contact-us"
           color="transparent"
