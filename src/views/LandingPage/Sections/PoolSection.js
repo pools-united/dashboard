@@ -94,11 +94,28 @@ export default function PoolSection() {
             address={"3e5fcbaf750c0291cecb72384091724a1c2d35da10a71473e16c926f"}
             margin={"1%"}
             fixedFee={"340"}
-            pledge={"10481"}
+            pledge={"1"}
             kickstart
             poolLogo={"https://pools-united.github.io/pools/MINES/assets/mines_64.png"}
             delegateLink={"/faq#StoreAndDelegate"}
             poolLink={"/pool?id=MINES"}
+            operator={{
+              name: "Name#1",
+              image: face,
+            }}
+          />
+        </GridItemStyled>
+        <GridItemStyled xs={12} sm={12} md={4}>
+          <PoolCard
+            name={"Cahli Pool  [CAHLI]"}
+            address={"3ee7ce97d36822f511cac6bbd76b70350684f8bb4ced5366842a96c9"}
+            margin={"0%"}
+            fixedFee={"170"}
+            pledge={"2000"}
+            kickstart
+            poolLogo={"https://pools-united.github.io/pools/CAHLI/assets/cahli_64.png"}
+            delegateLink={"/faq#StoreAndDelegate"}
+            poolLink={"/pool?id=CAHLI"}
             operator={{
               name: "Name#1",
               image: face,

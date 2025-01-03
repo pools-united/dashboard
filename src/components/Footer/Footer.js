@@ -53,11 +53,11 @@ export default function Footer(props) {
                 [MINES]
               </a>
             </ListItem>
-            {/* <ListItem className={classes.inlineBlock}>
-              <a href="/pool?id=CURIE" className={classes.block}>
-                [CURIE]
+            <ListItem className={classes.inlineBlock}>
+              <a href="/pool?id=CAHLI" className={classes.block}>
+                [CAHLI]
               </a>
-            </ListItem> */}
+            </ListItem>
             <ListItem className={classes.inlineBlock}>
               <Link to="/privacy-policy" className={classes.block}>
                 Privacy Policy

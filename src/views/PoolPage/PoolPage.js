@@ -34,8 +34,11 @@ import CpuLogo from "assets/poolAssets/cpu/cpu_logo.png";
 import CpuBanner from "assets/poolAssets/cpu/CpuBanner.png";
 import MinesLogo from "assets/poolAssets/mines/mines_logo.png";
 import MinesBanner from "assets/poolAssets/mines/MinesBanner.png";
-// import CurieLogo from "assets/poolAssets/curie/curie_logo.png";
-// import CurieBanner from "assets/poolAssets/curie/CurieBanner.png";
+import CurieLogo from "assets/poolAssets/curie/curie_logo.png";
+import CurieBanner from "assets/poolAssets/curie/CurieBanner.png";
+
+import CahliLogo from "assets/poolAssets/cahli/cahli_logo.png";
+import CahliBanner from "assets/poolAssets/cahli/cahliBanner.png";
 
 import SundaeSwapRISO from "assets/poolAssets/venus/sundaeswap-reverse-iso.webp"
 import EcoCashewISO from "assets/poolAssets/venus/cashewF.png"
@@ -49,7 +52,7 @@ import Patricia from "assets/img/faces/Patricia.jpg";
 import Emil from "assets/img/faces/emil_avatar.jpg";
 import Miha from "assets/img/faces/Miha.jpg";
 import Stjepan from "assets/img/faces/stjepan.jpg";
-import Zvonimir from "assets/img/faces/Zvonimir.jpg";
+import Shittu from "assets/img/faces/Shittu.jpeg";
 
 //components
 import TextBox from "./Components/Textbox.js";
@@ -509,7 +512,7 @@ const PoolPage = (props) => {
     window.innerWidth > 960 ? setMobileState(false) : setMobileState(true);
   });
 
-  const [hackyFix, setHackyFix]=useState(true);
+  const [hackyFix, setHackyFix] = useState(true);
 
   const poolsDetails = {
     VENUS: {
@@ -560,47 +563,39 @@ const PoolPage = (props) => {
       firstOperator: Filip,
       secondOperator: false,
     },
-    // CURIE: {
-    //   // additionalInfo:(<><h1>Ovo je veliki titl</h1><h2>Malo manji titl</h2><p>Paragraf</p> <br/><br/>br je breaking point ilitiga enter u wordu<br/><br/> <ul>
-    //   //   <li>lista</li>
-    //   //   <li>listica</li>
-    //   //   <li>listlist</li>
-    //   // </ul> </>),
-    //   name: "Marie Curie Pool |CURIE|",
-    //   poolColor: "black",
-    //   secondaryColor: "#000",
-    //   logoColor: "#336699",
-    //   bodyBackgroundColor: "rgb(52, 163, 108)",
-    //   description: (
-    //     <>
-    //       Marie Curie Pool is operated by young scientist, pharmacist and crypto
-    //       enthusiast from Croatia who realized the potential of new technologies
-    //       like blockchain in science and biomedicine. It is inspired by Marie
-    //       Curie who was dedicated to improvement of science despite all the
-    //       obstacles she encountered.
-    //     </>
-    //   ),
-    //   descriptionMobile: (
-    //     <>
-    //       Marie Curie Pool is operated by young scientist, pharmacist and crypto
-    //       enthusiast from Croatia who realized the potential of new technologies
-    //       like blockchain in science and biomedicine. It is inspired by Marie
-    //       Curie who was dedicated to improvement of science despite all the
-    //       obstacles she encountered.
-    //     </>
-    //   ),
-    //   banner: CurieBanner,
-    //   logoMobile: CurieLogo,
-    //   logoStatic: "",
-    //   logoDynamic: "",
-    //   id: " 6c81475fe8b32b5dfde307325a2cb115de26a466037d0ec76bb499b3",
-    //   twitter: "https://twitter.com/MarieCuriePool",
-    //   telegram: "https://t.me/mariecuriepool",
-    //   logoAnimation: false,
-    //   operators: true,
-    //   firstOperator: Zvonimir,
-    //   secondOperator: false,
-    // },
+    CAHLI: {
+      // additionalInfo:(<><h1>Ovo je veliki titl</h1><h2>Malo manji titl</h2><p>Paragraf</p> <br/><br/>br je breaking point ilitiga enter u wordu<br/><br/> <ul>
+      //   <li>lista</li>
+      //   <li>listica</li>
+      //   <li>listlist</li>
+      // </ul> </>),
+      name: "Cahli Pool |CAHLI|",
+      poolColor: "white",
+      secondaryColor: "#068790",
+      logoColor: "#87060F",
+      bodyBackgroundColor: "#068790",
+      description: (
+        <>
+          Cahli Stake Pool, Nigeria’s first, empowers communities and advances Cardano across Africa. By joining, you fuel blockchain innovation, expand opportunities, and support growth in Nigeria and beyond. Plus, part of our profits goes to charity, making your stake even more impactful.
+        </>
+      ),
+      descriptionMobile: (
+        <>
+      Cahli Stake Pool, Nigeria’s first, empowers communities and advances Cardano across Africa. By joining, you fuel blockchain innovation, expand opportunities, and support growth in Nigeria and beyond. Plus, part of our profits goes to charity, making your stake even more impactful.
+        </>
+      ),
+      banner: CahliBanner,
+      logoMobile: CahliLogo,
+      logoStatic: "",
+      logoDynamic: "",
+      id: " 3ee7ce97d36822f511cac6bbd76b70350684f8bb4ced5366842a96c9",
+      twitter: "https://twitter.com/cahlistakepool",
+      telegram: "https://t.me/cahlipool",
+      logoAnimation: false,
+      operators: true,
+      firstOperator: Shittu,
+      secondOperator: false,
+    },
 
     MINES: {
       name: "ADAstra Mines |Mines|",
@@ -925,7 +920,7 @@ const PoolPage = (props) => {
             // const element = array[i];
             setEpochsGraph((epochsGraph) => [
               ...epochsGraph,
-              parseInt(context?.globalStatsCx?.data?.epoch?.no) - i-1,
+              parseInt(context?.globalStatsCx?.data?.epoch?.no) - i - 1,
             ]);
             // console.log(epochsGraph);
           }
@@ -944,9 +939,9 @@ const PoolPage = (props) => {
           setNumberOfBlocksCx([]);
 
 
-    
 
-          const histCxData =  context?.poolStatsCx[urlParams.id] && context?.poolStatsCx[urlParams.id]?.data?.stats;
+
+          const histCxData = context?.poolStatsCx[urlParams.id] && context?.poolStatsCx[urlParams.id]?.data?.stats;
 
           // context.poolStatsCx[urlParams.id]?.data.stats.forEach((element)=>{
           //   console.log("FILIP SERE MI SE",element)
@@ -963,33 +958,33 @@ const PoolPage = (props) => {
           // );
 
 
-          
-
-
-if (hackyFix){
-  const blocksArray=[];
-          const roaArray = [];
-  for (let i = histCxData.length; i > 0; i--) {
-    const element = histCxData[i-1];
-    blocksArray.push(element.blocks);
-    roaArray.push(element.return_member);
-  }
-  setNumberOfBlocksCx(blocksArray);
-setRoaStatsCx(roaArray);
-}
-    
-setTimeout(() => {
-  setHackyFix(false);
-}, 3000);
 
 
 
-         
+          if (hackyFix) {
+            const blocksArray = [];
+            const roaArray = [];
+            for (let i = histCxData.length; i > 0; i--) {
+              const element = histCxData[i - 1];
+              blocksArray.push(element.blocks);
+              roaArray.push(element.return_member);
+            }
+            setNumberOfBlocksCx(blocksArray);
+            setRoaStatsCx(roaArray);
+          }
+
+          setTimeout(() => {
+            setHackyFix(false);
+          }, 3000);
 
 
 
 
-         
+
+
+
+
+
 
           // setRoaStats((roaStats) => [...roaStats, null]);
 
@@ -1277,7 +1272,7 @@ setTimeout(() => {
                         {context.poolStatsCx[urlParams.id] &&
                           (
                             parseFloat(
-                              context.poolStatsCx[urlParams.id].data.tax_ratio
+                              context?.poolStatsCx[urlParams.id]?.data.tax_ratio == null ? 0 : context.poolStatsCx[urlParams.id].data.tax_ratio
                             )
                           ).toFixed(2)}
                         %
@@ -1407,7 +1402,7 @@ setTimeout(() => {
                                   context?.poolStatsCx[urlParams.id]?.data?.pledge
                                 ) / 1000000,
                                 (parseFloat(
-                                  context?.poolStatsCx[urlParams.id]?.data?.tax_ratio
+                                  context.poolStatsCx[urlParams.id].data.tax_ratio == null ? 0 : context.poolStatsCx[urlParams.id].data.tax_ratio
                                 ).toFixed(4) / 100),
                                 parseFloat(
                                   context?.poolStatsCx[urlParams.id]?.data?.tax_fix
@@ -1454,7 +1449,7 @@ setTimeout(() => {
                                   context?.poolStatsCx[urlParams.id]?.data?.pledge
                                 ) / 1000000,
                                 (parseFloat(
-                                  context?.poolStatsCx[urlParams.id]?.data?.tax_ratio
+                                  context?.poolStatsCx[urlParams.id]?.data.tax_ratio == null ? 0 : context?.poolStatsCx[urlParams.id]?.data.tax_ratio
                                 ).toFixed(4) / 100),
                                 parseFloat(
                                   context?.poolStatsCx[urlParams.id]?.data?.tax_fix
@@ -1592,7 +1587,7 @@ setTimeout(() => {
                     },
                     {
                       name: "Blocks produced",
-                      data: numberOfBlocksCx  ,
+                      data: numberOfBlocksCx,
                       type: "bar",
                     },
                   ]}

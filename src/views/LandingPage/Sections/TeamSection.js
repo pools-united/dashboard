@@ -21,6 +21,8 @@ import team2 from "assets/img/faces/Filip.jpg";
 import team3 from "assets/img/faces/Nora.jpg";
 import emil from "assets/img/faces/Emil.jpg";
 import stjepan from "assets/img/faces/stjepan.jpg";
+import shittu from "assets/img/faces/Shittu.jpeg";
+
 import team4 from "assets/img/faces/Miha.jpg";
 import zvonimir from "assets/img/faces/Zvonimir.jpg";
 
@@ -67,6 +69,7 @@ export default function TeamSection() {
                   not only peoples lives but the whole ecosystems.
                   <br /> You can find her in the forest, picking mushrooms or
                   taking care of her plants.
+                  The sisters operate <a href="/pool?id=ERA">Era pool</a>.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -188,6 +191,7 @@ export default function TeamSection() {
                   After earning her Bachelor's degree in Journalism, Nora went
                   for Master's in PR. She entered the Crypto world to explore
                   her passion for technology, digital marketing and writing.{" "}
+                  The sisters operate <a href="/pool?id=ERA">Era pool</a>.
                 </p>
               </CardBody>
               <CardFooter className={classes.justifyCenter}>
@@ -250,6 +254,43 @@ export default function TeamSection() {
               </CardFooter>
             </Card>
           </GridItem>
+
+
+          <GridItem xs={12} sm={12} md={4}>
+            <Card plain>
+              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
+                <img src={shittu} alt="..." className={imageClasses} />
+              </GridItem>
+              <h4 className={classes.cardTitle}>
+                Shittu Muiz
+                <br />
+              </h4>
+              <CardBody>
+                <p className={classes.description}>
+                Shittu Muiz is a dedicated medical student based in Africa, a dynamic community builder, and a passionate advocate for advancing Web3 projects through technical insights. As a stake pool operator, he is eager to explore opportunities and make an impact worldwide.
+                He operates <a href="/pool?id=CAHLI">Cahli pool</a>.
+                </p>
+              </CardBody>
+              <CardFooter className={classes.justifyCenter}>
+                {/* <Button
+                  justIcon
+                  color="transparent"
+                  className={classes.margin5}
+                >
+                  <i className={classes.socials + " fab fa-twitter"} />
+                </Button>
+                <Button
+                  justIcon
+                  color="transparent"
+                  className={classes.margin5}
+                >
+                  <i className={classes.socials + " fab fa-linkedin"} />
+                </Button> */}
+              </CardFooter>
+            </Card>
+          </GridItem>
+
+
         </GridContainerStyled>
       </div>
     </div>
