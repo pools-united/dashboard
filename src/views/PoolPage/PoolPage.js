@@ -588,7 +588,7 @@ const PoolPage = (props) => {
       logoMobile: CahliLogo,
       logoStatic: "",
       logoDynamic: "",
-      id: " 3ee7ce97d36822f511cac6bbd76b70350684f8bb4ced5366842a96c9",
+      id: "3ee7ce97d36822f511cac6bbd76b70350684f8bb4ced5366842a96c9",
       twitter: "https://twitter.com/cahlistakepool",
       telegram: "https://t.me/cahlipool",
       logoAnimation: false,
