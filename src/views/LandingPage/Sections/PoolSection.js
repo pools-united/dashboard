@@ -41,9 +41,9 @@ export default function PoolSection() {
           <PoolCard
             name={"Cardano Pools United [CPU]"}
             address={"b45c1860e038baa0642b352ccf447ed5e14430342a11dd75bae52f39"}
-            margin={"2%"}
-            fixedFee={"340"}
-            pledge={"50000"}
+            margin={"0%"}
+            fixedFee={"170"}
+            pledge={"4000"}
             kickstart
             poolLogo={"https://pools-united.github.io/pools/CPU/assets/cpu_64.png"}
             delegateLink={"/faq#StoreAndDelegate"}
@@ -59,8 +59,8 @@ export default function PoolSection() {
           <PoolCard
             name={"Nova Era Pool [ERA]"}
             address={"13375a4a5470b564246a3251ea0ccfef046ee5bcaf3ed6de6315abc7"}
-            margin={"1%"}
-            fixedFee={"340"}
+            margin={"0%"}
+            fixedFee={"170"}
             poolLogo={"https://pools-united.github.io/pools/ERA/assets/era_64.png"}
             pledge={"40000"}
             delegateLink={"/faq#StoreAndDelegate"}
