@@ -26,7 +26,7 @@ const GridItemStyled = styled(GridItem)`
 
 @media (min-width: 958px) {
   max-width: 50% !important;
-
+  
 }
 
 `
