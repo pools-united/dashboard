@@ -10,8 +10,8 @@ jobs:
     name: 'Deploy to Netlify'
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '10'
       - run: npm ci
@@ -19,7 +19,7 @@ jobs:
         env:
           CI: false # TODO: Temp solution, fix code warnings so builds start passing again
       - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.1
+        uses: nwtgck/actions-netlify@v3.0
         with:
           production-deploy: true
           publish-dir: './build'
