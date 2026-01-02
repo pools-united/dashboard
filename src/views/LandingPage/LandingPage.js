@@ -91,6 +91,13 @@ font-Size: 56px;
     heightSet: PropTypes.any,
   };
 
+  // TODO: Auto-accept cookies (treating as if user clicked "I understand")
+  useEffect(() => {
+    // Set cookie consent as accepted
+    document.cookie = "cookieAccepted=true; max-age=31536000; path=/";
+  }, []);
+
+  // TODO: Newsletter popup logic (commented out)
   // useEffect(() => {
   //   setIsSubscribed(localStorage.getItem('subscribed'))
   //   setDidRejectSub(sessionStorage.getItem('rejected_sub'))
@@ -145,6 +152,7 @@ font-Size: 56px;
               }}
               {...rest}
             />
+            {/* TODO: Re-enable newsletter popup when needed */}
             {/*<Newsletter*/}
             {/*    show={loadNewsletter}*/}
             {/*    onClose={() => setLoadNewsletter(false)}*/}
@@ -186,7 +194,8 @@ font-Size: 56px;
                 <CardanoIntroDivider heightSet={context.scrollOffset <= -700} />
               </div>
             </div>
-            <CookieConsent
+            {/* TODO: Re-enable cookie consent popup when needed */}
+            {/* <CookieConsent
                 location="bottom"
                 cookieName="cookieAccepted"
                 expires={999}
@@ -195,7 +204,7 @@ font-Size: 56px;
                 style={{background: "rgba(0, 0, 0, 0.9)"}}
             >
               This website uses cookies to enhance the user experience.
-            </CookieConsent>
+            </CookieConsent> */}
             <Footer />
           </div>
         );
