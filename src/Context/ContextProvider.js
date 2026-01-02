@@ -8,94 +8,97 @@ const MyProvider = (props) => {
   const [globalStatsCx, setGlobalStatsCx] = useState({});
   const [poolStatsCx, setPoolStatsCx] = useState({});
   const [customApi, setCustomApi] = useState({});
-  
-  const poolIds = {
-    VENUS: "19cb138eab81d3559e70094df2b6cb1742bf275e920300d5c3972253",
-    ERA: "13375a4a5470b564246a3251ea0ccfef046ee5bcaf3ed6de6315abc7",
-    CPU: "b45c1860e038baa0642b352ccf447ed5e14430342a11dd75bae52f39",
-    MINES: "3e5fcbaf750c0291cecb72384091724a1c2d35da10a71473e16c926f",
-    CAHLI:"3ee7ce97d36822f511cac6bbd76b70350684f8bb4ced5366842a96c9",
-  };
-  const poolIdsBech ={
-    VENUS: "pool1r8938r4ts8f4t8nsp9xl9dktzapt7f67jgpsp4wrju39xrdnaye",
-    ERA: "pool1zvm45jj5wz6kgfr2xfg75rx0auzxaedu4ulddhnrzk4uwuyuvpn",
-    CPU:"pool1k3wpsc8q8za2qeptx5kv73r76hs5gvp59gga6ad6u5hnj3scy3q",
-    MINES:"pool18e0uhtm4pspfrnktwguypytjfgwz6dw6zzn3gulpdjfx7qd0439",
-    CAHLI:"pool18mnua97ndq302yw2c6aaw6msx5rgf79mfnk4xe5y92tvjl45etl",
-  }
+
   const [scrollOffset, setScrollOffset] = useState(0);
   useScrollPosition(({ prevPos, currPos }) => {
     setScrollOffset(currPos.y);
-    // console.log(currPos.y);
   });
 
-  const fetchStats = async (url, stateSet, fetchType, poolTicker) => {
+  // Transform pool data from new API format to expected frontend format
+  const transformPoolData = (poolData) => {
+    return {
+      data: {
+        stake_active: poolData.active_stake,
+        blocks_est_epoch: poolData.epochs?.[0]?.data?.block?.estimated || 0,
+        pledge: poolData.pool_update?.active?.pledge || 0,
+        margin: poolData.pool_update?.active?.margin || 0,
+        fixed_cost: poolData.pool_update?.active?.fixed_cost || 0,
+        // Keep other useful data
+        live_stake: poolData.live_stake,
+        delegators: poolData.delegators,
+        saturation: poolData.saturation,
+        blocks_epoch: poolData.blocks?.epoch || 0,
+        blocks_total: poolData.blocks?.total || 0,
+        stats: poolData.stats,
+        pool_name: poolData.pool_name,
+        epochs: poolData.epochs,
+      }
+    };
+  };
 
-    await fetch(url)
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        }
-        throw new Error("Network response was not ok.");
-      })
-      .then((response) => {
-        if (fetchType === "normal") {
-          stateSet(response);
-        } else {
-          stateSet((prevState) => ({ ...prevState, [poolTicker]: response }));
-        }
-      })
-      .catch((e) => console.log(e));
+  // Fetch global stats from new endpoint
+  const fetchGlobalStats = async () => {
+    try {
+      const response = await fetch('https://cpulogs.jazbina.xyz/global');
+      if (!response.ok) throw new Error("Failed to fetch global stats");
+      const data = await response.json();
+      setGlobalStatsCx(data);
+      console.log("Global stats loaded:", data);
+    } catch (error) {
+      console.error("Failed to fetch global stats:", error);
+    }
+  };
+
+  // Fetch pool stats from new endpoint and transform
+  const fetchPoolStats = async () => {
+    try {
+      const response = await fetch('https://cpulogs.jazbina.xyz/pools');
+      if (!response.ok) throw new Error("Failed to fetch pool stats");
+      const data = await response.json();
+
+      // Transform each pool's data to match expected frontend structure
+      const transformedPools = {};
+      for (const [ticker, poolData] of Object.entries(data.poolData)) {
+        transformedPools[ticker] = transformPoolData(poolData);
+      }
+
+      setPoolStatsCx(transformedPools);
+      console.log("Pool stats loaded:", transformedPools);
+    } catch (error) {
+      console.error("Failed to fetch pool stats:", error);
+    }
+  };
+
+  // Fetch other stats (price, custom API)
+  const fetchStats = async (url, stateSet) => {
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Network response was not ok.");
+      const data = await response.json();
+      stateSet(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
-    //fetch global ada stats
-    fetchStats('https://js.cexplorer.io/api-static/basic/global.json', setGlobalStatsCx, "normal")
-    fetchStats('https://cpulogs.jazbina.xyz/api', setCustomApi, "normal")
+    // Fetch from new endpoints
+    fetchGlobalStats();
+    fetchPoolStats();
 
+    // Fetch custom API (unchanged)
+    fetchStats('https://cpulogs.jazbina.xyz/api', setCustomApi);
 
+    // Fetch ADA price (unchanged)
     fetchStats(
       "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=Ada&tsyms=BTC,USD,EUR&api_key=da5c2209128482ded3f5dabbe7260d828b351b7a62c6fc18a5f41fc8f336f12e",
-      setAdaPrice,
-      "normal"
+      setAdaPrice
     );
-    fetchStats(
-      `https://js.cexplorer.io/api-static/pool/${poolIdsBech.VENUS}.json`,
-      setPoolStatsCx,
-      "pool",
-      "VENUS"
-    );
-    fetchStats(
-      `https://js.cexplorer.io/api-static/pool/${poolIdsBech.MINES}.json`,
-      setPoolStatsCx,
-      "pool",
-      "MINES"
-    );
-    fetchStats(
-      `https://js.cexplorer.io/api-static/pool/${poolIdsBech.CPU}.json`,
-      setPoolStatsCx,
-      "pool",
-      "CPU"
-    );
-    fetchStats(
-      `https://js.cexplorer.io/api-static/pool/${poolIdsBech.ERA}.json`,
-      setPoolStatsCx,
-      "pool",
-      "ERA"
-    );
-
-    fetchStats(
-      `https://js.cexplorer.io/api-static/pool/${poolIdsBech.CAHLI}.json`,
-      setPoolStatsCx,
-      "pool",
-      "CAHLI"
-    );
-    
   }, []);
 
   return (
     <AppContext.Provider
-      value={{  globalStatsCx, customApi, poolStatsCx, scrollOffset, adaPrice }}
+      value={{ globalStatsCx, customApi, poolStatsCx, scrollOffset, adaPrice }}
     >
       {props.children}
     </AppContext.Provider>

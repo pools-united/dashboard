@@ -1383,13 +1383,13 @@ const PoolPage = (props) => {
 
 
                               calculateRewards(
-                                parseFloat(context?.customApi?.epochInfo?.activeStake) /
+                                parseFloat(context?.globalStatsCx?.data?.supply?.live_stake) /
                                 1000000,
                                 parseFloat(
                                   context.poolStatsCx[urlParams.id].data
                                     .stake_active
                                 ) / 1000000,
-                                parseFloat(context?.globalStatsCx?.data?.supply?.now) /
+                                parseFloat(context?.globalStatsCx?.data?.supply?.circulating) /
                                 1000000,
                                 userBlocksRef.current.value,
                                 userDelegationRef.current.value,
@@ -1401,11 +1401,11 @@ const PoolPage = (props) => {
                                 parseFloat(
                                   context?.poolStatsCx[urlParams.id]?.data?.pledge
                                 ) / 1000000,
-                                (parseFloat(
-                                  context.poolStatsCx[urlParams.id].data.tax_ratio == null ? 0 : context.poolStatsCx[urlParams.id].data.tax_ratio
-                                ).toFixed(4) / 100),
                                 parseFloat(
-                                  context?.poolStatsCx[urlParams.id]?.data?.tax_fix
+                                  context?.poolStatsCx[urlParams.id]?.data?.margin || 0
+                                ),
+                                parseFloat(
+                                  context?.poolStatsCx[urlParams.id]?.data?.fixed_cost
                                 ) / 1000000
                               );
                             }}
@@ -1430,13 +1430,13 @@ const PoolPage = (props) => {
                                 userBlocksRef.current.value
                               );
                               calculateRewards(
-                                parseFloat(context?.customApi?.epochInfo?.activeStake) /
+                                parseFloat(context?.globalStatsCx?.data?.supply?.live_stake) /
                                 1000000,
                                 parseFloat(
                                   context.poolStatsCx[urlParams.id].data
                                     .stake_active
                                 ) / 1000000,
-                                parseFloat(context?.globalStatsCx?.data?.supply?.now) /
+                                parseFloat(context?.globalStatsCx?.data?.supply?.circulating) /
                                 1000000,
                                 userBlocksRef.current.value,
                                 userDelegationRef.current.value,
@@ -1448,11 +1448,11 @@ const PoolPage = (props) => {
                                 parseFloat(
                                   context?.poolStatsCx[urlParams.id]?.data?.pledge
                                 ) / 1000000,
-                                (parseFloat(
-                                  context?.poolStatsCx[urlParams.id]?.data.tax_ratio == null ? 0 : context?.poolStatsCx[urlParams.id]?.data.tax_ratio
-                                ).toFixed(4) / 100),
                                 parseFloat(
-                                  context?.poolStatsCx[urlParams.id]?.data?.tax_fix
+                                  context?.poolStatsCx[urlParams.id]?.data?.margin || 0
+                                ),
+                                parseFloat(
+                                  context?.poolStatsCx[urlParams.id]?.data?.fixed_cost
                                 ) / 1000000
                               );
                               // console.log(roaStats);
