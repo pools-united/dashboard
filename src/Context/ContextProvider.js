@@ -16,20 +16,43 @@ const MyProvider = (props) => {
 
   // Transform pool data from new API format to expected frontend format
   const transformPoolData = (poolData) => {
+    // Transform epochs data for performance history graph
+    const transformedStats = poolData.epochs?.slice(0, 10).reverse().map(epoch => ({
+      blocks: epoch.data?.block?.minted || 0,
+      return_member: epoch.data?.reward?.member_pct || 0,
+    })) || [];
+
     return {
       data: {
+        // Pool ID
+        pool_id_hash: poolData.hash_raw,
+
+        // Stake data
         stake_active: poolData.active_stake,
-        blocks_est_epoch: poolData.epochs?.[0]?.data?.block?.estimated || 0,
+        stake: poolData.live_stake,
+
+        // Blocks
+        blocks_est_epoch: parseFloat(poolData.epochs?.[0]?.data?.block?.estimated || 0).toFixed(2),
+        blocks_epoch: poolData.blocks?.epoch || 0,
+        blocks_lifetime: poolData.blocks?.total || 0,
+
+        // Fees
         pledge: poolData.pool_update?.active?.pledge || 0,
         margin: poolData.pool_update?.active?.margin || 0,
         fixed_cost: poolData.pool_update?.active?.fixed_cost || 0,
-        // Keep other useful data
+        tax_fix: poolData.pool_update?.active?.fixed_cost || 0, // legacy field name
+        tax_ratio: (poolData.pool_update?.active?.margin || 0) * 100, // legacy field name (as percentage)
+
+        // ROA
+        roa_lifetime: poolData.stats?.lifetime?.roa || 0,
+
+        // Performance history for graph
+        stats: transformedStats,
+
+        // Other useful data
         live_stake: poolData.live_stake,
         delegators: poolData.delegators,
         saturation: poolData.saturation,
-        blocks_epoch: poolData.blocks?.epoch || 0,
-        blocks_total: poolData.blocks?.total || 0,
-        stats: poolData.stats,
         pool_name: poolData.pool_name,
         epochs: poolData.epochs,
       }
