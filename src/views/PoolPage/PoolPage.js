@@ -42,6 +42,7 @@ import CahliBanner from "assets/poolAssets/cahli/cahliBanner.png";
 
 import SundaeSwapRISO from "assets/poolAssets/venus/sundaeswap-reverse-iso.webp"
 import EcoCashewISO from "assets/poolAssets/venus/cashewF.png"
+import CahliHero from "assets/poolAssets/cahli/cahliHero.jpg"
 
 import FileCopyIcon from "@material-ui/icons/FileCopy";
 
@@ -430,57 +431,608 @@ font-weight: bold;
 
 }
 `
+
+const CahliSection = styled.div`
+  background: ${(props) => props.background || 'white'};
+  color: ${(props) => props.color || 'black'};
+  padding: 32px 24px;
+  margin: 24px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  h2 {
+    color: ${(props) => props.titleColor || '#068790'};
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    border-bottom: 3px solid ${(props) => props.titleColor || '#068790'};
+    padding-bottom: 12px;
+  }
+
+  h3 {
+    color: ${(props) => props.subtitleColor || '#87060F'};
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  p {
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  ul, ol {
+    line-height: 1.8;
+    margin-bottom: 16px;
+    padding-left: 24px;
+  }
+
+  li {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  strong {
+    color: ${(props) => props.strongColor || '#068790'};
+    font-weight: 700;
+  }
+
+  a {
+    color: ${(props) => props.linkColor || '#068790'};
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: ${(props) => props.linkHoverColor || '#87060F'};
+      text-decoration: underline;
+    }
+  }
+`
+
+const CahliHeroSection = styled.div`
+  margin: 48px 0;
+  text-align: center;
+
+  h1 {
+    background: linear-gradient(135deg, #068790 0%, #87060F 100%);
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    font-size: 32px;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(6, 135, 144, 0.3);
+  }
+
+  img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+`
+
+const CahliHighlight = styled.div`
+  background: linear-gradient(135deg, #068790 0%, #0a9aa5 100%);
+  color: white;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 20px 0;
+  border-left: 6px solid #87060F;
+  box-shadow: 0 4px 12px rgba(6, 135, 144, 0.3);
+
+  p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  strong {
+    color: #FFD700;
+    font-weight: 700;
+  }
+`
+
+const CahliContactBox = styled.div`
+  background: #f8f9fa;
+  padding: 24px;
+  border-radius: 12px;
+  margin-top: 20px;
+  border: 2px solid #068790;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    padding: 12px 0;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 16px;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+`
+
+const CahliOperatorProfile = styled.div`
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  margin-top: 24px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+`
+
+const CahliOperatorImage = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #068790;
+  box-shadow: 0 8px 24px rgba(6, 135, 144, 0.3);
+  flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 180px;
+    height: 180px;
+  }
+`
+
+const CahliOperatorText = styled.div`
+  flex: 1;
+
+  p {
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+`
+
+// Venus styled components
+const VenusSection = styled.div`
+  background: ${(props) => props.background || 'white'};
+  color: ${(props) => props.color || 'black'};
+  padding: 32px 24px;
+  margin: 24px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  h2 {
+    color: ${(props) => props.titleColor || '#45A29E'};
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 700;
+    border-bottom: 3px solid ${(props) => props.titleColor || '#45A29E'};
+    padding-bottom: 12px;
+  }
+
+  h3 {
+    color: ${(props) => props.subtitleColor || '#1F2833'};
+    margin-top: 24px;
+    margin-bottom: 16px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  p {
+    line-height: 1.8;
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  ul, ol {
+    line-height: 1.8;
+    margin-bottom: 16px;
+    padding-left: 24px;
+  }
+
+  li {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  strong {
+    color: ${(props) => props.strongColor || '#45A29E'};
+    font-weight: 700;
+  }
+
+  a {
+    color: ${(props) => props.linkColor || '#45A29E'};
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: ${(props) => props.linkHoverColor || '#1F2833'};
+      text-decoration: underline;
+    }
+  }
+`
+
+const VenusHeroSection = styled.div`
+  margin: 48px 0;
+  text-align: center;
+
+  h1 {
+    background: linear-gradient(135deg, #45A29E 0%, #1F2833 100%);
+    color: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    font-size: 32px;
+    font-weight: 700;
+    box-shadow: 0 6px 16px rgba(69, 162, 158, 0.3);
+  }
+
+  img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+`
+
+const VenusHighlight = styled.div`
+  background: linear-gradient(135deg, #45A29E 0%, #5ab3af 100%);
+  color: white;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 20px 0;
+  border-left: 6px solid #1F2833;
+  box-shadow: 0 4px 12px rgba(69, 162, 158, 0.3);
+
+  p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+
+  strong {
+    color: #FFD700;
+    font-weight: 700;
+  }
+`
+
+const VenusLinkBox = styled.div`
+  background: #f0f8f8;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 12px 0;
+  border-left: 4px solid #45A29E;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #e6f4f4;
+    transform: translateX(4px);
+  }
+
+  a {
+    color: #45A29E;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: #1F2833;
+    }
+
+    &::before {
+      content: "→";
+      margin-right: 8px;
+      font-weight: bold;
+    }
+  }
+`
 const additionalInfoVenus = (<AdditionalInfoWrapper>
 
-  <LinkWrapper target="_blank" marginTop="48px" marginBottom="48px" href="https://www.ecocashew.com">
-    <H1StyledCenter>Fresco Pool was supporting Eco Cashew project via ISPO</H1StyledCenter>
-    <AdditionalInfoImgs src={EcoCashewISO} />
-  </LinkWrapper>
-  <p >
-    Fresco Pool |VENUS| was a proud supporter of the EcoCashew project, Working to create Fair Trade for Local Cashew farmers with 90% reduction in C02 emissions by processing the farmers Cashews on location instead of transporting them all around the world to get them processed in Asia.
-  </p>
+  <VenusSection background="white" titleColor="#45A29E" subtitleColor="#1F2833" strongColor="#45A29E" linkColor="#45A29E" linkHoverColor="#1F2833">
+    <h2>Fresco Pool Supporting Eco Cashew Project via ISPO</h2>
 
-  <p  >
-    Click on the image above to learn more about Eco Cashews project to create jobs and help the environment.
-  </p>
+    <LinkWrapper target="_blank" marginTop="24px" marginBottom="24px" href="https://www.ecocashew.com">
+      <AdditionalInfoImgs src={EcoCashewISO} />
+    </LinkWrapper>
 
-  <p  >
-    Fresco Pool |VENUS| was participating in Eco Cashew's CashewF ISPO which is seven epochs long from epoch 350 until the end of epoch 356. By staking with us you can support the environment and earn rewards from Eco cashew.
-  </p>
+    <p>
+      Fresco Pool |VENUS| was a proud supporter of the EcoCashew project, working to create Fair Trade for local Cashew farmers with <strong>90% reduction in CO2 emissions</strong> by processing the farmers' Cashews on location instead of transporting them all around the world to get them processed in Asia.
+    </p>
 
-  <p  >
-    By buying CashewF tokens You have opportunity to participate in creating 100 + jobs, help establish fair trade Cashew prices in Africa and reduce CO2 Emission caused by Cashew processing by 90%.
-  </p>
+    <VenusHighlight>
+      <p>
+        <strong>Environmental Impact:</strong> Click on the image above to learn more about Eco Cashew's project to create jobs and help the environment.
+      </p>
+    </VenusHighlight>
 
-  <p  >
+    <p>
+      Fresco Pool |VENUS| was participating in Eco Cashew's CashewF ISPO which is seven epochs long from epoch 350 until the end of epoch 356. By staking with us you can support the environment and earn rewards from Eco Cashew.
+    </p>
 
-    <a href="https://t.me/EcoCashewF/">
-      EcoCashew Telegram
-    </a>
-  </p>
-  <p  >
-    <a href="https://www.ecocashew.com/roadmap.html">
-      EcoCashew Road Map
-    </a>
-  </p>
+    <p>
+      By buying CashewF tokens you have the opportunity to participate in creating <strong>100+ jobs</strong>, help establish fair trade Cashew prices in Africa and reduce CO2 emissions caused by Cashew processing by <strong>90%</strong>.
+    </p>
 
-  <p  >
-    <a href="https://www.ecocashew.com/assets/pdf/cashewf-whitepaper.pdf">
-      EcoCashew Whitepaper
-    </a>
-  </p>
+    <h3>Learn More About EcoCashew</h3>
 
-  <p  >
-    <a href="https://www.ecocashew.com/assets/mp4/cashewf-fanfilm.mp4">
-      EcoCashew Fan Film
-    </a>
-  </p>
+    <VenusLinkBox>
+      <a href="https://t.me/EcoCashewF/" target="_blank" rel="noopener noreferrer">
+        EcoCashew Telegram
+      </a>
+    </VenusLinkBox>
+
+    <VenusLinkBox>
+      <a href="https://www.ecocashew.com/roadmap.html" target="_blank" rel="noopener noreferrer">
+        EcoCashew Road Map
+      </a>
+    </VenusLinkBox>
+
+    <VenusLinkBox>
+      <a href="https://www.ecocashew.com/assets/pdf/cashewf-whitepaper.pdf" target="_blank" rel="noopener noreferrer">
+        EcoCashew Whitepaper
+      </a>
+    </VenusLinkBox>
+
+    <VenusLinkBox>
+      <a href="https://www.ecocashew.com/assets/mp4/cashewf-fanfilm.mp4" target="_blank" rel="noopener noreferrer">
+        EcoCashew Fan Film
+      </a>
+    </VenusLinkBox>
+  </VenusSection>
+
+  <VenusSection background="#f0f8f8" titleColor="#45A29E" subtitleColor="#1F2833" strongColor="#45A29E" linkColor="#45A29E" linkHoverColor="#1F2833">
+    <h2>Fresco Pool & SundaeSwap Reverse ISO</h2>
+
+    <LinkWrapper target="_blank" marginTop="24px" marginBottom="24px" href="https://iso.sundaeswap.finance/#/reverse-iso">
+      <AdditionalInfoImgs src={SundaeSwapRISO} />
+    </LinkWrapper>
+
+    <VenusHighlight>
+      <p>
+        <strong>Partnership Highlight:</strong> Fresco Pool was a proud participant in the SundaeSwap Reverse ISO program, supporting the growth of decentralized exchanges on Cardano.
+      </p>
+    </VenusHighlight>
+
+    <p>
+      Click on the image above to learn more about the SundaeSwap Reverse ISO program and how it benefits delegators and the Cardano ecosystem.
+    </p>
+  </VenusSection>
+
+  <VenusSection background="white" titleColor="#45A29E" subtitleColor="#1F2833" strongColor="#45A29E" linkColor="#45A29E" linkHoverColor="#1F2833">
+    <h2>About the Pool Operator</h2>
+    <CahliOperatorProfile>
+      <CahliOperatorImage src={Filip} alt="Filip Strelec - Fresco Pool Operator" style={{borderColor: '#45A29E'}} />
+      <CahliOperatorText>
+        <p>
+          Hey there! I'm Filip, a <strong>software developer</strong> and <strong>geo-environmental engineer</strong> running Fresco Pool |VENUS| since the ITN days. I've always been passionate about technology and the environment, which is why Cardano's mission really resonates with me.
+        </p>
+        <p>
+          I started <strong>Cardano Pools United (CPU)</strong> to help small stake pools get off the ground and work together. The idea is simple: by collaborating and sharing resources, we can all contribute to a more decentralized Cardano network. It's been great connecting with other pool operators and supporting each other!
+        </p>
+        <p>
+          When I'm not working on pool operations, I enjoy coding side projects like a little multiplayer game called <strong><a href="https://store.steampowered.com/app/3244900/Curvelicious/" target="_blank" rel="noopener noreferrer">Curvelicious</a></strong> that's available on Steam.
+        </p>
+        <VenusHighlight style={{marginTop: '20px'}}>
+          <p>
+            <strong>My Goal:</strong> Keep things simple, transparent, and community-focused. Whether you're new to Cardano or a seasoned delegator, I'm here to help and answer any questions you might have!
+          </p>
+        </VenusHighlight>
+      </CahliOperatorText>
+    </CahliOperatorProfile>
+
+    <h3>Get in Touch</h3>
+    <VenusLinkBox>
+      <a href="mailto:filip.strelec@gmail.com">
+        filip.strelec@gmail.com
+      </a>
+    </VenusLinkBox>
+
+    <VenusLinkBox>
+      <a href="https://x.com/PoolVenus" target="_blank" rel="noopener noreferrer">
+        Twitter/X (@PoolVenus)
+      </a>
+    </VenusLinkBox>
+
+    <VenusLinkBox>
+      <a href="https://github.com/filip-strelec" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+    </VenusLinkBox>
 
 
-  <LinkWrapper target="_blank" marginTop="48px" href="https://iso.sundaeswap.finance/#/reverse-pools">
-    <H1StyledCenter>Fresco Pool was a part of Sundae Swap RISO</H1StyledCenter>
-    <AdditionalInfoImgs src={SundaeSwapRISO} />
-  </LinkWrapper>
+  </VenusSection>
+
+</AdditionalInfoWrapper>)
+
+const additionalInfoCahli = (<AdditionalInfoWrapper>
+
+  <CahliHeroSection>
+    <h1>Nigeria's First Cardano Stake Pool — Driving Blockchain Growth Across Africa</h1>
+    <AdditionalInfoImgs src={CahliHero} />
+  </CahliHeroSection>
+
+  <CahliSection background="white" titleColor="#068790" subtitleColor="#87060F" strongColor="#068790" linkColor="#068790" linkHoverColor="#87060F">
+    <h2>Quick Overview</h2>
+    <p>
+      Cahli Stake Pool is more than just a staking pool. We are Africa's first step into decentralized finance through Cardano, offering delegators reliable rewards while making a real difference in society. Every ADA you stake not only grows your wealth but also fuels blockchain adoption and supports community-driven projects in Nigeria and across Africa.
+    </p>
+
+    <h3>Why Choose Cahli?</h3>
+    <ul>
+      <li>Earn reliable staking rewards.</li>
+      <li>Strengthen Cardano's decentralization.</li>
+      <li>Support Africa's blockchain adoption.</li>
+      <li>Make an impact through charity donations.</li>
+    </ul>
+
+    <CahliHighlight>
+      <p>
+        <strong>Impact Highlight:</strong> By delegating to Cahli, you secure your ADA rewards and give back to the community, as part of our profits are dedicated to education, charity, and innovation programs.
+      </p>
+    </CahliHighlight>
+  </CahliSection>
+
+  <CahliSection background="#f0f9fa" titleColor="#068790" subtitleColor="#87060F" strongColor="#068790" linkColor="#068790" linkHoverColor="#87060F">
+    <h2>About Us</h2>
+    <h3>Our Story</h3>
+    <p>
+      Cahli Stake Pool was founded with a mission to bring Africa closer to the future of blockchain. As the first Cardano stake pool in Nigeria, Cahli serves as a bridge between global delegators and local impact. Our operations are community-focused, secure, and transparent—ensuring delegators receive fair rewards while Africa benefits from innovation and growth.
+    </p>
+    <p>
+      Cahli Stake Pool is more than just a Cardano staking pool; it is a movement for innovation, decentralization, and community empowerment across Africa. By delegating to Cahli, you're not only securing rewards on your ADA investment but also contributing to a greater cause: advancing blockchain education, supporting local communities, and driving sustainable development in Nigeria and beyond.
+    </p>
+
+    <h3>Mission</h3>
+    <p>
+      To empower individuals and communities through Cardano's decentralized technology by providing a reliable stake pool that fuels blockchain adoption, financial inclusion, and community development.
+    </p>
+
+    <h3>Vision</h3>
+    <p>
+      A future where Africa leads in blockchain innovation, using technology to create opportunities, bridge gaps, and empower millions.
+    </p>
+
+    <h3>Core Values</h3>
+    <ul>
+      <li><strong>Decentralization</strong> – Strengthening Cardano's global network.</li>
+      <li><strong>Transparency</strong> – Clear, honest operations and reporting.</li>
+      <li><strong>Innovation</strong> – Using blockchain to solve African challenges.</li>
+      <li><strong>Impact</strong> – Giving back to society through charity and empowerment.</li>
+      <li><strong>Education</strong> – Promoting blockchain literacy and digital skills.</li>
+    </ul>
+  </CahliSection>
+
+  <CahliSection background="white" titleColor="#068790" subtitleColor="#87060F" strongColor="#068790" linkColor="#068790" linkHoverColor="#87060F">
+    <h2>Staking Guide</h2>
+    <h3>What is Staking?</h3>
+    <p>
+      Staking allows you to earn rewards by delegating your ADA to a stake pool without moving your funds. Your ADA stays safe in your wallet, but by delegating, you help secure the Cardano blockchain and get rewarded for it.
+    </p>
+
+    <h3>Why Stake With Cahli?</h3>
+    <ul>
+      <li>Earn competitive ADA rewards.</li>
+      <li>Support Nigeria's first stake pool.</li>
+      <li>Contribute to real-world impact.</li>
+      <li>Participate in Africa's blockchain growth.</li>
+    </ul>
+
+    <h3>How to Stake with Cahli (CAHLI):</h3>
+    <ol>
+      <li>Download a Cardano wallet (Daedalus, Yoroi, or Eternl).</li>
+      <li>Transfer ADA into your wallet.</li>
+      <li>Open the delegation center and search for CAHLI.</li>
+      <li>Delegate and start earning rewards!</li>
+    </ol>
+
+    <h3>FAQ</h3>
+    <ul>
+      <li><strong>Is my ADA safe?</strong> → Yes, ada never leaves your wallet while you stake.</li>
+      <li><strong>Can I unstake anytime?</strong> → Yes, delegation is flexible. You can unstake or change pools anytime.</li>
+      <li><strong>When do I start earning rewards?</strong> → Rewards begin after 3–4 epochs (~15–20 days).</li>
+    </ul>
+  </CahliSection>
+
+  <CahliSection background="#fff5f5" titleColor="#87060F" subtitleColor="#068790" strongColor="#87060F" linkColor="#068790" linkHoverColor="#87060F">
+    <h2>Impact & Charity</h2>
+    <h3>Our Promise</h3>
+    <p>
+      At Cahli, we believe blockchain should benefit people, not just profit. That's why we dedicate a portion of our pool rewards to impactful projects.
+    </p>
+
+    <h3>Focus Areas:</h3>
+    <ul>
+      <li><strong>Education:</strong> Supporting children's schooling and blockchain literacy programs.</li>
+      <li><strong>Community Support:</strong> Providing aid to underprivileged families and local initiatives.</li>
+      <li><strong>Innovation:</strong> Empowering tech startups and student-led projects in Nigeria.</li>
+    </ul>
+
+    <CahliHighlight>
+      <p>
+        <strong>Impact Updates:</strong> We will regularly publish donation reports, photos, and stories to show how your delegation creates change. By staking with Cahli, you're directly contributing to a stronger, more empowered Africa.
+      </p>
+    </CahliHighlight>
+  </CahliSection>
+
+  <CahliSection background="#f0f9fa" titleColor="#068790" subtitleColor="#87060F" strongColor="#068790" linkColor="#068790" linkHoverColor="#87060F">
+    <h2>Africa & Cardano</h2>
+    <h3>Why Africa Needs Blockchain</h3>
+    <p>
+      Africa is one of the fastest-growing regions for blockchain adoption, driven by financial challenges and a young, tech-savvy population. Cardano provides transparency, low-cost transactions, and opportunities for inclusive growth.
+    </p>
+
+    <h3>Cahli's Role in Expansion</h3>
+    <ul>
+      <li>Hosting workshops and blockchain literacy events for students.</li>
+      <li>Partnering with developers to build Africa-focused dApps.</li>
+      <li>Supporting universities and communities to explore blockchain solutions.</li>
+    </ul>
+
+    <CahliHighlight>
+      <p>
+        <strong>Future Plans:</strong> We aim to expand partnerships, establish blockchain innovation hubs, and drive Africa's contribution to the global Cardano ecosystem.
+      </p>
+    </CahliHighlight>
+  </CahliSection>
+
+  <CahliSection background="white" titleColor="#068790" subtitleColor="#87060F" strongColor="#068790" linkColor="#068790" linkHoverColor="#87060F">
+    <h2>Contact Us</h2>
+    <p>
+      We'd love to hear from you. Reach out for partnerships, questions, or community support.
+    </p>
+    <CahliContactBox>
+      <ul>
+        <li><strong>Email:</strong> <a href="mailto:cahlistakepool@gmail.com">cahlistakepool@gmail.com</a></li>
+        <li><strong>Telegram:</strong> <a href="https://t.me/cahlipool" target="_blank" rel="noopener noreferrer">t.me/cahlipool</a></li>
+        <li><strong>Twitter/X:</strong> <a href="https://twitter.com/CahliStakepool" target="_blank" rel="noopener noreferrer">@CahliStakepool</a></li>
+        <li><strong>Pool Ticker:</strong> CAHLI</li>
+      </ul>
+    </CahliContactBox>
+  </CahliSection>
+
+  <CahliSection background="linear-gradient(135deg, #f0f9fa 0%, #fff5f5 100%)" titleColor="#068790" subtitleColor="#87060F" strongColor="#87060F" linkColor="#068790" linkHoverColor="#87060F">
+    <h2>Meet Shittu Muiz — A Rising Voice in Web3 Innovation and Impact</h2>
+    <CahliOperatorProfile>
+      <CahliOperatorImage src={Shittu} alt="Shittu Muiz - Cahli Pool Operator" />
+      <CahliOperatorText>
+        <p>
+          Confident, purpose-driven, and visionary — Shittu Muiz is a dedicated medical student and emerging leader at the intersection of technology, community, and impact.
+        </p>
+        <p>
+          From Africa to the global Web3 stage, Shittu represents a new generation of builders who blend compassion with innovation. With a passion for decentralization and education, he actively drives conversations around Web3 technologies, empowering communities with technical insights and real opportunities.
+        </p>
+        <p>
+          As the operator of Cahli Pool, a Cardano staking pool, he champions decentralization while supporting youth education and global inclusion in blockchain ecosystems. Beyond his technical contributions, Shittu is known as a dynamic community builder, mentor, and inspiring advocate for using technology to make a meaningful difference.
+        </p>
+      </CahliOperatorText>
+    </CahliOperatorProfile>
+  </CahliSection>
+
 </AdditionalInfoWrapper>)
 
 const PoolPage = (props) => {
@@ -564,11 +1116,7 @@ const PoolPage = (props) => {
       secondOperator: false,
     },
     CAHLI: {
-      // additionalInfo:(<><h1>Ovo je veliki titl</h1><h2>Malo manji titl</h2><p>Paragraf</p> <br/><br/>br je breaking point ilitiga enter u wordu<br/><br/> <ul>
-      //   <li>lista</li>
-      //   <li>listica</li>
-      //   <li>listlist</li>
-      // </ul> </>),
+      additionalInfo: additionalInfoCahli,
       name: "Cahli Pool |CAHLI|",
       poolColor: "white",
       secondaryColor: "#068790",
@@ -1105,7 +1653,7 @@ const PoolPage = (props) => {
                       {poolsDetails[urlParams.id].twitter && (
                         <ListItemStyled className={classes.listItem}>
                           <TooltipStyled
-                            title={`${urlParams.id} Twitter`}
+                            title={`${urlParams.id} X (Twitter)`}
                             placement={
                               window.innerWidth > 959 ? "bottom" : "bottom"
                             }
@@ -1118,10 +1666,14 @@ const PoolPage = (props) => {
                               className={classes.navLink}
                             >
                               <i
-                                className={
-                                  classes.socialIcons + " fab fa-twitter"
-                                }
-                              />
+                                className={classes.socialIcons}
+                                style={{
+                                  fontWeight: 'bold',
+                                  fontFamily: 'Arial, sans-serif',
+                                  fontStyle: 'normal',
+                                  fontSize: '1.5em'
+                                }}
+                              >𝕏</i>
                             </Button>
                           </TooltipStyled>
                         </ListItemStyled>
@@ -1308,7 +1860,7 @@ const PoolPage = (props) => {
                     titleColor={poolsDetails[urlParams.id].logoColor}
                     textBackgroundColor={poolsDetails[urlParams.id].logoColor}
                     backgroundColor={poolsDetails[urlParams.id].secondaryColor}
-                    title={"ROA"}
+                    title={"ROA (Lifetime)"}
                     text={context?.poolStatsCx[urlParams.id] && ` ${context?.poolStatsCx[urlParams.id] &&
                       parseFloat(
                         context?.poolStatsCx[urlParams.id]?.data?.roa_lifetime
