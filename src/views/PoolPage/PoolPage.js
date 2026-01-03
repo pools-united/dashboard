@@ -39,6 +39,7 @@ import CurieBanner from "assets/poolAssets/curie/CurieBanner.png";
 
 import CahliLogo from "assets/poolAssets/cahli/cahli_logo.png";
 import CahliBanner from "assets/poolAssets/cahli/cahliBanner.png";
+import CahliCharity from "assets/poolAssets/cahli/cahli_charity.jpg";
 
 import SundaeSwapRISO from "assets/poolAssets/venus/sundaeswap-reverse-iso.webp"
 import EcoCashewISO from "assets/poolAssets/venus/cashewF.png"
@@ -960,6 +961,9 @@ const additionalInfoCahli = (<AdditionalInfoWrapper>
 
   <CahliSection background="#fff5f5" titleColor="#87060F" subtitleColor="#068790" strongColor="#87060F" linkColor="#068790" linkHoverColor="#87060F">
     <h2>Impact & Charity</h2>
+
+    <AdditionalInfoImgs src={CahliCharity} alt="Cahli Pool Charity Impact" style={{marginTop: '24px', marginBottom: '24px'}} />
+
     <h3>Our Promise</h3>
     <p>
       At Cahli, we believe blockchain should benefit people, not just profit. That's why we dedicate a portion of our pool rewards to impactful projects.
