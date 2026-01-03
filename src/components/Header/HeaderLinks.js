@@ -129,7 +129,15 @@ export default function HeaderLinks(props) {
             color="transparent"
             className={classes.navLink}
           >
-            <i className={classes.socialIcons + " fab fa-twitter"} />
+            <i
+              className={classes.socialIcons}
+              style={{
+                fontWeight: 'bold',
+                fontFamily: 'Arial, sans-serif',
+                fontStyle: 'normal',
+                fontSize: '1.8em'
+              }}
+            >𝕏</i>
           </Button>
         </Tooltip>
       </ListItem>

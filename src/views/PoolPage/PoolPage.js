@@ -1671,7 +1671,7 @@ const PoolPage = (props) => {
                                   fontWeight: 'bold',
                                   fontFamily: 'Arial, sans-serif',
                                   fontStyle: 'normal',
-                                  fontSize: '1.5em'
+                                  fontSize: '2.2em'
                                 }}
                               >𝕏</i>
                             </Button>
