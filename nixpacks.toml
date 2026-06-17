@@ -4,3 +4,6 @@ nixPkgs = ["nodejs_22"]
 [variables]
 NODE_OPTIONS = "--openssl-legacy-provider"
 CI = "false"
+
+[start]
+cmd = "npx -y serve@latest -s build -l ${PORT:-3000}"
