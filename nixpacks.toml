@@ -3,3 +3,4 @@ nixPkgs = ["nodejs_22"]
 
 [variables]
 NODE_OPTIONS = "--openssl-legacy-provider"
+CI = "false"
